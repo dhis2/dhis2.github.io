@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>model/ModelCollectionProperty.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-api.Api.html">Api</a><ul class='methods'><li data-type='method'><a href="module-api.Api.html#get">get</a></li><li data-type='method'><a href="module-api.Api.html#post">post</a></li><li data-type='method'><a href="module-api.Api.html#setBaseUrl">setBaseUrl</a></li><li data-type='method'><a href="module-api.Api.html#setDefaultHeaders">setDefaultHeaders</a></li><li data-type='method'><a href="module-api.Api.html#update">update</a></li></ul></li><li><a href="module-current-user.CurrentUser.html">CurrentUser</a><ul class='methods'><li data-type='method'><a href="module-current-user.CurrentUser.html#.create">create</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreate">canCreate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreatePrivate">canCreatePrivate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreatePublic">canCreatePublic</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canDelete">canDelete</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canUpdate">canUpdate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getDataViewOrganisationUnits">getDataViewOrganisationUnits</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getOrganisationUnits">getOrganisationUnits</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getUserGroups">getUserGroups</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getUserRoles">getUserRoles</a></li></ul></li><li><a href="module-current-user.UserAuthorities.html">UserAuthorities</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserAuthorities.html#.create">create</a></li><li data-type='method'><a href="module-current-user.UserAuthorities.html#has">has</a></li></ul></li><li><a href="module-current-user.UserDataStore.html">UserDataStore</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserDataStore.html#.getUserDataStore">getUserDataStore</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#create">create</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#delete">delete</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#getAll">getAll</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#has">has</a></li></ul></li><li><a href="module-current-user.UserDataStoreNamespace.html">UserDataStoreNamespace</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#delete">delete</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#getKeys">getKeys</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#set">set</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#update">update</a></li></ul></li><li><a href="module-current-user.UserSettings.html">UserSettings</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserSettings.html#all">all</a></li><li data-type='method'><a href="module-current-user.UserSettings.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserSettings.html#set">set</a></li></ul></li><li><a href="module-datastore.DataStore.html">DataStore</a><ul class='methods'><li data-type='method'><a href="module-datastore.DataStore.html#.getDataStore">getDataStore</a></li><li data-type='method'><a href="module-datastore.DataStore.html#create">create</a></li><li data-type='method'><a href="module-datastore.DataStore.html#delete">delete</a></li><li data-type='method'><a href="module-datastore.DataStore.html#get">get</a></li><li data-type='method'><a href="module-datastore.DataStore.html#getAll">getAll</a></li><li data-type='method'><a href="module-datastore.DataStore.html#has">has</a></li></ul></li><li><a href="module-datastore.DataStoreNamespace.html">DataStoreNamespace</a><ul class='methods'><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#delete">delete</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#get">get</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#getKeys">getKeys</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#getMetaData">getMetaData</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#set">set</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#update">update</a></li></ul></li><li><a href="module-i18n-I18n.html">I18n</a><ul class='methods'><li data-type='method'><a href="module-i18n-I18n.html#.getI18n">getI18n</a></li><li data-type='method'><a href="module-i18n-I18n.html#addSource">addSource</a></li><li data-type='method'><a href="module-i18n-I18n.html#addStrings">addStrings</a></li><li data-type='method'><a href="module-i18n-I18n.html#getTranslation">getTranslation</a></li><li data-type='method'><a href="module-i18n-I18n.html#getUntranslatedStrings">getUntranslatedStrings</a></li><li data-type='method'><a href="module-i18n-I18n.html#isTranslated">isTranslated</a></li><li data-type='method'><a href="module-i18n-I18n.html#load">load</a></li></ul></li><li><a href="module-model.Filter.html">Filter</a><ul class='methods'><li data-type='method'><a href="module-model.Filter.html#.getFilter">getFilter</a></li><li data-type='method'><a href="module-model.Filter.html#equals">equals</a></li><li data-type='method'><a href="module-model.Filter.html#ilike">ilike</a></li><li data-type='method'><a href="module-model.Filter.html#like">like</a></li><li data-type='method'><a href="module-model.Filter.html#notEqual">notEqual</a></li><li data-type='method'><a href="module-model.Filter.html#on">on</a></li></ul></li><li><a href="module-model.Filters.html">Filters</a><ul class='methods'><li data-type='method'><a href="module-model.Filters.html#.getFilters">getFilters</a></li><li data-type='method'><a href="module-model.Filters.html#getFilterList">getFilterList</a></li><li data-type='method'><a href="module-model.Filters.html#getFilters">getFilters</a></li><li data-type='method'><a href="module-model.Filters.html#getQueryFilterValues">getQueryFilterValues</a></li><li data-type='method'><a href="module-model.Filters.html#list">list</a></li><li data-type='method'><a href="module-model.Filters.html#on">on</a></li></ul></li><li><a href="module-model.Model.html">Model</a><ul class='methods'><li data-type='method'><a href="module-model.Model.html#.create">create</a></li></ul></li><li><a href="module-model.ModelBase.html">ModelBase</a><ul class='methods'><li data-type='method'><a href="module-model.ModelBase.html#create">create</a></li><li data-type='method'><a href="module-model.ModelBase.html#delete">delete</a></li><li data-type='method'><a href="module-model.ModelBase.html#getCollectionChildren">getCollectionChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#getCollectionChildrenPropertyNames">getCollectionChildrenPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getDirtyChildren">getDirtyChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#getDirtyPropertyNames">getDirtyPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getEmbeddedObjectCollectionPropertyNames">getEmbeddedObjectCollectionPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getReferenceProperties">getReferenceProperties</a></li><li data-type='method'><a href="module-model.ModelBase.html#hasDirtyChildren">hasDirtyChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#isDirty">isDirty</a></li><li data-type='method'><a href="module-model.ModelBase.html#resetDirtyState">resetDirtyState</a></li><li data-type='method'><a href="module-model.ModelBase.html#save">save</a></li><li data-type='method'><a href="module-model.ModelBase.html#toJSON">toJSON</a></li><li data-type='method'><a href="module-model.ModelBase.html#validate">validate</a></li></ul></li><li><a href="module-model.ModelCollection.html">ModelCollection</a><ul class='methods'><li data-type='method'><a href="module-model.ModelCollection.html#add">add</a></li><li data-type='method'><a href="module-model.ModelCollection.html#clear">clear</a></li><li data-type='method'><a href="module-model.ModelCollection.html#toArray">toArray</a></li></ul></li><li><a href="module-model.ModelCollectionProperty.html">ModelCollectionProperty</a><ul class='methods'><li data-type='method'><a href="module-model.ModelCollectionProperty.html#.create">create</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#add">add</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#isDirty">isDirty</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#remove">remove</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#resetDirtyState">resetDirtyState</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#save">save</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#updateDirty">updateDirty</a></li></ul></li><li><a href="module-model.ModelDefinition.html">ModelDefinition</a><ul class='methods'><li data-type='method'><a href="module-model.ModelDefinition.html#.createFromSchema">createFromSchema</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#create">create</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#delete">delete</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#get">get</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getOwnedPropertyNames">getOwnedPropertyNames</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getTranslatableProperties">getTranslatableProperties</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getTranslatablePropertiesWithKeys">getTranslatablePropertiesWithKeys</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#isTranslatable">isTranslatable</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#list">list</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#save">save</a></li></ul></li><li><a href="module-model.ModelDefinitions.html">ModelDefinitions</a><ul class='methods'><li data-type='method'><a href="module-model.ModelDefinitions.html#add">add</a></li><li data-type='method'><a href="module-model.ModelDefinitions.html#mapThroughDefinitions">mapThroughDefinitions</a></li></ul></li><li><a href="module-model.ModelValidation.html">ModelValidation</a><ul class='methods'><li data-type='method'><a href="module-model.ModelValidation.html#.getModelValidation">getModelValidation</a></li><li data-type='method'><a href="module-model.ModelValidation.html#validate">validate</a></li><li data-type='method'><a href="module-model.ModelValidation.html#validateAgainstSchema">validateAgainstSchema</a></li></ul></li><li><a href="module-model.Pager.html">Pager</a><ul class='methods'><li data-type='method'><a href="module-model.Pager.html#getNextPage">getNextPage</a></li><li data-type='method'><a href="module-model.Pager.html#getPreviousPage">getPreviousPage</a></li><li data-type='method'><a href="module-model.Pager.html#goToPage">goToPage</a></li><li data-type='method'><a href="module-model.Pager.html#hasNextPage">hasNextPage</a></li><li data-type='method'><a href="module-model.Pager.html#hasPreviousPage">hasPreviousPage</a></li></ul></li><li><a href="module-system.System.html">System</a><ul class='methods'><li data-type='method'><a href="module-system.System.html#.compareVersions">compareVersions</a></li><li data-type='method'><a href="module-system.System.html#.getSystem">getSystem</a></li><li data-type='method'><a href="module-system.System.html#.isVersionCompatible">isVersionCompatible</a></li><li data-type='method'><a href="module-system.System.html#.parseVersionString">parseVersionString</a></li><li data-type='method'><a href="module-system.System.html#installAppVersion">installAppVersion</a></li><li data-type='method'><a href="module-system.System.html#loadAppStore">loadAppStore</a></li><li data-type='method'><a href="module-system.System.html#loadInstalledApps">loadInstalledApps</a></li><li data-type='method'><a href="module-system.System.html#reloadApps">reloadApps</a></li><li data-type='method'><a href="module-system.System.html#setInstalledApps">setInstalledApps</a></li><li data-type='method'><a href="module-system.System.html#setSystemInfo">setSystemInfo</a></li><li data-type='method'><a href="module-system.System.html#uninstallApp">uninstallApp</a></li><li data-type='method'><a href="module-system.System.html#uploadApp">uploadApp</a></li></ul></li><li><a href="module-system.SystemConfiguration.html">SystemConfiguration</a><ul class='methods'><li data-type='method'><a href="module-system.SystemConfiguration.html#all">all</a></li><li data-type='method'><a href="module-system.SystemConfiguration.html#get">get</a></li></ul></li><li><a href="module-system.SystemSettings.html">SystemSettings</a><ul class='methods'><li data-type='method'><a href="module-system.SystemSettings.html#all">all</a></li><li data-type='method'><a href="module-system.SystemSettings.html#get">get</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-api.html">api</a></li><li><a href="module-current-user.html">current-user</a></li><li><a href="module-d2.html">d2</a><ul class='members'><li data-type='member'><a href="module-d2.html#.config">config</a></li></ul><ul class='methods'><li data-type='method'><a href="module-d2.html#.getInstance">getInstance</a></li><li data-type='method'><a href="module-d2.html#.getManifest">getManifest</a></li><li data-type='method'><a href="module-d2.html#.init">init</a></li><li data-type='method'><a href="module-d2.html#~getUserSettings">getUserSettings</a></li></ul></li><li><a href="module-datastore.html">datastore</a></li><li><a href="module-i18n.html">i18n</a></li><li><a href="module-lib_check.html">lib/check</a><ul class='methods'><li data-type='method'><a href="module-lib_check.html#.checkDefined">checkDefined</a></li><li data-type='method'><a href="module-lib_check.html#.isValidUid">isValidUid</a></li></ul></li><li><a href="module-lib_utils.html">lib/utils</a><ul class='methods'><li data-type='method'><a href="module-lib_utils.html#.customEncodeURIComponent">customEncodeURIComponent</a></li><li data-type='method'><a href="module-lib_utils.html#.pick">pick</a></li></ul></li><li><a href="module-model.html">model</a></li><li><a href="module-period_generators.html">period/generators</a><ul class='methods'><li data-type='method'><a href="module-period_generators.html#.createPeriodGeneratorsForLocale">createPeriodGeneratorsForLocale</a></li></ul></li><li><a href="module-system.html">system</a></li><li><a href="module-uid.html">uid</a><ul class='methods'><li data-type='method'><a href="module-uid.html#.generateUid">generateUid</a></li><li data-type='method'><a href="module-uid.html#.isValidUid">isValidUid</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="module-d2.init-d2.html">d2</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-FAQ.html">FAQ</a></li><li><a href="tutorial-overview.html">overview</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">model/ModelCollectionProperty.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Api from '../api/Api';
+import ModelCollection from './ModelCollection';
+
+/**
+ * A ModelCollectionProperty instance is a ModelCollection that is a property of
+ * a model instance. ModelCollectionProperties can be operated on independently of
+ * the Model that owns them.
+ *
+ * @memberof module:model
+ */
+class ModelCollectionProperty extends ModelCollection {
+    /**
+     * @constructor
+     *
+     * @param {Model} parentModel The `Model` of the parent of this `ModelCollectionProperty`
+     * @param {ModelDefinition} modelDefinition The `ModelDefinition` that this `ModelCollection` property is for
+     * @param {String} propName The name of this property on the parent model
+     * @param {Model[]|boolean} values Initial values that should be added to the collection property
+     * @param {Api} api The class to use for API calls
+     *
+     * @description
+     *
+     * Creates a new `ModelCollectionProperty` object. This is a subclass of `ModelCollection`, which adds logic
+     * for adding and removing elements to the collection and saving the changes to the API.
+     *
+     * If the value is `true` or `undefined` is specified instead of an array of data values, this indicates that the
+     * collection contains (or may contain) data that has not yet been loaded from the API.
+     */
+    constructor(parentModel, modelDefinition, propName, values, api) {
+        super(modelDefinition, values, undefined);
+
+        // The name of this property on the parent object - necessary for loading values lazily
+        this.propName = propName;
+
+        // Dirty bit - true if any models have been added to or removed from the collection
+        this.dirty = false;
+
+        // Keep track of added and removed elements
+        this.added = new Set();
+        this.removed = new Set();
+
+        // Using field transformers, it's possible to query the API for the presence of data without actually fetching
+        // the data. For instance this is used to determine if an organization unit has any children without actually
+        // loading the children. If yes, it will be displayed as an expandable branch within the tree.
+        // For more information, see the documentation about field transformers, specifically the isNotEmpty operator:
+        // https://docs.dhis2.org/master/en/developer/html/dhis2_developer_manual_full.html#webapi_field_transformers
+        this.hasUnloadedData = (values === true) || (values === undefined);
+
+        this.api = api;
+
+        // Store the parent model of this collection so we can construct the URI for API calls
+        this.parentModel = parentModel;
+    }
+
+    /**
+     * @param {Model} value Model instance to add to the collection.
+     * @returns {ModelCollectionProperty} Returns itself for chaining purposes.
+     *
+     * @description
+     * Calls the `add` method on the parent `ModelCollection` class, and then performs checks to keep track of
+     * what, if any, changes that have been made to the collection.
+     */
+    add(value) {
+        if (this.valuesContainerMap.has(value.id)) {
+            return this;
+        }
+
+        super.add(value);
+
+        if (this.removed.has(value.id)) {
+            this.removed.delete(value.id);
+        } else {
+            this.added.add(value.id);
+        }
+
+        this.updateDirty();
+        return this;
+    }
+
+    /**
+     * If the collection contains an object with the same id as the `value` parameter, that object is removed
+     * from the collection. Checks are then performed to keep track of what, if any, changes that have been
+     * made to the collection.
+     *
+     * @param {Model} value Model instance to remove from the collection.
+     * @returns {ModelCollectionProperty} Returns itself for chaining purposes.
+     */
+    remove(value) {
+        ModelCollection.throwIfContainsOtherThanModelObjects([value]);
+        ModelCollection.throwIfContainsModelWithoutUid([value]);
+
+        if (this.delete(value.id)) {
+            if (this.added.has(value.id)) {
+                this.added.delete(value.id);
+            } else {
+                this.removed.add(value.id);
+            }
+        }
+
+        this.updateDirty();
+        return this;
+    }
+
+    /**
+     * Checks whether any changes have been made to the collection, and updates the dirty flag accordingly.
+     *
+     * @returns {boolean} True if the collection has changed, false otherwise.
+     */
+    updateDirty() {
+        this.dirty = this.added.size > 0 || this.removed.size > 0;
+        return this.dirty;
+    }
+
+    /**
+     * Sets dirty=false and resets the added and removed sets used for dirty state tracking.
+     */
+    resetDirtyState() {
+        this.dirty = false;
+        this.added = new Set();
+        this.removed = new Set();
+    }
+
+    /**
+     * Checks if the collection property has been modified.
+     *
+     * @returns {boolean} true if any elements have been added to or removed from the collection
+     */
+    isDirty() {
+        return this.dirty;
+    }
+
+    /**
+     * If any changes have been made to the collection, these changes will be submitted to the API. The returned
+     * promise will resolve successfully when the changes have been saved to the API, and will be rejected if
+     * either the changes weren't saved or if there were no changes to save.
+     *
+     * @returns {Promise} A `Promise`
+     */
+    save() {
+        // Calling save when there's nothing to be saved is a no-op (not an error)
+        if (!this.isDirty()) {
+            return Promise.resolve({});
+        }
+
+        const url = [this.parentModel.href, this.modelDefinition.plural].join('/');
+        const data = {
+            additions: Array.from(this.added).map(id => ({ id })),
+            deletions: Array.from(this.removed).map(id => ({ id })),
+        };
+
+        return this.api.post(url, data)
+            .then(() => {
+                this.resetDirtyState();
+                return Promise.resolve({});
+            })
+            .catch(err => Promise.reject('Failed to alter collection:', err));
+    }
+
+    load(options, forceReload = false) {
+        if (!this.hasUnloadedData &amp;&amp; !forceReload) {
+            return Promise.resolve(this);
+        }
+
+        const url = [this.parentModel.modelDefinition.apiEndpoint, this.parentModel.id].join('/');
+        const requestOptions = Object.assign({
+            paging: false,
+        }, options, { fields: `${this.propName}[${(options &amp;&amp; options.fields) || ':all'}]` });
+
+        return this.api.get(url, requestOptions)
+            .then(data => data[this.propName])
+            .then((values) => {
+                if (Array.isArray(values)) {
+                    values.forEach(value => this.valuesContainerMap.set(value.id, this.modelDefinition.create(value)));
+                }
+                this.hasUnloadedData = false;
+                return Promise.resolve(this);
+            });
+    }
+
+    /**
+     * See `ModelCollectionProperty.constructor`.
+     *
+     * @param {Model} parentModel
+     * @param {ModelDefinition} modelDefinition
+     * @param {Model[]} values
+     * @returns {ModelCollectionProperty}
+     */
+    static create(parentModel, modelDefinition, propName, values) {
+        return new ModelCollectionProperty(parentModel, modelDefinition, propName, values, Api.getApi());
+    }
+}
+
+
+export default ModelCollectionProperty;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Oct 25 2017 14:39:58 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

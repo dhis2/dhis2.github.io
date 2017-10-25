@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CurrentUser - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-api.Api.html">Api</a><ul class='methods'><li data-type='method'><a href="module-api.Api.html#get">get</a></li><li data-type='method'><a href="module-api.Api.html#post">post</a></li><li data-type='method'><a href="module-api.Api.html#setBaseUrl">setBaseUrl</a></li><li data-type='method'><a href="module-api.Api.html#setDefaultHeaders">setDefaultHeaders</a></li><li data-type='method'><a href="module-api.Api.html#update">update</a></li></ul></li><li><a href="module-current-user.CurrentUser.html">CurrentUser</a><ul class='methods'><li data-type='method'><a href="module-current-user.CurrentUser.html#.create">create</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreate">canCreate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreatePrivate">canCreatePrivate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreatePublic">canCreatePublic</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canDelete">canDelete</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canUpdate">canUpdate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getDataViewOrganisationUnits">getDataViewOrganisationUnits</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getOrganisationUnits">getOrganisationUnits</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getUserGroups">getUserGroups</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getUserRoles">getUserRoles</a></li></ul></li><li><a href="module-current-user.UserAuthorities.html">UserAuthorities</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserAuthorities.html#.create">create</a></li><li data-type='method'><a href="module-current-user.UserAuthorities.html#has">has</a></li></ul></li><li><a href="module-current-user.UserDataStore.html">UserDataStore</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserDataStore.html#.getUserDataStore">getUserDataStore</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#create">create</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#delete">delete</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#getAll">getAll</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#has">has</a></li></ul></li><li><a href="module-current-user.UserDataStoreNamespace.html">UserDataStoreNamespace</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#delete">delete</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#getKeys">getKeys</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#set">set</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#update">update</a></li></ul></li><li><a href="module-current-user.UserSettings.html">UserSettings</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserSettings.html#all">all</a></li><li data-type='method'><a href="module-current-user.UserSettings.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserSettings.html#set">set</a></li></ul></li><li><a href="module-datastore.DataStore.html">DataStore</a><ul class='methods'><li data-type='method'><a href="module-datastore.DataStore.html#.getDataStore">getDataStore</a></li><li data-type='method'><a href="module-datastore.DataStore.html#create">create</a></li><li data-type='method'><a href="module-datastore.DataStore.html#delete">delete</a></li><li data-type='method'><a href="module-datastore.DataStore.html#get">get</a></li><li data-type='method'><a href="module-datastore.DataStore.html#getAll">getAll</a></li><li data-type='method'><a href="module-datastore.DataStore.html#has">has</a></li></ul></li><li><a href="module-datastore.DataStoreNamespace.html">DataStoreNamespace</a><ul class='methods'><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#delete">delete</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#get">get</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#getKeys">getKeys</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#getMetaData">getMetaData</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#set">set</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#update">update</a></li></ul></li><li><a href="module-i18n-I18n.html">I18n</a><ul class='methods'><li data-type='method'><a href="module-i18n-I18n.html#.getI18n">getI18n</a></li><li data-type='method'><a href="module-i18n-I18n.html#addSource">addSource</a></li><li data-type='method'><a href="module-i18n-I18n.html#addStrings">addStrings</a></li><li data-type='method'><a href="module-i18n-I18n.html#getTranslation">getTranslation</a></li><li data-type='method'><a href="module-i18n-I18n.html#getUntranslatedStrings">getUntranslatedStrings</a></li><li data-type='method'><a href="module-i18n-I18n.html#isTranslated">isTranslated</a></li><li data-type='method'><a href="module-i18n-I18n.html#load">load</a></li></ul></li><li><a href="module-model.Filter.html">Filter</a><ul class='methods'><li data-type='method'><a href="module-model.Filter.html#.getFilter">getFilter</a></li><li data-type='method'><a href="module-model.Filter.html#equals">equals</a></li><li data-type='method'><a href="module-model.Filter.html#ilike">ilike</a></li><li data-type='method'><a href="module-model.Filter.html#like">like</a></li><li data-type='method'><a href="module-model.Filter.html#notEqual">notEqual</a></li><li data-type='method'><a href="module-model.Filter.html#on">on</a></li></ul></li><li><a href="module-model.Filters.html">Filters</a><ul class='methods'><li data-type='method'><a href="module-model.Filters.html#.getFilters">getFilters</a></li><li data-type='method'><a href="module-model.Filters.html#getFilterList">getFilterList</a></li><li data-type='method'><a href="module-model.Filters.html#getFilters">getFilters</a></li><li data-type='method'><a href="module-model.Filters.html#getQueryFilterValues">getQueryFilterValues</a></li><li data-type='method'><a href="module-model.Filters.html#list">list</a></li><li data-type='method'><a href="module-model.Filters.html#on">on</a></li></ul></li><li><a href="module-model.Model.html">Model</a><ul class='methods'><li data-type='method'><a href="module-model.Model.html#.create">create</a></li></ul></li><li><a href="module-model.ModelBase.html">ModelBase</a><ul class='methods'><li data-type='method'><a href="module-model.ModelBase.html#create">create</a></li><li data-type='method'><a href="module-model.ModelBase.html#delete">delete</a></li><li data-type='method'><a href="module-model.ModelBase.html#getCollectionChildren">getCollectionChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#getCollectionChildrenPropertyNames">getCollectionChildrenPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getDirtyChildren">getDirtyChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#getDirtyPropertyNames">getDirtyPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getEmbeddedObjectCollectionPropertyNames">getEmbeddedObjectCollectionPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getReferenceProperties">getReferenceProperties</a></li><li data-type='method'><a href="module-model.ModelBase.html#hasDirtyChildren">hasDirtyChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#isDirty">isDirty</a></li><li data-type='method'><a href="module-model.ModelBase.html#resetDirtyState">resetDirtyState</a></li><li data-type='method'><a href="module-model.ModelBase.html#save">save</a></li><li data-type='method'><a href="module-model.ModelBase.html#toJSON">toJSON</a></li><li data-type='method'><a href="module-model.ModelBase.html#validate">validate</a></li></ul></li><li><a href="module-model.ModelCollection.html">ModelCollection</a><ul class='methods'><li data-type='method'><a href="module-model.ModelCollection.html#add">add</a></li><li data-type='method'><a href="module-model.ModelCollection.html#clear">clear</a></li><li data-type='method'><a href="module-model.ModelCollection.html#toArray">toArray</a></li></ul></li><li><a href="module-model.ModelCollectionProperty.html">ModelCollectionProperty</a><ul class='methods'><li data-type='method'><a href="module-model.ModelCollectionProperty.html#.create">create</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#add">add</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#isDirty">isDirty</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#remove">remove</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#resetDirtyState">resetDirtyState</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#save">save</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#updateDirty">updateDirty</a></li></ul></li><li><a href="module-model.ModelDefinition.html">ModelDefinition</a><ul class='methods'><li data-type='method'><a href="module-model.ModelDefinition.html#.createFromSchema">createFromSchema</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#create">create</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#delete">delete</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#get">get</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getOwnedPropertyNames">getOwnedPropertyNames</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getTranslatableProperties">getTranslatableProperties</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getTranslatablePropertiesWithKeys">getTranslatablePropertiesWithKeys</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#isTranslatable">isTranslatable</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#list">list</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#save">save</a></li></ul></li><li><a href="module-model.ModelDefinitions.html">ModelDefinitions</a><ul class='methods'><li data-type='method'><a href="module-model.ModelDefinitions.html#add">add</a></li><li data-type='method'><a href="module-model.ModelDefinitions.html#mapThroughDefinitions">mapThroughDefinitions</a></li></ul></li><li><a href="module-model.ModelValidation.html">ModelValidation</a><ul class='methods'><li data-type='method'><a href="module-model.ModelValidation.html#.getModelValidation">getModelValidation</a></li><li data-type='method'><a href="module-model.ModelValidation.html#validate">validate</a></li><li data-type='method'><a href="module-model.ModelValidation.html#validateAgainstSchema">validateAgainstSchema</a></li></ul></li><li><a href="module-model.Pager.html">Pager</a><ul class='methods'><li data-type='method'><a href="module-model.Pager.html#getNextPage">getNextPage</a></li><li data-type='method'><a href="module-model.Pager.html#getPreviousPage">getPreviousPage</a></li><li data-type='method'><a href="module-model.Pager.html#goToPage">goToPage</a></li><li data-type='method'><a href="module-model.Pager.html#hasNextPage">hasNextPage</a></li><li data-type='method'><a href="module-model.Pager.html#hasPreviousPage">hasPreviousPage</a></li></ul></li><li><a href="module-system.System.html">System</a><ul class='methods'><li data-type='method'><a href="module-system.System.html#.compareVersions">compareVersions</a></li><li data-type='method'><a href="module-system.System.html#.getSystem">getSystem</a></li><li data-type='method'><a href="module-system.System.html#.isVersionCompatible">isVersionCompatible</a></li><li data-type='method'><a href="module-system.System.html#.parseVersionString">parseVersionString</a></li><li data-type='method'><a href="module-system.System.html#installAppVersion">installAppVersion</a></li><li data-type='method'><a href="module-system.System.html#loadAppStore">loadAppStore</a></li><li data-type='method'><a href="module-system.System.html#loadInstalledApps">loadInstalledApps</a></li><li data-type='method'><a href="module-system.System.html#reloadApps">reloadApps</a></li><li data-type='method'><a href="module-system.System.html#setInstalledApps">setInstalledApps</a></li><li data-type='method'><a href="module-system.System.html#setSystemInfo">setSystemInfo</a></li><li data-type='method'><a href="module-system.System.html#uninstallApp">uninstallApp</a></li><li data-type='method'><a href="module-system.System.html#uploadApp">uploadApp</a></li></ul></li><li><a href="module-system.SystemConfiguration.html">SystemConfiguration</a><ul class='methods'><li data-type='method'><a href="module-system.SystemConfiguration.html#all">all</a></li><li data-type='method'><a href="module-system.SystemConfiguration.html#get">get</a></li></ul></li><li><a href="module-system.SystemSettings.html">SystemSettings</a><ul class='methods'><li data-type='method'><a href="module-system.SystemSettings.html#all">all</a></li><li data-type='method'><a href="module-system.SystemSettings.html#get">get</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-api.html">api</a></li><li><a href="module-current-user.html">current-user</a></li><li><a href="module-d2.html">d2</a><ul class='members'><li data-type='member'><a href="module-d2.html#.config">config</a></li></ul><ul class='methods'><li data-type='method'><a href="module-d2.html#.getInstance">getInstance</a></li><li data-type='method'><a href="module-d2.html#.getManifest">getManifest</a></li><li data-type='method'><a href="module-d2.html#.init">init</a></li><li data-type='method'><a href="module-d2.html#~getUserSettings">getUserSettings</a></li></ul></li><li><a href="module-datastore.html">datastore</a></li><li><a href="module-i18n.html">i18n</a></li><li><a href="module-lib_check.html">lib/check</a><ul class='methods'><li data-type='method'><a href="module-lib_check.html#.checkDefined">checkDefined</a></li><li data-type='method'><a href="module-lib_check.html#.isValidUid">isValidUid</a></li></ul></li><li><a href="module-lib_utils.html">lib/utils</a><ul class='methods'><li data-type='method'><a href="module-lib_utils.html#.customEncodeURIComponent">customEncodeURIComponent</a></li><li data-type='method'><a href="module-lib_utils.html#.pick">pick</a></li></ul></li><li><a href="module-model.html">model</a></li><li><a href="module-period_generators.html">period/generators</a><ul class='methods'><li data-type='method'><a href="module-period_generators.html#.createPeriodGeneratorsForLocale">createPeriodGeneratorsForLocale</a></li></ul></li><li><a href="module-system.html">system</a></li><li><a href="module-uid.html">uid</a><ul class='methods'><li data-type='method'><a href="module-uid.html#.generateUid">generateUid</a></li><li data-type='method'><a href="module-uid.html#.isValidUid">isValidUid</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="module-d2.init-d2.html">d2</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-FAQ.html">FAQ</a></li><li><a href="tutorial-overview.html">overview</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">CurrentUser</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-current-user.html">current-user</a>.</span>
+        
+        CurrentUser
+        </h2>
+        
+            <div class="class-description"><p>Represents the current logged in user</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="CurrentUser"><span class="type-signature"></span>new CurrentUser<span class="signature">(userData, userAuthorities, modelDefinitions, settings)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Creates the CurrentUser.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Payload as returned from the api when requesting the currentUser object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userAuthorities</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">UserAuthorities</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The UserAuthorities object for the currentUsers authorities.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinitions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;ModelDefinition></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinitions that need to be used for checking access.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>settings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">UserSettings</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The userSettings object to be set onto the current user object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="authorities"><span class="type-signature"></span>authorities<span class="type-signature"> :UserAuthorities</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line119">line 119</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">UserAuthorities</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="dataStore"><span class="type-signature"></span>dataStore<span class="type-signature"> :UserDataStore</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line142">line 142</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Contains a reference to <a href="module-current-user.UserDataStore.html">UserDataStore</a></p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">UserDataStore</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="userSettings"><span class="type-signature"></span>userSettings<span class="type-signature"> :UserSettings</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line135">line 135</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <pre class="prettyprint source lang-js"><code>d2.currentUser.userSettings.get('keyUiLocale')
+ .then(userSettingsValue => {
+   console.log('UI Locale: ' + userSettingsValue);
+ });</code></pre>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">UserSettings</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".create"><span class="type-signature">(static) </span>create<span class="signature">(userData, authorities, modelDefinitions, userSettings)</span><span class="type-signature"> &rarr; {CurrentUser}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line362">line 362</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Factory method for creating a CurrentUser instance</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Payload as returned from the api when requesting the currentUser object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>authorities</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A list of authorities that the currentUser has.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinitions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;ModelDefinition></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinitions that need to be used for checking access.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userSettings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Payload as returned from the api when request the userSettings</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The created CurrentUser object based on the data given.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">CurrentUser</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="canCreate"><span class="type-signature"></span>canCreate<span class="signature">(modelDefinition)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line298">line 298</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Check if the user has the authority to create objects of a type of Model (based on it's modelDefinition)
+If the object supports public and private objects then both are checked, and the method will return true if one
+of them is true. (e.g. will also return true if the user can only create private objects)</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ModelDefinition</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinition that the authorities should be checked for.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True when the user has the permission to create the object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="canCreatePrivate"><span class="type-signature"></span>canCreatePrivate<span class="signature">(modelDefinition)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line318">line 318</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Check if the user has the authority to create private objects of a type of Model (based on it's modelDefinition)</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ModelDefinition</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinition that the authorities should be checked for.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True when the user has the permission to create the object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="canCreatePublic"><span class="type-signature"></span>canCreatePublic<span class="signature">(modelDefinition)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line308">line 308</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Check if the user has the authority to create public objects of a type of Model (based on it's modelDefinition)</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ModelDefinition</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinition that the authorities should be checked for.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True when the user has the permission to create the object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="canDelete"><span class="type-signature"></span>canDelete<span class="signature">(modelDefinition)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line332">line 332</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Delete should be checked through the `Model.access.delete` property instead, as that also takes into
+account sharing. Just checking if the user has the authority to delete a specific object does not take into account
+the full ACL.</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Check if the user has the authority to delete objects of a type of Model (based on it's modelDefinition)</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ModelDefinition</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinition that the authorities should be checked for.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True when the user has the permission to delete the object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="canUpdate"><span class="type-signature"></span>canUpdate<span class="signature">(modelDefinition)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line346">line 346</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Update should be checked through the `Model.access.update` property instead, as that also takes into
+account sharing. Just checking if the user has the authority to update a specific object does not take into account
+the full ACL.</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Check if the user has the authority to update objects of a type of Model (based on it's modelDefinition)</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDefinition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ModelDefinition</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The modelDefinition that the authorities should be checked for.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>True when the user has the permission to update the object</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getDataViewOrganisationUnits"><span class="type-signature"></span>getDataViewOrganisationUnits<span class="signature">(listOptions<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;ModelCollection>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line207">line 207</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Requests a users data view organisation units from the api.</p>
+<p>The users data view organisation units are lazy loaded on init of the library (just the ids). This method can
+be used to load the full representation of the dataViewOrganisationUnits.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>listOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional query parameters that should be send with the request.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A ModelCollection that contains the user's dataViewOrganisationUnits.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;ModelCollection></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getOrganisationUnits"><span class="type-signature"></span>getOrganisationUnits<span class="signature">(listOptions<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;ModelCollection>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line186">line 186</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Requests a users primary organisation units from the api.</p>
+<p>The users organisation units are lazy loaded on init of the library (just the ids). This method can be used to
+load the full representation of the organisationUnits.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>listOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional query parameters that should be send with the request.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A ModelCollection that contains the user's organisationUnits.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;ModelCollection></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getUserGroups"><span class="type-signature"></span>getUserGroups<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;ModelCollection>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line155">line 155</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get a ModelCollection of userGroup models that are assigned to the currentUser</p>
+<p>The user groups are lazy loaded on init of the library. This method can be used to load the full representation
+of the userGroups.</p>
+<p>The request done is equivalent do doing https://play.dhis2.org/demo/api/27/me.json?fields=userGroups[:all]</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The model collection that contains the user's groups.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;ModelCollection></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getUserRoles"><span class="type-signature"></span>getUserRoles<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;ModelCollection>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="current-user_CurrentUser.js.html">current-user/CurrentUser.js</a>, <a href="current-user_CurrentUser.js.html#line171">line 171</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get a ModelCollection of userRole models that are assigned to the currentUser</p>
+<p>The user roles are lazy loaded on init of the library. This method can be used to load the full representation
+of the userGroups.</p>
+<p>The request done is equivalent do doing https://play.dhis2.org/demo/api/27/me.json?fields=userCredentials[userRoles[:all]]</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A ModelCollection that contains the user's groups.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;ModelCollection></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Oct 25 2017 14:39:58 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
