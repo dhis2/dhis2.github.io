@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Api - Documentation</title>
+    <title>UserDataStoreNamespace - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Api</h1>
+    <h1 class="page-title">UserDataStoreNamespace</h1>
     
 
     
@@ -40,9 +40,9 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-api.html">api</a>.</span>
+            <span class="ancestors"><a href="module-current-user.html">current-user</a>.</span>
         
-        Api
+        UserDataStoreNamespace
         </h2>
         
     
@@ -55,7 +55,7 @@
 
     
 
-    <h4 class="name" id="Api"><span class="type-signature"></span>new Api<span class="signature">(fetchImpl<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="UserDataStoreNamespace"><span class="type-signature"></span>new UserDataStoreNamespace<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -67,7 +67,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_Api.js.html">api/Api.js</a>, <a href="api_Api.js.html#line60">line 60</a>
+        <a href="datastore_UserDataStoreNamespace.js.html">datastore/UserDataStoreNamespace.js</a>, <a href="datastore_UserDataStoreNamespace.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -104,36 +104,11 @@
 
 
 
+    <h5 class="subsection-title">Properties:</h5>
 
-
-<div class="description">
-    <p>Used for interaction with the dhis2 api.</p>
-<p>This class is used as the backbone for d2 and handles all the interaction with the server. There is a singleton
-available to be reused across your applications. The singleton can be grabbed from the d2 instance.</p>
-<pre class="prettyprint source lang-js"><code>import { getInstance } from 'd2/lib/d2';
-
-getInstance()
- .then(d2 => {
-     const api = d2.Api.getApi() // Returns the Api singleton.
-
-     api.get('resources');
- });</code></pre><p>Uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a> to do network requests.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
 
-<table class="params">
+<table class="props">
     <thead>
     <tr>
         
@@ -142,8 +117,6 @@ getInstance()
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
         
 
         
@@ -157,39 +130,70 @@ getInstance()
 
         <tr>
             
-                <td class="name"><code>fetchImpl</code></td>
+                <td class="name"><code>keys</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Fetch</span>
+<span class="param-type">array</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
-                
+            
 
+            <td class="description last"><p>an array of the loaded keys.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
             
 
             
 
-            <td class="description last"><p>The fetch implementation to use. Can be used to pass a different implementation
-similar to the fetch Api. Will default to <code>window.fetch</code> in a browser context.</p></td>
+            <td class="description last"><p>Name of the namespace as on the server.</p></td>
         </tr>
 
     
     </tbody>
 </table>
+
+
+
+
+
+
+<div class="description">
+    <p>Represents a namespace in the dataStore that can be used to be used to interact with
+the remote API.</p>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -210,6 +214,17 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="module-datastore.BaseStoreNamespace.html">module:datastore.BaseStoreNamespace</a></li>
+    </ul>
+
+
+    
 
     
 
@@ -220,6 +235,166 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="keys"><span class="type-signature"></span>keys<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#keys">module:datastore.BaseStoreNamespace#keys</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>an array of the loaded keys.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="namespace"><span class="type-signature"></span>namespace<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#namespace">module:datastore.BaseStoreNamespace#namespace</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The name of the namespace</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -229,7 +404,7 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
 
     
 
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(url, data, options)</span><span class="type-signature"> &rarr; {Promise.&lt;*>}</span></h4>
+    <h4 class="name" id="delete"><span class="type-signature"></span>delete<span class="signature">(key)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -241,7 +416,7 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_Api.js.html">api/Api.js</a>, <a href="api_Api.js.html#line114">line 114</a>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -249,6 +424,11 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
 
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#delete">module:datastore.BaseStoreNamespace#delete</a>
+    </li></ul></dd>
     
 
     
@@ -281,7 +461,7 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
 
 
 <div class="description">
-    <p>Performs a GET request.</p>
+    <p>Deletes given key from the API.</p>
 </div>
 
 
@@ -319,7 +499,7 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
 
         <tr>
             
-                <td class="name"><code>url</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
@@ -335,56 +515,7 @@ similar to the fetch Api. Will default to <code>window.fetch</code> in a browser
 
             
 
-            <td class="description last"><p>The url for the request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Any data that should be send with the request. For a GET request these are turned into
-query parameters. For POST and PUT requests it becomes the body.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object.&lt;string, any></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The request options are passed as options to the fetch request.
-These options are passed as the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters">init</a>
-parameter to the fetch request.</p></td>
+            <td class="description last"><p>key to delete.</p></td>
         </tr>
 
     
@@ -408,7 +539,9 @@ parameter to the fetch request.</p></td>
 
         
 <div class="param-desc">
-    <p>The response body.</p>
+    <ul>
+<li>the response body from the <a href="module-api.Api.html#get">API</a>.</li>
+</ul>
 </div>
 
 
@@ -419,7 +552,7 @@ parameter to the fetch request.</p></td>
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;*></span>
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -433,7 +566,7 @@ parameter to the fetch request.</p></td>
 
     
 
-    <h4 class="name" id="post"><span class="type-signature"></span>post<span class="signature">(url, data, options)</span><span class="type-signature"> &rarr; {Promise.&lt;*>}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(key)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -445,7 +578,7 @@ parameter to the fetch request.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_Api.js.html">api/Api.js</a>, <a href="api_Api.js.html#line130">line 130</a>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -453,6 +586,11 @@ parameter to the fetch request.</p></td>
 
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#get">module:datastore.BaseStoreNamespace#get</a>
+    </li></ul></dd>
     
 
     
@@ -485,7 +623,7 @@ parameter to the fetch request.</p></td>
 
 
 <div class="description">
-    <p>Performs a POST request.</p>
+    <p>Retrieves the value of given key in current namespace.</p>
 </div>
 
 
@@ -523,15 +661,10 @@ parameter to the fetch request.</p></td>
 
         <tr>
             
-                <td class="name"><code>url</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -539,55 +672,7 @@ parameter to the fetch request.</p></td>
 
             
 
-            <td class="description last"><p>The url for the request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Any data that should be send with the request this becomes the body for the POST request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object.&lt;string, any></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The request options are passed as options to the fetch request.
-These options are passed as the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters">init</a>
-parameter to the fetch request.</p></td>
+            <td class="description last"><p>key to retrieve.</p></td>
         </tr>
 
     
@@ -611,7 +696,9 @@ parameter to the fetch request.</p></td>
 
         
 <div class="param-desc">
-    <p>The response body.</p>
+    <ul>
+<li>The value of the given key.</li>
+</ul>
 </div>
 
 
@@ -622,7 +709,7 @@ parameter to the fetch request.</p></td>
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;*></span>
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -636,7 +723,7 @@ parameter to the fetch request.</p></td>
 
     
 
-    <h4 class="name" id="setBaseUrl"><span class="type-signature"></span>setBaseUrl<span class="signature">(baseUrl)</span><span class="type-signature"> &rarr; {this}</span></h4>
+    <h4 class="name" id="getKeys"><span class="type-signature"></span>getKeys<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -648,7 +735,7 @@ parameter to the fetch request.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_Api.js.html">api/Api.js</a>, <a href="api_Api.js.html#line327">line 327</a>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -656,6 +743,11 @@ parameter to the fetch request.</p></td>
 
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#getKeys">module:datastore.BaseStoreNamespace#getKeys</a>
+    </li></ul></dd>
     
 
     
@@ -688,11 +780,7 @@ parameter to the fetch request.</p></td>
 
 
 <div class="description">
-    <p>Sets the baseUrl that should be used for the api.</p>
-<p>When working against the dhis2 demo instance at <a href="https://play.dhis2.org/demo">https://play.dhis2.org/demo</a> the
-baseUrl would be set as <code>https://play.dhis2.org/demo/api</code>.</p>
-<p>This method is used when calling the <code>d2.init</code> method with the <code>baseUrl</code> config property
-to configure the Api singleton.</p>
+    <p>Get the keys for this namespace.</p>
 </div>
 
 
@@ -703,55 +791,6 @@ to configure the Api singleton.</p>
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>baseUrl</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The base url to be used for the API.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -770,7 +809,9 @@ to configure the Api singleton.</p>
 
         
 <div class="param-desc">
-    <p>Itself for chaining purposes</p>
+    <ul>
+<li>The internal list of keys for current namespace.</li>
+</ul>
 </div>
 
 
@@ -781,7 +822,7 @@ to configure the Api singleton.</p>
     </dt>
     <dd>
         
-<span class="param-type">this</span>
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -795,7 +836,7 @@ to configure the Api singleton.</p>
 
     
 
-    <h4 class="name" id="setDefaultHeaders"><span class="type-signature"></span>setDefaultHeaders<span class="signature">(headers)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="set"><span class="type-signature"></span>set<span class="signature">(key, value, overrideUpdate<span class="signature-attributes">opt</span>, encrypt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -807,7 +848,7 @@ to configure the Api singleton.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_Api.js.html">api/Api.js</a>, <a href="api_Api.js.html#line98">line 98</a>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -815,6 +856,11 @@ to configure the Api singleton.</p>
 
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#set">module:datastore.BaseStoreNamespace#set</a>
+    </li></ul></dd>
     
 
     
@@ -847,149 +893,10 @@ to configure the Api singleton.</p>
 
 
 <div class="description">
-    <p>Used for setting default headers that should be send with every request.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>const api = Api.getApi();
-
-api.setDefaultHeaders({
- 'x-requested-with': 'XMLHttpRequest', // Make sure the Api does not redirect when authorization is expired.
-});</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>headers</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object.&lt;string, string></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Default headers that should be set on every request.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">(url, data, useMergeStrategy<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;*>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_Api.js.html">api/Api.js</a>, <a href="api_Api.js.html#line180">line 180</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Perform a PUT request.</p>
+    <p>Sets the value of given key to given value.</p>
+<p>This will also create a new namespace on the API-end if it does not exist.
+If the key exists <a href='#update'> update</a> will be called, unless <code>overrideUpdate</code> equals
+true.</p>
 </div>
 
 
@@ -1031,15 +938,10 @@ api.setDefaultHeaders({
 
         <tr>
             
-                <td class="name"><code>url</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -1059,22 +961,17 @@ api.setDefaultHeaders({
                 </td>
             
 
-            <td class="description last"><p>The url for the request</p></td>
+            <td class="description last"><p>key in this namespace to set.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
             
             </td>
 
@@ -1094,22 +991,17 @@ api.setDefaultHeaders({
                 </td>
             
 
-            <td class="description last"><p>Any data that should be send with the request. This becomes the body of the PUT request.</p></td>
+            <td class="description last"><p>JSON-value to be set.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>useMergeStrategy</code></td>
+                <td class="name"><code>overrideUpdate</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
             
             </td>
 
@@ -1133,7 +1025,41 @@ api.setDefaultHeaders({
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>If true a post-request is sent even if key exists.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>encrypt</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>If the value should be encrypted on the server.</p></td>
         </tr>
 
     
@@ -1157,7 +1083,9 @@ api.setDefaultHeaders({
 
         
 <div class="param-desc">
-    <p>The response body.</p>
+    <ul>
+<li>the response body from the <a href="module-api.Api.html#get">API</a>.</li>
+</ul>
 </div>
 
 
@@ -1168,7 +1096,182 @@ api.setDefaultHeaders({
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;*></span>
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">(key, value)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="datastore_BaseStoreNamespace.js.html">datastore/BaseStoreNamespace.js</a>, <a href="datastore_BaseStoreNamespace.js.html#line119">line 119</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-datastore.BaseStoreNamespace.html#update">module:datastore.BaseStoreNamespace#update</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Updates a key with given value.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key to update.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value to update to.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>the response body from the <a href="module-api.Api.html#get">API</a>.</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -1195,7 +1298,7 @@ api.setDefaultHeaders({
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Oct 25 2017 14:39:58 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Oct 26 2017 15:54:20 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

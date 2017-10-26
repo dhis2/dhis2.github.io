@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>d2 - Documentation</title>
+    <title>datastore/BaseStoreNamespace.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,635 +27,143 @@
 
 <div id="main">
     
-    <h1 class="page-title">d2</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>
-            <span class="ancestors"><a href="module-d2.html">d2</a><a href="module-d2.html#.init">.init</a>~</span>
-        
-        d2
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line155">line 155</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="Api"><span class="type-signature"></span>Api<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line186">line 186</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li>module:api~Api#getApi</li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Api class that is used throughout the api interaction. This can be used to get hold of the module:Api singleton.</p>
-</div>
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>d2.Api.getApi()      // Returns the api object
- .get('resources')   // Do a get request for /api/resources
- .then(resources => {
-     console.log(resources);
- });</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="currentUser"><span class="type-signature"></span>currentUser<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line311">line 311</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li>CurrentUser</li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>An instance of CurrentUser</p>
-<p>The currentUser can be used to retrieve data related to the currentUser.</p>
-<p>These things primarily include:</p>
-<ul>
-<li>currentUser properties retrieved from <code>/api/me</code></li>
-<li>Lazily request collections related to the user such as<ul>
-<li>userRoles</li>
-<li>userGroups</li>
-<li>organisationUnits</li>
-<li>dataViewOrganisationUnits</li>
-</ul>
-</li>
-<li>authorities</li>
-<li>userSettings</li>
-<li>utility methods for ACL</li>
-</ul>
-</div>
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>d2.currentUser.canCreate(d2.models.dataElement); // Returns true when the user can create either a private/public dataElement
-d2.currentUser.canCreate(d2.models.organisationUnit); // Returns true the user can create an organisationUnit</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="dataStore"><span class="type-signature"></span>dataStore<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line217">line 217</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="module-datastore.DataStore.html">DataStore</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Instance of the DataStore class for interaction with the dataStore api.</p>
-</div>
-
-
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="i18n"><span class="type-signature"></span>i18n<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line209">line 209</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="module-i18n-I18n.html#getTranslation">getTranslation</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>I18n instance with the loaded translations.</p>
-<p>Usually used for retrieving translations for a given key using <code>getTranslation(key: string)</code></p>
-</div>
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>d2.i18n.getTranslation('success'); // Returns "Success" for the english locale</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="model"><span class="type-signature"></span>model<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line171">line 171</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>There is probably no point to expose this.</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Collection of the <a href="module-model.html">module:model</a> classes</p>
-</div>
-
-
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="models"><span class="type-signature"></span>models<span class="type-signature"> :Object.&lt;string, ModelDefinition></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line164">line 164</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>This is the entry point for the modelDefinitions that were loaded. To start interacting with the metadata api
-you would pick a modelDefinition from this object to interact with.</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object.&lt;string, ModelDefinition></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="system"><span class="type-signature"></span>system<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="d2.js.html">d2.js</a>, <a href="d2.js.html#line196">line 196</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li>System</li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>System instance to interact with system information like system settings, system info etc.</p>
-</div>
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>console.log(d2.system.version.major); // 2 for DHIS 2.27</code></pre>
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <h1 class="page-title">datastore/BaseStoreNamespace.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Api from '../api/Api';
+import { isString, isArray } from '../lib/check';
+
+/**
+ * @private
+ * @description
+ * Represents a namespace in the dataStore that can be used to be used to interact with
+ * the remote API.
+ *
+ * @property {Array} keys an array of the loaded keys.
+ * @property {String} namespace name of this namespace as on the server.
+ *
+ * @memberof module:datastore
+ */
+class BaseStoreNamespace {
+    /**
+     * @param {string} namespace - the name of the namespace this represents.
+     * @param {string[]} keys - preloaded keys for this namespace.
+     * @param {module:api.Api} api - the api implementation, used for testing.
+     * @param {string} endPoint - the relative API-endpoint, one of ['dataStore, userDataStore'].
+     */
+    constructor(namespace, keys, api = Api.getApi(), endPoint) {
+        if (!isString(namespace)) {
+            throw new Error('BaseStoreNamespace must be called with a string to identify the Namespace');
+        }
+        if (!isString(endPoint)) {
+            throw new Error('BaseStoreNamespace must be called with an endPoint');
+        }
+        if (this.constructor === BaseStoreNamespace) {
+            throw new Error('Can\'t instantiate abstract class!');
+        }
+
+        this.api = api;
+
+        /**
+         * The name of the namespace
+         * @type {string}
+         */
+        this.namespace = namespace;
+
+        /**
+         * an array of the loaded keys.
+         * @type {string[]}
+         */
+        this.keys = keys || [];
+        this.endPoint = endPoint;
+    }
+
+    /**
+     * Get the keys for this namespace.
+     *
+     * @returns {Promise} - The internal list of keys for current namespace.
+     */
+    getKeys() {
+        return this.api.get([this.endPoint, this.namespace].join('/')).then((response) => {
+            if (response &amp;&amp; isArray(response)) {
+                this.keys = response;
+                return response;
+            }
+            return Promise.reject(new Error('The requested namespace has no keys or does not exist.'));
+        });
+    }
+
+    /**
+     * Retrieves the value of given key in current namespace.
+     *
+     * @param key - key to retrieve.
+     * @returns {Promise} - The value of the given key.
+     */
+    get(key) {
+        return this.api.get([this.endPoint, this.namespace, key].join('/'));
+    }
+
+    /**
+     * Sets the value of given key to given value.
+     *
+     * This will also create a new namespace on the API-end if it does not exist.
+     * If the key exists &lt;a href='#update'> update&lt;/a> will be called, unless &lt;code>overrideUpdate&lt;/code> equals
+     * true.
+     *
+     * @param key - key in this namespace to set.
+     * @param value - JSON-value to be set.
+     * @param [overrideUpdate=false] - If true a post-request is sent even if key exists.
+     * @param [encrypt=false] - If the value should be encrypted on the server.
+     * @returns {Promise} - the response body from the {@link module:api.Api#get API}.
+     */
+    set(key, value, overrideUpdate = false, encrypt = false) {
+        if (!overrideUpdate &amp;&amp; this.keys.includes(key)) {
+            return this.update(key, value);
+        }
+        const queryParams = encrypt === true ? '?encrypt=true' : '';
+        return this.api.post([this.endPoint, this.namespace, key + queryParams].join('/'), value).then((resp) => {
+            this.keys = [...this.keys, key];
+            return resp;
+        });
+    }
+
+    /**
+     * Deletes given key from the API.
+     * @param {string} key - key to delete.
+     * @returns {Promise} - the response body from the {@link module:api.Api#get API}.
+     */
+    delete(key) {
+        if (!isString(key)) {
+            return Promise.reject(new Error(`Expected key to be string, but got ${typeof key}`));
+        }
+        return this.api.delete([this.endPoint, this.namespace, key].join('/')).then((resp) => {
+            this.keys = this.keys.filter(elem => elem !== key);
+            return resp;
+        });
+    }
+
+    /**
+     * Updates a key with given value.
+     * @param key - key to update.
+     * @param value - value to update to.
+     * @returns {Promise} - the response body from the {@link module:api.Api#get API}.
+     */
+    update(key, value) {
+        return this.api.update([this.endPoint, this.namespace, key].join('/'), value);
+    }
+}
+
+export default BaseStoreNamespace;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -665,7 +173,7 @@ you would pick a modelDefinition from this object to interact with.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Oct 25 2017 14:39:58 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Oct 26 2017 15:54:20 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
