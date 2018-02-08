@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EditModel/event-program/tracker-program/program-stages/ProgramStageStepper.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">EditModel/event-program/tracker-program/program-stages/ProgramStageStepper.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import pure from 'recompose/pure';
+import { bindActionCreators } from 'redux';
+
+import steps from './programStageSteps';
+import { changeStep } from './actions';
+import { createStepperFromConfig } from '../../../stepper/stepper';
+import EditProgramStageDetails from './EditProgramStageDetails';
+import AssignProgramStageDataElements from './AssignProgramStageDataElements';
+import CreateDataEntryFormWithoutMargin from '../../create-data-entry-form/CreateDataEntryForm.component';
+import { getActiveProgramStageStep } from './selectors';
+
+const CreateDataEntryForm = props =>
+    (&lt;div style={{ marginTop: '15px' }}>
+        &lt;CreateDataEntryFormWithoutMargin {...props} />
+    &lt;/div>);
+
+const stepperConfig = () => {
+    const stepComponents = {
+        EditProgramStageDetails,
+        AssignProgramStageDataElements,
+        CreateDataEntryForm,
+    };
+
+    return steps.map((step) => {
+        step.component = stepComponents[step.componentName]; // eslint-disable-line no-param-reassign
+        step.content = stepComponents[step.componentName]; // eslint-disable-line no-param-reassign
+        return step;
+    });
+};
+
+const ProgramStageVerticalStepper = connect(
+    state => ({
+        activeStep: getActiveProgramStageStep(state),
+    }),
+    dispatch => bindActionCreators({ stepperClicked: changeStep }, dispatch),
+)(createStepperFromConfig(stepperConfig(), 'vertical'));
+
+export const ProgramStageStepper = pure((props) => {
+    return (
+        &lt;div>
+            &lt;ProgramStageVerticalStepper
+                programStage$={props.programStage$}
+                programStage={props.programStage}
+            />
+        &lt;/div>
+    );
+});
+
+ProgramStageStepper.propTypes = {
+    /**
+     * Programstage observable, needed to create custom forms
+     */
+    programStage$: PropTypes.object.isRequired,
+    /**
+     * Programstage-model object
+     */
+    programStage: PropTypes.object,
+};
+
+export default ProgramStageStepper;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:17 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

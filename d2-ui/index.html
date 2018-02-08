@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="AsyncValidatorRunner.html">AsyncValidatorRunner</a><ul class='methods'><li data-type='method'><a href="AsyncValidatorRunner.html#.create">create</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#listenToValidatorsFor">listenToValidatorsFor</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#run">run</a></li></ul></li><li><a href="ControlBar.html">ControlBar</a></li><li><a href="FormField.html">FormField</a></li><li><a href="Sharing.html">Sharing</a></li><li><a href="SharingDialog.html">SharingDialog</a></li></ul><h3>Modules</h3><ul><li><a href="module-lib_utils.html">lib/utils</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addValueRenderer">addValueRenderer</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createActionsFromNames">createActionsFromNames</a></li><li><a href="global.html#decrementMemberCount">decrementMemberCount</a></li><li><a href="global.html#findValueRenderer">findValueRenderer</a></li><li><a href="global.html#forEachOnPath">forEachOnPath</a></li><li><a href="global.html#getAllObjectsWithFields">getAllObjectsWithFields</a></li><li><a href="global.html#getSearchResultsHeight">getSearchResultsHeight</a></li><li><a href="global.html#incrementMemberCount">incrementMemberCount</a></li><li><a href="global.html#mergeChildren">mergeChildren</a></li><li><a href="global.html#removeMenuManagementModule">removeMenuManagementModule</a></li><li><a href="global.html#runValidatorFunctions">runValidatorFunctions</a></li><li><a href="global.html#selector">selector</a></li><li><a href="global.html#typeDetails">typeDetails</a></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>d2-ui</h1><p><a href="https://travis-ci.org/dhis2/d2-ui"><img src="https://travis-ci.org/dhis2/d2-ui.svg" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/dhis2/d2-ui/coverage"><img src="https://codeclimate.com/github/dhis2/d2-ui/badges/coverage.svg" alt="Test Coverage"></a>
+<a href="https://codeclimate.com/github/dhis2/d2-ui"><img src="https://codeclimate.com/github/dhis2/d2-ui/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://badge.fury.io/js/d2-ui"><img src="https://badge.fury.io/js/d2-ui.svg" alt="npm version"></a></p>
+<p>UI Component library for developing <a href="http://www.dhis2.org">DHIS2</a> applications. This library makes use of the <a href="https://github.com/dhis2/d2">d2</a> library for - hence the name :)</p>
+<p>--</p>
+<h2>Get It!</h2><p><strong>Latest stable version for your dhis2 release</strong></p>
+<blockquote>
+<p>Use @{dhis2-release-version} to get the latest version applicable to that installation</p>
+</blockquote>
+<p>For example, if the DHIS2 release version is 2.28, then:</p>
+<pre class="prettyprint source"><code>yarn add d2-ui@28</code></pre><h2>Contributing</h2><h3>Development</h3><p>The git repository is located here: <a href="https://github.com/dhis2/d2-ui">d2-ui github repo</a></p>
+<p>Submit your change as a pull request. Pull requests need to include:</p>
+<ol>
+<li>good quality unit tests</li>
+<li>relevant changes/additions to the examples</li>
+</ol>
+<h5>Examples</h5><p>The repo includes a webpack dev server that provides a page showing most of the d2-ui components. To run these do:</p>
+<pre class="prettyprint source"><code>yarn start</code></pre><p>Some of the examples require a local DHIS2 instance. Most developers have their DHIS2 instance running on http://localhost:8080. If this is the case for you, then the examples should just work.</p>
+<h3>Publishing to npm</h3><p>The d2-ui library is published as an npm package: https://www.npmjs.com/package/d2-ui</p>
+<h4>How to determine the new version</h4><p>The d2-ui version is in the semver pattern, but the major version tracks the DHIS2 version. So, for DHIS2 version 2.28 the corresponding d2-ui version is v28.mm.pp. The reason for this is at least partly because d2-ui has a dependency on d2, which depends on the DHIS2 API version.</p>
+<p>So we follow our own defined version conventions as follows:</p>
+<h5>Major upgrade</h5><p>The major version is upgraded at the same time the next DHIS2 is released. So when DHIS2 2.29 is released, v29.0.0 of d2-ui should be published.</p>
+<h5>Minor upgrade</h5><p>Minor upgrades are used during the development cycle for breaking changes that are due to client API changes, but not due to DHIS2 API (in other words, d2) breaking changes.</p>
+<h5>Patch upgrade</h5><p>Patch upgrades are for bug fixes and small implementations that are not breaking changes.</p>
+<h4>Steps to publish</h4><p>After your pull request with functional changes has been merged to master, switch to the master branch locally and pull to get all the latest changes. The version upgrade will be done directly on the master branch:</p>
+<pre class="prettyprint source"><code>git checkout master
+git pull</code></pre><p>Next use yarn to upgrade the npm package version</p>
+<pre class="prettyprint source"><code>yarn version</code></pre><p>This is interactive and you will input the new version (remember, minor or patch during development, major only when the new DHIS2 version is released)</p>
+<p>After you have indicated the version, yarn will do two things:</p>
+<ol>
+<li>update package.json and create a commmit locally</li>
+<li>create a git tag named according to the new version (e.g., v28.0.35)</li>
+</ol>
+<p>Push these 2 things to the remote:</p>
+<pre class="prettyprint source"><code>git push
+git push --tags</code></pre><p>You are done! Travis will detect the new git tag and start a deploy build that publishes the new npm version. You can follow the build on https://travis-ci.org</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:14 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

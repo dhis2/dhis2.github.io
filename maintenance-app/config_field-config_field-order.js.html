@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>config/field-config/field-order.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">config/field-config/field-order.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const fieldOrderByName = new Map([
+    ['dataElement', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'formName',
+        'domainType',
+        'valueType',
+        'aggregationType',
+        'zeroIsSignificant',
+        'url',
+        'categoryCombo',
+        'optionSet',
+        'commentOptionSet',
+        'legendSets',
+        'aggregationLevels',
+    ]],
+    ['dataElementGroup', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'dataElements',
+    ]],
+    ['dataElementGroupSet', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'compulsory',
+        'dataDimension',
+        'dataElementGroups',
+    ]],
+    ['category', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'dataDimensionType',
+        'dataDimension',
+        'categoryOptions',
+    ]],
+    ['categoryOption', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'startDate',
+        'endDate',
+        'organisationUnits',
+    ]],
+    ['categoryCombo', [
+        'name',
+        'shortName',
+        'code',
+        'dataDimensionType',
+        'skipTotal',
+        'categories',
+    ]],
+    ['categoryOptionGroup', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'dataDimensionType',
+        'categoryOptions',
+    ]],
+    ['categoryOptionGroupSet', [
+        'name',
+        'description',
+        'dataDimension',
+        'dataDimensionType',
+        'categoryOptionGroups',
+    ]],
+    ['indicator', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'annualized',
+        'decimals',
+        'indicatorType',
+        'legendSets',
+        'url',
+        'aggregateExportCategoryOptionCombo',
+        'aggregateExportAttributeOptionCombo',
+    ]],
+    ['indicatorGroup', [
+        'name',
+        'indicators',
+    ]],
+    ['indicatorType', [
+        'name',
+        'factor',
+    ]],
+    ['indicatorGroupSet', [
+        'name',
+        'description',
+        'compulsory',
+        'indicatorGroups',
+    ]],
+    ['dataSet', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'expiryDays',
+        'openFuturePeriods',
+        'timelyDays',
+        'periodType',
+        'dataInputPeriods',
+        'categoryCombo',
+        'notificationRecipients',
+        'notifyCompletingUser',
+        'workflow',
+        'mobile',
+        'fieldCombinationRequired',
+        'validCompleteOnly',
+        'noValueRequiresComment',
+        'legendSets',
+        'skipOffline',
+        'dataElementDecoration',
+        'renderAsTabs',
+        'renderHorizontally',
+        'compulsoryFieldsCompleteOnly',
+        'dataSetElements',
+        'indicators',
+        'organisationUnits',
+    ]],
+    ['dataSetNotificationTemplate', [
+        // Step 1
+        'name', 'code', 'dataSets', 'messageTemplate',
+        // Step 2
+        'dataSetNotificationTrigger', 'relativeScheduledDays', 'sendStrategy',
+        // Step 3
+        'notificationRecipient', 'recipientUserGroup',
+    ]],
+    ['organisationUnit', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'openingDate',
+        'closedDate',
+        'comment',
+        'url',
+        'contactPerson',
+        'address',
+        'email',
+        'phoneNumber',
+        'coordinates',
+        'dataSets',
+    ]],
+    ['organisationUnitGroup', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'color',
+        'symbol',
+        'organisationUnits',
+    ]],
+    ['organisationUnitGroupSet', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'compulsory',
+        'dataDimension',
+        'includeSubhierarchyInAnalytics',
+        'organisationUnitGroups',
+    ]],
+    ['organisationUnitLevel', [
+        'name',
+        'offlineLevels',
+    ]],
+    ['constant', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'value',
+    ]],
+    ['attribute', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'valueType',
+        'optionSet',
+        'sortOrder',
+        'mandatory',
+        'unique',
+        'dataElementAttribute', // TODO: This currently serves as the override for all &lt;type>Attribute fields
+    ]],
+    ['optionSet', [
+        'name',
+        'code',
+        'description',
+        'valueType',
+    ]],
+    ['legendSet', [
+        'name',
+        'code',
+        'legends',
+    ]],
+    ['eventProgram', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'categoryCombo',
+        'workflow',
+        'completeEventsExpiryDays',
+        'expiryPeriodType',
+        'expiryDays',
+    ]],
+    ['trackerProgram', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'trackedEntityType',
+        'categoryCombo',
+        'workflow',
+        'displayFrontPageList',
+        'useFirstStageDuringRegistration',
+        'completeEventsExpiryDays',
+        'expiryPeriodType',
+        'expiryDays',
+        'programAttributes',
+        'minAttributesRequiredToSearch',
+        'maxTeiCountToReturn',
+    ]],
+    // Tracker-program
+    ['enrollment', [
+        'selectEnrollmentDatesInFuture',
+        'selectIncidentDatesInFuture',
+        'onlyEnrollOnce',
+        'displayIncidentDate',
+        'incidentDateLabel',
+        'enrollmentDateLabel',
+        'ignoreOverdueEvents',
+        'captureCoordinates',
+        'relationshipType',
+        'relationshipText',
+        'relationshipFromA',
+        'relatedProgram',
+    ]],
+    ['programStage', [
+        'name',
+        'description',
+        'minDaysFromStart',
+        'repeatable',
+        'periodType',
+        'displayGenerateEventBox',
+        'standardInterval',
+        'autoGenerateEvent',
+        'openAfterEnrollment',
+        'reportDateToUse',
+        'blockEntryForm',
+        'remindCompleted',
+        'allowGenerateNextVisit',
+        'generatedByEnrollmentDate',
+        'hideDueDate',
+        'captureCoordinates',
+        'validCompleteOnly',
+        'preGenerateUID',
+        'executionDateLabel',
+        'dueDateLabel',
+    ]],
+    ['trackedEntityAttribute', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'optionSet',
+        'valueType',
+        'aggregationType',
+        'unique',
+        'inherit',
+        'confidential',
+        'displayInListNoProgram',
+        'legendSets',
+    ]],
+    ['trackedEntityAttributeGroup', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'trackedEntityAttributes',
+    ]],
+    ['relationshipType', [
+        'name',
+        'code',
+        'aIsToB',
+        'bIsToA',
+    ]],
+    ['trackedEntityType', [
+        'name',
+        'description',
+        'minAttributesRequiredToSearch',
+        'maxTeiCountToReturn',
+    ]],
+    ['programIndicator', [
+        'program',
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'decimals',
+        'aggregationType',
+        'analyticsType',
+        'analyticsPeriodBoundaries',
+        'displayInForm',
+        'legendSets',
+        'aggregateExportCategoryOptionCombo',
+        'aggregateExportAttributeOptionCombo',
+        'expression',
+        'filter',
+    ]],
+    ['programIndicatorGroup', [
+        'name',
+        'code',
+        'programIndicators',
+    ]],
+    ['validationRule', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'instruction',
+        'importance',
+        'ruleType',
+        'importance',
+        'ruleType',
+        'periodType',
+        'leftSide',
+        'operator',
+        'rightSide',
+        'organisationUnitLevels',
+        'skipFormValidation',
+    ]],
+    ['validationRuleGroup', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'validationRules',
+    ]],
+    ['predictor', [
+        'name',
+        'shortName',
+        'code',
+        'description',
+        'output',
+        'periodType',
+        'organisationUnitLevels',
+        'generator',
+        'sampleSkipTest',
+        'sequentialSampleCount',
+        'annualSampleCount',
+        'sequentialSkipCount',
+    ]],
+    ['pushAnalysis', [
+        'name',
+        'code',
+        'title',
+        'message',
+        'dashboard',
+        'recipientUserGroups',
+        'schedulingFrequency',
+        'enabled',
+    ]],
+    ['externalMapLayer', [
+        'name',
+        'code',
+        'mapService',
+        'imageFormat',
+        'url',
+        'attribution',
+        'mapLayerPosition',
+        'legendSet',
+        'legendSetUrl',
+    ]],
+    ['validationNotificationTemplate', [
+        'name',
+        'code',
+        'validationRules',
+        'recipientUserGroups',
+        'sendStrategy',
+        'notifyUsersInHierarchyOnly',
+        'messageTemplate',
+    ]],
+    ['programRule', [
+        // Step 1
+        'program', 'name', 'description', 'priority',
+        // Step 2
+        'condition',
+        // Step 3
+        'programRuleActions',
+    ]],
+    ['programRuleVariable', [
+        'program',
+        'name',
+        'useCodeForOptionSet',
+        'programRuleVariableSourceType',
+        'programStage',
+        'dataElement',
+        'trackedEntityAttribute',
+    ]],
+    ['dataApprovalLevel', [
+        'name',
+        'orgUnitLevel',
+        'categoryOptionGroupSet',
+    ]],
+    ['dataApprovalWorkflow', [
+        'name',
+        'periodType',
+        'dataApprovalLevels',
+    ]],
+]);
+
+export default {
+    /**
+     * @method
+     *
+     * @params {String} schemaName The name of the schema for which to get the field order
+     * @returns {Array} An arraylist of field names
+     * This can be used to set field order on the `FormFieldsManager`
+     *
+     * @example
+     * ```
+     * import fieldOverrides from 'field-overrides';
+     *
+     * let dataElementOverrides = fieldOverrides.for('dataElement');
+     * ```
+     */
+    for(schemaName) {
+        if (schemaName &amp;&amp; fieldOrderByName.has(schemaName)) {
+            return fieldOrderByName.get(schemaName);
+        }
+        return ['name', 'shortName', 'code'];
+    },
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:17 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

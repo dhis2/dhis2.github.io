@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/select-field/SelectField.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="AsyncValidatorRunner.html">AsyncValidatorRunner</a><ul class='methods'><li data-type='method'><a href="AsyncValidatorRunner.html#.create">create</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#listenToValidatorsFor">listenToValidatorsFor</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#run">run</a></li></ul></li><li><a href="ControlBar.html">ControlBar</a></li><li><a href="FormField.html">FormField</a></li><li><a href="Sharing.html">Sharing</a></li><li><a href="SharingDialog.html">SharingDialog</a></li></ul><h3>Modules</h3><ul><li><a href="module-lib_utils.html">lib/utils</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addValueRenderer">addValueRenderer</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createActionsFromNames">createActionsFromNames</a></li><li><a href="global.html#decrementMemberCount">decrementMemberCount</a></li><li><a href="global.html#findValueRenderer">findValueRenderer</a></li><li><a href="global.html#forEachOnPath">forEachOnPath</a></li><li><a href="global.html#getAllObjectsWithFields">getAllObjectsWithFields</a></li><li><a href="global.html#getSearchResultsHeight">getSearchResultsHeight</a></li><li><a href="global.html#incrementMemberCount">incrementMemberCount</a></li><li><a href="global.html#mergeChildren">mergeChildren</a></li><li><a href="global.html#removeMenuManagementModule">removeMenuManagementModule</a></li><li><a href="global.html#runValidatorFunctions">runValidatorFunctions</a></li><li><a href="global.html#selector">selector</a></li><li><a href="global.html#typeDetails">typeDetails</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/select-field/SelectField.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import MuiSelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import CircularProgress from 'material-ui/CircularProgress';
+import isString from 'lodash/fp/isString';
+import { createClassName } from '../component-helpers/utils';
+
+const getLoadingStyle = (loading) => {
+    let listStyle;
+
+    if (loading === true) {
+        listStyle = {
+            textAlign: 'center',
+        };
+    } else if (isString(loading)) {
+        listStyle = {
+            paddingLeft: 24,
+            lineHeight: '32px',
+            fontStyle: 'italic',
+        };
+    }
+
+    return listStyle;
+};
+
+const getLoadingIndicator = (loading) => {
+    let node;
+
+    if (loading === true) {
+        node = &lt;CircularProgress size={30} />;
+    } else if (isString(loading)) {
+        node = &lt;div>{loading}&lt;/div>;
+    }
+
+    return node;
+};
+
+const getMenuItems = (items, isLoading, isMultiple, value) => {
+    if (isLoading || !Array.isArray(items)) {
+        return null;
+    }
+
+    return items.map(item => (
+        &lt;MenuItem
+            key={item.id}
+            value={item.id}
+            primaryText={item.name}
+            insetChildren={isMultiple}
+            checked={isMultiple &amp;&amp; Array.isArray(value) &amp;&amp; value.indexOf(item.id) > -1}
+        />
+    ));
+};
+
+const SelectField = (props) => {
+    const { label, items, multiple, value, onChange, style, selector, loading, errorText, children } = props;
+    const className = createClassName('d2-ui-selectfield', selector);
+
+    return (
+        &lt;MuiSelectField
+            floatingLabelText={label}
+            value={value}
+            multiple={multiple}
+            onChange={onChange ? (event, index, val) => onChange(items[index] || val) : null}
+            className={className}
+            style={style}
+            listStyle={getLoadingStyle(loading)}
+            errorText={errorText}
+        >
+            {getLoadingIndicator(loading)}
+            {getMenuItems(items, loading, multiple, value)}
+            {!loading &amp;&amp; children ? children : null}
+        &lt;/MuiSelectField>
+    );
+};
+
+
+SelectField.propTypes = {
+
+    /**
+     * The label of the select field
+     */
+    label: PropTypes.string,
+
+    /**
+     * The select field items (rendered as MenuItems)
+     */
+    items: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        name: PropTypes.string,
+    })),
+
+    /**
+     * If true, the select field will support multiple selection. A check mark will show before selected items.
+     */
+    multiple: PropTypes.bool,
+
+    /**
+     * If true, a spinner will be shown in the select menu. If string, the loading text will be shown.
+     */
+    loading: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+    ]),
+
+    /**
+     * onChange callback, that is fired when the select field's value changes
+     *
+     * The onChange callback will receive one argument: The item selected (if items are provided) or the value selected
+     */
+    onChange: PropTypes.func,
+
+    /**
+     * The value(s) of the select field
+     */
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.arrayOf(PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ])),
+    ]),
+
+    /**
+     * Override the inline-styles of the root element
+     */
+    style: PropTypes.object,
+
+    /**
+     * If set, adds a class to the element in the format d2-ui-selectfield-selector
+     */
+    selector: PropTypes.string,
+
+    /**
+     * If set, shows the error message below the SelectField
+     */
+    errorText: PropTypes.string,
+
+    /**
+     * MenuItems to show in the dropdown
+     */
+    children: PropTypes.node,
+};
+
+
+SelectField.defaultProps = {
+    errorText: null,
+    items: [],
+    loading: false,
+    label: null,
+    multiple: false,
+    onChange: null,
+    className: null,
+    selector: null,
+    style: null,
+    value: null,
+    children: null,
+};
+
+
+export default SelectField;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:14 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

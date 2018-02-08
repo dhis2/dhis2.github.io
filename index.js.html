@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>index.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-docs-generator.html">docs-generator</a><ul class='methods'><li data-type='method'><a href="module-docs-generator.html#~generateDoc">generateDoc</a></li><li data-type='method'><a href="module-docs-generator.html#~generateIndex">generateIndex</a></li><li data-type='method'><a href="module-docs-generator.html#~pushIt">pushIt</a></li><li data-type='method'><a href="module-docs-generator.html#~readableStream">readableStream</a></li><li data-type='method'><a href="module-docs-generator.html#~repoName">repoName</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module docs-generator
+ *
+ * @todo pull in examples from d2-ui and host them
+ */
+const {
+    generateFrom, publishTo, buildDir, sshPublicKeyPath, sshPrivateKeyPath
+} = require('./config')
+const { template } = require('./template')
+
+const path = require('path')
+const { StringDecoder } = require('string_decoder')
+const { spawn } = require('child_process')
+const fs = require('fs')
+
+const Rx = require('rxjs/Rx')
+const Git = require('nodegit')
+
+
+
+
+
+/**
+ * docsubject is the "global" subject which keeps track of if the
+ * spawned child processes have completed or not.
+ *
+ * When they are all completed we can start to generate the index-page
+ * of the documentation.
+ */
+const docsubject = new Rx.Subject()
+
+docsubject
+.scan((acc, curr) => acc.concat([curr]), [])
+.subscribe(apps => {
+        console.log('Completed:', apps, apps.length, generateFrom.length)
+        if (apps.length === generateFrom.length) {
+            console.log('All done, proceed to generate the index...')
+            generateIndex(apps, docsubject)
+        }
+    },
+    console.error, 
+    _ => pushIt(repoName(publishTo)) // when the subject completes, push the changes
+)
+
+
+
+
+
+
+/** 
+ * Kick it. Uses the global subject in each spawned subprocess to
+ * capture the completion of the subprocess so we do not start to
+ * process the index generation until all subprocesses have completed.
+ */
+const repo$ = Rx.Observable
+    .from(generateFrom.concat([publishTo]))
+    .mergeMap(url => {
+        const dir = path.join(__dirname, buildDir, repoName(url))
+        const opts = {
+            fetchOpts: {
+                callbacks: {
+                    certificateCheck: () => 1,  // for macosx?
+                    credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
+                }
+            }
+        }
+
+        const repo = Git.Clone(url, dir, opts) 
+        return Rx.Observable.fromPromise(repo)
+    })
+    .filter(repo => repoName(repo.path()) !== repoName(publishTo))
+    .map(repo => generateDoc(repo, docsubject))
+    .subscribe(console.log, console.error) //  katyperry mode
+     
+
+
+
+
+
+
+/** 
+ * Generate the index of all docs by tricking jsdoc so we can reuse the
+ * same theme. This function writes the actual file to disk and
+ * completes the subject.
+ *
+ * @returns void
+ */
+function generateIndex(apps = [], subject) {
+    const index = path.join(__dirname, buildDir, repoName(publishTo), 'README.md')
+    const dest = path.join(__dirname, buildDir, repoName(publishTo))
+
+	const libs = ['d2', 'd2-ui']
+	const utils = ['eslint-config-dhis2', 'd2-manifest']
+	const docs = ['wow-frontend']
+
+    const appList = apps
+		.filter(a => libs.indexOf(a) === -1)
+		.filter(a => utils.indexOf(a) === -1)
+		.filter(a => docs.indexOf(a) === -1)
+		.map(app => `* [${app}](${app})`).join('\n')
+
+    const libList = apps
+		.filter(a => libs.indexOf(a) !== -1)
+		.map(lib => `* [${lib}](${lib})`).join('\n')
+
+    const utilList = apps
+		.filter(a => utils.indexOf(a) !== -1)
+		.map(util => `* [${util}](${util})`).join('\n')
+
+	const t = template({
+		body: {
+			appList,
+			libList,
+			utilList
+		}
+	})
+
+    fs.writeFile(index, t, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+        const args = [
+            '.',
+            '--destination', dest,
+            '--readme', index,
+			'--template', './node_modules/postman-jsdoc-theme',
+            '--verbose'
+        ]
+
+        const decoder = new StringDecoder('utf8') 
+        const spawned = spawn('./node_modules/.bin/jsdoc', args, {stdio: 'pipe'})
+
+        const indexDoc$ = Rx.Observable.merge(
+            readableStream(spawned.stdin),
+            //readableStream(spawned.stdout),
+            readableStream(spawned.stderr)
+        )
+        .subscribe(
+            x => console.log('[INDEX]', decoder.write(x)),
+            x => console.error('failure', x),
+            _ => subject.complete()
+        )
+    });
+}
+
+
+
+/**
+ * readableStream converts a Node-stream to an rx-observable
+ */
+function readableStream(stream) {
+    const subject = new Rx.Subject()
+    stream.on('data', data => subject.next(data))
+    stream.on('error', error => subject.error(error))
+    stream.on('end', _ => subject.complete())
+    return subject
+}
+
+
+
+
+
+/**
+ * Takes a Repository and generates documentation from it. This
+ * functions writes to disk.
+ *
+ * @requires NodeGit
+ * @requires JsDoc
+ * @arg NodeGit.Repository
+ * @returns string with name of repo
+ */
+function generateDoc (repo, subject) {
+    const repoPath = repo.path().endsWith('.git/') ? repo.path().slice(0, -5) : repo.path()
+
+    const decoder = new StringDecoder('utf8') 
+	const name = repoName(repoPath)
+    const docDestination = path.join(__dirname, buildDir, repoName(publishTo), name)
+
+    const args = [
+        path.join(repoPath, '.'),
+        '--recurse',
+        '--destination', docDestination,
+        '--readme', path.join(repoPath, 'README.md'),
+		'--template', './node_modules/postman-jsdoc-theme',
+        '--verbose'
+    ]
+
+    console.log(`[${name}] cmd: `, args.join(' '))
+        
+    const spawned = spawn('./node_modules/.bin/jsdoc', args, { stdio: 'pipe' })
+
+    const jsdoc$ = Rx.Observable.merge(
+        readableStream(spawned.stdin),
+        //readableStream(spawned.stdout),
+        readableStream(spawned.stderr)
+    )
+    .subscribe(
+        x => console.log(`[${name}]`, decoder.write(x)),
+        x => console.error('failure', x),
+        _ => subject.next(name)
+    ) 
+    return name
+}
+
+
+
+
+
+/**
+ * gets the repo name from a given str
+ *
+ * @example git@github.com:foo/bar.git          => bar
+ * @example git@github.com:fuz/buz/foo/bar.git  => bar
+ * @example git@github.com:foo/bar.baz.buz.git  => bar.baz.buz
+ * @example /path/to/repo/bar/.git/             => bar
+ */
+function repoName (str) {
+    const s = str.endsWith('/') ? str.slice(0, -1) : str
+    const r = s.endsWith('.git') ? s.slice(0, -4) : s
+    const u = r.endsWith('/') ? r.slice(0, -1) : r
+    const p = u.split('/').slice(-1).join()
+
+    return p
+}
+
+const isDirectory = path => fs.statSync(path).isDirectory()
+const getDirectories = pth =>
+    fs
+	.readdirSync(pth)
+	.map(name => path.join(pth, name))
+	.filter(e => !e.match(/\/\.git/))
+	.filter(isDirectory)
+
+const isFile = pth => fs.statSync(pth).isFile()  
+const getFiles = pth =>
+    fs.readdirSync(pth)
+		.map(name => path.join(pth, name))
+		.filter(isFile)
+
+const getFilesRecursively = (pth) => {
+    let dirs = getDirectories(pth)
+    let files = dirs
+        .map(dir => getFilesRecursively(dir))
+        .reduce((a,b) => a.concat(b), [])
+    return files.concat(getFiles(pth))
+};
+
+
+/**
+ * By now we have built all the docs into a static bundle. Now we want
+ * to modify the target repo and replace the content. Basically, wipe
+ * the repo, add our new content, commit it, and push it to master.
+ */
+function pushIt(name) {
+    const dir = path.join(__dirname, buildDir, name) 
+	const files = getFilesRecursively(dir).map(str => str.replace(dir+'/',''))
+
+    let repository
+    let remote
+
+	Git.Repository.open(dir)
+	.then(function(repo) {
+        repository = repo
+		const sig = repo.defaultSignature()
+		return repo.createCommitOnHead(files, sig, sig, "shakalaka")
+	})
+
+    .then(function() {
+        return repository.getRemote('origin')
+            .then(function(remoteResult) {
+                remote = remoteResult;
+
+                return remote.push(
+                    ["refs/heads/master:refs/heads/master"],
+                    {
+                        callbacks: {
+                            certificateCheck: () => 1,
+                            credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
+                        }
+                    }
+                );
+            });
+    })
+
+    .catch(function(reason) {
+        console.log(reason);
+    })
+        
+    .done(function() {
+        console.log("Done!");
+    })
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:17 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

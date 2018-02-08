@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Manifest.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Manifest.html">Manifest</a><ul class='methods'><li data-type='method'><a href="Manifest.html#.getAllKnownFields">getAllKnownFields</a></li><li data-type='method'><a href="Manifest.html#.getOptionalFields">getOptionalFields</a></li><li data-type='method'><a href="Manifest.html#.getOptionsForField">getOptionsForField</a></li><li data-type='method'><a href="Manifest.html#.getRequiredFields">getRequiredFields</a></li><li data-type='method'><a href="Manifest.html#.parseAuthor">parseAuthor</a></li><li data-type='method'><a href="Manifest.html#.readPackageFile">readPackageFile</a></li><li data-type='method'><a href="Manifest.html#getAllEmptyFields">getAllEmptyFields</a></li><li data-type='method'><a href="Manifest.html#getEmptyOptionalFields">getEmptyOptionalFields</a></li><li data-type='method'><a href="Manifest.html#getFieldValue">getFieldValue</a></li><li data-type='method'><a href="Manifest.html#getInvalidFields">getInvalidFields</a></li><li data-type='method'><a href="Manifest.html#getJSON">getJSON</a></li><li data-type='method'><a href="Manifest.html#getMissingFields">getMissingFields</a></li><li data-type='method'><a href="Manifest.html#isValid">isValid</a></li><li data-type='method'><a href="Manifest.html#merge">merge</a></li><li data-type='method'><a href="Manifest.html#setFieldValue">setFieldValue</a></li><li data-type='method'><a href="Manifest.html#write">write</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Manifest.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+require('colors');
+const fs = require('fs');
+const log = require('loglevel');
+const getAuthorRegex = require('author-regex');
+const isPlainObject = require('lodash.isplainobject');
+
+
+class Manifest {
+    /**
+     * Manifest constructor
+     *
+     * @param data Object containing initial data for the manifest
+     */
+    constructor(data) {
+        Object.assign(this, data);
+
+        this.write = this.write.bind(this);
+        this.merge = this.merge.bind(this);
+        this.setFieldValue = this.setFieldValue.bind(this);
+        this.getFieldValue = this.getFieldValue.bind(this);
+
+        this.isValid = this.isValid.bind(this);
+        this.getMissingFields = this.getMissingFields.bind(this);
+        this.getInvalidFields = this.getInvalidFields.bind(this);
+        this.getJSON = this.getJSON.bind(this);
+    }
+
+
+    /**
+     * Returns a copy of the provided data where any properties that don't have values are removed
+     *
+     * @param {Object} data
+     * @returns {Object}
+     * @private
+     */
+    static cleanObject(data) {
+        const out = Object.keys(data)
+            .filter(field => isPlainObject(data[field]) || !!data[field])
+            .reduce((obj, field) => {
+                if (isPlainObject(data[field])) {
+                    obj[field] = Manifest.cleanObject(data[field]);
+                } else {
+                    obj[field] = data[field];
+                }
+                return obj;
+            }, {});
+
+        return Object.keys(out).length > 0 ? out : undefined;
+    }
+
+
+    /**
+     * Merge the fields from the specified data with the current manifest
+     *
+     * @param {Object} data
+     * @param {boolean} force If true, empty fields in the data will be removed from the manifest
+     * @returns {Manifest}
+     */
+    merge(data, force) {
+        if (data instanceof Object) {
+            Object.keys(data).map(key => {
+                if (data[key] instanceof Object) {
+                    if (key === 'developer' &amp;&amp; data[key].name) {
+                        Object.assign(data[key], Manifest.parseAuthor(data[key].name));
+                    }
+                    const cleanData = force ? data[key] : Manifest.cleanObject(data[key]);
+                    this[key] = Object.assign({}, this[key], cleanData);
+                } else if (data[key] || force) {
+                    this[key] = data[key];
+                }
+            });
+        }
+
+        return this;
+    }
+
+
+    /**
+     * Helper method to recursively set the value of a field
+     *
+     * @param manifest The manifest object to operate on
+     * @param fields An array of field names to recurse into
+     * @param value
+     * @private
+     */
+    static _setFieldValue(manifest, fields, value) {
+        if (!Array.isArray(fields) || fields.length === 0) {
+            throw new Error('fields must be an array');
+        }
+
+        if (fields.length > 1) {
+            if (!manifest.hasOwnProperty(fields[0])) {
+                manifest[fields[0]] = {};
+                Manifest._setFieldValue(manifest[fields[0]], fields.splice(1), value);
+            } else {
+                if (!isPlainObject(manifest[fields[0]])) {
+                    throw new Error('field is not an object');
+                }
+
+                Manifest._setFieldValue(manifest[fields[0]], fields.splice(1), value);
+            }
+        } else {
+            if (value) {
+                manifest[fields[0]] = value;
+            } else {
+                delete manifest[fields[0]];
+            }
+        }
+    }
+
+
+    /**
+     * Set the value of the specified field
+     *
+     * @param fieldName The name of the field to add or modify, in dot notation (field.subfield.etc)
+     * @param value
+     */
+    setFieldValue(fieldName, value) {
+        if (fieldName === 'developer.name') {
+            value = Object.assign({}, this.developer, Manifest.parseAuthor(value));
+            Manifest._setFieldValue(this, ['developer'], value);
+        } else {
+            Manifest._setFieldValue(this, fieldName.split('.'), value);
+        }
+    }
+
+
+    /**
+     * Helper method to recursively get the value of a field
+     *
+     * @param object
+     * @param fields Array of field names
+     * @returns {string}
+     * @private
+     */
+    static _getFieldValue(object, fields) {
+        if (!Array.isArray(fields) || fields.length === 0) {
+            throw new Error('fields must be an array');
+        }
+
+        if (fields.length > 1) {
+            return object.hasOwnProperty(fields[0]) ? Manifest._getFieldValue(object[fields[0]], fields.splice(1)) : '';
+        } else {
+            return object.hasOwnProperty(fields[0]) ? object[fields[0]] : '';
+        }
+    }
+
+
+    /**
+     * Get the value of the specified field name
+     *
+     * @param fieldName A field name, in dot notation (field.subfield.etc)
+     * @returns {*}
+     */
+    getFieldValue(fieldName) {
+        return Manifest._getFieldValue(this, fieldName.split('.'));
+    }
+
+
+    /**
+     * Validate the current manifest
+     *
+     * @returns {boolean}
+     */
+    isValid() {
+        const invalidFields = this.getInvalidFields();
+        const missingFields = this.getMissingFields();
+
+        return invalidFields.length + missingFields.length === 0;
+    }
+
+
+    /**
+     * Return a list of required fields
+     *
+     * @returns {string[]}
+     */
+    static getRequiredFields() {
+        return [
+            'name',
+            'description',
+            'version',
+            'icons.48',
+            'developer.name',
+            'launch_path',
+            'default_locale',
+            'activities.dhis.href'
+        ];
+    }
+
+
+    /**
+     * Return a list of optional fields
+     *
+     * @returns {string[]}
+     */
+    static getOptionalFields() {
+        return [
+            'appType',
+            'icons.16',
+            'icons.128',
+            'developer.email',
+            'developer.url',
+            'developer.company'
+        ];
+    }
+
+
+    /**
+     * Return an array of string options for the specified field name, or an empty array if there are no predefined
+     * options
+     *
+     * @param fieldName
+     * @returns {string[]}
+     */
+    static getOptionsForField(fieldName) {
+        switch (fieldName) {
+        case 'appType':
+            return [
+                'APP',
+                'DASHBOARD_WIDGET',
+                'TRACKER_DASHBOARD_WIDGET',
+                'RESOURCE'
+            ];
+
+        default:
+            return [];
+        }
+    }
+
+
+    /**
+     * Return a list of all known and optional fields
+     *
+     * @returns {string[]} List of field names
+     */
+    static getAllKnownFields() {
+        return Manifest.getRequiredFields().concat(Manifest.getOptionalFields());
+    }
+
+
+    /**
+     * Recursively check if the specified field has a value
+     *
+     * @param target The target object to check
+     * @param fields An array of field names to recurse into
+     * @returns {boolean} True if the field exists and is not empty
+     * @private
+     */
+    static _fieldIsSet(target, fields) {
+        if (Array.isArray(fields) &amp;&amp; fields.length > 1) {
+            const field = fields.shift();
+            return target &amp;&amp; target.hasOwnProperty(field) &amp;&amp; isPlainObject(target[field]) &amp;&amp; Manifest._fieldIsSet(target[field], fields);
+        }
+
+        return target[fields[0]];
+    }
+
+
+    /**
+     * Check if the specified fields on the target object exist and are not empty
+     *
+     * @param target The target object to check
+     * @param fieldNames A list of field names to check, in dot notation (field.subfield)
+     * @returns {string[]} A list of fields that are not present or have no value
+     * @private
+     */
+    static _fieldsAreSet(target, fieldNames) {
+        return fieldNames.filter(fieldName => {
+            if (fieldName.indexOf('.') > 0) {
+                const fields = fieldName.split('.');
+                const object = fields.shift();
+
+                return !(target.hasOwnProperty(object) &amp;&amp; Manifest._fieldIsSet(target[object], fields));
+            }
+
+            return !(target.hasOwnProperty(fieldName) &amp;&amp; target[fieldName] !== undefined &amp;&amp; target[fieldName] !== '');
+        })
+    }
+
+
+    /**
+     * Return a list of all available fields for the current manifest, with required fields sorted
+     * before optional ones
+     *
+     * @returns {string[]} List of field names
+     */
+    getAllEmptyFields() {
+        return Manifest._fieldsAreSet(this, Manifest.getRequiredFields())
+            .concat(Manifest._fieldsAreSet(this, Manifest.getOptionalFields()));
+    }
+
+
+    /**
+     * Return an array of fields that have values that don't pass validation
+     *
+     * @returns {string[]}
+     */
+    getInvalidFields() {
+        return Manifest
+            .getAllKnownFields()
+            .filter(field => {
+                const opts = Manifest.getOptionsForField(field);
+                return opts.length > 0 &amp;&amp; this.getFieldValue(field) != '' &amp;&amp; opts.indexOf(this.getFieldValue(field)) === -1;
+            });
+    }
+
+
+    /**
+     * Checks the current manifest against the list of required fields
+     *
+     * @returns {string[]} List of required fields that are missing
+     */
+    getMissingFields() {
+        return Manifest._fieldsAreSet(this, Manifest.getRequiredFields());
+    }
+
+
+    /**
+     * Return a list of all known optional fields that aren't specified for the current manifest
+     *
+     * @returns {string[]}
+     */
+    getEmptyOptionalFields() {
+        return Manifest._fieldsAreSet(this, Manifest.getOptionalFields());
+    }
+
+
+    /**
+     * Return a JSON representation of the current manifest
+     *
+     * @param {boolean} ugly If true, no extra spaces or newlines will be returned
+     */
+    getJSON(ugly) {
+        return JSON.stringify(this, null, ugly == true ? 0 : 2);
+    }
+
+
+    /**
+     * Write the JSON representation of the current manifest to a file
+     *
+     * @param {String} filename
+     * @param {boolean} ugly
+     */
+    write(filename, ugly) {
+        try {
+            fs.writeFileSync(filename, this.getJSON(ugly == true));
+        } catch (e) {
+            log.error('Failed to write to file:'.red, e.message);
+            throw e;
+        }
+    }
+
+
+    /**
+     * Read npm package data from the specified file, typically package.json
+     *
+     * @param filename
+     * @returns {{}}
+     */
+    static readPackageFile(filename) {
+        try {
+            const pkg = JSON.parse(fs.readFileSync(filename, 'utf8'));
+            const out = {};
+            if (pkg.name) out.name = pkg.name;
+            if (pkg.version) out.version = pkg.version;
+            if (pkg.description) out.description = pkg.description;
+            if (pkg.author) out.developer = Manifest.parseAuthor(pkg.author);
+
+            // Additional fields to support manifests as source
+            if (pkg.icons) out.icons = Object.assign({}, pkg.icons);
+            if (!out.developer &amp;&amp; pkg.developer) out.developer = Object.assign({}, pkg.developer);
+            if (pkg['launch_path']) out['launch_path'] = pkg['launch_path'];
+            if (pkg['default_locale']) out['default_locale'] = pkg['default_locale'];
+            if (pkg.activities) out.activities = Object.assign({}, pkg.activities);
+
+            if (pkg.hasOwnProperty('manifest.webapp')) {
+                Object.assign(out, pkg['manifest.webapp']);
+            }
+
+            return out;
+        }
+        catch (e) {
+            log.error('Failed to read package file:'.red, e.message);
+            process.exit(1);
+        }
+    }
+
+
+    /**
+     * Parse a "person field" as used by npm into an object consisting of
+     * name, email and url
+     *
+     * @param {String} str
+     * @returns {{name: String, email: String, url: String}}
+     */
+    static parseAuthor(str) {
+        if (isPlainObject(str)) {
+            return {
+                name: str.name,
+                email: str.email,
+                url: str.url
+            };
+        }
+
+        const author = getAuthorRegex().exec(str);
+        if (!author) return {};
+        const out = {name: author[1]};
+        if (author[2] &amp;&amp; author[2] !== '') out.email = author[2];
+        if (author[3] &amp;&amp; author[3] !== '') out.url = author[3];
+        return out;
+    }
+}
+
+module.exports = Manifest;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:02 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

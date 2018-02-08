@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EditModel/stepper/stepper.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">EditModel/stepper/stepper.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// TODO: Move this to d2-ui
+import React from 'react';
+import Stepper from 'material-ui/Stepper/Stepper';
+import StepButton from 'material-ui/Stepper/StepButton';
+import StepContent from 'material-ui/Stepper/StepContent';
+import Step from 'material-ui/Stepper/Step';
+import IconButton from 'material-ui/IconButton/IconButton';
+import ForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward';
+import BackwardIcon from 'material-ui/svg-icons/navigation/arrow-back';
+import Translate from 'd2-ui/lib/i18n/Translate.component';
+import log from 'loglevel';
+import { isString } from 'lodash/fp';
+import { isNumber } from 'lodash/fp';
+
+// TODO: Redux helpers, leave these here
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+function isActiveStep(activeStep, step, index) {
+    if (isString(activeStep)) {
+        return activeStep === step.key;
+    }
+
+    return activeStep === index;
+}
+
+/**
+ * Create a Stepper component from a configuration object.
+ *
+ * @param {Array} stepperConfig Config array that defines the steps that should be shown.
+ * @param {String} [orientation='horizontal'] The orientation in which to render the Stepper.
+ *
+ * @returns {ReactComponent} A React component that will render the steps as defined by the `stepperConfig`
+ *
+ * @example
+ * ```
+ * const steps = [
+ *      { key: 'first', name: 'First step!' },
+ *      { key: 'last', name: 'My last step!' },
+ * ];
+ * const MyStepperComponent = createStepperFromConfig(steps)
+ *
+ * // &lt;MyStepperComponent activeStep={activeStep.key} />
+ * ```
+ */
+export const createStepperFromConfig = (stepperConfig, orientation = 'horizontal') => ({ activeStep, stepperClicked, disabled, ...props }) => {
+    const getStepChildren = (step) => {
+        const stepChildren = [];
+
+        stepChildren.push(&lt;StepButton key="button" onClick={() => stepperClicked(step.key)}>&lt;Translate>{step.name}&lt;/Translate>&lt;/StepButton>);
+
+        if (step.content) {
+            stepChildren.push(&lt;StepContent key="content">&lt;step.content {...props} />&lt;/StepContent>);
+        }
+
+        return stepChildren;
+    };
+
+    return (
+        &lt;Stepper linear={false} orientation={orientation} activeStep={isNumber(activeStep) ? activeStep : undefined}>
+            {stepperConfig.map((step, index) => (
+                &lt;Step key={step.key} active={isActiveStep(activeStep, step, index)} disabled={!!disabled}>
+                    {getStepChildren(step)}
+                &lt;/Step>
+            ))}
+        &lt;/Stepper>
+    );
+};
+
+/**
+ * Create a StepperContent component from a configuration object. The StepperContent component renders the content that
+ * belongs to the current `activeStep`. When the config does not specify a `component` property for the current active
+ * step a warning is logged and `null` is rendered.
+ * The `component` is passed all the props passed to the StepperContent.
+ *
+ * @param {Array} stepperConfig Config array that defines the steps and the components that should be rendered for the
+ * currently active step.
+ *
+ * @returns {ReactComponent} A React component that will render the `component` property of the currently active step.
+ */
+export const createStepperContentFromConfig = (stepperConfig) => ({ activeStep, ...props }) => {
+    const step = stepperConfig.find(stepConfig => stepConfig.key === activeStep);
+
+    if (step &amp;&amp; step.component) {
+        return &lt;step.component {...props} />;
+    }
+
+    if (activeStep) {
+        log.warn(`Could not find a content component for a step with key (${activeStep}) in`, stepperConfig);
+    } else {
+        log.warn('The `activeStep` prop is undefined, therefore the component created by `createStepperContentFromConfig` will render null');
+    }
+
+    return null;
+};
+
+export function StepperNavigationBack({ onBackClick }) {
+    return (
+        &lt;IconButton onClick={onBackClick}>
+            &lt;BackwardIcon />
+        &lt;/IconButton>
+    );
+}
+
+export function StepperNavigationForward({ onForwardClick }) {
+    return (
+        &lt;IconButton onClick={onForwardClick}>
+            &lt;ForwardIcon />
+        &lt;/IconButton>
+    );
+}
+
+export function createStepperNavigation(BackwardButton, ForwardButton) {
+    const styles = {
+        buttons: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            padding: '4rem 1rem 1rem',
+        },
+    };
+
+    const StepperNavigation = ({ children }) => (
+        &lt;div style={styles.buttons}>
+            &lt;BackwardButton />
+            {children}
+            &lt;ForwardButton />
+        &lt;/div>
+        );
+
+    return StepperNavigation;
+}
+
+// ////////////////////////////////////////////////////////////////
+// Redux specfic helpers, don't move to
+
+const mapDispatchToProps = actionCreators => dispatch => bindActionCreators(actionCreators, dispatch);
+
+export const createConnectedForwardButton = nextStepActionCreator => connect(undefined, mapDispatchToProps({ onForwardClick: nextStepActionCreator }))(StepperNavigationForward);
+export const createConnectedBackwardButton = previousStepAcionCreator => connect(undefined, mapDispatchToProps({ onBackClick: previousStepAcionCreator }))(StepperNavigationBack);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:17 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

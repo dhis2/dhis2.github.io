@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/forms/FormValidator.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="AsyncValidatorRunner.html">AsyncValidatorRunner</a><ul class='methods'><li data-type='method'><a href="AsyncValidatorRunner.html#.create">create</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#listenToValidatorsFor">listenToValidatorsFor</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#run">run</a></li></ul></li><li><a href="ControlBar.html">ControlBar</a></li><li><a href="FormField.html">FormField</a></li><li><a href="Sharing.html">Sharing</a></li><li><a href="SharingDialog.html">SharingDialog</a></li></ul><h3>Modules</h3><ul><li><a href="module-lib_utils.html">lib/utils</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addValueRenderer">addValueRenderer</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createActionsFromNames">createActionsFromNames</a></li><li><a href="global.html#decrementMemberCount">decrementMemberCount</a></li><li><a href="global.html#findValueRenderer">findValueRenderer</a></li><li><a href="global.html#forEachOnPath">forEachOnPath</a></li><li><a href="global.html#getAllObjectsWithFields">getAllObjectsWithFields</a></li><li><a href="global.html#getSearchResultsHeight">getSearchResultsHeight</a></li><li><a href="global.html#incrementMemberCount">incrementMemberCount</a></li><li><a href="global.html#mergeChildren">mergeChildren</a></li><li><a href="global.html#removeMenuManagementModule">removeMenuManagementModule</a></li><li><a href="global.html#runValidatorFunctions">runValidatorFunctions</a></li><li><a href="global.html#selector">selector</a></li><li><a href="global.html#typeDetails">typeDetails</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/forms/FormValidator.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Rx from 'rxjs';
+import log from 'loglevel';
+import { isFunction } from 'lodash/fp';
+
+export const FormFieldStatuses = {
+    VALID: 'VALID',
+    INVALID: 'INVALID',
+    VALIDATING: 'VALIDATING',
+};
+
+function identity(val) {
+    return val;
+}
+
+function getAllPromiseValues(promises) {
+    return Promise.all(promises.map(promise => promise.then(identity, identity)));
+}
+
+function validatorRunner(fieldName, fieldValue, formSource) {
+    return function runValidator(validator) {
+        let result;
+
+        try {
+            result = validator(fieldValue, fieldName, formSource);
+        } catch (e) {
+            log.debug(`Validator for '${fieldName}' ignored because the validator threw an error.`);
+            log.debug(`${validator}`);
+            log.debug(e.message);
+            return Promise.resolve(true);
+        }
+
+        if (result === false) {
+            return Promise.reject(validator.message);
+        }
+
+        return Promise.resolve(result);
+    };
+}
+
+function awaitAsyncValidators(accumulator, validatorPromise, index, validators) {
+    if (validatorPromise) {
+        accumulator.push(validatorPromise);
+    }
+
+    if (validators.length === 0 || validators.length === (index + 1)) {
+        return getAllPromiseValues(accumulator);
+    }
+    return accumulator;
+}
+
+function grabErrorMessages(validationStatuses) {
+    return validationStatuses.filter(s => s !== true);
+}
+
+function getFieldStatus(statusMessages = []) {
+    return {
+        status: statusMessages.length === 0 ? FormFieldStatuses.VALID : FormFieldStatuses.INVALID,
+        messages: statusMessages,
+    };
+}
+
+export default function createFormValidator(fieldConfigs = [], scheduler) {
+    const validatorQueue = new Rx.Subject();
+    const statusSubject = new Rx.ReplaySubject(1);
+    const initialStatuses = fieldConfigs
+        .filter(fieldConfig => Array.isArray(fieldConfig.validators) &amp;&amp; fieldConfig.validators.length > 0)
+        .map(fc => [fc.name, { status: FormFieldStatuses.VALID, messages: [] }]);
+    const formFieldStatuses = new Map(initialStatuses);
+
+    const validatorQueues = new Map(initialStatuses.map(([name]) => [name, new Rx.Subject()]));
+    Array.from(validatorQueues.values())
+        .forEach((validatorObservable) => {
+            validatorObservable
+                .debounceTime(300, scheduler)
+                .map(({ fieldName, fieldValue, formSource }) => {
+                    const fieldConfig = fieldConfigs
+                        .filter(fc => fc.name === fieldName)
+                        .shift();
+
+                    validatorQueue.next(Promise.resolve({ fieldName, fieldStatus: { status: FormFieldStatuses.VALIDATING, messages: [] } }));
+
+                    const validatorToRun = fieldConfig.validators
+                        .filter((validator) => {
+                            if (!isFunction(validator)) {
+                                log.warn(`Warning: One of the validators for '${fieldName}' is not a function.`);
+                                return false;
+                            }
+                            return isFunction(validator);
+                        })
+                        .map(validatorRunner(fieldName, fieldValue, formSource));
+
+                    if (!validatorToRun.length) {
+                        return Promise.resolve({
+                            fieldName,
+                            fieldStatus: getFieldStatus(),
+                        });
+                    }
+
+                    return validatorToRun
+                        .reduce(awaitAsyncValidators, [])
+                        .then(grabErrorMessages)
+                        .then(errorMessages => ({
+                            fieldName,
+                            fieldStatus: getFieldStatus(errorMessages),
+                        }))
+                        .catch(log.error);
+                })
+                .concatAll()
+                .subscribe(({ fieldName, fieldStatus }) => {
+                    formFieldStatuses.set(fieldName, fieldStatus);
+                    statusSubject.next(formFieldStatuses);
+                });
+        });
+
+    validatorQueue
+        .concatAll()
+        .subscribe((fieldValidatorStatus) => {
+            const { fieldName, fieldStatus } = fieldValidatorStatus;
+            formFieldStatuses.set(fieldName, fieldStatus);
+            statusSubject.next(formFieldStatuses);
+        });
+
+    const formValidator = {
+        status: statusSubject
+            .debounceTime(100),
+
+        setStatus(status) {
+            statusSubject.next(status);
+        },
+
+        /**
+         * Start a validation run for a specific field with a provided value. This runs sync and async validators
+         * and reports the status back using the `formValidator.status` observable.
+         *
+         * @param {String} fieldName Name of the field to run the validator for.
+         * @param {String} fieldValue Value of the field to run the validator for.
+         * @returns {boolean} Returns true when a validator run has started, otherwise false.
+         *
+         * @example
+         * ```js
+         *   formValidator.runFor('name', 'Mark');
+         * ```
+         */
+        runFor(fieldName, fieldValue, formSource) {
+            if (validatorQueues.has(fieldName)) {
+                validatorQueues.get(fieldName).next({ fieldName, fieldValue, formSource });
+                return true;
+            }
+            return false;
+        },
+
+        /**
+         * Returns the current status for the passed field.
+         *
+         * @param {String} fieldName Name of the field. Generally this is the `name` property on the `fieldConfig`
+         * @returns {Object} Status object with a `status` and a `messages` property.
+         *
+         * @example
+         * ```js
+         *   formValidator.getStatusFor('password')
+         *   // {
+         *   //   status: FormFieldStatuses.VALID,
+         *   //   messages: []
+         *   // }
+         * ```
+         */
+        getStatusFor(fieldName) {
+            if (formFieldStatuses.has(fieldName)) {
+                return formFieldStatuses.get(fieldName);
+            }
+
+            return {
+                status: FormFieldStatuses.VALID,
+                messages: [],
+            };
+        },
+    };
+
+    return formValidator;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 13:55:14 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
