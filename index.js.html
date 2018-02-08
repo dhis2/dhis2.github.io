@@ -72,7 +72,7 @@ const docsubject = new Rx.Subject()
 docsubject
 .scan((acc, curr) => acc.concat([curr]), [])
 .subscribe(apps => {
-        console.log(`Completed ${apps.length}/${generateFrom.length}`)
+        console.log(`[DOCGEN] Completed ${apps.length}/${generateFrom.length}`)
         if (apps.length === generateFrom.length) {
             console.log('All done, proceed to generate the index...')
             generateIndex(apps, docsubject)
@@ -100,8 +100,8 @@ const repo$ = Rx.Observable
 const target$ = clone(publishTo)
     .concat(repo$)
     .subscribe(
-        e => console.log('Finished cloning', e), 
-        e => console.error('Error cloning', e)) //  katyperry mode
+        e => console.log('[CLONE] Finished cloning', e), 
+        e => console.error('[CLONE] Error cloning', e)) //  katyperry mode
      
 
 
@@ -117,7 +117,7 @@ function clone(url) {
     }
 
     const repo = Git.Clone(url, dir, opts) 
-    console.log('Attempt repo', url, dir)
+    console.log('[CLONE] Attempt repo', url, dir)
     return Rx.Observable.fromPromise(repo)
 }
 
@@ -163,7 +163,7 @@ function generateIndex(apps = [], subject) {
 
     fs.writeFile(index, t, (err) => {
         if (err) throw err;
-        console.log('The file has been saved!');
+        console.log('[INDEX] The file has been saved!');
         const args = [
             '.',
             '--destination', dest,
@@ -182,7 +182,7 @@ function generateIndex(apps = [], subject) {
         )
         .subscribe(
             x => console.log('[INDEX]', decoder.write(x)),
-            x => console.error('[failure]', x),
+            x => console.error('[INDEX] failure:', x),
             _ => subject.complete()
         )
     });
@@ -307,10 +307,11 @@ function pushIt(name) {
 	.then(function(repo) {
         repository = repo
 		const sig = repo.defaultSignature()
-        const msg =
+        const msg = // whitespace inside template strings affect the commit msg, so align to left
 `Update docs: ${new Date().toUTCString()}
 
 List of apps used to generate docs:
+
 ${generateFrom.join('\n')}
 `
 		return repo.createCommitOnHead(files, sig, sig, msg)
@@ -353,7 +354,7 @@ ${generateFrom.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Thu Feb 08 2018 15:23:05 GMT+0100 (CET)
+    Documentation generated at Thu Feb 08 2018 15:26:34 GMT+0100 (CET)
 </footer>
 
 <script>prettyPrint();</script>
