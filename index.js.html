@@ -78,7 +78,7 @@ docsubject
             generateIndex(apps, docsubject)
         }
     },
-    console.error, 
+    e => console.error('Problem!', e), 
     _ => pushIt(repoName(publishTo)) // when the subject completes, push the changes
 )
 
@@ -93,27 +93,33 @@ docsubject
  * process the index generation until all subprocesses have completed.
  */
 const repo$ = Rx.Observable
-    .from(generateFrom.concat([publishTo]))
-    .mergeMap(url => {
-        const dir = path.join(__dirname, buildDir, repoName(url))
-        const opts = {
-            fetchOpts: {
-                callbacks: {
-                    certificateCheck: () => 1,  // for macosx?
-                    credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
-                }
-            }
-        }
-
-        const repo = Git.Clone(url, dir, opts) 
-        return Rx.Observable.fromPromise(repo)
-    })
-    .filter(repo => repoName(repo.path()) !== repoName(publishTo))
+    .from(generateFrom)
+    .mergeMap(url => clone(url))
     .map(repo => generateDoc(repo, docsubject))
-    .subscribe(console.log, console.error) //  katyperry mode
+
+const target$ = clone(publishTo)
+    .concat(repo$)
+    .subscribe(
+        e => console.log('Finished cloning', e), 
+        e => console.error('Error cloning', e)) //  katyperry mode
      
 
 
+function clone(url) {
+    const dir = path.join(__dirname, buildDir, repoName(url))
+    const opts = {
+        fetchOpts: {
+            callbacks: {
+                certificateCheck: () => 1,  // for macosx?
+                credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
+            }
+        }
+    }
+
+    const repo = Git.Clone(url, dir, opts) 
+    console.log('Attempt repo', url, dir)
+    return Rx.Observable.fromPromise(repo)
+}
 
 
 
@@ -301,7 +307,7 @@ function pushIt(name) {
 	.then(function(repo) {
         repository = repo
 		const sig = repo.defaultSignature()
-		return repo.createCommitOnHead(files, sig, sig, "shakalaka")
+		return repo.createCommitOnHead(files, sig, sig, `Update docs: $(new Date().toUTCString())`)
 	})
 
     .then(function() {
@@ -322,7 +328,7 @@ function pushIt(name) {
     })
 
     .catch(function(reason) {
-        console.log(reason);
+        console.log('Git fail', reason, repo);
     })
         
     .done(function() {
@@ -341,7 +347,7 @@ function pushIt(name) {
 <br class="clear">
 
 <footer>
-    Documentation generated at Thu Feb 08 2018 13:55:17 GMT+0100 (CET)
+    Documentation generated at Thu Feb 08 2018 15:10:39 GMT+0100 (CET)
 </footer>
 
 <script>prettyPrint();</script>
