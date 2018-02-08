@@ -74,11 +74,11 @@ docsubject
 .subscribe(apps => {
         console.log(`[DOCGEN] Completed ${apps.length}/${generateFrom.length}`)
         if (apps.length === generateFrom.length) {
-            console.log('All done, proceed to generate the index...')
+            console.log('[DOCGEN] All done, proceed to generate the index...')
             generateIndex(apps, docsubject)
         }
     },
-    e => console.error('Problem generating Index', e),
+    e => console.error('[DOCGEN] Problem generating Index', e),
     _ => pushIt(repoName(publishTo)) // when the subject completes, push the changes
 )
 
@@ -179,8 +179,8 @@ function generateIndex(apps = [], subject) {
             readableStream(spawned.stderr)
         )
         .subscribe(
-            x => console.log('[INDEX]', decoder.write(x)),
-            x => console.error('[INDEX] failure:', x),
+            x => console.log('[JSDOC:INDEX]', decoder.write(x)),
+            x => console.error('[JSDOC:INDEX] failure:', x),
             _ => subject.complete()
         )
     });
@@ -228,7 +228,7 @@ function generateDoc (repo, subject) {
         '--verbose'
     ]
 
-    console.log(`[${name}] cmd: `, args.join(' '))
+    console.log(`[JSDOC:${name}] cmd: `, args.join(' '))
         
     const spawned = spawn('./node_modules/.bin/jsdoc', args, { stdio: 'pipe' })
 
@@ -238,8 +238,8 @@ function generateDoc (repo, subject) {
         readableStream(spawned.stderr)
     )
     .subscribe(
-        x => console.log(`[${name}]`, decoder.write(x)),
-        x => console.error('[failure]', x),
+        x => console.log(`[JSDOC:${name}]`, decoder.write(x)),
+        x => console.error('[JSDOC] failure:', x),
         _ => subject.next(name)
     ) 
     return name
@@ -352,7 +352,7 @@ ${generateFrom.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Thu Feb 08 2018 15:33:59 GMT+0100 (CET)
+    Documentation generated at Thu Feb 08 2018 15:37:29 GMT+0100 (CET)
 </footer>
 
 <script>prettyPrint();</script>
