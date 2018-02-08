@@ -11,13 +11,13 @@
 
 
 ## Apps
-* [user-app](user-app)
 * [scheduler-app](scheduler-app)
-* [d2-tracker](d2-tracker)
+* [user-app](user-app)
 * [capture-app](capture-app)
+* [d2-tracker](d2-tracker)
 * [maps-app](maps-app)
-* [maintenance-app](maintenance-app)
 * [dashboards-app](dashboards-app)
+* [maintenance-app](maintenance-app)
 
 
 ## Utilities
