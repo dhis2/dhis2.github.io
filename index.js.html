@@ -78,11 +78,9 @@ docsubject
             generateIndex(apps, docsubject)
         }
     },
-    e => console.error('Problem generating Index', e), 
+    e => console.error('Problem generating Index', e),
     _ => pushIt(repoName(publishTo)) // when the subject completes, push the changes
 )
-
-
 
 
 
@@ -100,7 +98,7 @@ const repo$ = Rx.Observable
 const target$ = clone(publishTo)
     .concat(repo$)
     .subscribe(
-        e => console.log('[CLONE] Finished cloning', e), 
+        e => console.log('[CLONE] Finished cloning', e),
         e => console.error('[CLONE] Error cloning', e)) //  katyperry mode
      
 
@@ -116,7 +114,7 @@ function clone(url) {
         }
     }
 
-    const repo = Git.Clone(url, dir, opts) 
+    const repo = Git.Clone(url, dir, opts)
     console.log('[CLONE] Attempt repo', url, dir)
     return Rx.Observable.fromPromise(repo)
 }
@@ -337,7 +335,7 @@ ${generateFrom.join('\n')}
     .catch(function(reason) {
         console.log('[Git] FAIL', reason, repository);
     })
-        
+
     .done(function() {
         console.log("[Git] push to remote origin complete...");
     })
@@ -354,7 +352,7 @@ ${generateFrom.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Thu Feb 08 2018 15:26:34 GMT+0100 (CET)
+    Documentation generated at Thu Feb 08 2018 15:33:59 GMT+0100 (CET)
 </footer>
 
 <script>prettyPrint();</script>
