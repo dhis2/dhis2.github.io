@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>util.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-reducers_controlBar.html">reducers/controlBar</a><ul class='methods'><li data-type='method'><a href="module-reducers_controlBar.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_controlBar.html#~rows">rows</a></li></ul></li><li><a href="module-reducers_dashboards.html">reducers/dashboards</a><ul class='methods'><li data-type='method'><a href="module-reducers_dashboards.html#.getCustomDashboards">getCustomDashboards</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetById">sGetById</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_editDashboard.html">reducers/editDashboard</a></li><li><a href="module-reducers_interpretations.html">reducers/interpretations</a></li><li><a href="module-reducers_selected.html">reducers/selected</a><ul class='methods'><li data-type='method'><a href="module-reducers_selected.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_selected.html#~id">id</a></li><li data-type='method'><a href="module-reducers_selected.html#~style">style</a></li></ul></li><li><a href="module-reducers_visualizations.html">reducers/visualizations</a></li></ul><h3>Global</h3><ul><li><a href="global.html#sortByDate">sortByDate</a></li><li><a href="global.html#tDeleteInterpretation">tDeleteInterpretation</a></li><li><a href="global.html#tPostInterpretation">tPostInterpretation</a></li><li><a href="global.html#withShape">withShape</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">util.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import isObject from 'd2-utilizr/lib/isObject';
+
+// validation
+export function orNull(param) {
+    return param === undefined ? null : param;
+}
+
+export function orArray(param) {
+    return Array.isArray(param) ? param : [];
+}
+
+export function orObject(param) {
+    return isObject(param) ? param : {};
+}
+
+// array
+export function arrayGetById(array, id) {
+    return array.find(item => item.id === id);
+}
+
+// object
+export function arrayToIdMap(array) {
+    return array.reduce((obj, item) => {
+        obj[item.id] = item;
+        return obj;
+    }, {});
+}
+
+// date
+export function getDate() {
+    const y = Math.floor(Math.random() * 3) + 2015;
+    const M = Math.floor(Math.random() * 12) + 1;
+    const d = Math.floor(Math.random() * 28) + 1;
+    // const h = Math.floor(Math.random() * 23) + 1;
+    // const m = Math.floor(Math.random() * 59) + 1;
+    // const s = Math.floor(Math.random() * 59) + 1;
+
+    return new Date(`${y}-${M}-${d}`)
+        .toJSON()
+        .replace('T', ' ')
+        .substr(0, 10);
+}
+
+export const formatDate = (value, uiLocale) => {
+    if (typeof global.Intl !== 'undefined' &amp;&amp; Intl.DateTimeFormat) {
+        const locale = uiLocale || 'en';
+        return new Intl.DateTimeFormat(locale, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        }).format(new Date(value));
+    }
+
+    return value.substr(0, 19).replace('T', ' ');
+};
+
+/**
+ * Sorts an array of objects based on provided date property
+ *
+ * @param {Array} items Array of objects
+ * @param {String} dateProp Name of the date property to be used for sorting
+ * @param {Boolean} ascending Whether to sort ascending or descending
+ */
+export const sortByDate = (items, dateProp, ascending = true) => {
+    const values = Object.values(items);
+
+    values.sort((a, b) => {
+        const aDate = new Date(a[dateProp]);
+        const bDate = new Date(b[dateProp]);
+
+        return ascending ? aDate - bDate : bDate - aDate;
+    });
+
+    return values;
+};
+
+// reducer validator
+export const validateReducer = (value, defaultValue) =>
+    value === undefined || value === null ? defaultValue : value;
+
+export const getBaseUrl = d2 => {
+    const api = d2.Api.getApi();
+    const idx = api.baseUrl.indexOf('/api');
+    return idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 15:23:05 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

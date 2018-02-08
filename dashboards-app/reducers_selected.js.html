@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>reducers/selected.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-reducers_controlBar.html">reducers/controlBar</a><ul class='methods'><li data-type='method'><a href="module-reducers_controlBar.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_controlBar.html#~rows">rows</a></li></ul></li><li><a href="module-reducers_dashboards.html">reducers/dashboards</a><ul class='methods'><li data-type='method'><a href="module-reducers_dashboards.html#.getCustomDashboards">getCustomDashboards</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetById">sGetById</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_editDashboard.html">reducers/editDashboard</a></li><li><a href="module-reducers_interpretations.html">reducers/interpretations</a></li><li><a href="module-reducers_selected.html">reducers/selected</a><ul class='methods'><li data-type='method'><a href="module-reducers_selected.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_selected.html#~id">id</a></li><li data-type='method'><a href="module-reducers_selected.html#~style">style</a></li></ul></li><li><a href="module-reducers_visualizations.html">reducers/visualizations</a></li></ul><h3>Global</h3><ul><li><a href="global.html#sortByDate">sortByDate</a></li><li><a href="global.html#tDeleteInterpretation">tDeleteInterpretation</a></li><li><a href="global.html#tPostInterpretation">tPostInterpretation</a></li><li><a href="global.html#withShape">withShape</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">reducers/selected.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module reducers/selected */
+import { combineReducers } from 'redux';
+
+import { validateReducer } from '../util';
+
+export const actionTypes = {
+    SET_SELECTED_ID: 'SET_SELECTED_ID',
+    SET_SELECTED_ISLOADING: 'SET_SELECTED_ISLOADING',
+    SET_SELECTED_SHOWDESCRIPTION: 'SET_SELECTED_SHOWDESCRIPTION',
+};
+
+export const DEFAULT_SELECTED_ID = null;
+export const DEFAULT_SELECTED_ISLOADING = false;
+export const DEFAULT_SELECTED_SHOWDESCRIPTION = false;
+
+/**
+ * Reducer functions that computes and returns the new state based on the given action
+ * @function
+ * @param {Object} state The current state
+ * @param {Object} action The action to be evaluated
+ */
+const id = (state = DEFAULT_SELECTED_ID, action) => {
+    switch (action.type) {
+        case actionTypes.SET_SELECTED_ID:
+            return validateReducer(action.value, DEFAULT_SELECTED_ID);
+        default:
+            return state;
+    }
+};
+
+const isLoading = (state = DEFAULT_SELECTED_ISLOADING, action) => {
+    switch (action.type) {
+        case actionTypes.SET_SELECTED_ISLOADING:
+            return validateReducer(action.value, DEFAULT_SELECTED_ISLOADING);
+        default:
+            return state;
+    }
+};
+
+const showDescription = (state = DEFAULT_SELECTED_SHOWDESCRIPTION, action) => {
+    switch (action.type) {
+        case actionTypes.SET_SELECTED_SHOWDESCRIPTION:
+            return validateReducer(
+                action.value,
+                DEFAULT_SELECTED_SHOWDESCRIPTION
+            );
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    id,
+    isLoading,
+    showDescription,
+});
+
+// Selector level 1
+export const sGetFromState = state => state.selected;
+
+// Selector dependency level 2
+
+export const sGetSelectedId = state => sGetFromState(state).id;
+
+export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading;
+
+export const sGetSelectedShowDescription = state =>
+    sGetFromState(state).showDescription;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Thu Feb 08 2018 15:23:05 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
