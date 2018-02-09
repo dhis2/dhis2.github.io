@@ -42,8 +42,6 @@
  * @module docs-generator
  *
  * @todo pull in examples from d2-ui and host them
- * @todo split generateFrom array to different sections (libs, apps,
- * utils)
  */
 const {
     generateFrom, publishTo, buildDir, sshPublicKeyPath, sshPrivateKeyPath
@@ -59,7 +57,7 @@ const Rx = require('rxjs/Rx')
 const Git = require('nodegit')
 
 
-
+const allRepos = [].concat(generateFrom.apps, generateFrom.libs, generateFrom.utils)
 
 
 /**
@@ -74,8 +72,8 @@ const docsubject = new Rx.Subject()
 docsubject
 .scan((acc, curr) => acc.concat([curr]), [])
 .subscribe(apps => {
-        console.log(`[DOCGEN] Completed ${apps.length}/${generateFrom.length}`)
-        if (apps.length === generateFrom.length) {
+        console.log(`[DOCGEN] Completed ${apps.length}/${allRepos.length}`)
+        if (apps.length === allRepos.length) {
             console.log('[DOCGEN] All done, proceed to generate the index...')
             generateIndex(apps, docsubject)
         }
@@ -91,9 +89,13 @@ docsubject
  * Kick it. Uses the global subject in each spawned subprocess to
  * capture the completion of the subprocess so we do not start to
  * process the index generation until all subprocesses have completed.
+ * 
+ * We want to first clone the `publishTo` repo to make sure it exists
+ * before cloning all the `generateFrom` repos concurrently, which is
+ * why we concat the repo$ on the target$.
  */
 const repo$ = Rx.Observable
-    .from(generateFrom)
+    .from(allRepos)
     .mergeMap(url => clone(url))
     .map(repo => generateDoc(repo, docsubject))
 
@@ -135,22 +137,16 @@ function generateIndex(apps = [], subject) {
     const index = path.join(__dirname, buildDir, repoName(publishTo), 'README.md')
     const dest = path.join(__dirname, buildDir, repoName(publishTo))
 
-	const libs = ['d2', 'd2-ui']
-	const utils = ['eslint-config-dhis2', 'd2-manifest']
-	const docs = ['wow-frontend']
-
     const appList = apps
-		.filter(a => libs.indexOf(a) === -1)
-		.filter(a => utils.indexOf(a) === -1)
-		.filter(a => docs.indexOf(a) === -1)
+		.filter(a => generateFrom.apps.indexOf(a) === -1)
 		.map(app => `* [${app}](${app})`).join('\n')
 
     const libList = apps
-		.filter(a => libs.indexOf(a) !== -1)
+		.filter(a => generateFrom.libs.indexOf(a) !== -1)
 		.map(lib => `* [${lib}](${lib})`).join('\n')
 
     const utilList = apps
-		.filter(a => utils.indexOf(a) !== -1)
+		.filter(a => generateFrom.utils.indexOf(a) !== -1)
 		.map(util => `* [${util}](${util})`).join('\n')
 
 	const t = template({
@@ -312,7 +308,7 @@ function pushIt(name) {
 
 List of apps used to generate docs:
 
-${generateFrom.join('\n')}
+${allRepos.join('\n')}
 `
 		return repo.createCommitOnHead(files, sig, sig, msg)
 	})
@@ -353,7 +349,7 @@ ${generateFrom.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Fri Feb 09 2018 08:11:27 GMT+0000 (UTC)
+    Documentation generated at Fri Feb 09 2018 09:17:01 GMT+0100 (STD)
 </footer>
 
 <script>prettyPrint();</script>
