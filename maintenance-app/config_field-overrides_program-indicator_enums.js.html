@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>router-utils.js - Postman Documentation</title>
+    <title>config/field-overrides/program-indicator/enums.js - Postman Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">router-utils.js</h1>
+    <h1 class="page-title">config/field-overrides/program-indicator/enums.js</h1>
     
 
     
@@ -38,38 +38,25 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { hashHistory } from 'react-router';
-
-export function goToRoute(url) {
-    hashHistory.push(url);
-}
-
-export function goToAndScrollUp(url) {
-    goToRoute(url);
-    global.scrollTo &amp;&amp; global.scrollTo(0, 0);
-}
-
-export function goBack() {
-    hashHistory.goBack();
-}
-
-/**
- * @param {Object} query
+            <pre class="prettyprint source linenums"><code>/**
+ * There are enums in this file which are not exposed over the schemas
+ * and need to correspond to the enums in the Java implementation. This
+ * should be refactored so that the backend exposes the values to the
+ * client along with the schema so the client does not need to maintain
+ * a list of valid properties towards the backend.
+ *
+ * The enums can be found in `dhis2-core`:
+ * - AnalyticsPeriodBoundary.java
+ * - AnalyticsPeriodBoundaryType.java
  */
-export const addQuery = (query) => {
-    const location = Object.assign({}, hashHistory.getCurrentLocation());
-    Object.assign(location.query, query);
-    hashHistory.push(location);
-};
 
-/**
- * @param {...String} queryNames
- */
-export const removeQuery = (...queryNames) => {
-    const location = Object.assign({}, hashHistory.getCurrentLocation());
-    queryNames.forEach(q => delete location.query[q]);
-    hashHistory.push(location);
-};
+export const BEFORE_START_OF_REPORTING_PERIOD = 'BEFORE_START_OF_REPORTING_PERIOD'
+export const BEFORE_END_OF_REPORTING_PERIOD = 'BEFORE_END_OF_REPORTING_PERIOD'
+export const AFTER_START_OF_REPORTING_PERIOD = 'AFTER_START_OF_REPORTING_PERIOD'
+export const AFTER_END_OF_REPORTING_PERIOD = 'AFTER_END_OF_REPORTING_PERIOD'
+export const INCIDENT_DATE = 'INCIDENT_DATE'
+export const EVENT_DATE = 'EVENT_DATE'
+export const ENROLLMENT_DATE = 'ENROLLMENT_DATE'
 </code></pre>
         </article>
     </section>

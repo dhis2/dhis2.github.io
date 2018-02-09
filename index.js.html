@@ -42,6 +42,8 @@
  * @module docs-generator
  *
  * @todo pull in examples from d2-ui and host them
+ * @todo split generateFrom array to different sections (libs, apps,
+ * utils)
  */
 const {
     generateFrom, publishTo, buildDir, sshPublicKeyPath, sshPrivateKeyPath
@@ -301,8 +303,8 @@ function pushIt(name) {
     let repository
     let remote
 
-	Git.Repository.open(dir)
-	.then(function(repo) {
+	Rx.Observable.from(Git.Repository.open(dir))
+	.mergeMap(function(repo) {
         repository = repo
 		const sig = repo.defaultSignature()
         const msg = // whitespace inside template strings affect the commit msg, so align to left
@@ -315,30 +317,29 @@ ${generateFrom.join('\n')}
 		return repo.createCommitOnHead(files, sig, sig, msg)
 	})
 
-    .then(function() {
+    .mergeMap(function() {
         return repository.getRemote('origin')
-            .then(function(remoteResult) {
-                remote = remoteResult;
-
-                return remote.push(
-                    ["refs/heads/master:refs/heads/master"],
-                    {
-                        callbacks: {
-                            certificateCheck: () => 1,
-                            credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
-                        }
-                    }
-                );
-            });
     })
 
-    .catch(function(reason) {
-        console.log('[Git] FAIL', reason, repository);
+    .mergeMap(function(remoteResult) {
+        remote = remoteResult;
+
+        return remote.push(
+            ["refs/heads/master:refs/heads/master"],
+            {
+                callbacks: {
+                    certificateCheck: () => 1,
+                    credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
+                }
+            }
+        );
     })
 
-    .done(function() {
-        console.log("[Git] push to remote origin complete...");
-    })
+    .subscribe(
+        result => console.log('[Git] Success!', result),
+        reason  => console.log('[Git] FAIL', reason, repository),
+        _ => console.log("[Git] push to remote origin complete...")
+    )
 }
 </code></pre>
         </article>
@@ -352,7 +353,7 @@ ${generateFrom.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Thu Feb 08 2018 15:42:25 GMT+0000 (UTC)
+    Documentation generated at Fri Feb 09 2018 09:00:41 GMT+0100 (STD)
 </footer>
 
 <script>prettyPrint();</script>
