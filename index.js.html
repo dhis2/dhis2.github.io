@@ -294,13 +294,13 @@ const getFilesRecursively = (pth) => {
  */
 function pushIt(name) {
     const dir = path.join(__dirname, buildDir, name) 
-	const files = getFilesRecursively(dir).map(str => str.replace(dir+'/',''))
+    const files = getFilesRecursively(dir).map(str => str.replace(dir+'/',''))
 
     let repository
     let remote
 
-	Rx.Observable.from(Git.Repository.open(dir))
-	.mergeMap(function(repo) {
+    Rx.Observable.from(Git.Repository.open(dir))
+    .mergeMap(function(repo) {
         repository = repo
 		const sig = repo.defaultSignature()
         const msg = // whitespace inside template strings affect the commit msg, so align to left
@@ -349,7 +349,7 @@ ${allRepos.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Fri Feb 09 2018 08:32:04 GMT+0000 (UTC)
+    Documentation generated at Fri Feb 09 2018 08:41:44 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
