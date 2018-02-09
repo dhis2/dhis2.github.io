@@ -16,13 +16,13 @@
 * [capture-app](capture-app)
 * [d2-tracker](d2-tracker)
 * [maps-app](maps-app)
-* [maintenance-app](maintenance-app)
 * [dashboards-app](dashboards-app)
+* [maintenance-app](maintenance-app)
 
 
 ## Utilities
-* [d2-manifest](d2-manifest)
 * [eslint-config-dhis2](eslint-config-dhis2)
+* [d2-manifest](d2-manifest)
 
 ## Links
 
