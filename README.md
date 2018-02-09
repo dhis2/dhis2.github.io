@@ -6,25 +6,23 @@
 * [Getting started](https://github.com/dhis2/wow-frontend)
 
 ## Libraries
-
+* [d2](d2)
+* [d2-ui](d2-ui)
 
 
 ## Apps
-* [d2-manifest](d2-manifest)
 * [user-app](user-app)
 * [scheduler-app](scheduler-app)
 * [capture-app](capture-app)
 * [d2-tracker](d2-tracker)
-* [eslint-config-dhis2](eslint-config-dhis2)
 * [maps-app](maps-app)
-* [d2](d2)
-* [d2-ui](d2-ui)
 * [maintenance-app](maintenance-app)
 * [dashboards-app](dashboards-app)
 
 
 ## Utilities
-
+* [d2-manifest](d2-manifest)
+* [eslint-config-dhis2](eslint-config-dhis2)
 
 ## Links
 
