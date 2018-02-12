@@ -99,6 +99,11 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
 
 /**
  * Selector which returns dashboards from the state object
+ * If state.dashboards is null, then the dashboards api request
+ * has not yet completed. If state.dashboards is an empty object
+ * then the dashboards api request is complete, and there are no
+ * dashboards
+ *
  * @function
  * @param {Object} state The current state
  * @returns {Array}
@@ -117,7 +122,7 @@ export const sGetById = (state, id) =>
     orNull(orObject(sGetFromState(state))[id]);
 
 export const sGetStarredDashboardIds = state => {
-    const dashboards = Object.values(state.dashboards);
+    const dashboards = Object.values(orObject(sGetFromState(state)));
     return dashboards
         .filter(dashboard => dashboard.starred === true)
         .map(starred => starred.id);
@@ -175,7 +180,7 @@ export const getCustomDashboards = data => {
 <br class="clear">
 
 <footer>
-    Documentation generated at Sun Feb 11 2018 15:13:40 GMT+0000 (UTC)
+    Documentation generated at Mon Feb 12 2018 15:15:11 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
