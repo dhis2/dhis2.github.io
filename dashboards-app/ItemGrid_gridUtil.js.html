@@ -124,8 +124,8 @@ export function onItemResize(id) {
     const el = orObject(document.querySelector(`#${getGridItemDomId(id)}`));
     if (isFunction(el.setViewportSize))
         setTimeout(
-            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight),
-            100
+            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight - 5),
+            10
         );
 }
 </code></pre>
@@ -140,7 +140,7 @@ export function onItemResize(id) {
 <br class="clear">
 
 <footer>
-    Documentation generated at Mon Feb 12 2018 15:15:11 GMT+0000 (UTC)
+    Documentation generated at Tue Feb 13 2018 15:16:07 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
