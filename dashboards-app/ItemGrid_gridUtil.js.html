@@ -48,6 +48,8 @@ export const GRID_ROW_HEIGHT = 10;
 const GRID_COLUMN_WIDTH_PX = 20;
 const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
 
+export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
+
 // Dimensions for getShape
 
 const NUMBER_OF_ITEM_COLS = 2;
@@ -109,15 +111,6 @@ export const withShape = items =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))
     );
 
-export const getYMax = (items = []) => {
-    return !items.length
-        ? 0
-        : items.reduce(
-              (tot, item) => (item.y + item.h > tot ? item.y + item.h : tot),
-              0
-          );
-};
-
 export const getGridItemDomId = id => `item-${id}`;
 
 export function onItemResize(id) {
@@ -140,7 +133,7 @@ export function onItemResize(id) {
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Feb 13 2018 15:16:07 GMT+0000 (UTC)
+    Documentation generated at Fri Feb 16 2018 15:18:33 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
