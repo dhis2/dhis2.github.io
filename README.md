@@ -11,9 +11,9 @@
 
 
 ## Apps
-* [scheduler-app](scheduler-app)
 * [user-app](user-app)
 * [capture-app](capture-app)
+* [scheduler-app](scheduler-app)
 * [d2-tracker](d2-tracker)
 * [dashboards-app](dashboards-app)
 * [maps-app](maps-app)
