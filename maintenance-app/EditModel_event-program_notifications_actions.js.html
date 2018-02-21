@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EditModel/event-program/notifications/actions.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addPropsToFieldConfig">addPropsToFieldConfig</a></li><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#branchWithMessage">branchWithMessage</a></li><li><a href="global.html#constantNameConverter">constantNameConverter</a></li><li><a href="global.html#createFieldConfigsFor">createFieldConfigsFor</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#getProgramStageDataElementsByStageId">getProgramStageDataElementsByStageId</a></li><li><a href="global.html#getProgramStageFromModel">getProgramStageFromModel</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#setEditModel">setEditModel</a></li><li><a href="global.html#sharedOverrides">sharedOverrides</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">EditModel/event-program/notifications/actions.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const createActionCreator = type => payload => ({ type, payload });
+
+export const NOTIFICATION_STAGE_REMOVE = 'NOTIFICATION_STAGE_REMOVE';
+export const NOTIFICATION_STAGE_REMOVE_SUCCESS = 'NOTIFICATION_STAGE_REMOVE_SUCCESS';
+export const NOTIFICATION_STAGE_REMOVE_ERROR = 'NOTIFICATION_STAGE_REMOVE_ERROR';
+export const NOTIFICATION_SET_EDIT_MODEL = 'NOTIFICATION_STAGE_SET_EDIT_MODEL';
+export const NOTIFICATION_SET_VALUE = 'NOTIFICATION_SET_VALUE';
+export const NOTIFICATION_STAGE_SAVE = 'NOTIFICATION_STAGE_SAVE';
+export const NOTIFICATION_STAGE_SAVE_SUCCESS = 'NOTIFICATION_STAGE_SAVE_SUCCESS';
+export const NOTIFICATION_STAGE_SAVE_ERROR = 'NOTIFICATION_STAGE_SAVE_ERROR';
+export const NOTIFICATION_SET_ADD_MODEL = 'NOTIFICATION_SET_ADD_MODEL';
+
+export const NOTIFICATION_STAGE_SET_PROGRAM_STAGE = 'NOTIFICATION_STAGE_SET_PROGRAM_STAGE';
+
+export const NOTIFICATION_PROGRAM_SAVE = 'NOTIFICATION_PROGRAM_SAVE';
+export const NOTIFICATION_PROGRAM_SAVE_SUCCESS = 'NOTIFICATION_PROGRAM_SAVE_SUCCESS';
+export const NOTIFICATION_PROGRAM_SAVE_ERROR = 'NOTIFICATION_PROGRAM_SAVE_ERROR';
+export const NOTIFICATION_PROGRAM_REMOVE = 'NOTIFICATION_PROGRAM_REMOVE';
+export const NOTIFICATION_PROGRAM_REMOVE_SUCCESS = 'NOTIFICATION_PROGRAM_REMOVE_SUCCESS';
+export const NOTIFICATION_PROGRAM_REMOVE_ERROR = 'NOTIFICATION_PROGRAM_REMOVE_ERROR';
+
+export const removeStageNotification = model => ({ type: NOTIFICATION_STAGE_REMOVE, payload: model });
+
+export const removeStateNotificationSuccess = createActionCreator(NOTIFICATION_STAGE_REMOVE_SUCCESS);
+export const removeStateNotificationError = createActionCreator(NOTIFICATION_STAGE_REMOVE_ERROR);
+
+/**
+ * Action to set the notification model and show the dialog
+ * @param model programNotificationTemplate model to edit
+ * @param notificationType Whether the notification is a program or programstage notification
+ * One of PROGRAM_NOTIFICATION or PROGRAM_STAGE_NOTIFICATION
+ * @returns {*} the action creator
+ */
+export const setEditModel = (model, notificationType = 'PROGRAM_STAGE_NOTIFICATION') => createActionCreator(NOTIFICATION_SET_EDIT_MODEL)({model, notificationType});
+export const setAddModel = (notificationType = 'PROGRAM_STAGE_NOTIFICATION') => createActionCreator(NOTIFICATION_SET_ADD_MODEL)({notificationType});
+
+export const setSelectedProgramStage = (stageId) => createActionCreator(NOTIFICATION_STAGE_SET_PROGRAM_STAGE)({stageId});
+
+export const setStageNotificationValue = (property, value) => ({ type: NOTIFICATION_SET_VALUE, payload: { property, value } });
+export const saveStageNotification = model => ({ type: NOTIFICATION_STAGE_SAVE, payload: model });
+
+export const saveStageNotificationSuccess = createActionCreator(NOTIFICATION_STAGE_SAVE_SUCCESS);
+export const saveStageNotificationError = createActionCreator(NOTIFICATION_STAGE_SAVE_ERROR);
+
+export const saveProgramNotification = model => createActionCreator(NOTIFICATION_PROGRAM_SAVE)({model});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Wed Feb 21 2018 15:18:32 GMT+0000 (UTC)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

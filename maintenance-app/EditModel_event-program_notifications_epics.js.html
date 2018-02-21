@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EditModel/event-program/notifications/epics.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addPropsToFieldConfig">addPropsToFieldConfig</a></li><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#branchWithMessage">branchWithMessage</a></li><li><a href="global.html#constantNameConverter">constantNameConverter</a></li><li><a href="global.html#createFieldConfigsFor">createFieldConfigsFor</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#getProgramStageDataElementsByStageId">getProgramStageDataElementsByStageId</a></li><li><a href="global.html#getProgramStageFromModel">getProgramStageFromModel</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#setEditModel">setEditModel</a></li><li><a href="global.html#sharedOverrides">sharedOverrides</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">EditModel/event-program/notifications/epics.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { NOTIFICATION_STAGE_REMOVE, NOTIFICATION_STAGE_SAVE, NOTIFICATION_SET_ADD_MODEL, removeStateNotificationSuccess, removeStateNotificationError, setEditModel, saveStageNotificationSuccess, saveStageNotificationError, NOTIFICATION_PROGRAM_SAVE } from './actions';
+import { Observable } from 'rxjs';
+import { combineEpics } from 'redux-observable';
+import { getInstance } from 'd2/lib/d2';
+import { getStageNotifications, getStageNotificationsForProgramStageId } from './selectors';
+import { getProgramStageById } from "../tracker-program/program-stages/selectors";
+import eventProgramStore from '../eventProgramStore';
+import { equals, first, negate, some, get, compose, find, identity, map, __, pick } from 'lodash/fp';
+import { generateUid } from 'd2/lib/uid';
+
+// notEqualTo :: any -> any -> Boolean
+const notEqualTo = left => right => left !== right;
+
+/** Selector to get the programStage-id from the model.
+ * @param state the programState.
+ * @param model programNotification model with programStage property.
+ * @returns {*} The programStage model that the notification is part of, or the first programStage if
+ * programStage is not defined on the notification.
+ */
+const getProgramStageFromModel = (state, model) => model.programStage &amp;&amp; model.programStage.id ? getProgramStageById(state, model.programStage.id) :
+    first(state.programStages);
+
+const removeProgramStageNotification = action$ => action$
+    .ofType(NOTIFICATION_STAGE_REMOVE)
+    .flatMap(({ payload: model }) => Observable.of(model)
+        .flatMap(model => eventProgramStore
+            .take(1)
+            .map((eventProgramState) => {
+                const { programStageNotifications } = eventProgramState;
+                const programStage = getProgramStageFromModel(eventProgramState, model);
+                const stageNotifications = getStageNotificationsForProgramStageId(eventProgramState, programStage.id);
+
+                // Remove the model from both the lists (store and programStage property collection)
+                programStage.notificationTemplates.remove(model);
+                programStageNotifications[programStage.id] = stageNotifications.filter(notEqualTo(model));
+
+                eventProgramStore.setState(eventProgramState);
+            })
+        )
+    )
+    .flatMapTo(Observable.never());
+
+const saveProgramStageNotification = (action$, store) => action$
+    .ofType(NOTIFICATION_STAGE_SAVE)
+    // FIXME: Remove href hack when d2 is fixed
+    .do(({ payload: model }) => {
+        model.dataValues.href = `${model.modelDefinition.apiEndpoint}/${model.id}`;
+    })
+    .mergeMap(({ payload: model }) => (
+        eventProgramStore
+            .take(1)
+            .flatMap((eventProgramState) => {
+                const { programStages, programStageNotifications } = eventProgramState;
+                const programStage = getProgramStageFromModel(eventProgramState, model);
+
+                let stageNotifications = getStageNotificationsForProgramStageId(eventProgramState, programStage.id)
+                // If we're dealing with a new model we have to add it to the notification lists
+                // Both on the notification list on the programStage and on the eventStore
+                if (negate(find(equals(model)))(stageNotifications)) {
+                    programStage.notificationTemplates.add(model);
+                    //Add empty stageNotifications if its a new programStage
+                    if(!stageNotifications) {
+                        stageNotifications = eventProgramState.programStageNotifications[programStage.id] = [];
+                    }
+                    stageNotifications.push(model);
+                }
+
+                return Observable.of(eventProgramState);
+            })
+            .map(eventProgramState => eventProgramStore.setState(eventProgramState))
+            .mapTo(Observable.of(saveStageNotificationSuccess(), setEditModel(null)))
+            .mergeAll()
+            .catch(error => Observable.of(saveStageNotificationError(error)))
+    ));
+
+const setProgramStageNotificationAddModel = (action$, store) => action$
+    .ofType(NOTIFICATION_SET_ADD_MODEL)
+    .combineLatest(Observable.fromPromise(getInstance()), ({ payload }, d2) => ({ model: payload.model, notificationType: payload.notificationType, d2 }))
+    .map(({ d2, notificationType }) => {
+        const model = d2.models.programNotificationTemplate.create();
+        const psStore = eventProgramStore.getState();
+
+
+        // Set default values
+        model.id = generateUid();
+        model.lastUpdated = new Date().toISOString();
+        if(notificationType == 'PROGRAM_NOTIFICATION') {
+            return setEditModel(model, 'PROGRAM_NOTIFICATION');
+        }
+
+        //set default to first programStage
+        model.programStage = pick('id', first(psStore.programStages))
+
+        return setEditModel(model);
+    });
+
+const saveProgramNotification = (action$, store) => action$
+    .ofType(NOTIFICATION_PROGRAM_SAVE)
+    // FIXME: Remove href hack when d2 is fixed
+    .do(({ payload: {model} }) => {
+        model.dataValues.href = `${model.modelDefinition.apiEndpoint}/${model.id}`;
+    })
+    .mergeMap(({ payload: {model} }) => (
+        eventProgramStore
+            .take(1)
+            .flatMap((eventProgramState) => {
+                const { program, programNotifications } = eventProgramState;
+
+                // If we're dealing with a new model we have to add it to the notification lists
+                if (negate(find(equals(model)))(program)) {
+                    program.notificationTemplates.add(model);
+                }
+
+                return Observable.of(eventProgramState);
+            })
+            .map(eventProgramState => eventProgramStore.setState(eventProgramState))
+            .mapTo(Observable.of(saveStageNotificationSuccess(), setEditModel(null)))
+            .mergeAll()
+            .catch(error => Observable.of(saveStageNotificationError(error)))
+    ));
+
+
+
+export default combineEpics(removeProgramStageNotification, setProgramStageNotificationAddModel, saveProgramStageNotification, saveProgramNotification);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Wed Feb 21 2018 15:18:32 GMT+0000 (UTC)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

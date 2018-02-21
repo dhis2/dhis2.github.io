@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>config/field-overrides/programNotificationTemplate.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addPropsToFieldConfig">addPropsToFieldConfig</a></li><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#branchWithMessage">branchWithMessage</a></li><li><a href="global.html#constantNameConverter">constantNameConverter</a></li><li><a href="global.html#createFieldConfigsFor">createFieldConfigsFor</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#getProgramStageDataElementsByStageId">getProgramStageDataElementsByStageId</a></li><li><a href="global.html#getProgramStageFromModel">getProgramStageFromModel</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#setEditModel">setEditModel</a></li><li><a href="global.html#sharedOverrides">sharedOverrides</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">config/field-overrides/programNotificationTemplate.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import withProps from 'recompose/withProps';
+import compose from 'recompose/compose';
+import { map } from 'lodash/fp';
+
+import RelativeScheduledDays from './program-notification-template/RelativeScheduledDays';
+import DeliveryChannels from './program-notification-template/DeliveryChannels';
+import DropDownAsync from '../../forms/form-fields/drop-down-async';
+import SubjectAndMessageTemplateFields from './validation-notification-template/SubjectAndMessageTemplateFields';
+import { setStageNotificationValue } from '../../EditModel/event-program/notifications/actions';
+import DropDown from '../../forms/form-fields/drop-down';
+import DropDownAsyncGetter from '../../forms/form-fields/drop-down-async-getter';
+
+const PROGRAM_STAGE_VARIABLES = [
+    'program_name',
+    'program_stage_name',
+    'org_unit_name',
+    'due_date',
+    'days_since_due_date',
+    'days_until_due_date',
+    'current_date',
+];
+
+const PROGRAM_VARIABLES = [
+    'program_name',
+    'org_unit_name',
+    'due_date',
+    'days_since_due_date',
+    'days_until_due_date',
+    'current_date',
+];
+
+const toVariableType = name => ['V', name];
+const toAttributeType = name => ['A', name]; // Used for program attributes
+const toDataElementType = name => ['#', name];
+
+const dataElementsTypeMap = dataElements =>
+    map(toDataElementType, dataElements);
+const attributesToTypeMap = attributes => map(toAttributeType, attributes);
+
+const boundOnUpdate = dispatch =>
+    bindActionCreators(
+        {
+            onUpdate: ({ fieldName, value }) =>
+                setStageNotificationValue(fieldName, value),
+        },
+        dispatch
+    );
+
+const NotificationSubjectAndMessageTemplateFields = compose(
+    connect(undefined, boundOnUpdate),
+    withProps(({ dataElements, attributes, isProgram }) => {
+        let constantVariables = PROGRAM_STAGE_VARIABLES;
+        let variables = dataElementsTypeMap(dataElements);
+
+        if (isProgram) {
+            constantVariables = PROGRAM_VARIABLES;
+            variables = attributesToTypeMap(attributes);
+        }
+
+        return {
+            variableTypes: map(toVariableType, constantVariables).concat(
+                variables
+            ),
+        };
+    })
+)(SubjectAndMessageTemplateFields);
+
+//Using dropdownasync-getter due to support for references
+const ProgramAttributeDropDown = compose(connect(undefined, boundOnUpdate))(props => {
+    const attributesOpts = props.attributes
+        .filter(attr => attr.valueType === 'PHONE_NUMBER')
+        .map(attr => ({
+            text: attr.displayName,
+            value: attr.trackedEntityAttribute.id,
+        }));
+
+    const getAttrs = () => Promise.resolve(attributesOpts);
+    return (
+        &lt;DropDownAsyncGetter
+            labelText={props.labelText}
+            options={attributesOpts}
+            onChange={event =>
+                props.onUpdate({
+                    fieldName: 'recipientProgramAttribute',
+                    value: event.target.value,
+                })}
+            value={props.model.recipientProgramAttribute}
+            fullWidth
+            isRequired
+            model={props.model}
+            getter={getAttrs}
+        />
+    );
+});
+
+const DataElementDropDown = compose(
+    connect(undefined, boundOnUpdate)
+)(props => {
+    const dataElementOpts = props.dataElements
+        .filter(de => de.valueType == 'PHONE_NUMBER')
+        .map(de => ({
+            text: de.displayName,
+            value: de.id,
+        }));
+    const getElems = () => Promise.resolve(dataElementOpts);
+    return (
+        &lt;DropDownAsyncGetter
+            labelText={props.labelText}
+            options={dataElementOpts}
+            onChange={event =>
+                props.onUpdate({
+                    fieldName: 'recipientDataElement',
+                    value: event.target.value,
+                })}
+            value={props.model.recipientDataElement}
+            fullWidth
+            isRequired
+            model={props.model}
+            getter={getElems}
+        />
+    );
+});
+
+/**
+ * programNotificationTemplate are shared for both program notification and
+ * programStage notifications. We use a customFieldOrder name to differentiate
+ * between these two, as they have different behavior and overrides.
+ */
+const sharedOverrides = [
+    [
+        'deliveryChannels',
+        {
+            component: DeliveryChannels,
+        },
+    ],
+    [
+        'relativeScheduledDays',
+        {
+            component: RelativeScheduledDays,
+        },
+    ],
+    [
+        'recipientUserGroup',
+        {
+            component: props => {
+                if (
+                    !props.model ||
+                    props.model.notificationRecipient !== 'USER_GROUP'
+                ) {
+                    return null;
+                }
+
+                return &lt;DropDownAsync {...props} />;
+            },
+        },
+    ],
+
+    [
+        'recipientProgramAttribute',
+        {
+            component: ProgramAttributeDropDown,
+        },
+    ],
+    [
+        'messageTemplate',
+        {
+            component: props =>
+                &lt;NotificationSubjectAndMessageTemplateFields {...props} />,
+        },
+    ],
+];
+
+export const programNotificationTemplate = new Map([
+    ...sharedOverrides,
+    [
+        'notificationTrigger',
+        {
+            required: true,
+            fieldOptions: {
+                options: [
+                    'COMPLETION',
+                    'ENROLLMENT',
+                    'SCHEDULED_DAYS_INCIDENT_DATE',
+                    'SCHEDULED_DAYS_ENROLLMENT_DATE',
+                    'PROGRAM_RULE',
+                ],
+            },
+        },
+    ],
+    [
+        'notificationRecipient',
+        {
+            required: true,
+            fieldOptions: {
+                options: [
+                    'TRACKED_ENTITY_INSTANCE',
+                    'ORGANISATION_UNIT_CONTACT',
+                    'USERS_AT_ORGANISATION_UNIT',
+                    'USER_GROUP',
+                    'PROGRAM_ATTRIBUTE',
+                ],
+            },
+        },
+    ],
+]);
+
+export const programStageNotificationTemplate = new Map([
+    ...sharedOverrides,
+    [
+        'notificationTrigger',
+        {
+            required: true,
+            fieldOptions: {
+                // For program stages only the following values are allowed
+                options: [
+                    'COMPLETION',
+                    'SCHEDULED_DAYS_DUE_DATE',
+                    'PROGRAM_RULE',
+                ],
+            },
+        },
+    ],
+    [
+        'notificationRecipient',
+        {
+            required: true,
+            fieldOptions: {
+                options: [
+                    'TRACKED_ENTITY_INSTANCE',
+                    'ORGANISATION_UNIT_CONTACT',
+                    'USERS_AT_ORGANISATION_UNIT',
+                    'USER_GROUP',
+                    'PROGRAM_ATTRIBUTE', //This is only for Tracker programs
+                    'DATA_ELEMENT',
+                ],
+            },
+        },
+    ],
+    [
+        'recipientDataElement',
+        {
+            component: DataElementDropDown,
+        },
+    ],
+]);
+
+export default programNotificationTemplate;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Wed Feb 21 2018 15:18:32 GMT+0000 (UTC)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

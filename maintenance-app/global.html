@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addPropsToFieldConfig">addPropsToFieldConfig</a></li><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#branchWithMessage">branchWithMessage</a></li><li><a href="global.html#constantNameConverter">constantNameConverter</a></li><li><a href="global.html#createFieldConfigsFor">createFieldConfigsFor</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#getProgramStageDataElementsByStageId">getProgramStageDataElementsByStageId</a></li><li><a href="global.html#getProgramStageFromModel">getProgramStageFromModel</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#setEditModel">setEditModel</a></li><li><a href="global.html#sharedOverrides">sharedOverrides</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
 </nav>
 
 <div id="main">
@@ -107,6 +107,77 @@
 
     
         <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="addPropsToFieldConfig"><span class="type-signature">(constant) </span>addPropsToFieldConfig<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Add given props to the fieldConfig.
+If fieldNames has values, only fields with those name will be given the props.
+Useful to be given to map() of fieldConfigs.
+
+Ie: Only fields with name='shortname' will be given the props.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_formHelpers.js.html">EditModel/formHelpers.js</a>, <a href="EditModel_formHelpers.js.html#line222">line 222</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>fieldConfigs.map(addPropsToFieldConfig[props, ['shortName']</code></pre>
+
+
 
         
             
@@ -221,6 +292,69 @@ The enums can be found in `dhis2-core`:
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="config_field-overrides_program-indicator_enums.js.html">config/field-overrides/program-indicator/enums.js</a>, <a href="config_field-overrides_program-indicator_enums.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="branchWithMessage"><span class="type-signature">(constant) </span>branchWithMessage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Return a component that renders nothing, but fires
+the snackbar-action
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Snackbar_snackBarUtils.js.html">Snackbar/snackBarUtils.js</a>, <a href="Snackbar_snackBarUtils.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -440,6 +574,69 @@ const MyStepperComponent = createStepperFromConfig(steps)
 
         
             
+<h4 class="name" id="getProgramStageDataElementsByStageId"><span class="type-signature">(constant) </span>getProgramStageDataElementsByStageId<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Gets the list of dataElements that are referenced in the programStage
+ identified by the given stageId
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_event-program_notifications_selectors.js.html">EditModel/event-program/notifications/selectors.js</a>, <a href="EditModel_event-program_notifications_selectors.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="removeQuery"><span class="type-signature">(constant) </span>removeQuery<span class="type-signature"></span></h4>
 
 
@@ -481,6 +678,196 @@ const MyStepperComponent = createStepperFromConfig(steps)
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="router-utils.js.html">router-utils.js</a>, <a href="router-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="setEditModel"><span class="type-signature">(constant) </span>setEditModel<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Action to set the notification model and show the dialog
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_event-program_notifications_actions.js.html">EditModel/event-program/notifications/actions.js</a>, <a href="EditModel_event-program_notifications_actions.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="sharedOverrides"><span class="type-signature">(constant) </span>sharedOverrides<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    programNotificationTemplate are shared for both program notification and
+programStage notifications. We use a customFieldOrder name to differentiate
+between these two, as they have different behavior and overrides.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_field-overrides_programNotificationTemplate.js.html">config/field-overrides/programNotificationTemplate.js</a>, <a href="config_field-overrides_programNotificationTemplate.js.html#line132">line 132</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="sharedOverrides"><span class="type-signature">(constant) </span>sharedOverrides<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Program-model are shared for both event-programs and
+tracker-programs notifications. We use a customFieldOrder name to differentiate
+between these two, as they have different behavior and overrides.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_field-overrides_program.js.html">config/field-overrides/program.js</a>, <a href="config_field-overrides_program.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -569,7 +956,7 @@ const MyStepperComponent = createStepperFromConfig(steps)
 
 
 <div class="description">
-    Adds program and programStages as props to the enhanced compontents.
+    Adds program and programStages as props to the enhanced components.
 </div>
 
 
@@ -690,6 +1077,412 @@ const MyStepperComponent = createStepperFromConfig(steps)
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="constantNameConverter"><span class="type-signature"></span>constantNameConverter<span class="signature">(modelType, fieldName, constantVal)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Used to translate constants from a model to
+something else in the UI.
+The value returned should later be translated by i18n.
+
+Useful when we have e.g "WITH_REGISTRATION" in the model
+but want to show "Tracker program" in the UI.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelType</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Modeltype that the constant should be translated for</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fieldName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>constantVal</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_field-overrides_helpers_constantNameConverter.js.html">config/field-overrides/helpers/constantNameConverter.js</a>, <a href="config_field-overrides_helpers_constantNameConverter.js.html#line40">line 40</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The "mapped" value of the constant, or the constant not found in the  not exist
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="createFieldConfigsFor"><span class="type-signature"></span>createFieldConfigsFor<span class="signature">(schema, fieldNames, filterFieldConfigs, includeAttributes, runRules, customFieldOrderName)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Create fieldConfigs for a schema
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>schema</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Schema to create configs for</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fieldNames</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Fields to use</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filterFieldConfigs</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A filter function that should return an array of fieldConfigs (must be same amount of fieldConfigs)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>includeAttributes</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether to include attributes</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>runRules</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether to apply field-rules specified in field-rules file.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>customFieldOrderName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Custom name for the "schema", useful if the same schema has multiple purposes.
+Ie. programNotificationTemplate, which are used in program Notification and programStage notifications.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_formHelpers.js.html">EditModel/formHelpers.js</a>, <a href="EditModel_formHelpers.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
@@ -1305,6 +2098,173 @@ For example a help link key that is defined as  `/edit/dataElementSection/dataEl
 
     
 
+    <h4 class="name" id="getProgramStageFromModel"><span class="type-signature"></span>getProgramStageFromModel<span class="signature">(state, model)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Selector to get the programStage-id from the model.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>state</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the programState.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>model</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">programNotification model with programStage property.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_event-program_notifications_epics.js.html">EditModel/event-program/notifications/epics.js</a>, <a href="EditModel_event-program_notifications_epics.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The programStage model that the notification is part of, or the first programStage if
+programStage is not defined on the notification.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="replaceMappingPathPlaceholder"><span class="type-signature"></span>replaceMappingPathPlaceholder<span class="signature">(path, variablesToReplace)</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
@@ -1765,7 +2725,7 @@ If no match is found, the path will return.
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Feb 20 2018 15:18:28 GMT+0000 (UTC)
+    Documentation generated at Wed Feb 21 2018 15:18:32 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
