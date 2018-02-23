@@ -1,0 +1,9393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AnalyticsRequest - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="GeoFeatures.html">GeoFeatures</a></li><li><a href="module-analytics.Analytics.html">Analytics</a><ul class='methods'><li data-type='method'><a href="module-analytics.Analytics.html#.getAnalytics">getAnalytics</a></li></ul></li><li><a href="module-analytics.AnalyticsAggregate.html">AnalyticsAggregate</a><ul class='methods'><li data-type='method'><a href="module-analytics.AnalyticsAggregate.html#get">get</a></li><li data-type='method'><a href="module-analytics.AnalyticsAggregate.html#getDataValueSet">getDataValueSet</a></li><li data-type='method'><a href="module-analytics.AnalyticsAggregate.html#getDebugSql">getDebugSql</a></li><li data-type='method'><a href="module-analytics.AnalyticsAggregate.html#getRawData">getRawData</a></li></ul></li><li><a href="module-analytics.AnalyticsEvents.html">AnalyticsEvents</a><ul class='methods'><li data-type='method'><a href="module-analytics.AnalyticsEvents.html#get">get</a></li><li data-type='method'><a href="module-analytics.AnalyticsEvents.html#getAggregate">getAggregate</a></li><li data-type='method'><a href="module-analytics.AnalyticsEvents.html#getCluster">getCluster</a></li><li data-type='method'><a href="module-analytics.AnalyticsEvents.html#getCount">getCount</a></li><li data-type='method'><a href="module-analytics.AnalyticsEvents.html#getQuery">getQuery</a></li></ul></li><li><a href="module-analytics.AnalyticsRequest.html">AnalyticsRequest</a><ul class='methods'><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addDataDimension">addDataDimension</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addDataFilter">addDataFilter</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addDimension">addDimension</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addFilter">addFilter</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addOrgUnitDimension">addOrgUnitDimension</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addOrgUnitFilter">addOrgUnitFilter</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addPeriodDimension">addPeriodDimension</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#addPeriodFilter">addPeriodFilter</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withAggregateData">withAggregateData</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withAggregationType">withAggregationType</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withApprovalLevel">withApprovalLevel</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withAsc">withAsc</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withBbox">withBbox</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withClusterSize">withClusterSize</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withCollapseDataDimensions">withCollapseDataDimensions</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withColumns">withColumns</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withCoordinateField">withCoordinateField</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withCoordinatesOnly">withCoordinatesOnly</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withDesc">withDesc</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withDisplayProperty">withDisplayProperty</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withEndDate">withEndDate</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withEventStatus">withEventStatus</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withFormat">withFormat</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withHideEmptyColumns">withHideEmptyColumns</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withHideEmptyRows">withHideEmptyRows</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withHierarchyMeta">withHierarchyMeta</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withIgnoreLimit">withIgnoreLimit</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withIncludeClusterPoints">withIncludeClusterPoints</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withIncludeNumDen">withIncludeNumDen</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withInputIdScheme">withInputIdScheme</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withLimit">withLimit</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withMeasureCriteria">withMeasureCriteria</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withOuMode">withOuMode</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withOutputIdScheme">withOutputIdScheme</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withOutputType">withOutputType</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withPage">withPage</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withPageSize">withPageSize</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withPath">withPath</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withPreAggregationMeasureCriteria">withPreAggregationMeasureCriteria</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withProgram">withProgram</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withProgramStatus">withProgramStatus</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withRelativePeriodDate">withRelativePeriodDate</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withRows">withRows</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withShowHierarchy">withShowHierarchy</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withSkipData">withSkipData</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withSkipMeta">withSkipMeta</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withSkipRounding">withSkipRounding</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withSortOrder">withSortOrder</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withStage">withStage</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withStartDate">withStartDate</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withTableLayout">withTableLayout</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withUserOrgUnit">withUserOrgUnit</a></li><li data-type='method'><a href="module-analytics.AnalyticsRequest.html#withValue">withValue</a></li></ul></li><li><a href="module-api.Api.html">Api</a><ul class='methods'><li data-type='method'><a href="module-api.Api.html#get">get</a></li><li data-type='method'><a href="module-api.Api.html#post">post</a></li><li data-type='method'><a href="module-api.Api.html#setBaseUrl">setBaseUrl</a></li><li data-type='method'><a href="module-api.Api.html#setDefaultHeaders">setDefaultHeaders</a></li><li data-type='method'><a href="module-api.Api.html#update">update</a></li></ul></li><li><a href="module-current-user.CurrentUser.html">CurrentUser</a><ul class='methods'><li data-type='method'><a href="module-current-user.CurrentUser.html#.create">create</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreate">canCreate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreatePrivate">canCreatePrivate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canCreatePublic">canCreatePublic</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canDelete">canDelete</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#canUpdate">canUpdate</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getDataViewOrganisationUnits">getDataViewOrganisationUnits</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getOrganisationUnits">getOrganisationUnits</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getUserGroups">getUserGroups</a></li><li data-type='method'><a href="module-current-user.CurrentUser.html#getUserRoles">getUserRoles</a></li></ul></li><li><a href="module-current-user.UserAuthorities.html">UserAuthorities</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserAuthorities.html#.create">create</a></li><li data-type='method'><a href="module-current-user.UserAuthorities.html#has">has</a></li></ul></li><li><a href="module-current-user.UserDataStore.html">UserDataStore</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserDataStore.html#.getUserDataStore">getUserDataStore</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#create">create</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#delete">delete</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#getAll">getAll</a></li><li data-type='method'><a href="module-current-user.UserDataStore.html#has">has</a></li></ul></li><li><a href="module-current-user.UserDataStoreNamespace.html">UserDataStoreNamespace</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#delete">delete</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#getKeys">getKeys</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#set">set</a></li><li data-type='method'><a href="module-current-user.UserDataStoreNamespace.html#update">update</a></li></ul></li><li><a href="module-current-user.UserSettings.html">UserSettings</a><ul class='methods'><li data-type='method'><a href="module-current-user.UserSettings.html#all">all</a></li><li data-type='method'><a href="module-current-user.UserSettings.html#get">get</a></li><li data-type='method'><a href="module-current-user.UserSettings.html#set">set</a></li></ul></li><li><a href="module-datastore.DataStore.html">DataStore</a><ul class='methods'><li data-type='method'><a href="module-datastore.DataStore.html#.getDataStore">getDataStore</a></li><li data-type='method'><a href="module-datastore.DataStore.html#create">create</a></li><li data-type='method'><a href="module-datastore.DataStore.html#delete">delete</a></li><li data-type='method'><a href="module-datastore.DataStore.html#get">get</a></li><li data-type='method'><a href="module-datastore.DataStore.html#getAll">getAll</a></li><li data-type='method'><a href="module-datastore.DataStore.html#has">has</a></li></ul></li><li><a href="module-datastore.DataStoreNamespace.html">DataStoreNamespace</a><ul class='methods'><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#delete">delete</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#get">get</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#getKeys">getKeys</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#getMetaData">getMetaData</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#set">set</a></li><li data-type='method'><a href="module-datastore.DataStoreNamespace.html#update">update</a></li></ul></li><li><a href="module-i18n-I18n.html">I18n</a><ul class='methods'><li data-type='method'><a href="module-i18n-I18n.html#.getI18n">getI18n</a></li><li data-type='method'><a href="module-i18n-I18n.html#addSource">addSource</a></li><li data-type='method'><a href="module-i18n-I18n.html#addStrings">addStrings</a></li><li data-type='method'><a href="module-i18n-I18n.html#getTranslation">getTranslation</a></li><li data-type='method'><a href="module-i18n-I18n.html#getUntranslatedStrings">getUntranslatedStrings</a></li><li data-type='method'><a href="module-i18n-I18n.html#isTranslated">isTranslated</a></li><li data-type='method'><a href="module-i18n-I18n.html#load">load</a></li></ul></li><li><a href="module-model.Filter.html">Filter</a><ul class='methods'><li data-type='method'><a href="module-model.Filter.html#.getFilter">getFilter</a></li><li data-type='method'><a href="module-model.Filter.html#equals">equals</a></li><li data-type='method'><a href="module-model.Filter.html#ilike">ilike</a></li><li data-type='method'><a href="module-model.Filter.html#like">like</a></li><li data-type='method'><a href="module-model.Filter.html#notEqual">notEqual</a></li><li data-type='method'><a href="module-model.Filter.html#on">on</a></li></ul></li><li><a href="module-model.Filters.html">Filters</a><ul class='methods'><li data-type='method'><a href="module-model.Filters.html#.getFilters">getFilters</a></li><li data-type='method'><a href="module-model.Filters.html#getFilterList">getFilterList</a></li><li data-type='method'><a href="module-model.Filters.html#getFilters">getFilters</a></li><li data-type='method'><a href="module-model.Filters.html#getQueryFilterValues">getQueryFilterValues</a></li><li data-type='method'><a href="module-model.Filters.html#list">list</a></li><li data-type='method'><a href="module-model.Filters.html#on">on</a></li></ul></li><li><a href="module-model.Model.html">Model</a><ul class='methods'><li data-type='method'><a href="module-model.Model.html#.create">create</a></li></ul></li><li><a href="module-model.ModelBase.html">ModelBase</a><ul class='methods'><li data-type='method'><a href="module-model.ModelBase.html#create">create</a></li><li data-type='method'><a href="module-model.ModelBase.html#delete">delete</a></li><li data-type='method'><a href="module-model.ModelBase.html#getCollectionChildren">getCollectionChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#getCollectionChildrenPropertyNames">getCollectionChildrenPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getDirtyChildren">getDirtyChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#getDirtyPropertyNames">getDirtyPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getEmbeddedObjectCollectionPropertyNames">getEmbeddedObjectCollectionPropertyNames</a></li><li data-type='method'><a href="module-model.ModelBase.html#getReferenceProperties">getReferenceProperties</a></li><li data-type='method'><a href="module-model.ModelBase.html#hasDirtyChildren">hasDirtyChildren</a></li><li data-type='method'><a href="module-model.ModelBase.html#isDirty">isDirty</a></li><li data-type='method'><a href="module-model.ModelBase.html#resetDirtyState">resetDirtyState</a></li><li data-type='method'><a href="module-model.ModelBase.html#save">save</a></li><li data-type='method'><a href="module-model.ModelBase.html#toJSON">toJSON</a></li><li data-type='method'><a href="module-model.ModelBase.html#validate">validate</a></li></ul></li><li><a href="module-model.ModelCollection.html">ModelCollection</a><ul class='methods'><li data-type='method'><a href="module-model.ModelCollection.html#add">add</a></li><li data-type='method'><a href="module-model.ModelCollection.html#clear">clear</a></li><li data-type='method'><a href="module-model.ModelCollection.html#toArray">toArray</a></li></ul></li><li><a href="module-model.ModelCollectionProperty.html">ModelCollectionProperty</a><ul class='methods'><li data-type='method'><a href="module-model.ModelCollectionProperty.html#.create">create</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#add">add</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#isDirty">isDirty</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#remove">remove</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#resetDirtyState">resetDirtyState</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#save">save</a></li><li data-type='method'><a href="module-model.ModelCollectionProperty.html#updateDirty">updateDirty</a></li></ul></li><li><a href="module-model.ModelDefinition.html">ModelDefinition</a><ul class='methods'><li data-type='method'><a href="module-model.ModelDefinition.html#.createFromSchema">createFromSchema</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#create">create</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#delete">delete</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#get">get</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getOwnedPropertyNames">getOwnedPropertyNames</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getTranslatableProperties">getTranslatableProperties</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#getTranslatablePropertiesWithKeys">getTranslatablePropertiesWithKeys</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#isTranslatable">isTranslatable</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#list">list</a></li><li data-type='method'><a href="module-model.ModelDefinition.html#save">save</a></li></ul></li><li><a href="module-model.ModelDefinitions.html">ModelDefinitions</a><ul class='methods'><li data-type='method'><a href="module-model.ModelDefinitions.html#add">add</a></li><li data-type='method'><a href="module-model.ModelDefinitions.html#mapThroughDefinitions">mapThroughDefinitions</a></li></ul></li><li><a href="module-model.ModelValidation.html">ModelValidation</a><ul class='methods'><li data-type='method'><a href="module-model.ModelValidation.html#.getModelValidation">getModelValidation</a></li><li data-type='method'><a href="module-model.ModelValidation.html#validate">validate</a></li><li data-type='method'><a href="module-model.ModelValidation.html#validateAgainstSchema">validateAgainstSchema</a></li></ul></li><li><a href="module-model.Pager.html">Pager</a><ul class='methods'><li data-type='method'><a href="module-model.Pager.html#getNextPage">getNextPage</a></li><li data-type='method'><a href="module-model.Pager.html#getPreviousPage">getPreviousPage</a></li><li data-type='method'><a href="module-model.Pager.html#goToPage">goToPage</a></li><li data-type='method'><a href="module-model.Pager.html#hasNextPage">hasNextPage</a></li><li data-type='method'><a href="module-model.Pager.html#hasPreviousPage">hasPreviousPage</a></li></ul></li><li><a href="module-system.System.html">System</a><ul class='methods'><li data-type='method'><a href="module-system.System.html#.compareVersions">compareVersions</a></li><li data-type='method'><a href="module-system.System.html#.getSystem">getSystem</a></li><li data-type='method'><a href="module-system.System.html#.isVersionCompatible">isVersionCompatible</a></li><li data-type='method'><a href="module-system.System.html#.parseVersionString">parseVersionString</a></li><li data-type='method'><a href="module-system.System.html#installAppVersion">installAppVersion</a></li><li data-type='method'><a href="module-system.System.html#loadAppStore">loadAppStore</a></li><li data-type='method'><a href="module-system.System.html#loadInstalledApps">loadInstalledApps</a></li><li data-type='method'><a href="module-system.System.html#reloadApps">reloadApps</a></li><li data-type='method'><a href="module-system.System.html#setInstalledApps">setInstalledApps</a></li><li data-type='method'><a href="module-system.System.html#setSystemInfo">setSystemInfo</a></li><li data-type='method'><a href="module-system.System.html#uninstallApp">uninstallApp</a></li><li data-type='method'><a href="module-system.System.html#uploadApp">uploadApp</a></li></ul></li><li><a href="module-system.SystemConfiguration.html">SystemConfiguration</a><ul class='methods'><li data-type='method'><a href="module-system.SystemConfiguration.html#all">all</a></li><li data-type='method'><a href="module-system.SystemConfiguration.html#get">get</a></li></ul></li><li><a href="module-system.SystemSettings.html">SystemSettings</a><ul class='methods'><li data-type='method'><a href="module-system.SystemSettings.html#all">all</a></li><li data-type='method'><a href="module-system.SystemSettings.html#get">get</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-analytics.html">analytics</a></li><li><a href="module-api.html">api</a></li><li><a href="module-current-user.html">current-user</a></li><li><a href="module-d2.html">d2</a><ul class='methods'><li data-type='method'><a href="module-d2.html#.getInstance">getInstance</a></li><li data-type='method'><a href="module-d2.html#.getManifest">getManifest</a></li><li data-type='method'><a href="module-d2.html#.init">init</a></li><li data-type='method'><a href="module-d2.html#~getUserSettings">getUserSettings</a></li></ul></li><li><a href="module-datastore.html">datastore</a></li><li><a href="module-i18n.html">i18n</a></li><li><a href="module-lib_check.html">lib/check</a><ul class='methods'><li data-type='method'><a href="module-lib_check.html#.checkDefined">checkDefined</a></li><li data-type='method'><a href="module-lib_check.html#.isValidUid">isValidUid</a></li></ul></li><li><a href="module-lib_utils.html">lib/utils</a><ul class='methods'><li data-type='method'><a href="module-lib_utils.html#.customEncodeURIComponent">customEncodeURIComponent</a></li><li data-type='method'><a href="module-lib_utils.html#.pick">pick</a></li></ul></li><li><a href="module-model.html">model</a></li><li><a href="module-period_generators.html">period/generators</a><ul class='methods'><li data-type='method'><a href="module-period_generators.html#.createPeriodGeneratorsForLocale">createPeriodGeneratorsForLocale</a></li></ul></li><li><a href="module-system.html">system</a></li><li><a href="module-uid.html">uid</a><ul class='methods'><li data-type='method'><a href="module-uid.html#.generateUid">generateUid</a></li><li data-type='method'><a href="module-uid.html#.isValidUid">isValidUid</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="module-d2.init-d2.html">d2</a></li></ul><h3>Global</h3><ul><li><a href="global.html#byOrgUnit">byOrgUnit</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html">getGeoFeatures</a></li><li><a href="global.html#isFileInSrcFolder">isFileInSrcFolder</a></li><li><a href="global.html">isValidDisplayName</a></li><li><a href="global.html">isValidOrgUnit</a></li><li><a href="global.html">isValidOrgUnitGroup</a></li><li><a href="global.html">isValidOrgUnitLevel</a></li><li><a href="global.html">isValidUserOrgUnit</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">AnalyticsRequest</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-analytics.html">analytics</a>.</span>
+        
+        AnalyticsRequest
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="AnalyticsRequest"><span class="type-signature"></span>new AnalyticsRequest<span class="signature">(options<span class="signature-attributes">non-null</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Class for constructing a request object to use for communicating with the analytics API endpoint.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object with analytics request options</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequest.js.html">src/analytics/AnalyticsRequest.js</a>, <a href="src_analytics_AnalyticsRequest.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="module-analytics.AnalyticsRequestDimensionsMixin.html">module:analytics.AnalyticsRequestDimensionsMixin</a></li>
+    
+        <li><a href="module-analytics.AnalyticsRequestFiltersMixin.html">module:analytics.AnalyticsRequestFiltersMixin</a></li>
+    
+        <li><a href="module-analytics.AnalyticsRequestPropertiesMixin.html">module:analytics.AnalyticsRequestPropertiesMixin</a></li>
+    
+        <li>module:analytics.AnalyticsRequestBase</li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="addDataDimension"><span class="type-signature"></span>addDataDimension<span class="signature">(values<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds/updates the dx dimension to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the dx dimension</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestDimensionsMixin.html#addDataDimension">module:analytics.AnalyticsRequestDimensionsMixin#addDataDimension</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html">src/analytics/AnalyticsRequestDimensionsMixin.js</a>, <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addDataDimension(['fbfJHSPpUQD', 'cYeuwXTCPkU'])
+   .addDataDimension('BfMAe6Itzgt.REPORTING_RATE');
+
+// dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU;BfMAe6Itzgt.REPORTING_RATE</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addDataFilter"><span class="type-signature"></span>addDataFilter<span class="signature">(values<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds/updates the dx dimension filter to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the dx dimension filter</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestFiltersMixin.html#addDataFilter">module:analytics.AnalyticsRequestFiltersMixin#addDataFilter</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html">src/analytics/AnalyticsRequestFiltersMixin.js</a>, <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addDataFilter(['fbfJHSPpUQD', 'cYeuwXTCPkU'])
+   .addDataFilter('BfMAe6Itzgt.REPORTING_RATE');
+
+// filter=dx:fbfJHSPpUQD;cYeuwXTCPkU;BfMAe6Itzgt.REPORTING_RATE</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addDimension"><span class="type-signature"></span>addDimension<span class="signature">(dimension<span class="signature-attributes">non-null</span>, values)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds a new dimension or updates an existing one to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dimension</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension to add to the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the dimension</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestDimensionsMixin.html#addDimension">module:analytics.AnalyticsRequestDimensionsMixin#addDimension</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html">src/analytics/AnalyticsRequestDimensionsMixin.js</a>, <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html#line90">line 90</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addDimension('Bpx0589u8y0', ['oRVt7g429ZO', 'MAs88nJc9nL'])
+   .addDimension('qrur9Dvnyt5-Yf6UHoPkdS6');
+
+// dimension=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=qrur9Dvnyt5-Yf6UHoPkdS6</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addFilter"><span class="type-signature"></span>addFilter<span class="signature">(dimension<span class="signature-attributes">non-null</span>, values)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds a filter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dimension</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension to add as filter to the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the dimension filter</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestFiltersMixin.html#addFilter">module:analytics.AnalyticsRequestFiltersMixin#addFilter</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html">src/analytics/AnalyticsRequestFiltersMixin.js</a>, <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html#line90">line 90</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addFilter('Bpx0589u8y0', ['oRVt7g429ZO', 'MAs88nJc9nL'])
+   .addFilter('qrur9Dvnyt5-Yf6UHoPkdS6');
+
+// filter=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;filter=qrur9Dvnyt5-Yf6UHoPkdS6</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addOrgUnitDimension"><span class="type-signature"></span>addOrgUnitDimension<span class="signature">(values<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds/updates the ou dimension to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the ou dimension</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestDimensionsMixin.html#addOrgUnitDimension">module:analytics.AnalyticsRequestDimensionsMixin#addOrgUnitDimension</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html">src/analytics/AnalyticsRequestDimensionsMixin.js</a>, <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html#line71">line 71</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addOrgUnitDimension(['O6uvpzGd5pu', 'lc3eMKXaEfw'])
+   .addOrgUnitDimension('OU_GROUP-w0gFTTmsUcF');
+
+// dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw;OU_GROUP-w0gFTTmsUcF</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addOrgUnitFilter"><span class="type-signature"></span>addOrgUnitFilter<span class="signature">(values<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds/updates the ou dimension filter to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the ou dimension filter</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestFiltersMixin.html#addOrgUnitFilter">module:analytics.AnalyticsRequestFiltersMixin#addOrgUnitFilter</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html">src/analytics/AnalyticsRequestFiltersMixin.js</a>, <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html#line71">line 71</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addOrgUnitFilter(['O6uvpzGd5pu', 'lc3eMKXaEfw'])
+   .addOrgUnitFilter('OU_GROUP-w0gFTTmsUcF')
+
+// filter=ou:O6uvpzGd5pu;lc3eMKXaEfw;OU_GROUP-w0gFTTmsUcF</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addPeriodDimension"><span class="type-signature"></span>addPeriodDimension<span class="signature">(values<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds/updates the pe dimension to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the pe dimension</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestDimensionsMixin.html#addPeriodDimension">module:analytics.AnalyticsRequestDimensionsMixin#addPeriodDimension</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html">src/analytics/AnalyticsRequestDimensionsMixin.js</a>, <a href="src_analytics_AnalyticsRequestDimensionsMixin.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addPeriodDimension(['201701', '201702'])
+   .addPeriodDimension('LAST_4_QUARTERS');
+
+// dimension=pe:201701;201702;LAST_4_QUARTERS</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addPeriodFilter"><span class="type-signature"></span>addPeriodFilter<span class="signature">(values<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds/updates the pe dimension filter to use in the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimension items to add to the pe dimension filter</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestFiltersMixin.html#addPeriodFilter">module:analytics.AnalyticsRequestFiltersMixin#addPeriodFilter</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html">src/analytics/AnalyticsRequestFiltersMixin.js</a>, <a href="src_analytics_AnalyticsRequestFiltersMixin.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .addPeriodFilter(['201701', '201702'])
+   .addPeriodFilter('LAST_4_QUARTERS')
+
+// filter=pe:201701;201702;LAST_4_QUARTERS</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withAggregateData"><span class="type-signature"></span>withAggregateData<span class="signature">(aggregateData<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the aggregateData query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aggregateData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The aggregateData value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withAggregateData">module:analytics.AnalyticsRequestPropertiesMixin#withAggregateData</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line838">line 838</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withAggregateData();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withAggregationType"><span class="type-signature"></span>withAggregationType<span class="signature">(aggregationType)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the aggregationType query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aggregationType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The aggregationType value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withAggregationType">module:analytics.AnalyticsRequestPropertiesMixin#withAggregationType</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line70">line 70</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withAggregationType('SUM');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withApprovalLevel"><span class="type-signature"></span>withApprovalLevel<span class="signature">(approvalLevel<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the approvalLevel query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>approvalLevel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The approvalLevel value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withApprovalLevel">module:analytics.AnalyticsRequestPropertiesMixin#withApprovalLevel</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line356">line 356</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withApprovalLevel('');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withAsc"><span class="type-signature"></span>withAsc<span class="signature">(value<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the asc query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimensions to be sorted ascending</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withAsc">module:analytics.AnalyticsRequestPropertiesMixin#withAsc</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line620">line 620</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withAsc('EVENTDATE');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withBbox"><span class="type-signature"></span>withBbox<span class="signature">(bbox<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the bbox query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>bbox</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The bounding box coordinates in the format "min lng, min lat, max lng, max lat"</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withBbox">module:analytics.AnalyticsRequestPropertiesMixin#withBbox</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line890">line 890</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withBbox('11.1768827285209, 60.141691309755, 11.1694071634997, 60.287796722512');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withClusterSize"><span class="type-signature"></span>withClusterSize<span class="signature">(clusterSize<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the clusterSize query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>clusterSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The size of cluster in meters</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withClusterSize">module:analytics.AnalyticsRequestPropertiesMixin#withClusterSize</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line854">line 854</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withClusterSize(1000);</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withCollapseDataDimensions"><span class="type-signature"></span>withCollapseDataDimensions<span class="signature">(collapseDataDimensions<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the collapseDataDimensions query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collapseDataDimensions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The collapseDataDimensions value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withCollapseDataDimensions">module:analytics.AnalyticsRequestPropertiesMixin#withCollapseDataDimensions</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line806">line 806</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withCollapseDataDimensions();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withColumns"><span class="type-signature"></span>withColumns<span class="signature">(columns<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the columns query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>columns</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimensions identifiers (separated by ;)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withColumns">module:analytics.AnalyticsRequestPropertiesMixin#withColumns</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line413">line 413</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withColumns('dx;ou');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withCoordinateField"><span class="type-signature"></span>withCoordinateField<span class="signature">(coordinateField<span class="signature-attributes">opt, non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the coordinateField query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>coordinateField</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    EVENT
+                
+                </td>
+            
+
+            <td class="description last">The field to base geospatial event analytics on</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withCoordinateField">module:analytics.AnalyticsRequestPropertiesMixin#withCoordinateField</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line873">line 873</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withCoordinateField('&lt;attribute-id>');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withCoordinatesOnly"><span class="type-signature"></span>withCoordinatesOnly<span class="signature">(coordinatesOnly<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the coordinatesOnly query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>coordinatesOnly</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The coordinatesOnly value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withCoordinatesOnly">module:analytics.AnalyticsRequestPropertiesMixin#withCoordinatesOnly</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line658">line 658</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withCoordinatesOnly();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withDesc"><span class="type-signature"></span>withDesc<span class="signature">(value<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the desc query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimensions to be sorted descending</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withDesc">module:analytics.AnalyticsRequestPropertiesMixin#withDesc</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line639">line 639</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withDesc('OUNAME');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withDisplayProperty"><span class="type-signature"></span>withDisplayProperty<span class="signature">(displayProperty<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the displayProperty query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>displayProperty</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The displayProperty value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withDisplayProperty">module:analytics.AnalyticsRequestPropertiesMixin#withDisplayProperty</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line289">line 289</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withDisplayProperty('SHORTNAME');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withEndDate"><span class="type-signature"></span>withEndDate<span class="signature">(endDate<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the endDate query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>endDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The endDate value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withEndDate">module:analytics.AnalyticsRequestPropertiesMixin#withEndDate</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line470">line 470</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withEndDate('2017-12-31');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withEventStatus"><span class="type-signature"></span>withEventStatus<span class="signature">(eventStatus<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the eventStatus query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventStatus</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The eventStatus value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withEventStatus">module:analytics.AnalyticsRequestPropertiesMixin#withEventStatus</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line528">line 528</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withEventStatus('COMPLETED');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withFormat"><span class="type-signature"></span>withFormat<span class="signature">(format<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Sets the response format for the request.
+It appends the file extension to the request's path.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>format</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    json
+                
+                </td>
+            
+
+            <td class="description last">The format of the response</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withFormat">module:analytics.AnalyticsRequestPropertiesMixin#withFormat</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withFormat('xml');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withHideEmptyColumns"><span class="type-signature"></span>withHideEmptyColumns<span class="signature">(hideEmptyColumns<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the hideEmptyColumns query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>hideEmptyColumns</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The hideEmptyColumns value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withHideEmptyColumns">module:analytics.AnalyticsRequestPropertiesMixin#withHideEmptyColumns</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line241">line 241</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withHideEmptyColumns();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withHideEmptyRows"><span class="type-signature"></span>withHideEmptyRows<span class="signature">(hideEmptyRows<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the hideEmptyRows query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>hideEmptyRows</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The hideEmptyRows value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withHideEmptyRows">module:analytics.AnalyticsRequestPropertiesMixin#withHideEmptyRows</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line225">line 225</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withHideEmptyRows();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withHierarchyMeta"><span class="type-signature"></span>withHierarchyMeta<span class="signature">(hierarchyMeta<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the hierarchyMeta query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>hierarchyMeta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The hierarchyMeta value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withHierarchyMeta">module:analytics.AnalyticsRequestPropertiesMixin#withHierarchyMeta</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line177">line 177</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withHierarchyMeta();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withIgnoreLimit"><span class="type-signature"></span>withIgnoreLimit<span class="signature">(ignoreLimit<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the ignoreLimit query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ignoreLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The ignoreLimit value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withIgnoreLimit">module:analytics.AnalyticsRequestPropertiesMixin#withIgnoreLimit</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line193">line 193</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withIgnoreLimit();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withIncludeClusterPoints"><span class="type-signature"></span>withIncludeClusterPoints<span class="signature">(includeClusterPoints<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the includeClusterPoints query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>includeClusterPoints</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The includeClusterPoints value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withIncludeClusterPoints">module:analytics.AnalyticsRequestPropertiesMixin#withIncludeClusterPoints</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line909">line 909</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withIncludeClusterPoints();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withIncludeNumDen"><span class="type-signature"></span>withIncludeNumDen<span class="signature">(includeNumDen<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the includeNumDen query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>includeNumDen</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The includeNumDen value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withIncludeNumDen">module:analytics.AnalyticsRequestPropertiesMixin#withIncludeNumDen</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line273">line 273</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withIncludeNumDen();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withInputIdScheme"><span class="type-signature"></span>withInputIdScheme<span class="signature">(inputIdScheme<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the inputIdScheme query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>inputIdScheme</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The inputIdScheme value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withInputIdScheme">module:analytics.AnalyticsRequestPropertiesMixin#withInputIdScheme</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line337">line 337</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withInputIdScheme('CODE');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withLimit"><span class="type-signature"></span>withLimit<span class="signature">(limit<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the limit query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The maximum number of records to return</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withLimit">module:analytics.AnalyticsRequestPropertiesMixin#withLimit</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line755">line 755</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withLimit('5000');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withMeasureCriteria"><span class="type-signature"></span>withMeasureCriteria<span class="signature">(measureCriteria<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the measureCriteria query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>measureCriteria</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The measureCriteria value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withMeasureCriteria">module:analytics.AnalyticsRequestPropertiesMixin#withMeasureCriteria</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line107">line 107</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withMeasureCriteria('GE:10;LT:50');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withOuMode"><span class="type-signature"></span>withOuMode<span class="signature">(ouMode<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the ouMode query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ouMode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ouMode value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withOuMode">module:analytics.AnalyticsRequestPropertiesMixin#withOuMode</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line590">line 590</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withOuMode('CHILDREN');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withOutputIdScheme"><span class="type-signature"></span>withOutputIdScheme<span class="signature">(displayProperty<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the displayProperty query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>displayProperty</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The displayProperty value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withOutputIdScheme">module:analytics.AnalyticsRequestPropertiesMixin#withOutputIdScheme</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line318">line 318</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withDisplayProperty('SHORTNAME');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withOutputType"><span class="type-signature"></span>withOutputType<span class="signature">(outputType<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the outputType query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>outputType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The output type</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withOutputType">module:analytics.AnalyticsRequestPropertiesMixin#withOutputType</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line776">line 776</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withOutputType('ENROLLMENT');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withPage"><span class="type-signature"></span>withPage<span class="signature">(page<span class="signature-attributes">opt, non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the page query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">The page number</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withPage">module:analytics.AnalyticsRequestPropertiesMixin#withPage</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line674">line 674</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withPage(2);</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withPageSize"><span class="type-signature"></span>withPageSize<span class="signature">(size<span class="signature-attributes">opt, non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the pageSize query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    50
+                
+                </td>
+            
+
+            <td class="description last">The number of items per page</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withPageSize">module:analytics.AnalyticsRequestPropertiesMixin#withPageSize</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line690">line 690</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withPageSize(10);</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withPath"><span class="type-signature"></span>withPath<span class="signature">(path<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Sets the URL path for the request.
+It appends the given path to the request's URL.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The path of the response</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withPath">module:analytics.AnalyticsRequestPropertiesMixin#withPath</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withPath('aggregate');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withPreAggregationMeasureCriteria"><span class="type-signature"></span>withPreAggregationMeasureCriteria<span class="signature">(preAggregationMeasureCriteria<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the preAggregationMeasureCriteria query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>preAggregationMeasureCriteria</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The preAggregationMeasureCriteria value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withPreAggregationMeasureCriteria">module:analytics.AnalyticsRequestPropertiesMixin#withPreAggregationMeasureCriteria</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withPreAggregationMeasureCriteria('GE:10;LT:50');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withProgram"><span class="type-signature"></span>withProgram<span class="signature">(program<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Sets the program for the request.
+It appends the program id to the request's path.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>program</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The program id</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withProgram">module:analytics.AnalyticsRequestPropertiesMixin#withProgram</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line490">line 490</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withProgram('eBAyeGv0exc');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withProgramStatus"><span class="type-signature"></span>withProgramStatus<span class="signature">(programStatus<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the programStatus query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>programStatus</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The programStatus value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withProgramStatus">module:analytics.AnalyticsRequestPropertiesMixin#withProgramStatus</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line560">line 560</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withProgramStatus('COMPLETED');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withRelativePeriodDate"><span class="type-signature"></span>withRelativePeriodDate<span class="signature">(relativePeriodDate<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the relativePeriodDate query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>relativePeriodDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The relativePeriodDate value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withRelativePeriodDate">module:analytics.AnalyticsRequestPropertiesMixin#withRelativePeriodDate</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line375">line 375</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withRelativePeriodDate('LAST_12_MONTHS');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withRows"><span class="type-signature"></span>withRows<span class="signature">(rows<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the rows query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>rows</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dimensions identifiers (separated by ;)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withRows">module:analytics.AnalyticsRequestPropertiesMixin#withRows</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line432">line 432</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withRows('pe');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withShowHierarchy"><span class="type-signature"></span>withShowHierarchy<span class="signature">(showHierarchy<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the showHierarchy query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>showHierarchy</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The showHierarchy value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withShowHierarchy">module:analytics.AnalyticsRequestPropertiesMixin#withShowHierarchy</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line257">line 257</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withShowHierarchy();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withSkipData"><span class="type-signature"></span>withSkipData<span class="signature">(skipData<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the skipData query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>skipData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The skipData value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withSkipData">module:analytics.AnalyticsRequestPropertiesMixin#withSkipData</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line161">line 161</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withSkipData();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withSkipMeta"><span class="type-signature"></span>withSkipMeta<span class="signature">(skipMeta<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the skipMeta query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>skipMeta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The skipMeta value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withSkipMeta">module:analytics.AnalyticsRequestPropertiesMixin#withSkipMeta</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line145">line 145</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withSkipMeta();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withSkipRounding"><span class="type-signature"></span>withSkipRounding<span class="signature">(skipRounding<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the skipRounding query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>skipRounding</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The skipRounding value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withSkipRounding">module:analytics.AnalyticsRequestPropertiesMixin#withSkipRounding</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line822">line 822</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withSkipRounding();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withSortOrder"><span class="type-signature"></span>withSortOrder<span class="signature">(sortOrder<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the sortOrder query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sortOrder</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The sortOrder value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withSortOrder">module:analytics.AnalyticsRequestPropertiesMixin#withSortOrder</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line726">line 726</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withSortOrder('DESC');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withStage"><span class="type-signature"></span>withStage<span class="signature">(stage<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the stage query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The stage value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withStage">module:analytics.AnalyticsRequestPropertiesMixin#withStage</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line509">line 509</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withStage('Zj7UnCAulEk');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withStartDate"><span class="type-signature"></span>withStartDate<span class="signature">(startDate<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the startDate query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>startDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The startDate value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withStartDate">module:analytics.AnalyticsRequestPropertiesMixin#withStartDate</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line451">line 451</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withStartDate('2017-11-28');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withTableLayout"><span class="type-signature"></span>withTableLayout<span class="signature">(tableLayout<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the tableLayout query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableLayout</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">The tableLayout value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withTableLayout">module:analytics.AnalyticsRequestPropertiesMixin#withTableLayout</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line209">line 209</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withTableLayout();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withUserOrgUnit"><span class="type-signature"></span>withUserOrgUnit<span class="signature">(userOrgUnit<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the userOrgUnit query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userOrgUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The userOrgUnit value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withUserOrgUnit">module:analytics.AnalyticsRequestPropertiesMixin#withUserOrgUnit</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line394">line 394</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withUserOrgUnit('O6uvpzGd5pu');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="withValue"><span class="type-signature"></span>withValue<span class="signature">(value<span class="signature-attributes">non-null</span>)</span><span class="type-signature"> &rarr; {AnalyticsRequest}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the value query parameter to the request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A data element or attribute identifier</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="module-analytics.AnalyticsRequestPropertiesMixin.html#withValue">module:analytics.AnalyticsRequestPropertiesMixin#withValue</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html">src/analytics/AnalyticsRequestPropertiesMixin.js</a>, <a href="src_analytics_AnalyticsRequestPropertiesMixin.js.html#line706">line 706</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A new instance of the class for chaining purposes
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AnalyticsRequest</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const req = new d2.analytics.request()
+   .withValue('UXz7xuGCEhU');</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Fri Feb 23 2018 17:48:15 GMT+0100 (STD)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

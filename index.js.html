@@ -51,11 +51,10 @@ const { template } = require('./template')
 const path = require('path')
 const { StringDecoder } = require('string_decoder')
 const { spawn } = require('child_process')
-const fs = require('fs')
+const fs = require('fs-extra')
 
 const Rx = require('rxjs/Rx')
 const Git = require('nodegit')
-
 
 const allRepos = [].concat(generateFrom.apps, generateFrom.libs, generateFrom.utils)
 
@@ -75,14 +74,24 @@ docsubject
         console.log(`[DOCGEN] Completed ${apps.length}/${allRepos.length}`)
         if (apps.length === allRepos.length) {
             console.log('[DOCGEN] All done, proceed to generate the index...')
-            generateIndex(apps, docsubject)
+            generateIndex(apps)
+            copyFiles(path.join(__dirname, 'jekyll'))
+            docsubject.complete()
         }
     },
     e => console.error('[DOCGEN] Problem generating Index', e),
     _ => pushIt(repoName(publishTo)) // when the subject completes, push the changes
 )
 
-
+function copyFiles(src) {
+    try {
+        fs.copySync(src, path.join(__dirname, buildDir), {
+            errorOnExist: true
+        })
+    } catch (e) {
+        throw new Error(e)
+    }
+}
 
 
 /** 
@@ -133,7 +142,7 @@ function clone(url) {
  *
  * @returns void
  */
-function generateIndex(apps = [], subject) {
+function generateIndex(apps = []) {
     const index = path.join(__dirname, buildDir, repoName(publishTo), 'README.md')
     const dest = path.join(__dirname, buildDir, repoName(publishTo))
 
@@ -157,9 +166,11 @@ function generateIndex(apps = [], subject) {
 		}
 	})
 
-    fs.writeFile(index, t, (err) => {
-        if (err) throw err;
+    try {
+        fs.writeFileSync(index, t)
+
         console.log('[INDEX] The file has been saved!');
+
         const args = [
             '.',
             '--destination', dest,
@@ -179,9 +190,11 @@ function generateIndex(apps = [], subject) {
         .subscribe(
             x => console.log('[JSDOC:INDEX]', decoder.write(x)),
             x => console.error('[JSDOC:INDEX] failure:', x),
-            _ => subject.complete()
+            _ => console.log('[JSDOC:INDEX] Complete.')
         )
-    });
+    } catch (e) {
+        throw new Error(e)
+    }
 }
 
 
@@ -349,7 +362,7 @@ ${allRepos.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Wed Feb 21 2018 15:18:32 GMT+0000 (UTC)
+    Documentation generated at Fri Feb 23 2018 17:48:19 GMT+0100 (STD)
 </footer>
 
 <script>prettyPrint();</script>
