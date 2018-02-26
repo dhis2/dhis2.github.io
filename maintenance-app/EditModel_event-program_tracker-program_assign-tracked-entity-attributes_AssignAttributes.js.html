@@ -70,6 +70,7 @@ import {
     addAttributesToProgram,
     removeAttributesFromProgram,
     editProgramAttributes,
+    setAttributesOrder
 } from './actions';
 
 const styles = {
@@ -94,6 +95,7 @@ const mapDispatchToProps = dispatch =>
             addAttributesToProgram,
             removeAttributesFromProgram,
             editProgramAttributes,
+            setAttributesOrder
         },
         dispatch
     );
@@ -209,7 +211,7 @@ function AssignAttributes(props, { d2 }) {
 
     const onMoveAttributes = newAttributesOrderIds => {
         assignedItemStore.setState(newAttributesOrderIds);
-        // TODO need to update this.props.assignedAttributes to reflect new order in epics
+        props.setAttributesOrder(newAttributesOrderIds);
     };
 
     // Create edit-able rows for assigned attributes
@@ -317,7 +319,7 @@ export default enhance(AssignAttributes);
 <br class="clear">
 
 <footer>
-    Documentation generated at Sun Feb 25 2018 15:19:58 GMT+0000 (UTC)
+    Documentation generated at Mon Feb 26 2018 15:20:07 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
