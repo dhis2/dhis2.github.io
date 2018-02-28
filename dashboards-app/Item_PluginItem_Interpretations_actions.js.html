@@ -46,8 +46,10 @@ import {
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
+    postInterpretationSharing,
     deleteInterpretation,
     fetchVisualization,
+    fetchVisualizationSharing,
 } from '../../../api/interpretations';
 
 // action creators
@@ -169,6 +171,24 @@ export const tPostInterpretation = data => async (dispatch, getState) => {
         });
         await updateInterpretationInStore([newInterpretation.id], dispatch);
 
+        // get favorite sharing settings and set them on the new interpretation
+        const visSharing = await fetchVisualizationSharing(data);
+
+        if (visSharing &amp;&amp; visSharing.object) {
+            const sharing = {
+                ...visSharing.object,
+                // remove unwanted keys
+                id: undefined,
+                name: undefined,
+                displayName: undefined,
+            };
+
+            await postInterpretationSharing({
+                id: newInterpretation.id,
+                sharing,
+            });
+        }
+
         return onSuccess(vis);
     } catch (err) {
         return onError('Post Interpretation', err);
@@ -208,7 +228,7 @@ export const tDeleteInterpretation = data => async (dispatch, getState) => {
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Feb 27 2018 15:21:20 GMT+0000 (UTC)
+    Documentation generated at Wed Feb 28 2018 15:26:24 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
