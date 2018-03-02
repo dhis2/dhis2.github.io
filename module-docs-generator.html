@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>docs-generator - Postman Documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>docs-generator - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
@@ -23,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-docs-generator.html">docs-generator</a><ul class='methods'><li data-type='method'><a href="module-docs-generator.html#~generateDoc">generateDoc</a></li><li data-type='method'><a href="module-docs-generator.html#~generateIndex">generateIndex</a></li><li data-type='method'><a href="module-docs-generator.html#~pushIt">pushIt</a></li><li data-type='method'><a href="module-docs-generator.html#~readableStream">readableStream</a></li><li data-type='method'><a href="module-docs-generator.html#~repoName">repoName</a></li></ul></li></ul>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-docs-generator.html">docs-generator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~generateDoc">generateDoc</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~generateIndex">generateIndex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~pushIt">pushIt</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~readableStream">readableStream</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~repoName">repoName</a></span></li>
 </nav>
 
 <div id="main">
@@ -68,20 +69,18 @@
 
         
             
+<div class="section-members">
 <h4 class="name" id="~docsubject"><span class="type-signature">(inner, constant) </span>docsubject<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    docsubject is the "global" subject which keeps track of if the
-spawned child processes have completed or not.
-
-When they are all completed we can start to generate the index-page
-of the documentation.
+    <p>docsubject is the &quot;global&quot; subject which keeps track of if the
+spawned child processes have completed or not.</p>
+<p>When they are all completed we can start to generate the index-page
+of the documentation.</p>
 </div>
-
-
 
 
 
@@ -116,7 +115,7 @@ of the documentation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line29">line 29</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -132,24 +131,22 @@ of the documentation.
 
 
 
+
+</div>
+
         
             
+<div class="section-members">
 <h4 class="name" id="~repo$"><span class="type-signature">(inner, constant) </span>repo$<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Kick it. Uses the global subject in each spawned subprocess to
+    <p>Kick it. Uses the global subject in each spawned subprocess to
 capture the completion of the subprocess so we do not start to
-process the index generation until all subprocesses have completed.
-
-We want to first clone the `publishTo` repo to make sure it exists
-before cloning all the `generateFrom` repos concurrently, which is
-why we concat the repo$ on the target$.
+process the index generation until all subprocesses have completed.</p>
 </div>
-
-
 
 
 
@@ -184,7 +181,7 @@ why we concat the repo$ on the target$.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line66">line 66</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -199,6 +196,9 @@ why we concat the repo$ on the target$.
 
 
 
+
+
+</div>
 
         
     
@@ -208,6 +208,7 @@ why we concat the repo$ on the target$.
 
         
             
+<div class="section-method">
 
     
 
@@ -218,9 +219,53 @@ why we concat the repo$ on the target$.
 
 
 <div class="description">
-    Takes a Repository and generates documentation from it. This
-functions writes to disk.
+    <p>Takes a Repository and generates documentation from it. This
+functions writes to disk.</p>
 </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line175">line 175</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -266,57 +311,16 @@ functions writes to disk.
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                
+                
+            </td>
         </tr>
 
     
     </tbody>
 </table>
 
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line186">line 186</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -337,21 +341,25 @@ functions writes to disk.
 
 
 
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
+
+
 <div class="param-desc">
-    string with name of repo
+    <p>string with name of repo</p>
+</div>
+
+    
 </div>
 
 
 
-    
-
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -362,18 +370,10 @@ functions writes to disk.
 
 
 <div class="description">
-    Generate the index of all docs by tricking jsdoc so we can reuse the
+    <p>Generate the index of all docs by tricking jsdoc so we can reuse the
 same theme. This function writes the actual file to disk and
-completes the subject.
+completes the subject.</p>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -408,7 +408,7 @@ completes the subject.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line105">line 105</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -431,21 +431,33 @@ completes the subject.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
+
+
 <div class="param-desc">
-    void
+    <p>void</p>
+</div>
+
+    
 </div>
 
 
 
-    
-
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -456,18 +468,10 @@ completes the subject.
 
 
 <div class="description">
-    By now we have built all the docs into a static bundle. Now we want
+    <p>By now we have built all the docs into a static bundle. Now we want
 to modify the target repo and replace the content. Basically, wipe
-the repo, add our new content, commit it, and push it to master.
+the repo, add our new content, commit it, and push it to master.</p>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -502,7 +506,7 @@ the repo, add our new content, commit it, and push it to master.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line268">line 268</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -528,8 +532,17 @@ the repo, add our new content, commit it, and push it to master.
 
 
 
+
+
+
+
+
+
+
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -540,16 +553,8 @@ the repo, add our new content, commit it, and push it to master.
 
 
 <div class="description">
-    readableStream converts a Node-stream to an rx-observable
+    <p>readableStream converts a Node-stream to an rx-observable</p>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -584,7 +589,7 @@ the repo, add our new content, commit it, and push it to master.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line165">line 165</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line154">line 154</a>
     </li></ul></dd>
     
 
@@ -610,8 +615,17 @@ the repo, add our new content, commit it, and push it to master.
 
 
 
+
+
+
+
+
+
+
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -622,16 +636,8 @@ the repo, add our new content, commit it, and push it to master.
 
 
 <div class="description">
-    gets the repo name from a given str
+    <p>gets the repo name from a given str</p>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -666,7 +672,7 @@ the repo, add our new content, commit it, and push it to master.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line231">line 231</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line220">line 220</a>
     </li></ul></dd>
     
 
@@ -691,8 +697,17 @@ the repo, add our new content, commit it, and push it to master.
 
 
 
-    <h5>Examples</h5>
-    
+
+
+
+
+
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
     <pre class="prettyprint"><code>git@github.com:foo/bar.git          => bar</code></pre>
 
     <pre class="prettyprint"><code>git@github.com:fuz/buz/foo/bar.git  => bar</code></pre>
@@ -701,8 +716,9 @@ the repo, add our new content, commit it, and push it to master.
 
     <pre class="prettyprint"><code>/path/to/repo/bar/.git/             => bar</code></pre>
 
+</div>
 
-
+</div>
         
     
 
@@ -721,7 +737,7 @@ the repo, add our new content, commit it, and push it to master.
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Feb 27 2018 15:21:22 GMT+0000 (UTC)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 02 2018 11:39:51 GMT+0100 (CET) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

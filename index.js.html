@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>index.js - Postman Documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>index.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
@@ -23,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-docs-generator.html">docs-generator</a><ul class='methods'><li data-type='method'><a href="module-docs-generator.html#~generateDoc">generateDoc</a></li><li data-type='method'><a href="module-docs-generator.html#~generateIndex">generateIndex</a></li><li data-type='method'><a href="module-docs-generator.html#~pushIt">pushIt</a></li><li data-type='method'><a href="module-docs-generator.html#~readableStream">readableStream</a></li><li data-type='method'><a href="module-docs-generator.html#~repoName">repoName</a></li></ul></li></ul>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-docs-generator.html">docs-generator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~generateDoc">generateDoc</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~generateIndex">generateIndex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~pushIt">pushIt</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~readableStream">readableStream</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-docs-generator.html#~repoName">repoName</a></span></li>
 </nav>
 
 <div id="main">
@@ -51,12 +52,13 @@ const { template } = require('./template')
 const path = require('path')
 const { StringDecoder } = require('string_decoder')
 const { spawn } = require('child_process')
-const fs = require('fs-extra')
+const fs = require('fs')
 
 const Rx = require('rxjs/Rx')
 const Git = require('nodegit')
 
-const allRepos = [].concat(generateFrom.apps, generateFrom.libs, generateFrom.utils)
+
+
 
 
 /**
@@ -71,40 +73,26 @@ const docsubject = new Rx.Subject()
 docsubject
 .scan((acc, curr) => acc.concat([curr]), [])
 .subscribe(apps => {
-        console.log(`[DOCGEN] Completed ${apps.length}/${allRepos.length}`)
-        if (apps.length === allRepos.length) {
+        console.log(`[DOCGEN] Completed ${apps.length}/${generateFrom.length}`)
+        if (apps.length === generateFrom.length) {
             console.log('[DOCGEN] All done, proceed to generate the index...')
-            generateIndex(apps)
-            copyFiles(path.join(__dirname, 'jekyll'))
-            docsubject.complete()
+            generateIndex(apps, docsubject)
         }
     },
     e => console.error('[DOCGEN] Problem generating Index', e),
     _ => pushIt(repoName(publishTo)) // when the subject completes, push the changes
 )
 
-function copyFiles(src) {
-    try {
-        fs.copySync(src, path.join(__dirname, buildDir, repoName(publishTo)), {
-            errorOnExist: true
-        })
-    } catch (e) {
-        throw new Error(e)
-    }
-}
+
 
 
 /** 
  * Kick it. Uses the global subject in each spawned subprocess to
  * capture the completion of the subprocess so we do not start to
  * process the index generation until all subprocesses have completed.
- *
- * We want to first clone the `publishTo` repo to make sure it exists
- * before cloning all the `generateFrom` repos concurrently, which is
- * why we concat the repo$ on the target$.
  */
 const repo$ = Rx.Observable
-    .from(allRepos)
+    .from(generateFrom)
     .mergeMap(url => clone(url))
     .map(repo => generateDoc(repo, docsubject))
 
@@ -142,20 +130,26 @@ function clone(url) {
  *
  * @returns void
  */
-function generateIndex(apps = []) {
+function generateIndex(apps = [], subject) {
     const index = path.join(__dirname, buildDir, repoName(publishTo), 'README.md')
     const dest = path.join(__dirname, buildDir, repoName(publishTo))
 
+	const libs = ['d2', 'd2-ui']
+	const utils = ['eslint-config-dhis2', 'd2-manifest']
+	const docs = ['wow-frontend']
+
     const appList = apps
-		.filter(a => generateFrom.apps.map(repoName).indexOf(a) !== -1)
+		.filter(a => libs.indexOf(a) === -1)
+		.filter(a => utils.indexOf(a) === -1)
+		.filter(a => docs.indexOf(a) === -1)
 		.map(app => `* [${app}](${app})`).join('\n')
 
     const libList = apps
-		.filter(a => generateFrom.libs.map(repoName).indexOf(a) !== -1)
+		.filter(a => libs.indexOf(a) !== -1)
 		.map(lib => `* [${lib}](${lib})`).join('\n')
 
     const utilList = apps
-		.filter(a => generateFrom.utils.map(repoName).indexOf(a) !== -1)
+		.filter(a => utils.indexOf(a) !== -1)
 		.map(util => `* [${util}](${util})`).join('\n')
 
 	const t = template({
@@ -166,16 +160,14 @@ function generateIndex(apps = []) {
 		}
 	})
 
-    try {
-        fs.writeFileSync(index, t)
-
+    fs.writeFile(index, t, (err) => {
+        if (err) throw err;
         console.log('[INDEX] The file has been saved!');
-
         const args = [
             '.',
             '--destination', dest,
             '--readme', index,
-            '--template', './node_modules/postman-jsdoc-theme',
+			'--configure', 'jsdoc.json',
             '--verbose'
         ]
 
@@ -190,11 +182,9 @@ function generateIndex(apps = []) {
         .subscribe(
             x => console.log('[JSDOC:INDEX]', decoder.write(x)),
             x => console.error('[JSDOC:INDEX] failure:', x),
-            _ => console.log('[JSDOC:INDEX] Complete.')
+            _ => subject.complete()
         )
-    } catch (e) {
-        throw new Error(e)
-    }
+    });
 }
 
 
@@ -235,7 +225,7 @@ function generateDoc (repo, subject) {
         '--recurse',
         '--destination', docDestination,
         '--readme', path.join(repoPath, 'README.md'),
-        '--template', './node_modules/postman-jsdoc-theme',
+		'--configure', 'jsdoc.json',
         '--verbose'
     ]
 
@@ -307,13 +297,13 @@ const getFilesRecursively = (pth) => {
  */
 function pushIt(name) {
     const dir = path.join(__dirname, buildDir, name) 
-    const files = getFilesRecursively(dir).map(str => str.replace(dir+'/',''))
+	const files = getFilesRecursively(dir).map(str => str.replace(dir+'/',''))
 
     let repository
     let remote
 
-    Rx.Observable.from(Git.Repository.open(dir))
-    .mergeMap(function(repo) {
+	Git.Repository.open(dir)
+	.then(function(repo) {
         repository = repo
 		const sig = repo.defaultSignature()
         const msg = // whitespace inside template strings affect the commit msg, so align to left
@@ -321,34 +311,35 @@ function pushIt(name) {
 
 List of apps used to generate docs:
 
-${allRepos.join('\n')}
+${generateFrom.join('\n')}
 `
 		return repo.createCommitOnHead(files, sig, sig, msg)
 	})
 
-    .mergeMap(function() {
+    .then(function() {
         return repository.getRemote('origin')
+            .then(function(remoteResult) {
+                remote = remoteResult;
+
+                return remote.push(
+                    ["refs/heads/master:refs/heads/master"],
+                    {
+                        callbacks: {
+                            certificateCheck: () => 1,
+                            credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
+                        }
+                    }
+                );
+            });
     })
 
-    .mergeMap(function(remoteResult) {
-        remote = remoteResult;
-
-        return remote.push(
-            ["refs/heads/master:refs/heads/master"],
-            {
-                callbacks: {
-                    certificateCheck: () => 1,
-                    credentials: (url, userName) => Git.Cred.sshKeyFromAgent(userName)
-                }
-            }
-        );
+    .catch(function(reason) {
+        console.log('[Git] FAIL', reason, repository);
     })
 
-    .subscribe(
-        result => console.log('[Git] Success!'),
-        reason  => console.log('[Git] FAIL', reason, repository),
-        _ => console.log("[Git] Push to remote origin complete... Good bye.")
-    )
+    .done(function() {
+        console.log("[Git] push to remote origin complete...");
+    })
 }
 </code></pre>
         </article>
@@ -362,7 +353,7 @@ ${allRepos.join('\n')}
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Feb 27 2018 15:21:22 GMT+0000 (UTC)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 02 2018 11:39:51 GMT+0100 (CET) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
