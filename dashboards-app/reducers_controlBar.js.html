@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-reducers_controlBar.html">reducers/controlBar</a><ul class='methods'><li data-type='method'><a href="module-reducers_controlBar.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_controlBar.html#~rows">rows</a></li></ul></li><li><a href="module-reducers_dashboards.html">reducers/dashboards</a><ul class='methods'><li data-type='method'><a href="module-reducers_dashboards.html#.getCustomDashboards">getCustomDashboards</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetById">sGetById</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_editDashboard.html">reducers/editDashboard</a></li><li><a href="module-reducers_interpretations.html">reducers/interpretations</a></li><li><a href="module-reducers_selected.html">reducers/selected</a><ul class='methods'><li data-type='method'><a href="module-reducers_selected.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_selected.html#~id">id</a></li><li data-type='method'><a href="module-reducers_selected.html#~style">style</a></li></ul></li><li><a href="module-reducers_visualizations.html">reducers/visualizations</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getOriginalHeight">getOriginalHeight</a></li><li><a href="global.html#sortByDate">sortByDate</a></li><li><a href="global.html#tDeleteInterpretation">tDeleteInterpretation</a></li><li><a href="global.html#tPostInterpretation">tPostInterpretation</a></li><li><a href="global.html#withShape">withShape</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-reducers_controlBar.html">reducers/controlBar</a><ul class='methods'><li data-type='method'><a href="module-reducers_controlBar.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_dashboards.html">reducers/dashboards</a><ul class='methods'><li data-type='method'><a href="module-reducers_dashboards.html#.getCustomDashboards">getCustomDashboards</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetById">sGetById</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_editDashboard.html">reducers/editDashboard</a></li><li><a href="module-reducers_interpretations.html">reducers/interpretations</a></li><li><a href="module-reducers_selected.html">reducers/selected</a><ul class='methods'><li data-type='method'><a href="module-reducers_selected.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_selected.html#~id">id</a></li><li data-type='method'><a href="module-reducers_selected.html#~style">style</a></li></ul></li><li><a href="module-reducers_visualizations.html">reducers/visualizations</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getOriginalHeight">getOriginalHeight</a></li><li><a href="global.html#sortByDate">sortByDate</a></li><li><a href="global.html#tDeleteInterpretation">tDeleteInterpretation</a></li><li><a href="global.html#tPostInterpretation">tPostInterpretation</a></li><li><a href="global.html#withShape">withShape</a></li></ul>
 </nav>
 
 <div id="main">
@@ -43,20 +43,14 @@ import { combineReducers } from 'redux';
 import { validateReducer } from '../util';
 
 export const actionTypes = {
-    SET_CONTROLBAR_ROWS: 'SET_CONTROLBAR_ROWS',
+    SET_CONTROLBAR_USER_ROWS: 'SET_CONTROLBAR_USER_ROWS',
 };
 
 export const DEFAULT_ROWS = 1;
 
-/**
- * Reducer functions that computes and returns the new state based on the given action
- * @function
- * @param {Object} state The current state
- * @param {Object} action The action to be evaluated
- */
-const rows = (state = DEFAULT_ROWS, action) => {
+const userRows = (state = DEFAULT_ROWS, action) => {
     switch (action.type) {
-        case actionTypes.SET_CONTROLBAR_ROWS:
+        case actionTypes.SET_CONTROLBAR_USER_ROWS:
             return validateReducer(action.value, DEFAULT_ROWS);
         default:
             return state;
@@ -64,7 +58,7 @@ const rows = (state = DEFAULT_ROWS, action) => {
 };
 
 export default combineReducers({
-    rows,
+    userRows,
 });
 
 /**
@@ -77,7 +71,7 @@ export const sGetFromState = state => state.controlBar;
 
 // Selector dependency level 2
 
-export const sGetControlBarRows = state => sGetFromState(state).rows;
+export const sGetControlBarUserRows = state => sGetFromState(state).userRows;
 </code></pre>
         </article>
     </section>
@@ -90,7 +84,7 @@ export const sGetControlBarRows = state => sGetFromState(state).rows;
 <br class="clear">
 
 <footer>
-    Documentation generated at Fri Mar 02 2018 15:28:17 GMT+0000 (UTC)
+    Documentation generated at Mon Mar 05 2018 15:27:45 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
