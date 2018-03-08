@@ -39,8 +39,8 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import snackActions from './snack.actions';
 import { branch, lifecycle } from 'recompose';
+import snackActions from './snack.actions';
 
 export const emptyComponent = () => null;
 
@@ -57,11 +57,10 @@ export const RenderSnackbarError = lifecycle({
  * @param snackAction - snackBarAction to fire if test passes
  * @returns {*} A component that renders nothing if test passes
  */
-export const branchWithMessage = (test, snackAction) => {
-    return branch(test, _ => _ =>
-        &lt;RenderSnackbarError snackAction={snackAction} />
+export const branchWithMessage = (test, snackAction) =>
+    branch(test, _ => _ =>
+        &lt;RenderSnackbarError snackAction={snackAction} />,
     );
-};
 </code></pre>
         </article>
     </section>
@@ -74,7 +73,7 @@ export const branchWithMessage = (test, snackAction) => {
 <br class="clear">
 
 <footer>
-    Documentation generated at Wed Mar 07 2018 15:24:21 GMT+0000 (UTC)
+    Documentation generated at Thu Mar 08 2018 15:24:41 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
