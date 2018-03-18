@@ -6,8 +6,8 @@
 * [Getting started](https://github.com/dhis2/wow-frontend)
 
 ## Libraries
-* [d2](d2)
 * [d2-ui](d2-ui)
+* [d2](d2)
 
 
 ## Apps
@@ -15,9 +15,9 @@
 * [capture-app](capture-app)
 * [user-app](user-app)
 * [d2-tracker](d2-tracker)
-* [maps-app](maps-app)
-* [dashboards-app](dashboards-app)
 * [maintenance-app](maintenance-app)
+* [dashboards-app](dashboards-app)
+* [maps-app](maps-app)
 
 
 ## Utilities
