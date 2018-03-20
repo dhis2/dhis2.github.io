@@ -84,7 +84,7 @@ class SharingDialog extends React.Component {
     componentDidMount() {
         this.loadDataSharingSettings();
         if (this.props.open &amp;&amp; this.props.type &amp;&amp; this.props.id) {
-            this.loadObjectFromApi();
+            this.loadObjectFromApi(this.props);
         }
     }
 
@@ -93,11 +93,11 @@ class SharingDialog extends React.Component {
 
         if (hasChanged('id') || hasChanged('type')) {
             this.resetState();
-            if (nextProps.open) this.loadObjectFromApi();
+            if (nextProps.open) this.loadObjectFromApi(nextProps);
         }
 
         if (!this.props.open &amp;&amp; nextProps.open) {
-            this.loadObjectFromApi();
+            this.loadObjectFromApi(nextProps);
         }
     }
 
@@ -159,9 +159,8 @@ class SharingDialog extends React.Component {
         });
     }
 
-    loadObjectFromApi = () => {
+    loadObjectFromApi = ({ type, id }) => {
         const api = this.props.d2.Api.getApi();
-        const { type, id } = this.props;
 
         api
         .get('sharing', { type, id })
@@ -265,7 +264,7 @@ export default SharingDialog;
 <br class="clear">
 
 <footer>
-    Documentation generated at Mon Mar 19 2018 15:30:47 GMT+0000 (UTC)
+    Documentation generated at Tue Mar 20 2018 15:37:40 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
