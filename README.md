@@ -12,8 +12,8 @@
 
 ## Apps
 * [scheduler-app](scheduler-app)
-* [user-app](user-app)
 * [capture-app](capture-app)
+* [user-app](user-app)
 * [d2-tracker](d2-tracker)
 * [maps-app](maps-app)
 * [dashboards-app](dashboards-app)
@@ -21,8 +21,8 @@
 
 
 ## Utilities
-* [eslint-config-dhis2](eslint-config-dhis2)
 * [d2-manifest](d2-manifest)
+* [eslint-config-dhis2](eslint-config-dhis2)
 
 ## Links
 
