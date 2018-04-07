@@ -21,8 +21,8 @@
 
 
 ## Utilities
-* [d2-manifest](d2-manifest)
 * [eslint-config-dhis2](eslint-config-dhis2)
+* [d2-manifest](d2-manifest)
 
 ## Links
 
