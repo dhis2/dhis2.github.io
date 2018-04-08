@@ -15,8 +15,8 @@
 * [capture-app](capture-app)
 * [user-app](user-app)
 * [d2-tracker](d2-tracker)
-* [maps-app](maps-app)
 * [dashboards-app](dashboards-app)
+* [maps-app](maps-app)
 * [maintenance-app](maintenance-app)
 
 
