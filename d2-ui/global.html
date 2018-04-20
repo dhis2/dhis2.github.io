@@ -110,6 +110,70 @@
 
         
             
+<h4 class="name" id="addValueRenderer"><span class="type-signature">(constant) </span>addValueRenderer<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Register a new ValueRenderer. The value renderers are used to render different values in the DataTable. (e.g. colors should be rendered as a Color component).
+The new renderer is added to the start of the renderer list. If your passed `checker` is too specific the `component` might be used for values that you might not want.
+Passing `() => true` as a checker will result the passed `component` to be used for every value in the DataTable.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="packages_table_src_data-value_valueRenderers.js.html">packages/table/src/data-value/valueRenderers.js</a>, <a href="packages_table_src_data-value_valueRenderers.js.html#line119">line 119</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="findValueRenderer"><span class="type-signature">(constant) </span>findValueRenderer<span class="type-signature"></span></h4>
 
 
@@ -162,7 +226,7 @@ It will recieve an object like the one below and loop through a list of renderer
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_data-table_data-value_valueRenderers.js.html">src/data-table/data-value/valueRenderers.js</a>, <a href="src_data-table_data-value_valueRenderers.js.html#line154">line 154</a>
+        <a href="packages_table_src_data-value_valueRenderers.js.html">packages/table/src/data-value/valueRenderers.js</a>, <a href="packages_table_src_data-value_valueRenderers.js.html#line148">line 148</a>
     </li></ul></dd>
     
 
@@ -224,7 +288,7 @@ It will recieve an object like the one below and loop through a list of renderer
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_tabs_Tabs.js.html">src/tabs/Tabs.js</a>, <a href="src_tabs_Tabs.js.html#line37">line 37</a>
+        <a href="packages_core_src_tabs_Tabs.js.html">packages/core/src/tabs/Tabs.js</a>, <a href="packages_core_src_tabs_Tabs.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -289,7 +353,7 @@ It will recieve an object like the one below and loop through a list of renderer
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app-header_search_sources_maintenance-app_maintenance-models.js.html">src/app-header/search/sources/maintenance-app/maintenance-models.js</a>, <a href="src_app-header_search_sources_maintenance-app_maintenance-models.js.html#line104">line 104</a>
+        <a href="packages_header-bar_src_search_sources_maintenance-app_maintenance-models.js.html">packages/header-bar/src/search/sources/maintenance-app/maintenance-models.js</a>, <a href="packages_header-bar_src_search_sources_maintenance-app_maintenance-models.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -310,184 +374,6 @@ It will recieve an object like the one below and loop through a list of renderer
 
     
         <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id="addValueRenderer"><span class="type-signature"></span>addValueRenderer<span class="signature">(checker, component)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Register a new ValueRenderer. The value renderers are used to render different values in the DataTable. (e.g. colors should be rendered as a Color component).
-The new renderer is added to the start of the renderer list. If your passed `checker` is too specific the `component` might be used for values that you might not want.
-Passing `() => true` as a checker will result the passed `component` to be used for every value in the DataTable.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>checker</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Check if the value is valid for the `component` to be rendered. This function receives an object with `value`, `valueType` and `columnName` that can be used to determine if this `component` should render the value.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>component</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A React component to render when the `checker` returns true. This is the component that will be returned from `findValueRenderer`.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_data-table_data-value_valueRenderers.js.html">src/data-table/data-value/valueRenderers.js</a>, <a href="src_data-table_data-value_valueRenderers.js.html#line125">line 125</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    A de-register function to unregister the checker. If you want to remove the valueRenderer from the list of renderers you can use this function to undo the add.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
 
         
             
@@ -614,7 +500,7 @@ Passing `() => true` as a checker will result the passed `component` to be used 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_action_Action.js.html">src/action/Action.js</a>, <a href="src_action_Action.js.html#line17">line 17</a>
+        <a href="packages_core_src_action_Action.js.html">packages/core/src/action/Action.js</a>, <a href="packages_core_src_action_Action.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -802,7 +688,7 @@ Passing `() => true` as a checker will result the passed `component` to be used 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_action_Action.js.html">src/action/Action.js</a>, <a href="src_action_Action.js.html#line58">line 58</a>
+        <a href="packages_core_src_action_Action.js.html">packages/core/src/action/Action.js</a>, <a href="packages_core_src_action_Action.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -965,7 +851,7 @@ specified root
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_org-unit-tree_utils.js.html">src/org-unit-tree/utils.js</a>, <a href="src_org-unit-tree_utils.js.html#line24">line 24</a>
+        <a href="packages_org-unit-tree_src_utils.js.html">packages/org-unit-tree/src/utils.js</a>, <a href="packages_org-unit-tree_src_utils.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -1127,7 +1013,7 @@ specified root
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_org-unit-tree_utils.js.html">src/org-unit-tree/utils.js</a>, <a href="src_org-unit-tree_utils.js.html#line7">line 7</a>
+        <a href="packages_org-unit-tree_src_utils.js.html">packages/org-unit-tree/src/utils.js</a>, <a href="packages_org-unit-tree_src_utils.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -1302,7 +1188,7 @@ This can be used a utility method to load all objects as options for a dropdown 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_data-helpers_index.js.html">src/data-helpers/index.js</a>, <a href="src_data-helpers_index.js.html#line13">line 13</a>
+        <a href="packages_core_src_data-helpers_index.js.html">packages/core/src/data-helpers/index.js</a>, <a href="packages_core_src_data-helpers_index.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -1411,7 +1297,7 @@ to 80% of the current viewport height.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app-header_header-bar-styles.js.html">src/app-header/header-bar-styles.js</a>, <a href="src_app-header_header-bar-styles.js.html#line44">line 44</a>
+        <a href="packages_header-bar_src_header-bar-styles.js.html">packages/header-bar/src/header-bar-styles.js</a>, <a href="packages_header-bar_src_header-bar-styles.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -1578,7 +1464,7 @@ specified root
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_org-unit-tree_utils.js.html">src/org-unit-tree/utils.js</a>, <a href="src_org-unit-tree_utils.js.html#line34">line 34</a>
+        <a href="packages_org-unit-tree_src_utils.js.html">packages/org-unit-tree/src/utils.js</a>, <a href="packages_org-unit-tree_src_utils.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -1722,7 +1608,7 @@ specified root
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_org-unit-tree_utils.js.html">src/org-unit-tree/utils.js</a>, <a href="src_org-unit-tree_utils.js.html#line43">line 43</a>
+        <a href="packages_org-unit-tree_src_utils.js.html">packages/org-unit-tree/src/utils.js</a>, <a href="packages_org-unit-tree_src_utils.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -1848,7 +1734,7 @@ specified root
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app-header_utils_menu-sources.js.html">src/app-header/utils/menu-sources.js</a>, <a href="src_app-header_utils_menu-sources.js.html#line98">line 98</a>
+        <a href="packages_header-bar_src_utils_menu-sources.js.html">packages/header-bar/src/utils/menu-sources.js</a>, <a href="packages_header-bar_src_utils_menu-sources.js.html#line98">line 98</a>
     </li></ul></dd>
     
 
@@ -2003,7 +1889,7 @@ specified root
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_forms_AsyncValidatorRunner.js.html">src/forms/AsyncValidatorRunner.js</a>, <a href="src_forms_AsyncValidatorRunner.js.html#line11">line 11</a>
+        <a href="packages_core_src_forms_AsyncValidatorRunner.js.html">packages/core/src/forms/AsyncValidatorRunner.js</a>, <a href="packages_core_src_forms_AsyncValidatorRunner.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -2071,7 +1957,7 @@ contains the value that the failed validator function rejected with.
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Apr 17 2018 15:48:32 GMT+0000 (UTC)
+    Documentation generated at Fri Apr 20 2018 15:49:58 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>

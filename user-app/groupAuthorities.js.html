@@ -251,9 +251,7 @@ const createMetadataGroup = (auth, lookup) => {
     }
 
     // The suffix of the the incomming authority, i.e. "F_CATEGORY_COMBO_DELETE" => "_DELETE"
-    const authSuffix = ALL_METADATA_SUFFIXES.find(suffix =>
-        _.endsWith(auth.id, suffix)
-    );
+    const authSuffix = ALL_METADATA_SUFFIXES.find(suffix => _.endsWith(auth.id, suffix));
     // The authority baseName, i.e. "F_CATEGORY_COMBO_DELETE" => "F_CATEGORY_COMBO"
     const baseName = auth.id.replace(authSuffix, '');
 
@@ -272,8 +270,7 @@ const createMetadataGroup = (auth, lookup) => {
     );
 
     // Set each authority item for the current authority group
-    const publicAddAuth =
-        genericAdd || lookup.get(baseName + PUBLIC_ADD_SUFFIX);
+    const publicAddAuth = genericAdd || lookup.get(baseName + PUBLIC_ADD_SUFFIX);
     const privateAddAuth = genericAdd
         ? EMPTY_GROUP_ITEM
         : hasImplicitAddPrivateAndDelete
@@ -310,6 +307,11 @@ const addToAuthoritySection = (auth, groupedAuthorities, lookup) => {
         Object.keys(AUTHORITY_GROUPS).find(groupKey =>
             AUTHORITY_GROUPS[groupKey].has(auth.id)
         ) || 'uncategorized';
+
+    if (auth.id === 'ALL') {
+        auth.name = nameLookup.get(auth.id);
+    }
+
     groupedAuthorities[groupKey].items.push(auth);
     lookup.delete(auth.id);
 };
@@ -327,7 +329,7 @@ export default groupAuthorities;
 <br class="clear">
 
 <footer>
-    Documentation generated at Tue Apr 17 2018 15:48:26 GMT+0000 (UTC)
+    Documentation generated at Fri Apr 20 2018 15:49:52 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>

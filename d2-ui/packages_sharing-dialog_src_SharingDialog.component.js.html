@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>packages/sharing-dialog/src/SharingDialog.component.js - Postman Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Action.html">Action</a></li><li><a href="AsyncValidatorRunner.html">AsyncValidatorRunner</a><ul class='methods'><li data-type='method'><a href="AsyncValidatorRunner.html#.create">create</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#listenToValidatorsFor">listenToValidatorsFor</a></li><li data-type='method'><a href="AsyncValidatorRunner.html#run">run</a></li></ul></li><li><a href="ControlBar.html">ControlBar</a></li><li><a href="FormField.html">FormField</a></li><li><a href="Sharing.html">Sharing</a></li><li><a href="SharingDialog.html">SharingDialog</a></li></ul><h3>Modules</h3><ul><li><a href="module-lib_utils.html">lib/utils</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addValueRenderer">addValueRenderer</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createActionsFromNames">createActionsFromNames</a></li><li><a href="global.html#decrementMemberCount">decrementMemberCount</a></li><li><a href="global.html#findValueRenderer">findValueRenderer</a></li><li><a href="global.html#forEachOnPath">forEachOnPath</a></li><li><a href="global.html#getAllObjectsWithFields">getAllObjectsWithFields</a></li><li><a href="global.html#getSearchResultsHeight">getSearchResultsHeight</a></li><li><a href="global.html#incrementMemberCount">incrementMemberCount</a></li><li><a href="global.html#mergeChildren">mergeChildren</a></li><li><a href="global.html#removeMenuManagementModule">removeMenuManagementModule</a></li><li><a href="global.html#runValidatorFunctions">runValidatorFunctions</a></li><li><a href="global.html#selector">selector</a></li><li><a href="global.html#typeDetails">typeDetails</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">packages/sharing-dialog/src/SharingDialog.component.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Dialog from 'material-ui/Dialog/Dialog';
+import FlatButton from 'material-ui/FlatButton/FlatButton';
+import Snackbar from 'material-ui/Snackbar';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Sharing from './Sharing.component';
+import { LoadingMask } from '@dhis2/d2-ui-core';
+
+const styles = {
+    loadingMask: {
+        position: 'relative',
+    },
+};
+
+const defaultState = {
+    api: null,
+    sharedObject: null,
+    errorMessage: '',
+};
+
+/**
+ * A pop-up dialog for changing sharing preferences for a sharable object.
+ */
+class SharingDialog extends React.Component {
+    state = {
+        ...defaultState,
+        dataShareableTypes: [],
+    };
+
+    constructor(props) {
+        super(props);
+
+        if (props.d2) {
+            props.d2.i18n.addStrings(['share', 'close', 'no_manage_access']);
+        } else {
+            console.error('no d2');
+        }
+    }
+
+    getChildContext() {
+        return { d2: this.props.d2 };
+    }
+
+    componentDidMount() {
+        this.loadDataSharingSettings();
+        if (this.props.open &amp;&amp; this.props.type &amp;&amp; this.props.id) {
+            this.loadObjectFromApi(this.props);
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const hasChanged = this.createPropsChecker(nextProps);
+
+        if (hasChanged('id') || hasChanged('type')) {
+            this.resetState();
+            if (nextProps.open) this.loadObjectFromApi(nextProps);
+        }
+
+        if (!this.props.open &amp;&amp; nextProps.open) {
+            this.loadObjectFromApi(nextProps);
+        }
+    }
+
+    onSearchRequest = key =>
+        this.state.api.get('sharing/search', { key })
+            .then(searchResult => searchResult);
+
+    onSharingChanged = (updatedAttributes, onSuccess) => {
+        const updatedObject = {
+            meta: this.state.sharedObject.meta,
+            object: {
+                ...this.state.sharedObject.object,
+                ...updatedAttributes,
+            },
+        };
+
+        this.postChanges(updatedObject, onSuccess);
+    }
+
+    createPropsChecker = nextProps => field => nextProps[field] !== this.props[field];
+
+    postChanges = (updatedObject, onSuccess) => {
+        const url = `sharing?type=${this.props.type}&amp;id=${this.props.id}`;
+        return this.state.api.post(url, updatedObject)
+            .then(({ httpStatus, message }) => {
+                if (httpStatus === 'OK') {
+                    this.setState({
+                        sharedObject: updatedObject,
+                    }, () => {
+                        if (onSuccess) onSuccess();
+                    });
+                }
+
+                return message;
+            }).catch(({ message }) => {
+                this.setState({
+                    errorMessage: message,
+                });
+            });
+    }
+
+    resetState = () => {
+        this.setState(defaultState);
+    }
+
+    loadDataSharingSettings = () => {
+        const api = this.props.d2.Api.getApi();
+
+        api
+        .get('schemas', { fields: ['name', 'dataShareable'] })
+        .then((schemas) => {
+            const dataShareableTypes = schemas.schemas
+                .filter(item => item.dataShareable)
+                .map(item => item.name);
+
+            this.setState({
+                dataShareableTypes,
+            });
+        });
+    }
+
+    loadObjectFromApi = ({ type, id }) => {
+        const api = this.props.d2.Api.getApi();
+
+        api
+        .get('sharing', { type, id })
+        .then((sharedObject) => {
+            this.setState({
+                api,
+                sharedObject,
+            });
+        })
+        .catch((error) => {
+            this.setState({
+                errorMessage: error.message,
+            });
+        });
+    }
+
+    closeSharingDialog = () => {
+        this.props.onRequestClose(this.state.sharedObject.object);
+    }
+
+    render() {
+        const dataShareable = this.state.dataShareableTypes.indexOf(this.props.type) !== -1;
+        const errorOccurred = this.state.errorMessage !== '';
+        const isLoading = !this.state.sharedObject &amp;&amp; this.props.open &amp;&amp; !errorOccurred;
+        const sharingDialogActions = [
+            &lt;FlatButton
+                label={this.props.d2.i18n.getTranslation('close')}
+                onClick={this.closeSharingDialog}
+            />,
+        ];
+        return (
+            &lt;div>
+                &lt;Snackbar
+                    open={errorOccurred}
+                    message={this.state.errorMessage}
+                    autoHideDuration={3000}
+                />
+                { isLoading &amp;&amp; &lt;LoadingMask style={styles.loadingMask} size={1} /> }
+                { this.state.sharedObject &amp;&amp;
+                    &lt;Dialog
+                        autoDetectWindowHeight
+                        autoScrollBodyContent
+                        open={this.props.open}
+                        title={this.props.d2.i18n.getTranslation('share')}
+                        actions={sharingDialogActions}
+                        onRequestClose={this.closeSharingDialog}
+                        {...this.props}
+                    >
+                        &lt;Sharing
+                            sharedObject={this.state.sharedObject}
+                            dataShareable={dataShareable}
+                            onChange={this.onSharingChanged}
+                            onSearch={this.onSearchRequest}
+                        />
+                    &lt;/Dialog>
+                }
+            &lt;/div>
+        );
+    }
+}
+
+SharingDialog.childContextTypes = {
+    d2: PropTypes.object
+};
+
+SharingDialog.propTypes = {
+    /**
+     * Decides whether the dialog should be open or closed.
+     */
+    open: PropTypes.bool.isRequired,
+
+    /**
+     * Function to be called when the dialog is closed. The function is called
+     * with the updated sharing preferences as the first and only argument.
+     */
+    onRequestClose: PropTypes.func.isRequired,
+
+    /**
+     * Type of the sharable object.
+     */
+    type: PropTypes.string.isRequired,
+
+    /**
+     * Id of the sharable object.
+     */
+    id: PropTypes.string.isRequired,
+    d2: PropTypes.object.isRequired,
+};
+
+export default SharingDialog;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated at Fri Apr 20 2018 15:49:58 GMT+0000 (UTC)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
