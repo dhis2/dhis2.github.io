@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-reducers_controlBar.html">reducers/controlBar</a><ul class='methods'><li data-type='method'><a href="module-reducers_controlBar.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_dashboards.html">reducers/dashboards</a><ul class='methods'><li data-type='method'><a href="module-reducers_dashboards.html#.getCustomDashboards">getCustomDashboards</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetById">sGetById</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_editDashboard.html">reducers/editDashboard</a></li><li><a href="module-reducers_interpretations.html">reducers/interpretations</a></li><li><a href="module-reducers_selected.html">reducers/selected</a><ul class='methods'><li data-type='method'><a href="module-reducers_selected.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_selected.html#~id">id</a></li><li data-type='method'><a href="module-reducers_selected.html#~style">style</a></li></ul></li><li><a href="module-reducers_visualizations.html">reducers/visualizations</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getOriginalHeight">getOriginalHeight</a></li><li><a href="global.html#sortByDate">sortByDate</a></li><li><a href="global.html#tDeleteInterpretation">tDeleteInterpretation</a></li><li><a href="global.html#tPostInterpretation">tPostInterpretation</a></li><li><a href="global.html#withShape">withShape</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-reducers_controlBar.html">reducers/controlBar</a><ul class='methods'><li data-type='method'><a href="module-reducers_controlBar.html#.sGetFromState">sGetFromState</a></li></ul></li><li><a href="module-reducers_dashboards.html">reducers/dashboards</a><ul class='methods'><li data-type='method'><a href="module-reducers_dashboards.html#.getCustomDashboards">getCustomDashboards</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetById">sGetById</a></li><li data-type='method'><a href="module-reducers_dashboards.html#.sGetItems">sGetItems</a></li><li data-type='method'><a href="module-reducers_dashboards.html#~sGetDashboardsByProp">sGetDashboardsByProp</a></li></ul></li><li><a href="module-reducers_editDashboard.html">reducers/editDashboard</a></li><li><a href="module-reducers_interpretations.html">reducers/interpretations</a></li><li><a href="module-reducers_selected.html">reducers/selected</a><ul class='methods'><li data-type='method'><a href="module-reducers_selected.html#.sGetFromState">sGetFromState</a></li><li data-type='method'><a href="module-reducers_selected.html#~id">id</a></li><li data-type='method'><a href="module-reducers_selected.html#~style">style</a></li></ul></li><li><a href="module-reducers_visualizations.html">reducers/visualizations</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getOriginalHeight">getOriginalHeight</a></li><li><a href="global.html#sortByDate">sortByDate</a></li><li><a href="global.html#tDeleteInterpretation">tDeleteInterpretation</a></li><li><a href="global.html#tPostInterpretation">tPostInterpretation</a></li><li><a href="global.html#withShape">withShape</a></li></ul>
 </nav>
 
 <div id="main">
@@ -179,7 +179,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line37">line 37</a>
+        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -237,154 +237,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".actionTypes"><span class="type-signature">(static, constant) </span>actionTypes<span class="type-signature"> :Object</span></h4>
-
-
-
-
-<div class="description">
-    Action types for the dashboard reducer
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line17">line 17</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".DEFAULT_DASHBOARDS"><span class="type-signature">(static, constant) </span>DEFAULT_DASHBOARDS<span class="type-signature"> :Array</span></h4>
-
-
-
-
-<div class="description">
-    The default list of dashboards
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Array</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line28">line 28</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
     
 
     
@@ -495,7 +347,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line107">line 107</a>
+        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line171">line 171</a>
     </li></ul></dd>
     
 
@@ -551,8 +403,13 @@
 
 
 <div class="description">
-    Returns a dashboard based on id, from the state object.
-If no matching dashboard is found, then undefined is returned
+    Selector which returns dashboards by id from the state object
+If no id is provided it returns all dashboards
+If no matching dashboard is found it returns undefined
+If dashboards.byId is null, then the dashboards api request
+has not yet completed. If dashboards.byId is an empty object
+then the dashboards api request is complete, and no dashboards
+were returned
 </div>
 
 
@@ -617,7 +474,7 @@ If no matching dashboard is found, then undefined is returned
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Number</span>
 
 
             
@@ -627,7 +484,7 @@ If no matching dashboard is found, then undefined is returned
 
             
 
-            <td class="description last">The id of the dashboard to retrieve</td>
+            <td class="description last">The id of the dashboard</td>
         </tr>
 
     
@@ -668,7 +525,7 @@ If no matching dashboard is found, then undefined is returned
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line91">line 91</a>
+        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -720,18 +577,14 @@ If no matching dashboard is found, then undefined is returned
 
     
 
-    <h4 class="name" id=".sGetFromState"><span class="type-signature">(static) </span>sGetFromState<span class="signature">(state)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id=".sGetItems"><span class="type-signature">(static) </span>sGetItems<span class="signature">(state)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
 
 
 <div class="description">
-    Selector which returns dashboards from the state object
-If state.dashboards is null, then the dashboards api request
-has not yet completed. If state.dashboards is an empty object
-then the dashboards api request is complete, and there are no
-dashboards
+    Selector which returns the current dashboard items
 </div>
 
 
@@ -824,7 +677,202 @@ dashboards
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line81">line 81</a>
+        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line120">line 120</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~sGetDashboardsByProp"><span class="type-signature">(inner) </span>sGetDashboardsByProp<span class="signature">(state, propName, value)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Generic selector which returns filtered dashboards
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>state</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The current state</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>propName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the filter prop</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The value of the filter prop</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="reducers_dashboards.js.html">reducers/dashboards.js</a>, <a href="reducers_dashboards.js.html#line133">line 133</a>
     </li></ul></dd>
     
 
@@ -886,7 +934,7 @@ dashboards
 <br class="clear">
 
 <footer>
-    Documentation generated at Sun Apr 22 2018 15:49:17 GMT+0000 (UTC)
+    Documentation generated at Mon Apr 23 2018 15:49:38 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
