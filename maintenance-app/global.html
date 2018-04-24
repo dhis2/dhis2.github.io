@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addPropsToFieldConfig">addPropsToFieldConfig</a></li><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#branchWithMessage">branchWithMessage</a></li><li><a href="global.html#cloneHandlerByObjectType">cloneHandlerByObjectType</a></li><li><a href="global.html#constantNameConverter">constantNameConverter</a></li><li><a href="global.html#createFieldConfigsFor">createFieldConfigsFor</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#getProgramStageDataElementsByStageId">getProgramStageDataElementsByStageId</a></li><li><a href="global.html#getProgramStageFromModel">getProgramStageFromModel</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#setEditModel">setEditModel</a></li><li><a href="global.html#sharedOverrides">sharedOverrides</a></li><li><a href="global.html#tetAttributesNotInProgram">tetAttributesNotInProgram</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addPropsToFieldConfig">addPropsToFieldConfig</a></li><li><a href="global.html#addQuery">addQuery</a></li><li><a href="global.html#BEFORE_START_OF_REPORTING_PERIOD">BEFORE_START_OF_REPORTING_PERIOD</a></li><li><a href="global.html#bindFuncsToKeys">bindFuncsToKeys</a></li><li><a href="global.html#branchWithMessage">branchWithMessage</a></li><li><a href="global.html#cloneHandlerByObjectType">cloneHandlerByObjectType</a></li><li><a href="global.html#constantNameConverter">constantNameConverter</a></li><li><a href="global.html#createFieldConfigsFor">createFieldConfigsFor</a></li><li><a href="global.html#createModelToEditEpic">createModelToEditEpic</a></li><li><a href="global.html#createStepperContentFromConfig">createStepperContentFromConfig</a></li><li><a href="global.html#createStepperFromConfig">createStepperFromConfig</a></li><li><a href="global.html#deleteProgramStageFromState">deleteProgramStageFromState</a></li><li><a href="global.html#findHelpLinkForPath">findHelpLinkForPath</a></li><li><a href="global.html#getDocsVersion">getDocsVersion</a></li><li><a href="global.html#getFieldInfoFromMatch">getFieldInfoFromMatch</a></li><li><a href="global.html#getProgramStageDataElementsByStageId">getProgramStageDataElementsByStageId</a></li><li><a href="global.html#getProgramStageFromModel">getProgramStageFromModel</a></li><li><a href="global.html#removeQuery">removeQuery</a></li><li><a href="global.html#replaceMappingPathPlaceholder">replaceMappingPathPlaceholder</a></li><li><a href="global.html#replacePlaceholder">replacePlaceholder</a></li><li><a href="global.html#ReportDateToUseDropDown">ReportDateToUseDropDown</a></li><li><a href="global.html#setEditModel">setEditModel</a></li><li><a href="global.html#sharedOverrides">sharedOverrides</a></li><li><a href="global.html#tetAttributesNotInProgram">tetAttributesNotInProgram</a></li><li><a href="global.html#typeDetails">typeDetails</a></li><li><a href="global.html#withProgramAndStages">withProgramAndStages</a></li><li><a href="global.html#withProgramStageFromProgramStage$">withProgramStageFromProgramStage$</a></li></ul>
 </nav>
 
 <div id="main">
@@ -1077,6 +1077,210 @@ between these two, as they have different behavior and overrides.
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="bindFuncsToKeys"><span class="type-signature"></span>bindFuncsToKeys<span class="signature">(obj, func, selfArg, extraArgs)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Helper to bind the keys of an object to given function
+So that multiple elements can be bound to the same function.
+The first parameter of each bound function will be the key.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object with keys to bind</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Function to bind each key to</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selfArg</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">this context of the function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extraArgs</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object of extra arguments</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_event-program_data-entry-form_dataEntryFormUtils.js.html">EditModel/event-program/data-entry-form/dataEntryFormUtils.js</a>, <a href="EditModel_event-program_data-entry-form_dataEntryFormUtils.js.html#line127">line 127</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - And object where each property is a bound function
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
 
         
             
@@ -2271,6 +2475,158 @@ For example a help link key that is defined as  `/edit/dataElementSection/dataEl
 
     
 
+    <h4 class="name" id="getFieldInfoFromMatch"><span class="type-signature"></span>getFieldInfoFromMatch<span class="signature">(match)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets the id and idString from a matched element.
+
+ The idString is the entire string to be used as a html-attribute.
+ Ie. attributeid="IpHINAT79UW"
+ The id is then "IpHINAT79UW".
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>match</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Regex-match object to use</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EditModel_event-program_data-entry-form_dataEntryFormUtils.js.html">EditModel/event-program/data-entry-form/dataEntryFormUtils.js</a>, <a href="EditModel_event-program_data-entry-form_dataEntryFormUtils.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    an object with idString, id and fieldType of the element.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="getProgramStageFromModel"><span class="type-signature"></span>getProgramStageFromModel<span class="signature">(state, model)</span><span class="type-signature"> &rarr; {*}</span></h4>
 
     
@@ -3048,7 +3404,7 @@ not in programTrackedEntityAttributes, or empty if none.
 <br class="clear">
 
 <footer>
-    Documentation generated at Mon Apr 23 2018 15:49:40 GMT+0000 (UTC)
+    Documentation generated at Tue Apr 24 2018 15:50:26 GMT+0000 (UTC)
 </footer>
 
 <script>prettyPrint();</script>
