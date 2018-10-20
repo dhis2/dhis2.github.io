@@ -7,8 +7,7 @@ These guides contain long-lived information about how to get up and
 running with DHIS2.
 
 <ul class="post-list">
-  {% for page in site.pages %}
-    {% if page.category == 'guide' %}
+  {% for page in site.guides %}
 	<li>
 		<h3>
 		  <a class="post-link" href="{{ page.url | relative_url }}">
@@ -16,6 +15,5 @@ running with DHIS2.
 		  </a>
 		</h3>
 	</li>
-    {% endif %}
   {% endfor %}
 </ul>

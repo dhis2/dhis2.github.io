@@ -33,9 +33,16 @@ plugins:
   - jekyll-sitemap
   - jekyll-mentions
 
+collections:
+  guides:
+    output: true
+    permalink: /:collection/:name
+
 show_excerpts: true
+
 header_pages:
   - blog.md
+  - libs.md
   - guides.md
 
 sass:

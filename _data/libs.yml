@@ -1,0 +1,25 @@
+list_title: Libraries
+list:
+
+- title: API
+  list:
+    - title: d2
+      github: dhis2/d2
+      url: https://dhis2.github.io/d2-builds
+      description: >-
+          uweirusdf
+
+- title: Style
+  list:
+    - title: code-style
+      github: dhis2/code-style
+      description: >-
+          uweirusdf
+
+- title: User interface
+  list:
+    - title: ui
+      github: dhis2/ui
+      url: https://dhis2.github.io/ui-builds
+      description: >-
+        balblalb

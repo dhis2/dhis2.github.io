@@ -1,0 +1,16 @@
+.d2-lib-header {
+    display: flex;
+    height: 40px;
+    font-size: 24px;
+    line-height: 32px;
+    align-items: center;
+}
+
+.d2-lib-header img {
+    margin-left: 8px;
+    opacity: 0.4;
+}
+
+.d2-lib-header img:hover {
+    opacity: 1;
+}
