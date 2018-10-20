@@ -9,17 +9,19 @@ layout: page
         {% for lib in section.list %}
             <li>
                 <h3 class="d2-lib-header">
-                    {% if lib.url %}
-                    <a href="{{ lib.url }}">
-                        {{ lib.title | escape }}
+                    {{ lib.title | escape }}
+
+                    {% if lib.github %}
+                    <a href="https://github.com/{{ lib.github }}">
+                        :octocat:
                     </a>
-                    {% else %}
-                        {{ lib.title | escape }}
                     {% endif %}
 
-                    <a href="https://github.com/{{ lib.github }}">
-                        <img src="/assets/github-icon.png" alt="GitHub"/>
+                    {% if lib.url %}
+                    <a href="{{ lib.url }}">
+                        :book:
                     </a>
+                    {% endif %}
                 </h3>
                 {{ lib.description }}
             </li>
