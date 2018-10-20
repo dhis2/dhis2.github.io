@@ -31,7 +31,7 @@ for example how to set up a development environment for DHIS2.
 A **libraries** page is in progress, with information about our suite of
 tools we have developed as we work on DHIS2. 
 
-There is an [RSS feed](/rss.xml) if you wish to keep up with new content on the
+There is an [RSS feed](/feed.xml) if you wish to keep up with new content on the
 site, as well as a [sitemap](/sitemap.xml).
 
 That's all for now. :wave:
