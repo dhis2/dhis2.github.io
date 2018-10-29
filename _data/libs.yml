@@ -5,7 +5,7 @@ list:
   list:
   - title: d2
     github: dhis2/d2
-    url: https://dhis2.github.io/d2-builds
+    url: https://d2-ci.github.io/d2
     description: >-
       DHIS2 API library with Schema support.
 
@@ -21,6 +21,6 @@ list:
   list:
   - title: ui
     github: dhis2/ui
-    url: https://dhis2.github.io/ui-builds
+    url: https://d2-ci.github.io/ui
     description: >-
       Light-weight component library for composing DHIS2 applications.
