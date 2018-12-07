@@ -47,7 +47,7 @@ for specific instructions.
 
 # 2 - [packages](https://github.com/dhis2/packages)
 
-**packages** is a commandline tool which comes which a set of built-in
+**packages** is a commandline tool which comes with a set of built-in
 commands and extends its functionality with plugins.
 
 When a project is setup using **packages** and e.g.
