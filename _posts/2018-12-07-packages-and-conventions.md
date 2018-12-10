@@ -6,12 +6,11 @@ tags: [js, style, packages, code-style]
 author: varl
 ---
 
-Conventions about style is always a topic up for debate. Everyone agrees that
-conventions are good, and simultaneously prefers their own conventions. Tools
-like Prettier were built in that particular kind of bikeshed. In that spirit,
-allow me to introduce two tools which consolidate our JavaScript conventions.
-
----
+Style conventions are always a topic for debate. Everyone agrees that
+conventions are good, and simultaneously prefers their own conventions.
+Tools like Prettier were built in that particular kind of bikeshed. In
+that spirit, allow me to introduce two tools that consolidate our
+JavaScript conventions.
 
 # 1 - [code-style](https://github.com/dhis2/code-style)
 
@@ -30,7 +29,7 @@ allow me to introduce two tools which consolidate our JavaScript conventions.
 - Stages all the re-formatted files.
 
 `commit-style.js` orients its existence around making sure that commit
-messages follows a structured format:
+messages follow a structured format:
 
 - Passes the commit message through **commitlint** and validates it with
   our chosen configuration.
@@ -41,13 +40,13 @@ app or lib, it is still advisable to use **code-style** to format your
 code and commit messages.
 
 If you are using **packages** then you get access to **code-style**
-functionality automatically, if you want to only use **code-style**, see
+functionality automatically. If you want to only use **code-style**, see
 the [README](https://github.com/dhis2/code-style/blob/master/README.md)
 for specific instructions.
 
 # 2 - [packages](https://github.com/dhis2/packages)
 
-**packages** is a commandline tool which comes with a set of built-in
+**packages** is a commandline tool that comes with a set of built-in
 commands and extends its functionality with plugins.
 
 When a project is setup using **packages** and e.g.
@@ -76,7 +75,7 @@ npm install --save-dev @dhis2/packages
 npm install --save-dev husky
 ```
 
-Regardless if the project is a monorepo or a standard repo and if it uses Yarn
+Regardless of whether the project is a monorepo or a standard repo and whether it uses Yarn
 or NPM you will want to set up your `package.json` with the following
 properties:
 
@@ -102,13 +101,11 @@ repo](https://github.com/dhis2/packages/blob/master/docs/setup-monorepos.md).
 There is also [information on how to migrate from Lerna to
 Packages](https://github.com/dhis2/packages/blob/master/docs/migration-guide-from-lerna.md).
 
----
-
 ## :scissors: Apply the code style
 
 The default operational mode of `code-style` is to only format your
 staged files to allow you to split up commits without interference from
-the tool staging changes which were meant to be deferred.
+the tool staging changes that were meant to be deferred.
 
 Of course, this won't do when the intention is to convert a project to
 use the standard formatting rules. To apply the code format to all files
@@ -120,14 +117,12 @@ packages code-style --all
 
 Now the changes can be commited.
 
----
-
 ## :page_facing_up: Generating an initial CHANGELOG
 
 After the general setup has been completed you can generate a changelog
 for your repo.
 
-The first time the command is:
+The first time you run this command, use the `--first-release` flag:
 
 ```
 packages release --first-release
@@ -142,8 +137,6 @@ embedded in the VCS history.
 
 We adhere to the [conventional commit
 standard](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional).
-
----
 
 ## :pencil: Writing commit messages
 
@@ -167,7 +160,7 @@ A bugfix for the headerbar component in **d2-ui**:
 fix(headerbar): allow logo to collapse on smaller screens
 ```
 
-A feature for **d2** which includes a subject, a body, and a footer:
+A commit message for a feature containing subject, body, and footer:
 
 ```
 feat: implement new schemas
@@ -187,8 +180,6 @@ BREAKING CHANGE: new api /v31 used to access features x, y, and z needed
 to fix DHIS2-xxxx
 ```
 
----
-
 ## :bookmark: Cut a release
 
 When the time comes to cut a new release, run the command:
@@ -197,12 +188,14 @@ When the time comes to cut a new release, run the command:
 packages release
 ```
 
+This command will do the following:
+
 #### 1. Set a new version
 
 This scans your commits for information about what version to bump the
 `package.json` to. Based on that information, a new version will be
 chosen automatically; breaking changes bump the *major* position, features
-bumps the *minor* position, and fixes bump the *patch* position.
+bump the *minor* position, and fixes bump the *patch* position.
 
 #### 2. Generate the CHANGELOG
 
@@ -246,3 +239,6 @@ At this point the project is set up to:
 - *Optional: Monorepo dependency management*
 
 That's it! :tada:
+
+_Thanks to @jenniferarnesen and @Birkbjo for corrections and improvements
+to the text._

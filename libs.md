@@ -12,14 +12,21 @@ layout: page
                     {{ lib.title | escape }}
 
                     {% if lib.github %}
-                    <a href="https://github.com/{{ lib.github }}">
+                    <a href="https://github.com/{{ lib.github }}"
+                        title="GitHub Repo">
                         :octocat:
                     </a>
                     {% endif %}
 
                     {% if lib.url %}
-                    <a href="{{ lib.url }}">
-                        :book:
+                    <a href="{{ lib.url }}" title="Documentation">
+                        :closed_book:
+                    </a>
+                    {% endif %}
+
+                    {% if lib.changelog %}
+                    <a href="{{ lib.changelog }}" title="Changelog">
+                        :page_facing_up:
                     </a>
                     {% endif %}
                 </h3>
