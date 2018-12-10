@@ -25,7 +25,7 @@ list:
     description: >-
       Ensures that our code and commit messages are consistent. This
       is a codified style guide for writing idiomatic DHIS2 apps. Works as a plugin to
-      `packages` and standalone.
+      packages as well as standalone.
 
 - title: User interface
   list:
