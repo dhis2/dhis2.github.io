@@ -107,6 +107,9 @@
 .site-footer {
   border-top: 1px solid $grey-color-light;
   padding: $spacing-unit 0;
+  background-image: url(accent_banner_bottom.svg);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .footer-heading {
