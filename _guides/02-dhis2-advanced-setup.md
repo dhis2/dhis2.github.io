@@ -50,9 +50,7 @@ An outline of the steps required for each instance you want to run:
 
 Repeat this process until you have all the instances you want running.
 
-## 
-
-# Getting multi-instance Tomcat to work on server
+## Getting multi-instance Tomcat to work on server
 
 Make sure the users are in the same groups!
 

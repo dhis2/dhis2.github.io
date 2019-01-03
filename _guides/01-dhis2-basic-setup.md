@@ -11,10 +11,9 @@ layout: page
 - PostgreSQL 9.6.5
 - Git 2.7
 - Maven 3.5
+- (MacOS) [Homebrew](https://brew.sh/)
 
-## Mac OSX
-
-You will need [Homebrew](https://brew.sh/).
+### Mac OSX
 
 ```sh
 brew install postgres
@@ -22,7 +21,7 @@ brew install tomcat
 brew install maven
 ```
 
-### Install Java for Mac OSX manually
+#### Install Java for Mac OSX manually
 
 * Install JDK 8, [get it here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 
@@ -32,7 +31,7 @@ brew install maven
 export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/Current/commands/java_home`
 ```
 
-## Debian 9
+### Debian 9
 
 ```sh
 sudo apt update
@@ -54,7 +53,7 @@ $ sudo chown dhis:tomcat8 /path/to/dhis2
 $ sudo chmod -R 775 /path/to/dhis2
 ```
 
-# Create your `DHIS2_HOME` environment variable
+## Create your `DHIS2_HOME` environment variable
 
 Applications (e.g. DHIS2, D2) read their configuration from this folder.
 
@@ -89,7 +88,7 @@ connection.schema = update
 encryption.password = xxxx
 ```
 
-# Setup the database
+## Setup the database
 
 Create a Postgres Database with name, role and password from `$DHIS2_HOME/dhis.conf`.
 
@@ -131,7 +130,7 @@ $ curl -o upgrade-229.sql https://raw.githubusercontent.com/dhis2/dhis2-utils/ma
 $ sudo -u postgres psql -d dhis2 -U dhis -f upgrade-229.sql
 ```
 
-# Building DHIS2 WAR-file
+## Building DHIS2 WAR-file
 
 This will clone the [dhis2-core](https://github.com/dhis2/dhis2-core) repo to your machine, and build the `master` branch. If you need
 functionality on a separate branch, switch to that branch before running the `mvn` commands.
@@ -155,7 +154,7 @@ $ mvn clean install -DskipTests
 $ mvn -Dmaven.test.failure.ignore=true clean install
 ```
 
-# Tomcat
+## Tomcat
 
 You can either install Tomcat manually by downloading it as a standalone zip-file, or install it using your package manager.
 
@@ -180,7 +179,7 @@ Using CATALINA_HOME:   /usr/share/tomcat8
 ...
 ```
 
-## Running Tomcat as another user
+### Running Tomcat as another user
 
 If you plan on running Tomcat as a different user, you need to use `$CATALINA_BASE/bin/setenv.sh` to set the `DHIS2_HOME` variable.
 
@@ -189,7 +188,7 @@ $ echo "export DHIS2_HOME=/path/to/dhis2/home" >> $CATALINA_BASE/bin/setenv.sh
 $ chmod +x $CATALINA_BASE/bin/setenv.sh
 ```
 
-## Access the Tomcat Manager GUI
+### Access the Tomcat Manager GUI
 
 You need to give a user access to the web manager which can start and stop the app.
 
@@ -204,14 +203,14 @@ Add the lines below before the end of the XML file:
 
 If you have a running Tomcat restart it now.
 
-### Linux e.g.
+#### Linux e.g.
 
 ```sh
 -- if running as a service
 $ sudo systemctl restart tomcat8
 ```
 
-### Mac OSX e.g.
+#### Mac OSX e.g.
 
 ```sh
 -- if running as a service
@@ -219,7 +218,7 @@ brew services stop tomcat
 brew services start tomcat
 ```
 
-## Deploy by dropping a WAR-file in Tomcat's `webapps/`
+### Deploy by dropping a WAR-file in Tomcat's `webapps/`
 
 In Tomcat there is a folder called `webapps/`. Tomcat monitors this folder for WAR-files, which it automatically deploys as it finds them to the context path (by default) matching the WAR-file name.
 
@@ -243,7 +242,7 @@ up.HostConfig.deployWAR Deployment of web application archive /var/lib/tomcat8/
 webapps/dhis.war has finished in 83,809 ms
 ```
 
-### Linux e.g.
+#### Linux e.g.
 
 ```sh
 $ sudo cp /path/to/dhis2-core/dhis-2/dhis-web/dhis-web-portal/target/dhis.war /var/lib/tomcat8/webapps/
@@ -252,13 +251,13 @@ $ sudo cp /path/to/dhis2-core/dhis-2/dhis-web/dhis-web-portal/target/dhis.war /v
 $ sudo tail -f /var/log/tomcat8/catalina.out
 ```
 
-## Manual start
+### Manual start
 
 At your Tomcat bin folder create a `setenv.sh` file where you define the `$DHIS2_HOME` environment variable which will point to necessary config: `export DHIS2_HOME=/path/to/dhis2/home`
 
 Start your tomcat and monitor the logs: `./startup.sh && tail -f ../logs/catalina.out`);
 
-## Autostart
+### Autostart
 
 When you reboot, tomcat will not start automatically. If you want tomcat to start upon login, and you have installed it via homebrew, you can do `brew services start tomcat`.
 
@@ -292,9 +291,9 @@ Date: Thu, 25 Jan 2018 10:36:12 GMT
 ...
 ```
 
-# Congratulations! 
+## Congratulations!
 
-Your very own DHIS2 instance is up and running. 
+Your very own DHIS2 instance is up and running. :tada:
 
 ## Now what?
 

@@ -33,14 +33,11 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $spacing-unit / 2;
 }
-
-
 
 /**
  * `main` element
@@ -94,9 +91,87 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  margin-bottom: $spacing-unit / 2;
+  border-bottom: 1px solid $accent-color;
 }
 
+/* (.2 tracking / 16px font size) = 0.0125 rem */
+h1, .h1 {
+  @include relative-font-size(6);
+  @include relative-line-height(6);
+  @include relative-letter-spacing(-1.5, 6);
+  font-weight: $light-weight;
+}
+
+h2, .h2 {
+  @include relative-font-size(3.75);
+  @include relative-line-height(3.75);
+  @include relative-letter-spacing(-.5, 3.75);
+  font-weight: $light-weight;
+}
+
+h3, .h3 {
+  @include relative-font-size(3);
+  @include relative-line-height(3.125);
+  @include relative-letter-spacing(0, 3);
+  font-weight: $regular-weight;
+}
+
+h4, .h4 {
+  @include relative-font-size(2.125);
+  @include relative-line-height(2.5);
+  @include relative-letter-spacing(0.25, 2.125);
+  font-weight: $regular-weight;
+}
+
+h5, .h5 {
+  @include relative-font-size(1.5);
+  @include relative-line-height(2);
+  @include relative-letter-spacing(0, 1.5);
+  font-weight: $regular-weight;
+}
+
+h6, .h6 {
+  @include relative-font-size(1.25);
+  @include relative-line-height(2);
+  @include relative-letter-spacing(.15, 1.25);
+  font-weight: $medium-weight;
+}
+
+.sub1 {
+  @include relative-font-size(1);
+  @include relative-line-height(1.75);
+  @include relative-letter-spacing(.15, 1);
+  font-weight: $regular-weight;
+}
+
+.sub2 {
+  @include relative-font-size(.875);
+  @include relative-line-height(1.375);
+  @include relative-letter-spacing(0.1, .875);
+  font-weight: $medium-weight;
+}
+
+p, .body1 {
+  @include relative-font-size(1);
+  @include relative-line-height(1.5);
+  @include relative-letter-spacing(0.5, 1);
+  font-weight: $regular-weight;
+}
+
+.body2 {
+  @include relative-font-size(.875);
+  @include relative-line-height(1.25);
+  @include relative-letter-spacing(0.25, .875);
+  font-weight: $regular-weight;
+}
+
+caption, .caption {
+  @include relative-font-size(.75);
+  @include relative-line-height(1.25);
+  @include relative-letter-spacing(12, .75);
+  font-weight: $regular-weight;
+}
 
 
 /**
@@ -151,7 +226,7 @@ code {
   @include relative-font-size(0.9375);
   border: 1px solid $grey-color-light;
   border-radius: 3px;
-  background-color: #eef;
+  background-color: inherit;
 }
 
 code {
@@ -177,6 +252,8 @@ pre {
 .wrapper {
   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
   max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  margin-top: $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 2;
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit;

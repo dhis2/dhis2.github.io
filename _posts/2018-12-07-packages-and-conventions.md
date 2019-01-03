@@ -12,7 +12,7 @@ Tools like Prettier were built in that particular kind of bikeshed. In
 that spirit, allow me to introduce two tools that consolidate our
 JavaScript conventions.
 
-# 1 - [code-style](https://github.com/dhis2/code-style)
+## 1 - [code-style](https://github.com/dhis2/code-style)
 
 **code-style** comes with two scripts, `code-style.js` and `commit-style.js`.
 
@@ -44,7 +44,7 @@ functionality automatically. If you want to only use **code-style**, see
 the [README](https://github.com/dhis2/code-style/blob/master/README.md)
 for specific instructions.
 
-# 2 - [packages](https://github.com/dhis2/packages)
+## 2 - [packages](https://github.com/dhis2/packages)
 
 **packages** is a commandline tool that comes with a set of built-in
 commands and extends its functionality with plugins.
@@ -62,9 +62,7 @@ benefits are:
 Since **packages** includes **code-style**, we can focus on setting up the
 former.
 
----
-
-## :clipboard: General setup
+## General setup
 
 If you set up the `scripts` property in `package.json` as below you can
 simplify your life significantly, but you are free to use the `packages`
@@ -101,7 +99,7 @@ repo](https://github.com/dhis2/packages/blob/master/docs/setup-monorepos.md).
 There is also [information on how to migrate from Lerna to
 Packages](https://github.com/dhis2/packages/blob/master/docs/migration-guide-from-lerna.md).
 
-## :scissors: Apply the code style
+## Apply the code style
 
 The default operational mode of `code-style` is to only format your
 staged files to allow you to split up commits without interference from
@@ -117,7 +115,7 @@ packages code-style --all
 
 Now the changes can be commited.
 
-## :page_facing_up: Generating an initial CHANGELOG
+## Generating an initial CHANGELOG
 
 After the general setup has been completed you can generate a changelog
 for your repo.
@@ -138,7 +136,7 @@ embedded in the VCS history.
 We adhere to the [conventional commit
 standard](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional).
 
-## :pencil: Writing commit messages
+## Writing commit messages
 
 In general all commit messages must conform to the format:
 
@@ -180,7 +178,7 @@ BREAKING CHANGE: new api /v31 used to access features x, y, and z needed
 to fix DHIS2-xxxx
 ```
 
-## :bookmark: Cut a release
+## Cut a release
 
 When the time comes to cut a new release, run the command:
 
@@ -226,8 +224,6 @@ Once the tags land on Github, Travis will pick up the tag and start
 building, and eventually publish the build artifact to NPM using the
 **[deploy-build](https://github.com/dhis2/deploy-build)** tool (which
 will get its own blog post shortly).
-
----
 
 ## Recap :triumph:
 

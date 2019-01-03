@@ -1,17 +1,33 @@
 @charset "utf-8";
 
+// DHIS2 colors
+$white-color: #ffffff;
+$accent-color: #43cbcb;
+$accent-light-color: #d8f7f7;
+$accent-dark-color: #393d4d;
+$accent-alt-color: #ff8f02;
+$legacy-blue-color: #276696;
+
+$thin-weight: 100 !default;
+$light-weight: 300 !default;
+$regular-weight: 400 !default;
+$medium-weight: 500 !default;
+$bold-weight: 700 !default;
+$black-weight: 900 !default;
+
 // Define defaults for each variable.
 
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$base-font-family: Roboto, sans-serif !default;
+$base-size: 16;
 $base-font-size:   16px !default;
-$base-font-weight: 400 !default;
+$base-font-weight: $regular-weight;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
-$spacing-unit:     30px !default;
+$spacing-unit:     36px !default;
 
 $text-color:       #111 !default;
-$background-color: #fdfdfd !default;
+$background-color: $white-color !default;
 $brand-color:      #2a7ae2 !default;
 
 $grey-color:       #828282 !default;
@@ -21,10 +37,10 @@ $grey-color-dark:  darken($grey-color, 25%) !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    800px !default;
+$content-width:    900px !default;
 
 $on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-laptop:        900px !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -41,6 +57,14 @@ $on-laptop:        800px !default;
 
 @mixin relative-font-size($ratio) {
   font-size: $base-font-size * $ratio;
+}
+
+@mixin relative-letter-spacing($tracking, $ratio) {
+    letter-spacing: $tracking / ($ratio * $base-size) * 1em;
+}
+
+@mixin relative-line-height($ratio) {
+  line-height: $base-font-size * $ratio;
 }
 
 // Import partials.
