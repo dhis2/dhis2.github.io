@@ -9,6 +9,14 @@ list:
     description: >-
       DHIS2 API library with Schema support.
 
+- title: Build
+  list:
+  - title: deploy-build
+    github: dhis2/deploy-build
+    description: >-
+      The scripts for build and deploy of frontend applications and libraries.
+
+
 - title: Code standards
   list:
   - title: packages
@@ -35,3 +43,7 @@ list:
     changelog: https://github.com/dhis2/ui/blob/master/CHANGELOG.md
     description: >-
       Light-weight component library for composing DHIS2 applications.
+  - title: d2-ui
+    github: dhis2/d2-ui
+    description: >-
+      Component library with dependency on the d2 library for data.
