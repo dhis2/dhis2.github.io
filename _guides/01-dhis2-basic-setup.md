@@ -96,12 +96,18 @@ This example assumes name, role and password to be **dhis**.
 
 #### Linux e.g.
 
-```sh
-$ sudo -u postgres psql
-% create user 'dhis' with password 'dhis';
-% create database "dhis2";
-% grant all privileges on database "dhis2" to dhis;
-% \q
+Open the `psql` client as the `postgres` user:
+
+```
+sudo -u postgres psql
+```
+
+And then create the database:
+
+```
+create user 'dhis' with password 'dhis';
+create database "dhis2" with owner dhis;
+\q
 ```
 
 ### Load demo data into database
