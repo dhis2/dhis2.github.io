@@ -9,7 +9,7 @@ author: varl
 The last year has seen some significant changes to how the build system
 operates. There are a few moving pieces, so let's get started!
 
-![](assets/build_arch/build_arch.png)
+![](/assets/build_arch/build_arch.png)
 
 This is a diagram of the full system, for now focus on the containers
 which encapsulates parts of the flow chart.
@@ -102,17 +102,17 @@ Now that we have a clear idea of what each service is responsible for,
 we can trace the path a commit takes through the build system for a
 given _App_, _Lib_, or the _Core_.
 
-![](assets/build_arch/app_commit.png)
+![](/assets/build_arch/app_commit.png)
 
 Given a code change in any of those types, it all starts as a commit on
 the machine it was made on. The system at this point is idle.
 
-![](assets/build_arch/commit-github.png)
+![](/assets/build_arch/commit-github.png)
 
 Push the commit to a DHIS2 repo to trigger the interaction between the
 first two services in our system, GitHub and Travis. 
 
-![](assets/build_arch/github-travis.png)
+![](/assets/build_arch/github-travis.png)
 
 Travis will behave slightly different depending on if it is to build an
 _App_, a _Lib_, or the _Core_. Strictly speaking, Travis doesn't do an
@@ -132,7 +132,7 @@ what branch, tag, or if it's attached to a PR. Each completed build
 artifact then moves to the `deploy-build` step which commits the
 artifact to the respective repository on the *D2-CI* organisation.
 
-![](assets/build_arch/travis-d2-ci.png)
+![](/assets/build_arch/travis-d2-ci.png)
 
 There is potentially another step which Travis can execute, namely the
 `publish-build` step. This step is not used for Apps, as it makes little
@@ -147,7 +147,7 @@ First note that the library recipe is identical to the App recipe; it
 builds, verifies, and deploys the build artifact to the *D2-CI*
 organisation for all commits across all branches.
 
-![](assets/build_arch/travis-npm.png)
+![](/assets/build_arch/travis-npm.png)
 
 In addition, if the trigger for Travis was a *tag* pushed to the
 repository, it runs the final `publish-build` step in the recipe, which
@@ -172,7 +172,7 @@ First, since we know that the PR against the
 [dhis2-core](dhis2/dhis2-core) is safe to merge we do it. It's a new
 feature so we merge it to the _master_ branch.
 
-![](assets/build_arch/github-jenkins.png)
+![](/assets/build_arch/github-jenkins.png)
 
 When Jenkins sees a commit on a branch it monitors (e.g. _master_) it
 joins the fray. The butler has a job to do, and like any good butler,
@@ -187,7 +187,7 @@ to bundle into the WAR-file, and it does so from the _build artifact
 repository_ we have come to know over the course of this text:
 [D2-CI](https://github.com/d2-ci).
 
-![](assets/build_arch/jenkins-d2-ci.png)
+![](/assets/build_arch/jenkins-d2-ci.png)
 
 The list of applications to bundle, and version thereof, resides in the
 [`apps-to-bundle.json`](https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json)
@@ -197,6 +197,6 @@ Once all the apps have been bundled in the resulting WAR-file, the
 artifact is complete, and now all that remains is the final step: to
 upload the `dhis.war` file to Amazon S3.
 
-![](assets/build_arch/jenkins-s3.png)
+![](/assets/build_arch/jenkins-s3.png)
 
 ... And Bob's your uncle!
