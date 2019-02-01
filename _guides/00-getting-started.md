@@ -24,15 +24,24 @@ contains the docs for the *Web API*.
 
 ## Source code
 
-All our code is published under the DHIS2 organisation on Github. The way the
-DHIS2 system is structured on Github is that
-[dhis2-core](https://github.com/dhis2/dhis2-core) contains the backend, which
-serves the APIs which the frontend applications can communicate with. The
-frontend apps are another story. Each application lives in its own repository,
-and we use tags
-for organisation.
+All our code is published under the DHIS2 organisation on Github. The
+way the DHIS2 system is structured on Github is that
+[dhis2-core](https://github.com/dhis2/dhis2-core) contains the backend,
+which serves the APIs which the frontend applications can communicate
+with. The frontend apps are another story. Each application lives in its
+own repository, and we use tags for organisation.
 
 - [github.com/dhis2](https://github.com/dhis2)
+- [Core](https://github.com/dhis2/dhis2-core)
+- [Apps](https://github.com/search?q=topic%3Afe-app+org%3Adhis2+fork%3Atrue)
+
+## DHIS2 Developer Portal
+
+We have a Portal for DHIS2 developers which contains information
+relevant to internal and external developers who work on the DHIS2
+platform.
+
+- [Developer portal](https://dhis2.github.io)
 
 ## Get in touch with the community
 
@@ -48,14 +57,6 @@ Stack Overflow is another resource to get help with DHIS2. There is a `dhis-2`
 tag you can use for your questions, or to provide and answer to someone else's question.
 
 - [stackoverflow.com/questions/tagged/dhis-2](https://stackoverflow.com/questions/tagged/dhis-2)
-
-### Mail lists
-
-There are primarily two lists active, one aims at _developers_ and the other at
-_users_.
-
-- [dhis2-devs@lists.launchpad.net](mailto:dhis2-devs@lists.launchpad.net)
-- [dhis2-users@lists.launchpad.net](mailto:dhis2-users@lists.launchpad.net)
 
 ### Chat
 
