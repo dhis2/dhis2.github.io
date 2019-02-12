@@ -16,7 +16,7 @@ that encapsulate parts of the flow chart.
 
 ## Service responsibilities
 
-Let's walk through the responsibilities of each service in the above diagram.
+Let's walk through the responsibilities of each service (container) in the above diagram.
 
 ### GitHub
 
@@ -31,11 +31,10 @@ here, etc.
 #### D2-CI organisation
 
 The *D2-CI* organisation is less conventional. Each front-end
-library or app in the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build) scripts will have a corresponding repository under the *D2-CI* organisation. The corresponding d2-ci repository will be automatically created if it doesn't already exist. Examples:
+library or app in the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build) scripts (more on this in a minute) will have a corresponding repository under the *D2-CI* organisation. The corresponding d2-ci repository is automatically created if it doesn't already exist. Examples:
 
 > The 
-[dhis2/dashboards-app](dhis2/dashboards-app) repository has a single build definition, and therefore has a single corresponding repository
-[d2-ci/dashboards-app](d2-ci/dashboards-app). 
+[dhis2/dashboards-app](dhis2/dashboards-app) repository has a single build definition, and therefore has a single corresponding repository [d2-ci/dashboards-app](d2-ci/dashboards-app). 
 
 > The data-visualizer repository [dhis2/data-visualizer-app](dhis2/data-visualizer-app) defines two different builds: one for the app and one for the plugin. Each of these builds has its own respective d2-ci repository: [d2-ci/data-visualizer-app](d2-ci/data-visualizer-app) and [d2-ci/data-visualizer-plugin](d2-ci/data-visualizer-plugin)
 
@@ -46,55 +45,28 @@ on.
 
 ### Travis CI
 
-Travis' job is to follow a recipe for how to verify and build a library/app,
-often by executing automated tests and other verification measures. This recipe is
-defined in the `.travis.yml` configuration file contained in each dhis2 repository. Together with _what_ to do, and _how_ to do it, we define what environment it should do so
-_with_.
+We use Travis to run a series of tasks on a source repository. These tasks are described in a recipe, which is contained in the `.travis.yml` configuration file in each source repository. Together with _what_ to do, and _how_ to do it, the recipe defines what environment it should do so _with_.
 
-Travis is used by all repositories to build the branches when a pull request is
-opened. Aside from that, usage of Travis varies slightly for the
-back-end and the front-end applications and libraries.
-
-In addition to building the PRs we use Travis to build each commit that
-gets pushed to the *DHIS2* repository. The _build artifact_, which is the
-result of that commit, gets pushed to the respective *D2-CI* repository.
-
-So each commit is built by Travis, and each of those build artifacts are
-stored, across all branches and all tags, in what is in fact a git-based
-_build artifact repository_.
-
-Travis also creates a *BUILD_INFO* file that contains the SHA the
-artifact is created from, along with a timestamp of when it was built.
-
-Now we have a direct link between each commit in the build repository and
-the commit it was created from in the source repository.
+A recipe typically contains steps that verify (with automated tests and other verifcation measures) and build the library or front-end app. The tasks will vary slightly for the back-end and the front-end applications and libraries.
 
 ### Jenkins CI
 
-The primary function of Jenkins is to build and verify the production
-branches of the [DHIS2 core](dhis2/dhis2-core). Much like Travis does
-for the front-end apps/libs, it follows a recipe on how to do so in
+The primary function of Jenkins is to build and verify the production branches of the [DHIS2 core](dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe on how to do so in
 order to run unit tests, integration tests, or what have you.
 
-After Jenkins is satisified the build is polished gold, it creates the
-artifact we know as `dhis.war`. This artifact is then uploaded to the
-_build artifact repository_, which in this case isn't *Git* but *Amazon S3*.
+After Jenkins is satisified the build is polished gold, it creates the artifact we know as `dhis.war`. This artifact is then uploaded to the _build artifact repository_, which in this case isn't *Git* but *Amazon S3*.
 
 ### Amazon S3
 
-As mentioned above, we use a S3 bucket as an artifact repository for
-core build artifacts.
+As mentioned above, we use a S3 bucket as an artifact repository for core build artifacts.
 
 ### NPM
 
-For front-end libraries, Travis will publish the _exact_ same artifact
-it creates and stores in our Git-based artifact repository to NPM.
+For front-end libraries, Travis will publish the _exact_ same artifact it creates and stores in our Git-based artifact repository to NPM.
 
 ## The lifecycle of a commit
 
-Now that we have a clear idea of what each service is responsible for,
-we can trace the path a commit takes through the build system for a
-given _App_, _Lib_, or the _Core_.
+Now that we have a clear idea of what each service is responsible for, we can trace the path a commit takes through the build system for a given _App_, _Lib_, or the _Core_.
 
 ![](/assets/build_arch/app_commit.png)
 
@@ -118,7 +90,7 @@ used. This result will be manually reviewd by the developer before merging the P
 
 ### App recipe
 
-The App recipe is used by Travis on each commit regardless of
+The App recipe is used by Travis on each commit, regardless of
 branch, tag, or whether the commit is attached to a PR. The app recipe typically includes the following steps: 
 1. verification (run tests and quality checks)
 2. create the build artifact
@@ -131,22 +103,18 @@ The `deploy-build` script creates a BUILD_INFO file containing the commit hash a
 
 ### Lib recipe
 
-The lib recipe:
+The library recipe starts out identical to the App recipe: it
+verifies, builds, and deploys the build artifact to the respective _build artifact repository_ for all commits across all branches, tags, PRs. But the library recipe has one additional step (#4):
+
 1. verification (run tests and quality checks)
 2. create the build artifact
 3. trigger the `deploy-build` script
 4. conditionally trigger the `publish-build` script
 
-Note that the library recipe starts out identical to the App recipe: it
-verifies, builds, and deploys the build artifact to the respective _build artifact repository_ for all commits across all branches, tags, PRs.
 
-But the library recipe has one additional step. If a *tag* is pushed to the source
-repository, it runs the final `publish-build` step in the recipe, which
-publishes the library build to NPM, making it available to apps that want to use it.
+In step #4, if a *tag* is pushed to the source repository, it runs the final `publish-build` step, which publishes the library build to NPM, making it available to apps that want to use it.
 
-This final `publish-build` step is only used for libraries, not apps, as it makes little
-sense to deploy the App artifact to NPM. Nobody is going to do `npm
-install @dhis2/maintenance-app` in another project.
+This final `publish-build` step is only used for libraries, not apps, as it makes little sense to deploy the App artifact to NPM. Nobody is going to do `npm install @dhis2/maintenance-app` in another project.
 
 ![](/assets/build_arch/travis-npm.png)
 
@@ -168,7 +136,7 @@ Let's see.
 
 First, once Travis indicates that the PR against the
 [dhis2-core](dhis2/dhis2-core) is safe to merge, we merge it. It's a new
-feature so we merge it to the _master_ branch and do not backport to previous versions.
+feature so we merge it to the _master_ branch and do not backport to previous versions (branches).
 
 ![](/assets/build_arch/github-jenkins.png)
 
@@ -181,16 +149,17 @@ before it, by executing tests and compiling the source code.
 
 The second step is actually internal to the build process, but it is
 important to visualise. It is to fetch all the application artifacts that are going
-to be bundled into the WAR-file, and it does so from the _build artifact
-repository_.
-
-By using the artifacts stored in the _build artifact repository_ for the official DHIS2 release, we prevent artifacts created on non-sanctioned build environments (e.g., developer's machine) from making their way into production.
+to be bundled into the WAR-file from the _build artifact
+repositories_. The list of applications to bundle, and version thereof, resides in the
+[`apps-to-bundle.json`](https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json)
+file inside of the [dhis2-core](dhis2/dhis2-core) repository.
 
 ![](/assets/build_arch/jenkins-d2-ci.png)
 
-The list of applications to bundle, and version thereof, resides in the
-[`apps-to-bundle.json`](https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json)
-file inside of the [dhis2-core](dhis2/dhis2-core) repository.
+
+> By using the artifacts stored in the _build artifact repositories_ for the official DHIS2 release, we prevent artifacts created on non-sanctioned build environments (e.g., developer's machine) from making their way into production.
+
+The third step is to write a file [`apps-bundle.son`](https://play.dhis2.org/dev/dhis-web-apps/apps-bundle.json) into the bundle that indicates the commitish of each app that was bundled, thereby creating a deterministic build.
 
 Once all the apps have been bundled in the resulting WAR file, the
 artifact is complete, and now all that remains is the final step: to
