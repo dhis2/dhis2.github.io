@@ -31,38 +31,35 @@ here, etc.
 #### D2-CI organisation
 
 The *D2-CI* organisation is less conventional. Each front-end
-library or app in the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build) scripts (more on this in a minute) will have a corresponding repository under the *D2-CI* organisation. The corresponding d2-ci repository is automatically created if it doesn't already exist. Examples:
+library or app in the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build) scripts (more on this below) will have a corresponding repository under the *D2-CI* organisation. The corresponding d2-ci repository is automatically created if it doesn't already exist. Examples:
 
 > The 
 [dhis2/dashboards-app](dhis2/dashboards-app) repository has a single build definition, and therefore has a single corresponding repository [d2-ci/dashboards-app](d2-ci/dashboards-app). 
 
 > The data-visualizer repository [dhis2/data-visualizer-app](dhis2/data-visualizer-app) defines two different builds: one for the app and one for the plugin. Each of these builds has its own respective d2-ci repository: [d2-ci/data-visualizer-app](d2-ci/data-visualizer-app) and [d2-ci/data-visualizer-plugin](d2-ci/data-visualizer-plugin)
 
-The purpose of the d2-ci repository is to store and track each build artifact of the corresponding dhis2 library/app. The dhis2 repositories store and track the _source code per commit_, and since each commit results in a build (artifact), we can store and track the _build artifact per commit_ by copying each artifact of the dhis2 library/app to the corresponding d2-ci repository. Let's call these d2-ci repositories _build artifact repositories_ from now on.
+The purpose of the d2-ci repository is to store and track each build artifact of the corresponding dhis2 library/app. While the dhis2 repositories store and track the _source code per commit_, since each commit results in a build (artifact), we can store and track the _build artifact per commit_ by copying each artifact of the dhis2 library/app to the corresponding d2-ci repository. Let's call these d2-ci repositories _build artifact repositories_ from now on.
 
-And having the artifacts in Git allows us to do other interesting things. Read
+Having the artifacts in Git allows us to do other interesting things. Read
 on.
 
 ### Travis CI
 
-We use Travis to run a series of tasks on a source repository. These tasks are described in a recipe, which is contained in the `.travis.yml` configuration file in each source repository. Together with _what_ to do, and _how_ to do it, the recipe defines what environment it should do so _with_.
+We use Travis to run a series of tasks on a source repository (_App_, _Lib_ and _Core_). These tasks are described in a recipe, which is contained in the `.travis.yml` configuration file in each source repository. Together with _what_ to do, and _how_ to do it, the recipe defines what environment it should do so _with_.
 
-A recipe typically contains steps that verify (with automated tests and other verifcation measures) and build the library or front-end app. The tasks will vary slightly for the back-end and the front-end applications and libraries.
+A recipe typically contains steps that verify (with automated tests and other verifcation measures) and build the library or front-end app. The tasks will vary slightly for the core and the front-end applications and libraries.
 
 ### Jenkins CI
 
-The primary function of Jenkins is to build and verify the production branches of the [DHIS2 core](dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe on how to do so in
-order to run unit tests, integration tests, or what have you.
-
-After Jenkins is satisified the build is polished gold, it creates the artifact we know as `dhis.war`. This artifact is then uploaded to the _build artifact repository_, which in this case isn't *Git* but *Amazon S3*.
+We use Jenkins to verify, build, and deploy [DHIS2 core](dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe that describes the _what_ to do, _how_ to do it, and what environment to do it in. 
 
 ### Amazon S3
 
-As mentioned above, we use a S3 bucket as an artifact repository for core build artifacts.
+We use a S3 bucket as an artifact repository for core build artifacts.
 
 ### NPM
 
-For front-end libraries, Travis will publish the _exact_ same artifact it creates and stores in our Git-based artifact repository to NPM.
+NPM is where the front-end libraries are published and made available for apps that want to use them.
 
 ## The lifecycle of a commit
 
@@ -73,10 +70,8 @@ Now that we have a clear idea of what each service is responsible for, we can tr
 Given a code change in any of those types, it all starts as a commit on
 the machine it was made on. The system at this point is idle.
 
-![](/assets/build_arch/commit-github.png)
-
-Push the commit to a DHIS2 repo to trigger the interaction between the
-GitHub and Travis services.
+When the commit is pushed to the DHIS2 source repository on github, the interaction between the
+GitHub and Travis services is triggered.
 
 ![](/assets/build_arch/github-travis.png)
 
@@ -84,14 +79,14 @@ Travis follows the recipe described in the repository's .travis.yml file. This r
 
 ### Core recipe
 
-The Core recipe is used to build and test a PR to indicate
+The Core recipe describes task to verify, test and build the code in a PR to indicate
 whether or not the PR is good to merge. Only the result, success or failure, is
 used. This result will be manually reviewd by the developer before merging the PR to the master branch.
 
 ### App recipe
 
 The App recipe is used by Travis on each commit, regardless of
-branch, tag, or whether the commit is attached to a PR. The app recipe typically includes the following steps: 
+branch, tag, or whether the commit is attached to a PR. The app recipe includes the following steps: 
 1. verification (run tests and quality checks)
 2. create the build artifact
 3. trigger the `deploy-build` script
@@ -112,7 +107,7 @@ verifies, builds, and deploys the build artifact to the respective _build artifa
 4. conditionally trigger the `publish-build` script
 
 
-In step #4, if a *tag* is pushed to the source repository, it runs the final `publish-build` step, which publishes the library build to NPM, making it available to apps that want to use it.
+In step #4, if a *tag* is pushed to the source repository, it runs the final `publish-build` script, which publishes the library build to NPM, making it available to apps that want to use it.
 
 This final `publish-build` step is only used for libraries, not apps, as it makes little sense to deploy the App artifact to NPM. Nobody is going to do `npm install @dhis2/maintenance-app` in another project.
 
