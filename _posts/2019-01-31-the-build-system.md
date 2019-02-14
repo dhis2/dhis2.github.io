@@ -3,16 +3,23 @@ title: The Build System
 layout: post
 categories: [blog]
 tags: [build system,architecture]
-author: varl
+authors: [varl, jennifer]
 ---
 
 The last year has seen some significant changes to how the build system
-operates. There are a few moving pieces, so let's get started!
+operates and this post will walk through the technical aspects of the
+system. The release and development processes which drive the build
+system is out of scope for this post and subsequently left out.
 
-![](/assets/build_arch/build_arch.png)
+There are a few moving pieces, so let's get started!
 
-This is a diagram of the full system, for now focus on the containers
-that encapsulate parts of the flow chart.
+## Meet the services
+
+[![](/assets/build_arch/build_arch_services.png)](/assets/build_arch/build_arch_services.png)
+
+This is a diagram of the services and their links which make up the
+system. For now focus on the containers and let us walk through each
+system's responsibility.
 
 ## Service responsibilities
 
@@ -65,7 +72,7 @@ NPM is where the front-end libraries are published and made available for apps t
 
 Now that we have a clear idea of what each service is responsible for, we can trace the path a commit takes through the build system for a given _App_, _Lib_, or the _Core_.
 
-![](/assets/build_arch/app_commit.png)
+[![](/assets/build_arch/app-commit.png)](/assets/build_arch/app-commit.png)
 
 Given a code change in any of those types, it all starts as a commit on
 the machine it was made on. The system at this point is idle.
@@ -73,7 +80,7 @@ the machine it was made on. The system at this point is idle.
 When the commit is pushed to the DHIS2 source repository on github, the interaction between the
 GitHub and Travis services is triggered.
 
-![](/assets/build_arch/github-travis.png)
+[![](/assets/build_arch/github-travis.png)](/assets/build_arch/github-travis.png) 
 
 Travis follows the recipe described in the repository's .travis.yml file. This recipe will vary depending on the end product: _App_, _Lib_, or the _Core_.
 
@@ -82,6 +89,8 @@ Travis follows the recipe described in the repository's .travis.yml file. This r
 The Core recipe describes task to verify, test and build the code in a PR to indicate
 whether or not the PR is good to merge. Only the result, success or failure, is
 used. This result will be manually reviewd by the developer before merging the PR to the master branch.
+
+[![](/assets/build_arch/github-travis-core.png)](/assets/build_arch/github-travis-core.png)
 
 ### App recipe
 
@@ -93,7 +102,7 @@ branch, tag, or whether the commit is attached to a PR. The app recipe includes 
 
 The `deploy-build` script creates a BUILD_INFO file containing the commit hash and timestamp, and commits the build artifact and BUILD_INFO file to the respective _build artifact repository_.
 
-![](/assets/build_arch/travis-d2-ci.png)
+[![](/assets/build_arch/github-travis-d2-ci-app.png)](/assets/build_arch/github-travis-d2-ci-app.png)
 
 
 ### Lib recipe
@@ -106,13 +115,11 @@ verifies, builds, and deploys the build artifact to the respective _build artifa
 3. trigger the `deploy-build` script
 4. conditionally trigger the `publish-build` script
 
-
 In step #4, if a *tag* is pushed to the source repository, it runs the final `publish-build` script, which publishes the library build to NPM, making it available to apps that want to use it.
 
 This final `publish-build` step is only used for libraries, not apps, as it makes little sense to deploy the App artifact to NPM. Nobody is going to do `npm install @dhis2/maintenance-app` in another project.
 
-![](/assets/build_arch/travis-npm.png)
-
+[![](/assets/build_arch/github-travis-d2-ci-lib.png)](/assets/build_arch/github-travis-d2-ci-lib.png)
 
 ## Where are we now?
 
@@ -133,7 +140,7 @@ First, once Travis indicates that the PR against the
 [dhis2-core](dhis2/dhis2-core) is safe to merge, we merge it. It's a new
 feature so we merge it to the _master_ branch and do not backport to previous versions (branches).
 
-![](/assets/build_arch/github-jenkins.png)
+[![](/assets/build_arch/github-jenkins.png)](/assets/build_arch/github-jenkins.png)
 
 When Jenkins sees a commit on a branch it monitors (e.g., _master_) it
 joins the fray. The butler has a job to do, and like any good butler,
@@ -149,7 +156,7 @@ repositories_. The list of applications to bundle, and version thereof, resides 
 [`apps-to-bundle.json`](https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json)
 file inside of the [dhis2-core](dhis2/dhis2-core) repository.
 
-![](/assets/build_arch/jenkins-d2-ci.png)
+[![](/assets/build_arch/jenkins-d2-ci.png)](/assets/build_arch/jenkins-d2-ci.png)
 
 
 > By using the artifacts stored in the _build artifact repositories_ for the official DHIS2 release, we prevent artifacts created on non-sanctioned build environments (e.g., developer's machine) from making their way into production.
@@ -160,6 +167,18 @@ Once all the apps have been bundled in the resulting WAR file, the
 artifact is complete, and now all that remains is the final step: to
 upload the `dhis.war` file to Amazon S3.
 
-![](/assets/build_arch/jenkins-s3.png)
+[![](/assets/build_arch/jenkins-s3.png)](/assets/build_arch/jenkins-s3.png)
 
-... And Bob's your uncle!
+> Note that all builds may be published to Amazon S3, but not all builds
+> are considered an official release.
+
+## The Full System
+
+And here is the full system in a single image.
+
+[![](/assets/build_arch/build_arch.png)](/assets/build_arch/build_arch.png)
+
+## What can we do with it?
+
+** text about the flexibility, etc. **
+
