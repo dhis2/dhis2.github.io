@@ -97,7 +97,9 @@ GitHub and Travis services is triggered.
 
 [![](/assets/build_arch/github-travis.png)](/assets/build_arch/github-travis.png) 
 
-Travis follows the recipe described in the repository's .travis.yml file. This recipe will vary depending on the end product: _App_, _Lib_, or the _Core_.
+Travis follows the recipe described in the repository's `.travis.yml` file.
+This recipe will vary depending on the end product: _App_, _Lib_, or the
+_Core_.
 
 ### Core recipe
 
@@ -121,7 +123,6 @@ respective _build artifact repository_.
 
 [![](/assets/build_arch/github-travis-d2-ci-app.png)](/assets/build_arch/github-travis-d2-ci-app.png)
 
-
 ### Lib recipe
 
 The library recipe starts out identical to the App recipe: it verifies, builds,
@@ -139,6 +140,20 @@ In step #4, if a *tag* is pushed to the source repository, it runs the final `pu
 This final `publish-build` step is only used for libraries, not apps, as it makes little sense to deploy the App artifact to NPM. Nobody is going to do `npm install @dhis2/maintenance-app` in another project.
 
 [![](/assets/build_arch/github-travis-d2-ci-lib.png)](/assets/build_arch/github-travis-d2-ci-lib.png)
+
+## **Hold up!** Why are compiled and non-compiled packages treated differently?
+
+The web applications and libraries that we write using ECMAScript which isn't
+supported by the target platform needs to be compiled down to code which the
+target platform can understand. This "build artifact" is something which we
+want to store and track, so we can refer back to exact build and not have to
+recreate it, as that would technically not be the same build.
+
+NodeJS libraries and tools we write typically do not need to be compiled
+before we package and release them, as NodeJS is an environment that supports
+reasonably modern ECMAScript already. At any time we can run and refer to the
+source code straight from the *dhis2* repository, so storing it on *d2-ci*
+would be a straight copy, which is waste.
 
 ## Where are we now?
 
