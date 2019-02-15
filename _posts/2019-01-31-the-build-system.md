@@ -27,25 +27,40 @@ Let's walk through the responsibilities of each service (container) in the above
 
 ### GitHub
 
-DHIS2 has two organisations on GitHub, *DHIS2* and *D2-CI*.
+DHIS2 has two organisations on GitHub, *dhis2* and *d2-ci*.
 
 #### DHIS2 organisation
 
-*DHIS2* is where our source code repositories for dhis2 core, front-end apps and libraries live, in a neighbourhood
-much like any other on GitHub, The source code is here, PRs are done
-here, etc.
+*dhis2* is where our source code repositories for the DHIS2 core, front-end
+apps and libraries live, in a neighbourhood much like any other on GitHub, The
+source code is here, PRs are done here, etc.
 
 #### D2-CI organisation
 
-The *D2-CI* organisation is less conventional. Each front-end
-library or app in the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build) scripts (more on this below) will have a corresponding repository under the *D2-CI* organisation. The corresponding d2-ci repository is automatically created if it doesn't already exist. Examples:
+The *d2-ci* organisation is less conventional. Each front-end library or app in
+the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build)
+scripts (more on this below) will have a corresponding repository under the
+*d2-ci* organisation. The corresponding *d2-ci* repository is automatically
+created if it doesn't already exist. Examples:
 
-> The 
-[dhis2/dashboards-app](dhis2/dashboards-app) repository has a single build definition, and therefore has a single corresponding repository [d2-ci/dashboards-app](d2-ci/dashboards-app). 
+> The [dhis2/dashboards-app](dhis2/dashboards-app) repository has a single
+build definition, and therefore has a single corresponding repository
+[d2-ci/dashboards-app](d2-ci/dashboards-app). 
 
-> The data-visualizer repository [dhis2/data-visualizer-app](dhis2/data-visualizer-app) defines two different builds: one for the app and one for the plugin. Each of these builds has its own respective d2-ci repository: [d2-ci/data-visualizer-app](d2-ci/data-visualizer-app) and [d2-ci/data-visualizer-plugin](d2-ci/data-visualizer-plugin)
+> The data-visualizer repository
+[dhis2/data-visualizer-app](dhis2/data-visualizer-app) defines two different
+builds: one for the app and one for the plugin. Each of these builds has its
+own respective *d2-ci* repository:
+[d2-ci/data-visualizer-app](d2-ci/data-visualizer-app) and
+[d2-ci/data-visualizer-plugin](d2-ci/data-visualizer-plugin)
 
-The purpose of the d2-ci repository is to store and track each build artifact of the corresponding dhis2 library/app. While the dhis2 repositories store and track the _source code per commit_, since each commit results in a build (artifact), we can store and track the _build artifact per commit_ by copying each artifact of the dhis2 library/app to the corresponding d2-ci repository. Let's call these d2-ci repositories _build artifact repositories_ from now on.
+The purpose of the *d2-ci* repository is to store and track each build artifact
+of the corresponding dhis2 library/app. While the dhis2 repositories store and
+track the _source code per commit_, since each commit results in a build
+(artifact), we can store and track the _build artifact per commit_ by copying
+each artifact of the dhis2 library/app to the corresponding *d2-ci* repository.
+Let's call these *d2-ci* repositories _build artifact repositories_ from now
+on.
 
 Having the artifacts in Git allows us to do other interesting things. Read
 on.
@@ -77,7 +92,7 @@ Now that we have a clear idea of what each service is responsible for, we can tr
 Given a code change in any of those types, it all starts as a commit on
 the machine it was made on. The system at this point is idle.
 
-When the commit is pushed to the DHIS2 source repository on github, the interaction between the
+When the commit is pushed to the DHIS2 source repository on GitHub, the interaction between the
 GitHub and Travis services is triggered.
 
 [![](/assets/build_arch/github-travis.png)](/assets/build_arch/github-travis.png) 
@@ -100,15 +115,19 @@ branch, tag, or whether the commit is attached to a PR. The app recipe includes 
 2. create the build artifact
 3. trigger the `deploy-build` script
 
-The `deploy-build` script creates a BUILD_INFO file containing the commit hash and timestamp, and commits the build artifact and BUILD_INFO file to the respective _build artifact repository_.
+The `deploy-build` script creates a `BUILD_INFO` file containing the commit
+hash and timestamp, and commits the build artifact and `BUILD_INFO` file to the
+respective _build artifact repository_.
 
 [![](/assets/build_arch/github-travis-d2-ci-app.png)](/assets/build_arch/github-travis-d2-ci-app.png)
 
 
 ### Lib recipe
 
-The library recipe starts out identical to the App recipe: it
-verifies, builds, and deploys the build artifact to the respective _build artifact repository_ for all commits across all branches, tags, PRs. But the library recipe has one additional step (#4):
+The library recipe starts out identical to the App recipe: it verifies, builds,
+and deploys the build artifact to the respective _build artifact repository_
+for all commits across all branches, tags, PRs. But the library recipe has one
+additional step (#4):
 
 1. verification (run tests and quality checks)
 2. create the build artifact
@@ -125,8 +144,8 @@ This final `publish-build` step is only used for libraries, not apps, as it make
 
 Let's take a look at what we have and where we are:
 
-- A build of a front-end application, stored and tracked on *D2-CI*
-- A build of a library, stored and tracked on *D2-CI*, and if it was built from a
+- A build of a front-end application, stored and tracked on *d2-ci*
+- A build of a library, stored and tracked on *d2-ci*, and if it was built from a
   tag, published to *NPM*
 - A verification that a PR against dhis2 core is safe to merge
 
@@ -159,13 +178,18 @@ file inside of the [dhis2-core](dhis2/dhis2-core) repository.
 [![](/assets/build_arch/jenkins-d2-ci.png)](/assets/build_arch/jenkins-d2-ci.png)
 
 
-> By using the artifacts stored in the _build artifact repositories_ for the official DHIS2 release, we prevent artifacts created on non-sanctioned build environments (e.g., developer's machine) from making their way into production.
+> By using the artifacts stored in the _build artifact repositories_ for the
+official DHIS2 release, we prevent artifacts created on non-sanctioned build
+environments (e.g., developer's machine) from making their way into production.
 
-The third step is to write a file [`apps-bundle.son`](https://play.dhis2.org/dev/dhis-web-apps/apps-bundle.json) into the bundle that indicates the commitish of each app that was bundled, thereby creating a deterministic build.
+The third step is to write a file
+[`apps-bundle.son`](https://play.dhis2.org/dev/dhis-web-apps/apps-bundle.json)
+into the bundle that indicates the commitish of each app that was bundled,
+thereby creating a deterministic build.
 
-Once all the apps have been bundled in the resulting WAR file, the
-artifact is complete, and now all that remains is the final step: to
-upload the `dhis.war` file to Amazon S3.
+Once all the apps have been bundled in the resulting WAR file, the artifact is
+complete, and now all that remains is the final step: to upload the `dhis.war`
+file to Amazon S3.
 
 [![](/assets/build_arch/jenkins-s3.png)](/assets/build_arch/jenkins-s3.png)
 
@@ -193,8 +217,8 @@ Below are some examples of use cases, and if you want to cross-reference the
 build system diagrams, the services interacting from this point are:
 
 - Jenkins
-- GitHub (D2-CI)
-- GitHub (DHIS2)
+- GitHub (*d2-ci*)
+- GitHub (*dhis2*)
 
 ## Answer questions about a build
 
