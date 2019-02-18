@@ -1,4 +1,10 @@
-# Git workflow for core devs
+---
+title: Git workflow 
+category: guide
+layout: page
+---
+
+## Git workflow for core devs
 
 The cheat sheet that you can find on this repo's README
 already provides enough information so you can get started.
@@ -12,7 +18,7 @@ on the master branch might be: checkout the older version branch,
 cherry pick your changes and you're kind of done.
 [This might result in a lot of trouble](https://blogs.msdn.microsoft.com/oldnewthing/20180312-00/?p=98215)
 
-# A better start
+## A better start
 
 Before you start working on a ticket, you should check which target versions
 are mention in the JIRA ticket.
@@ -43,7 +49,7 @@ $ git checkout -b DHIS2-1337_A_good_branch_name
 If you now start developing on this branch, it'll be way easier
 to merge everything into the versioning branches.
 
-# Name your feature branch correctly
+## Name your feature branch correctly
 
 In order to make JIRA and Github play nicely together,
 start your branch's name with the ticket ID, e. g. `DHIS2-1337`.
@@ -51,14 +57,14 @@ start your branch's name with the ticket ID, e. g. `DHIS2-1337`.
 Prepend the ticket ID with a meaningful, but not too long name,
 that describes which changes will be introduced by your branch.
 
-# Commit message convention
+## Commit message convention
 
 There are docs for this in the general docs as this is not really
 front end specific. You can find them here:
 
 [Packages and style conventions](https://dhis2.github.io/blog/2018/12/07/packages-and-conventions.html)
 
-# Save your changes on a granular level
+## Save your changes on a granular level
 
 It obviously makes sense not to clutter the master/version branches
 with you dev commits, so you might be thinking about squashing your
@@ -73,7 +79,7 @@ worry about the commits that you'll make during development. There might
 be a chance that you'll need your commits to be small in the future,
 just for reverence or so.
 
-# Cleanup after your branch has been merged
+## Cleanup after your branch has been merged
 
 It's common sense to clean up the repository and only keep the branches
 that haven't been merged yet or will be needed again.
