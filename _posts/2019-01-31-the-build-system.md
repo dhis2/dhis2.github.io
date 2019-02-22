@@ -219,6 +219,8 @@ And here is the full system in a single image.
 
 ## Stay tuned for more!
 
+:triumph:
+
 That is a lot of words, boxes, and arrows to keep track of. The question is,
 what is it all for?
 
@@ -230,5 +232,5 @@ The three most important reasons are these:
 
 And now that you know the theory...
 
-Next up is an article about how to _actually_ manipulate to the build
-system to pull off some tricks.
+Next up is an article on how to  manipulate to the build system to pull
+off some tricks. :dancer:
