@@ -5,29 +5,55 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header class="post-header">
+		<div class="post-meta">
+			<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				{{ page.date | date: date_format }}
+			</time>
+		</div>
 		<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-		<div class="post-meta-wrapper">
+	</header>
+
+	<div class="post-content e-content" itemprop="articleBody">
+		{{ content }}
+	</div>
+
+	{%- if page.author -%}
+	<div class="post-author">
+		<h6 class="">About the author</h6>
+		<div class="post-author-wrapper">
 			<div class="post-avatar">
 				{% assign author = site.data.members[page.author] %}
 				<a href="https://github.com/{{author.github}}">
 					{% avatar user=page.author %} 
 				</a>
 			</div>
-			<div class="post-meta">
-				{%- if page.author -%}
-				<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author.name }}</span></span>
-				{%- endif -%}
-				<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-					{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-					&nbsp;• {{ page.date | date: date_format }}
-				</time>
-			</div>
+			<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+				<span class="p-author h-card" itemprop="name">{{ author.name }}</span>,
+				<span class="p-author h-card" itemprop="blurb"><em>{{ author.blurb }}</em></span>
+			</span>
 		</div>
-	</header>
-
-	<div class="post-content e-content" itemprop="articleBody">
-		{{ content }}
 	</div>
+	{%- elsif page.authors -%}
+	<div class="post-author">
+		<h6 class="">About the authors</h6>
+		{%- for person in page.authors -%}
+		<div class="post-author-wrapper">
+			<div class="post-avatar">
+				{% assign author = site.data.members[person] %}
+				<a href="https://github.com/{{author.github}}">
+					{% avatar user=author.github %}
+				</a>
+			</div>
+			<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+				<span class="p-author h-card" itemprop="name">{{ author.name }}</span>,
+				<span class="p-author h-card" itemprop="blurb"><em>{{ author.blurb }}</em></span>
+			</span>
+		</div>
+		{%- endfor -%}
+	</div>
+	
+	{%- endif -%}
 
 	{%- if site.disqus.shortname -%}
 	{%- include disqus_comments.html -%}
