@@ -239,5 +239,5 @@ The three most important reasons are these:
 
 And now that you know the theory...
 
-Next up is an article on how to  manipulate to the build system to pull
-off some tricks. :dancer:
+Next up is an article on how to  manipulate the build system to pull off
+some tricks. :dancer:
