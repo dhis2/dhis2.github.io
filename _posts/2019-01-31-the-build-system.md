@@ -141,19 +141,26 @@ This final `publish-build` step is only used for libraries, not apps, as it make
 
 [![](/assets/build_arch/github-travis-d2-ci-lib.png)](/assets/build_arch/github-travis-d2-ci-lib.png)
 
-## **Hold up!** Why are compiled and non-compiled packages treated differently?
+## **Hold up!** Why are transpiled and non-transpiled packages treated differently?
 
-The web applications and libraries that we write using ECMAScript which isn't
-supported by the target platform needs to be compiled down to code which the
-target platform can understand. This "build artifact" is something which we
-want to store and track, so we can refer back to exact build and not have to
-recreate it, as that would technically not be the same build.
+The web applications and libraries that we write in a version of
+ECMAScript that is not supported by the target platform needs to be
+transpiled to code that the target platform can understand.
 
-NodeJS libraries and tools we write typically do not need to be compiled
-before we package and release them, as NodeJS is an environment that supports
-reasonably modern ECMAScript already. At any time we can run and refer to the
-source code straight from the *dhis2* repository, so storing it on *d2-ci*
-would be a straight copy, which is waste.
+Additionally we might want to create a single-file build complete with
+all runtime dependencies. In that case we create a _bundle_.
+
+This "build artifact" (either the transpiled source, the bundle, or
+both) is something that we want to store and track, so we can refer
+back to exact build and not have to recreate it, as that would
+technically not be the same build.
+
+NodeJS libraries and tools we write typically do not need to be
+transpiled before we package and release them, as NodeJS is an
+environment that supports reasonably modern ECMAScript already. At any
+time we can run and refer to the source code straight from the *dhis2*
+repository, so storing it on *d2-ci* would be a straight copy, which is
+waste.
 
 ## Where are we now?
 
