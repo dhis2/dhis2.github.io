@@ -38,21 +38,21 @@ source code is here, PRs are done here, etc.
 #### D2-CI organisation
 
 The *d2-ci* organisation is less conventional. Each front-end library or app in
-the dhis2 organisation that utilises the [deploy-build](dhis2/deploy-build)
+the dhis2 organisation that utilises the [deploy-build](https://github.com/dhis2/deploy-build)
 scripts (more on this below) will have a corresponding repository under the
 *d2-ci* organisation. The corresponding *d2-ci* repository is automatically
 created if it doesn't already exist. Examples:
 
-> The [dhis2/dashboards-app](dhis2/dashboards-app) repository has a single
+> The [dhis2/dashboards-app](https://github.com/dhis2/dashboards-app) repository has a single
 build definition, and therefore has a single corresponding repository
-[d2-ci/dashboards-app](d2-ci/dashboards-app). 
+[d2-ci/dashboards-app](https://github.com/d2-ci/dashboards-app). 
 
 > The data-visualizer repository
-[dhis2/data-visualizer-app](dhis2/data-visualizer-app) defines two different
+[dhis2/data-visualizer-app](https://github.com/dhis2/data-visualizer-app) defines two different
 builds: one for the app and one for the plugin. Each of these builds has its
 own respective *d2-ci* repository:
-[d2-ci/data-visualizer-app](d2-ci/data-visualizer-app) and
-[d2-ci/data-visualizer-plugin](d2-ci/data-visualizer-plugin)
+[d2-ci/data-visualizer-app](https://github.com/d2-ci/data-visualizer-app) and
+[d2-ci/data-visualizer-plugin](https://github.com/d2-ci/data-visualizer-plugin)
 
 The purpose of the *d2-ci* repository is to store and track each build artifact
 of the corresponding dhis2 library/app. While the dhis2 repositories store and
@@ -73,7 +73,7 @@ A recipe typically contains steps that verify (with automated tests and other ve
 
 ### Jenkins CI
 
-We use Jenkins to verify, build, and deploy [DHIS2 core](dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe that describes the _what_ to do, _how_ to do it, and what environment to do it in. 
+We use Jenkins to verify, build, and deploy [DHIS2 core](https://github.com/dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe that describes the _what_ to do, _how_ to do it, and what environment to do it in. 
 
 ### Amazon S3
 
@@ -178,7 +178,7 @@ DHIS2 build?
 Let's see.
 
 First, once Travis indicates that the PR against the
-[dhis2-core](dhis2/dhis2-core) is safe to merge, we merge it. It's a new
+[dhis2-core](https://github.com/dhis2/dhis2-core) is safe to merge, we merge it. It's a new
 feature so we merge it to the _master_ branch and do not backport to previous versions (branches).
 
 [![](/assets/build_arch/github-jenkins.png)](/assets/build_arch/github-jenkins.png)
@@ -195,7 +195,7 @@ important to visualise. It is to fetch all the application artifacts that are go
 to be bundled into the WAR-file from the _build artifact
 repositories_. The list of applications to bundle, and version thereof, resides in the
 [`apps-to-bundle.json`](https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json)
-file inside of the [dhis2-core](dhis2/dhis2-core) repository.
+file inside of the [dhis2-core](https://github.com/dhis2/dhis2-core) repository.
 
 [![](/assets/build_arch/jenkins-d2-ci.png)](/assets/build_arch/jenkins-d2-ci.png)
 
