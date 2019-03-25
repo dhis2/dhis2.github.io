@@ -274,11 +274,14 @@ This also means that if you use `mvn clean install`, the
 `dhis-web-apps/target` directory is **going to be removed and all apps
 are refreshed from [d2-ci](https://github.com/d2-ci)**!
 
-This can take a long time, and sometimes it is not necessary for the
-apps to download.
+It is optimized to perform as shallow a clone as is possible, but in
+some cases, it needs to fetch additional commits to find a specific one.
 
-There are two strategies to avoid downloading all apps, depending on
-your needs.
+In general, using a branch or tag is **fast**, using a specific commit
+is **slow**. 
+
+In offline scenarios, there are two strategies to avoid downloading
+apps, depending on your needs.
 
 #### Strategy One: Use `mvn install` if possible
 
