@@ -50,8 +50,39 @@ which commit it was created from.
 #### Example build information
 
 ```
-Wed Nov 28 2018 11:53:15 GMT+0000 (UTC)
-87d4970f66bf23d782499e1f00ab0d281cc88a7a
+Apps
+
+* dhis-web-app-management
+* dhis-web-cache-cleaner
+* dhis-web-capture
+* dhis-web-visualizer
+* dhis-web-core-resource
+* dhis-web-dashboard
+* dhis-web-data-administration
+* dhis-web-data-visualizer
+* dhis-web-data-quality
+* dhis-web-datastore
+* dhis-web-event-capture
+* dhis-web-event-reports
+* dhis-web-event-visualizer
+* dhis-web-importexport
+* dhis-web-interpretation
+* dhis-web-maintenance
+* dhis-web-mapping
+* dhis-web-maps
+* dhis-web-menu-management
+* dhis-web-messaging
+* dhis-web-pivot
+* dhis-web-scheduler
+* dhis-web-settings
+* dhis-web-tracker-capture
+* dhis-web-translations
+* dhis-web-usage-analytics
+* dhis-web-user
+* dhis-web-user-profile
+
+Mon Mar 25 2019 15:37:12 GMT+0000 (UTC)
+790c8930767b13e24cf63c6949cba62b0d56d889 
 ```
 
 ### Exactly what versions of the apps does a build contain?
@@ -132,7 +163,7 @@ fb596620b6e5a6d5af730c793baffd423ecb23d8
 
 ## Create custom builds
 
-To change which apps and respective versions for the apps a single file needs
+To change which apps and respective versions of the apps are bundled, a single file needs
 to be modified in dhis2-core:
 
 [https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json](https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-web/dhis-web-apps/apps-to-bundle.json)
