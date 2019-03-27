@@ -25,7 +25,7 @@ Configuration file: /Users/me/dhis2.github.io/_config.yml
       Generating...
        Jekyll Feed: Generating feed for posts
                     done in 1.975 seconds.
- Auto-regeneration: enabled for '/Users/me/dev/dhis2.github.io'
+ Auto-regeneration: enabled for '/Users/me/dhis2.github.io'
     Server address: http://127.0.0.1:4000/
   Server running... press ctrl-c to stop.
 ```
