@@ -20,7 +20,7 @@ I'll dive deeper into some advanced `d2` features in another post, but here's a 
 
 2. `d2 style js apply --all --no-stage` - Apply the DHIS2 code-style to all the javascript in a directory without staging the modified files in `git`
 
-3. `d2 cluster up dev --seed` - Create a local docker cluster including a DHIS2 core instance (the latest dev version), an NGINX gateway, and a Postgres database seeded with the [Sierra Leone demodb](https://github.com/dhis2/dhis2-demo-db/tree/master/sierra-leone) (requires [Docker](https://www.docker.com/products/docker-desktop) running locally for now)
+3. `d2 cluster up dev --seed` - Create a local docker cluster including a DHIS2 core instance (the latest dev version), an NGINX gateway, and a Postgres database seeded with the [Sierra Leone demodb](https://github.com/dhis2/dhis2-demo-db/tree/master/sierra-leone) This requires [Docker](https://www.docker.com/products/docker-desktop) running locally for now.  See [d2-cluster](https://github.com/dhis2/cli/tree/master/packages/cluster) for details, or stay tuned for another post!
 
 4. `d2 style commit check "feat: this is a test"` - check whether or not a string matches the [conventional commits](http://conventionalcommits.org/) specification (this is handy [in a git hook](https://github.com/dhis2/cli/blob/master/package.json#L19)!)
 
