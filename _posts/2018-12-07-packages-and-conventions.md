@@ -12,7 +12,7 @@ Tools like Prettier were built in that particular kind of bikeshed. In
 that spirit, allow me to introduce two tools that consolidate our
 JavaScript conventions.
 
-> **EDIT MARCH 28, 2019** - While the concepts in this post still very much hold true, the **code-style** and **packages** are been deprecated. Please use [d2](/blog/2019/03/28/introducing-d2.html) instead of these older stand-alone tools where possible!
+> **EDIT MARCH 28, 2019** - While the concepts in this post still very much hold true, the **code-style** and **packages**  (with the exception of `packages exec`) are being deprecated. Please use [d2](/blog/2019/03/28/introducing-d2.html) instead of these older stand-alone tools where possible!
 
 ## 1 - [code-style](https://github.com/dhis2/code-style)
 

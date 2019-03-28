@@ -62,7 +62,11 @@ If either installing `d2` with `npm` or just by downloading an executable appeal
 
 ## What about other command-line utilites?
 
-The code-style and packages tools introduced by Viktor [in an earlier post](/blog/2018/12/07/packages-and-conventions.html) are now deprecated in favor of their `d2` equivalents (`d2 style` instead of `code-style`. Yarn workspaces should be used instead of `packages` for simple mono-repo support, and `d2 utils release` replaces `packages release`, although this should only need to run in CI environments like [travis](https://www.travis-ci.com))
+The goal of `@dhis2/cli` is to consolidate and standardize the various fragmented command-line utilities in the `dhis2` ecosystem.  If possible, other tools which can be implemented as Node.js scripts should be ported to `d2` namespaces moving forward.
+
+As an initial example of this transition, the code-style and packages tools introduced by @varl [in an earlier post](/blog/2018/12/07/packages-and-conventions.html) are now deprecated in favor of their `d2` equivalents (`d2 style` instead of `code-style`. Yarn workspaces should be used instead of `packages` for simple mono-repo support, and `d2 utils release` replaces `packages release`, although this should only need to run in CI environments like [travis](https://www.travis-ci.com))
+
+**Note** The `packages` command `packages exec` which multiplexes commands across a mono-repo has not yet been ported to `d2`, so you might still need to use `packages` to run i.e. `packages exec yarn build`
 
 ## Contributing and building your own CLI modules
 
