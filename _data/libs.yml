@@ -1,49 +1,45 @@
 list_title: Libraries
 list:
 
-- title: API
+- title: Tools
+  list:
+  - title: d2-cli
+    github: dhis2/cli
+    url:
+    description: >-
+        A unified CLI for DHIS2 development workflows.
+
+- title: Apps
   list:
   - title: d2
     github: dhis2/d2
     url: https://d2-ci.github.io/d2
     description: >-
-      DHIS2 API library with Schema support.
+        Facilitates work with the DHIS2 API.
+  - title: app-runtime
+    github: dhis2/app-runtime
+    description: >-
+        A singular runtime dependency for applications on the DHIS2 platform.
+  - title: i18n
+    github: dhis2/i18n
+    description: >-
+        Internationalization framework for DHIS2 apps and tools.
 
-- title: Build
+- title: User interfaces
   list:
-  - title: deploy-build
-    github: dhis2/deploy-build
+  - title: ui-core
+    github: dhis2/ui-core
+    url: https://d2-ci.github.io/ui-core
     description: >-
-      The scripts for build and deploy of frontend applications and libraries.
+        Core components that build up the DHIS2 design system, e.g. buttons, input fields.
 
-
-- title: Code standards
-  list:
-  - title: packages
-    github: dhis2/packages
-    changelog: https://github.com/dhis2/packages/blob/master/CHANGELOG.md
+  - title: ui-widgets
+    github: dhis2/ui-core
+    url: https://d2-ci.github.io/ui-core
     description: >-
-      The CLI tool for DHIS2 webapps. When set up gives you everything you
-      need to work with our apps, such as; code standards, commit message validation,
-      changelog generation, automatic release process, etc.
+        Widget components that are ready-made for reuse across DHIS2 applications, e.g. the header bar.
 
-  - title: code-style
-    github: dhis2/code-style
-    changelog: https://github.com/dhis2/code-style/blob/master/CHANGELOG.md
-    description: >-
-      Ensures that our code and commit messages are consistent. This
-      is a codified style guide for writing idiomatic DHIS2 apps. Works as a plugin to
-      packages as well as standalone.
-
-- title: User interface
-  list:
-  - title: ui
-    github: dhis2/ui
-    url: https://d2-ci.github.io/ui
-    changelog: https://github.com/dhis2/ui/blob/master/CHANGELOG.md
-    description: >-
-      Light-weight component library for composing DHIS2 applications.
   - title: d2-ui
     github: dhis2/d2-ui
     description: >-
-      Component library with dependency on the d2 library for data.
+        A UI component library where the components are coupled to d2 and Material UI.
