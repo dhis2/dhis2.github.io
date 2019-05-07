@@ -5,12 +5,13 @@ layout: page
 
 <article>
 {% for section in site.data.libs.list %}
+    <h2>{{section.title}}</h2>
     {% for lib in section.list %}
     <h3 class="d2-lib-header">
         {{ lib.title | escape }}
     </h3>
     <p>
-        [{{section.title}}] {{ lib.description }}
+        {{ lib.description }}
     </p>
     <ul>
         {% if lib.github %}
