@@ -21,7 +21,7 @@ list:
     description: >-
         A singular runtime dependency for applications on the DHIS2 platform.
   - title: i18n
-    github: dhis2/i18n
+    github: dhis2/d2-i18n
     description: >-
         Internationalization framework for DHIS2 apps and tools.
 
