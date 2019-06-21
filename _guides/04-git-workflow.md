@@ -2,6 +2,7 @@
 title: Git workflow 
 category: guide
 layout: page
+permalink: /guides/git-workflow
 ---
 
 > Jump to the [FAQ](#faq).
