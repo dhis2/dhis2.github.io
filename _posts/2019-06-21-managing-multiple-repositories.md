@@ -25,33 +25,51 @@ This is a bit tedious, though it can easily be automated. After all the
 repositories have been registered with `mr`, then it can pull off its
 party tricks. :tada:
 
+## Install _myrepos_
+
+`mr` is a Perl script, so it is available anywhere Perl runs, and just
+to name a few options:
+
+- Debian/Ubuntu: `apt install myrepos`
+- Arch: `pacman -Sy myrepos`
+- Alpine: `apk add myrepos`
+- Nix: `nix-env -i mr`
+- FreeBSD: `pkg install myrepos`
+- Homebrew: `brew install mr`
+
 ## Find-up logic out of the box
             
-If a command, for example `mr nuke` is run in e.g. `~/dev/dhis2/apps`,
-then `mr` only runs it on the registered repositories in that folder.
+If a command, for example `mr nuke`, is run in e.g.
+`~/dev/dhis2/apps/usage-analytics`, then `mr` only runs it on that
+repository.
 
-If it is run in a specific repo, e.g.
-`~/dev/dhis2/apps/usage-analytics`, then it only runs the `nuke` command
-in that single repo.
+If it is run in the parent, e.g.
+`~/dev/dhis2/apps`, then it only runs the `nuke` command in all children
+of that directory. In this case, it would run `nuke` in all the app
+repositories.
 
 If the command is run on a higher level, e.g. in `~/dev/dhis2` then the
-command applies to all registered repositories in `dhis2/`. So it is
-possible to manage all of your repositories using a single configuration
-file, both personal and work related, simply by running your commands in
-the relevant directory.
+command applies to all registered repositories in `dhis2/`.
 
-## Standard operation
+Through this simple hierarchical structure, it is possible to manage all
+of your repositories using a single configuration file, both personal
+and work related, simply by running your commands in the relevant
+directory.
+
+## Standard operations
 
 The primary commands you will want to use are:
 
 - `mr checkout` clones any repositories which don't already exist
 - `mr update` updates all the repositories
-- `mr push` pushes all the repositories to remote
+- `mr clean` prints the ignored/untracked files in repos, use `-f` to
+  remove
 - `mr status` shows you the status of each repo; handy to figure out if
   any repos have pending changes
 - `mr diff` shows you the diffs from all repos
+- `mr run` allows you to run an arbitrary command in all repos
 
-## Custom operation
+## Custom operations
 
 This is where the tool starts to shine, not only is this a full-featured
 repository manager; it also gives you tools to do batch operations
@@ -89,6 +107,15 @@ octo = git checkout $(git merge-base --octopus $(for b in "$@"; do echo "origin/
 
 Which can be used as: `mr octo master v32` and it will give you the
 merge-base between `origin/master` and `origin/v32`.
+
+## Some ideas for scripts to try and set up
+
+- `mr unlink`: Remove any symlinks (created through e.g. `yarn link`) between packages
+- `mr link <package>`: Create a symlink to a specific package and link
+  it to all packages that depend on it.
+- `mr boil`: Setup all the standards for code, repos, packages,
+  continuous integration on a new branch, commit the changes, and push
+  the new branch to origin in a new PR.
 
 ## Future work
 
