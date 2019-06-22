@@ -1,5 +1,5 @@
 ---
-title: Manage a plethora of repositories
+title: Command a fleet of repositories
 layout: post
 categories: [blog]
 author: varl
@@ -38,24 +38,23 @@ a few ways to install it:
 - FreeBSD: `pkg install myrepos`
 - Homebrew: `brew install mr`
 
-## Find-up logic out of the box
-            
-If a command, for example `mr nuke`, is run in e.g.
+## Recursive commands
+
+If a command, for example `mr update`, is run in e.g.
 `~/dev/dhis2/apps/usage-analytics`, then `mr` only runs it on that
 repository.
 
 If it is run in the parent, e.g.
-`~/dev/dhis2/apps`, then it only runs the `nuke` command in all children
-of that directory. In this case, it would run `nuke` in all the app
+`~/dev/dhis2/apps`, then it only runs the `update` command in all children
+of that directory. In this case, it would run `update` in all the app
 repositories.
 
 If the command is run on a higher level, e.g. in `~/dev/dhis2` then the
 command applies to all registered repositories in `dhis2/`.
 
-Through this simple hierarchical structure, it is possible to manage all
-of your repositories using a single configuration file, both personal
-and work related, simply by running your commands in the relevant
-directory.
+Through this hierarchical structure, it is possible to manage all of
+your repositories using a single configuration file, both personal and
+work related, simply by running your commands in the relevant directory.
 
 ## Standard operations
 
