@@ -25,6 +25,12 @@ This is a bit tedious, though it can easily be automated. After all the
 repositories have been registered with `mr`, then it can pull off its
 party tricks. :tada:
 
+The first trick is to clone all the repos into a nice hierarchy, with a
+single command: `mr checkout`.
+
+The next trick is to update all of the repos: `mr update`. This is just
+the start, however, first you must install the `mr` command.
+
 ## Install _myrepos_
 
 `mr` is a Perl script, and it is available anywhere Perl runs. To name
