@@ -63,17 +63,29 @@ The primary commands you will want to use are:
 - `mr checkout` clones any repositories which don't already exist
 - `mr update` updates all the repositories
 - `mr clean` prints the ignored/untracked files in repos, use `-f` to
-  remove
+  remove files as well
 - `mr status` shows you the status of each repo; handy to figure out if
   any repos have pending changes
 - `mr diff` shows you the diffs from all repos
 - `mr run` allows you to run an arbitrary command in all repos
+
+Check out the manual of `myrepos`, it is not long and has some nice
+tidbits about parallel execution. Alright, I will give up that last one:
+use the switch `mr -j 5` to run 5 concurrent jobs.
 
 ## Custom operations
 
 This is where the tool starts to shine, not only is this a full-featured
 repository manager; it also gives you tools to do batch operations
 across multiple repositories.
+
+Custom commands under the `[DEFAULT]` section only apply to the
+repositories which are _under_ that section. This is why all the custom
+commands are placed at the very top of the `.mrconfig` file.
+
+Some examples I use it for are:
+
+### Purge Node modules
 
 To save on space I have a `mr nuke` command set up which removes the
 `node_modules` from all repositories:
@@ -83,9 +95,7 @@ To save on space I have a `mr nuke` command set up which removes the
 nuke = if [ -d ./node_modules ]; then rm -rf ./node_modules; else echo "Skipping ... No node_modules/"; fi
 ```
 
-Custom commands under the `[DEFAULT]` section only apply to the
-repositories which are _under_ that section. This is why it is placed at
-the very top of the `.mrconfig` file.
+### Generate bundle reports
 
 It is easy to extend this to e.g. run `yarn install` in all
 repositories. Or, generate bundle reports of all the apps using
@@ -95,8 +105,15 @@ repositories. Or, generate bundle reports of all the apps using
 report =
     yarn
     GENERATE_SOURCEMAP=true yarn build
-    source-map-explorer build/**/*.js --html "${HOME}/tmp/$(basename $(pwd))-$(git rev-parse --short HEAD).html"
+    mkdir $HOME/reports
+    source-map-explorer build/**/*.js --html > "${HOME}/reports/$(basename $(pwd))-$(git rev-parse --short HEAD).html"
 ```
+
+I use this to serve a [listing of bundle
+reports](https://dhis2.vardevs.se/reports/) for analysis.
+
+
+### Check out the common ancestor of multiple branches
 
 It is possible to teach `mr` a lot of tricks, some handier than others,
 for example [figuring out the merge-base for different branches](/guides/git-workflow):
@@ -106,9 +123,12 @@ octo = git checkout $(git merge-base --octopus $(for b in "$@"; do echo "origin/
 ```
 
 Which can be used as: `mr octo master v32` and it will give you the
-merge-base between `origin/master` and `origin/v32`.
+merge-base between `origin/master` and `origin/v32` and check it out for
+you.
 
-## Some ideas for scripts to try and set up
+This simplifies backporting bugfixes a bit.
+
+## Some other ideas for scripts to try and set up
 
 - `mr unlink`: Remove any symlinks (created through e.g. `yarn link`) between packages
 - `mr link <package>`: Create a symlink to a specific package and link
@@ -130,5 +150,3 @@ This is my full configuration at the time of writing.
 <script src="https://gist.github.com/varl/4a853e6394ad2ebcf4a77c5ea0ff623a.js"></script>
 
 Do you have any useful ideas for a command? Please comment on the Gist. :kissing_heart:
-
-Go forth and clone all the things!
