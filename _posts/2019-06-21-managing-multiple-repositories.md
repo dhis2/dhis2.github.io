@@ -8,8 +8,8 @@ author: varl
 As a developer you operate on many repositories. To keep all of the
 repositories up-to-date there are as many strategies as there are
 developers. Personally I have gone from doing it manually, to writing
-scripts, trying different tools, and the latter is what this post is
-about.
+scripts (e.g. [1](https://github.com/varl/scripts/blob/master/clone-apps.sh), [2](https://github.com/varl/scripts/blob/master/apps.sh)),
+trying different tools (e.g. [1](https://github.com/mateodelnorte/meta)), and the latter is what this post is about.
 
 ## Enter, stage left: _myrepos_
 
