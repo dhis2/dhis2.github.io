@@ -144,9 +144,11 @@ At some point it might make sense to integrate this type of
 functionality into `d2`, but for now, `mr` is a very handy tool for
 developers who have to deal with multiple repositories.
 
-## Sharable configuration
+## Shared configuration
 
-This is my full configuration at the time of writing.
+This is my full configuration at the time of writing. You can use it to
+get started, or set up your own from scratch with only the repos and
+target directories you need.
 
 <script src="https://gist.github.com/varl/4a853e6394ad2ebcf4a77c5ea0ff623a.js"></script>
 
