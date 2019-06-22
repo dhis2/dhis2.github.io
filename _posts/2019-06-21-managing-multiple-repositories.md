@@ -27,9 +27,10 @@ party tricks. :tada:
 
 ## Install _myrepos_
 
-`mr` is a Perl script, so it is available anywhere Perl runs, and just
-to name a few options:
+`mr` is a Perl script, and it is available anywhere Perl runs. To name
+a few ways to install it:
 
+- Git: `git clone git://myrepos.branchable.com/ myrepos`
 - Debian/Ubuntu: `apt install myrepos`
 - Arch: `pacman -Sy myrepos`
 - Alpine: `apk add myrepos`
