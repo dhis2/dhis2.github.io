@@ -17,11 +17,10 @@ title: Developer Portal
 author: The Core Team
 description: >- # this means to ignore newlines until "baseurl:"
   The portal for developers on the DHIS2 platform. Contains resources, guides,
-  and blog posts for all developer related things of DHIS2.
+  and articles for all developer related things of DHIS2.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: dhis2
-permalink: pretty #/:categories/:year/:month/:day/:title/
 
 # Build settings
 markdown: kramdown
@@ -32,6 +31,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-mentions
+  - jekyll-archives
+
+permalink: /:year/:month/:day/:title/
 
 collections:
   guides:
@@ -41,12 +43,28 @@ collections:
 show_excerpts: true
 
 header_pages:
-  - blog.md
+  - articles.md
   - libs.md
   - guides.md
 
 sass:
   sass_dir: _sass
+
+jekyll-archives:
+  enabled: all
+  layout: archive
+  layouts:
+    year: archive-year
+    month: archive-month
+    day: archive-day
+    category: archive-category
+    tag: archive-tag
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

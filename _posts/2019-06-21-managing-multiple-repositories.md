@@ -2,6 +2,7 @@
 title: Command a fleet of repositories
 layout: post
 categories: [blog]
+category: articles
 author: varl
 ---
 
