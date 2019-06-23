@@ -10,7 +10,7 @@
                 </ul>
             {% endif %}
 
-            <h2 class="month"><a href="{{ post.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ post.date | date: '%B' }}</a></h2>
+            <h4 class="year-month"><a href="{{ post.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ post.date | date: '%B' }}</a></h4>
             <ul class="post-list">
         {% endif %}
 
