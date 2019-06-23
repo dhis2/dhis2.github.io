@@ -2,7 +2,7 @@
 title: Command a fleet of repositories
 layout: post
 categories: [blog]
-category: articles
+tags: [cli, developer tools]
 author: varl
 ---
 

@@ -31,9 +31,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-mentions
-  - jekyll-archives
+  - jekyll-redirect-from
 
-permalink: /:year/:month/:day/:title/
+jekyll-redirect-from:
+
+permalink: /:year/:month/:title/
 
 collections:
   guides:
@@ -43,28 +45,12 @@ collections:
 show_excerpts: true
 
 header_pages:
-  - articles.md
+  - archive/index.md
   - libs.md
   - guides.md
 
 sass:
   sass_dir: _sass
-
-jekyll-archives:
-  enabled: all
-  layout: archive
-  layouts:
-    year: archive-year
-    month: archive-month
-    day: archive-day
-    category: archive-category
-    tag: archive-tag
-  permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
-    category: '/category/:name/'
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

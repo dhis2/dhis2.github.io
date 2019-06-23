@@ -1,0 +1,11 @@
+<li>
+    <span class="post-meta">
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+    </span>
+    <h3><a href="{{ post.url }}" class="post-link">{{ post.title }}</a></h3>
+    <p class="tags">
+        {% for tag in post.tags %}
+        <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag }}</a>
+        {% endfor %}
+    </p>
+</li>

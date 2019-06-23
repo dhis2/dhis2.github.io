@@ -1,12 +1,31 @@
 ---
+type: archive
 layout: default
 ---
-<h1 class="page-heading">Archive of posts with {{ page.type }} '{{ page.title }}'</h1>
-<ul class="posts">
-  {% for post in page.posts %}
-    <li>
-      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+
+<section class="archive">
+    {% if page.title == 'Archive' %}
+        <h2 class="post-list-heading">{{ page.title }}</h2>
+        {% include archive-index.html %}
+    {% else %}
+        <h2 class="post-list-heading">Archive: {{ page.title }}</h2>
+    {% endif %}
+    {% if page.tag and content != '' %}
+    <article title="{{ page.title }}">
+        <div class="content">
+            {{ content }}
+        </div>
+    </article>
+    {% endif %}
+    {% unless page.title == 'Archive' %}
+        <ul class="post-list">
+            {% if page.month %}
+                {% include archive-month.html %}
+            {% elsif page.year %}
+                {% include archive-year.html %}
+            {% elsif page.tag %}
+                {% include archive-tag.html %}
+            {% endif %}
+        </ul>
+    {% endunless %}
+</section>
