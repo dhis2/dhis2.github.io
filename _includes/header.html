@@ -3,8 +3,9 @@
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <img class="site-title" src="/assets/logo-blue.svg" alt="DHIS2
-    Logotype" height="54px" style="margin-right: 36px;"/><a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+       <img class="site-title" src="/assets/dhis2developers.svg" alt="DHIS2 Developers Logotype" height="54px" style="margin-right: 36px;"/>
+    </a>
 
     {%- if page_paths -%}
       <nav class="site-nav">
