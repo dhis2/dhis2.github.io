@@ -4,11 +4,14 @@ layout: default
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <div class="post-header">
+    <div>
         <a href="{% link archive/index.md %}">Articles</a> /
         <a href="/{{ page.date | date: "%Y" }}">{{ page.date | date: "%Y" }}</a> /
         <a href="/{{ page.date | date: "%Y" }}/{{ page.date | date: "%m" }}">{{ page.date | date: "%m" }}</a>
     </div>
+
+    {% assign post = page %}
+    {% include tag-list.html %}
 
 	<header class="post-header">
 		<div class="post-meta">

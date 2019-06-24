@@ -1,3 +1,14 @@
+/* apply a natural box layout model to all elements, but allowing
+ * components to change */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
 /**
  * Reset some basic elements
  */
@@ -333,4 +344,8 @@ table {
   td {
     border: 1px solid $grey-color-light;
   }
+}
+
+.block {
+    margin-bottom: $spacing-unit;
 }

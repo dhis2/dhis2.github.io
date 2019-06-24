@@ -19,7 +19,7 @@ $black-weight: 900 !default;
 
 $base-font-family: Roboto, sans-serif !default;
 $base-size: 16;
-$base-font-size:   16px !default;
+$base-font-size:   18px !default;
 $base-font-weight: $regular-weight;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -71,5 +71,6 @@ $on-laptop:        900px !default;
 @import
   "minima/base",
   "minima/layout",
-  "minima/syntax-highlighting"
+  "minima/syntax-highlighting",
+  "minima/custom"
 ;

@@ -1,0 +1,5 @@
+<p class="tags">
+    {% for tag in post.tags %}
+    <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}" class="tag">{{ tag }}</a>
+    {% endfor %}
+</p>
