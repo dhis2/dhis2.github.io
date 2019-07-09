@@ -22,7 +22,7 @@ You can also access the slides [here](https://docs.google.com/presentation/d/1tz
 
 ### What is it?
 
-The DHIS2 Application Platform is a reframing of the concept of a DHIS2 app.
+The DHIS2 Application Platform reframes the concept of a DHIS2 app.
 
 Today, a DHIS2 app is a standalone websites (often made with Create React App) and needs to compose a myriad of common tools and components (HeaderBar, data fetching logic, Org Unit Tree component, build scripts, manifest generation, translation, etc...)
 
