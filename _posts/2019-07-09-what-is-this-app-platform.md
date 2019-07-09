@@ -3,7 +3,7 @@ title: What is this DHIS2 Application Platform?
 layout: post
 categories: [blog]
 tags: [app platform, developer tools, build system, architecture]
-author: austin
+authors: [austin]
 ---
 
 During the DHIS2 Annual Conference a couple weeks ago I had the pleasure of introducing our ongoing efforts to develop a formalized and consolidation Application Platform here at UiO.
