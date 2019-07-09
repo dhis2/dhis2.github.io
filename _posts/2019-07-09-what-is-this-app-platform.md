@@ -6,7 +6,7 @@ tags: [app platform, developer tools, build system, architecture]
 author: austin
 ---
 
-During the DHIS2 Annual Conference a couple weeks ago I had the pleasure of introducing our ongoing efforts to develop a formalized and consolidation Application Platform here are UiO.
+During the DHIS2 Annual Conference a couple weeks ago I had the pleasure of introducing our ongoing efforts to develop a formalized and consolidation Application Platform here at UiO.
 
 Keep in mind that **the Application Platform is still a work in progress!** It's not quite ready for prime-time yet, but if you're excited about where we're going (or have questions or concerns), don't hesitate to [reach out](mailto:austin@dhis2.org).
 
