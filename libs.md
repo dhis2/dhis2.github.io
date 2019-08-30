@@ -8,7 +8,7 @@ layout: page
     <ul>
         <li><a href="https://ui-core.dhis2.nu">UI Core</a> - design primitives implementing the <a href="https://github.com/dhis2/design-system">design system</a></li>
         <li><a href="https://ui-widgets.dhis2.nu">UI Widgets</a> - large "organism"-level smart components for DHIS2 functionality</li>
-        <li><a href="https://github.com/dhis2/analytics">analytics</a></li>
+        <li><a href="https://github.com/dhis2/analytics">analytics</a> - helper functions and common components for analytics applications</li>
     </ul>
     <h3>Command-line tools</h3>
     <ul>
