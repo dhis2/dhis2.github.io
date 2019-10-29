@@ -81,7 +81,7 @@ Now that you know how to find the images you are looking for, we can go through 
 ### DHIS2 docker instance
 DHIS2 instance running inside docker container is not different from traditionally set up DHIS2 instance. The basic requirement for the instance is dhis.conf file where you define your database configuration and additional DHIS2 properties.   To successfully run DHIS2 instance inside docker you will need to attach this file as a volume to /DHIS2_home directory inside the docker container. Here's the docker command to achieve that: 
 
-```docker run -v $pathToYourDhisConf:/DHIS2_home/dhis.conf dhis2/core:2.32.0```
+`docker run -v $pathToYourDhisConf:/DHIS2_home/dhis.conf dhis2/core:2.32.0`
 
 $pathToYourDhisConf should be a relative path of dhis.conf file in the machine you are running docker on. 
 
