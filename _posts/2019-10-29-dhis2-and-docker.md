@@ -43,7 +43,7 @@ Base repositories (base, base-dev) contains only DHIS2 war. Starting this image 
 #### Versioning and tags
 Docker tags are meant to convey useful information about a specific version/variant of the image. In DHIS2 repositories, we combine DHIS2 and tomcat versions with image variants into a tag to be as transparent as possible about what you will find in the image.
 
-```tag = dhis2 version + image variant```
+`tag = dhis2 version + image variant`
 
 ##### DHIS2 versions
 *dev* channels images are versioned the same way we version branches in GitHub: 
