@@ -36,7 +36,7 @@ Repositories suffixed with `-dev` contains images for _latest_ DHIS2 versions. T
 Links: [core-dev](https://hub.docker.com/r/dhis2/core-dev), [base-dev](https://hub.docker.com/r/dhis2/base-dev)
 
 ###### stable
-Repositories **not** suffixed by `dev` contains images for **stable** and **released** DHIS2 versions. These images represent the stable dhis2 versions, meaning it won't t be rebuilt in the future. 
+Repositories **not** suffixed by `dev` contains images for **stable** and **released** DHIS2 versions. These images represent the stable dhis2 versions, meaning it won't be rebuilt in the future. 
 
 Links: [core](https://hub.docker.com/r/dhis2/core), [base](https://hub.docker.com/r/dhis2/base)
 
