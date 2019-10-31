@@ -59,7 +59,7 @@ Versioning of *stable* images corresponds to the versioning scheme we use for DH
 
 
 #### Image variants
-This part tells what is the image based on and what environment DHIS2 will be running in. At the time of writing this guide, we create the following image variants: 
+Image variants describe what is the image based on and what environment DHIS2 will be running in. At the time of writing this guide, we create the following image variants: 
 
 Debian: 
 - `tomcat-9.0-jdk8-openjdk-slim`
