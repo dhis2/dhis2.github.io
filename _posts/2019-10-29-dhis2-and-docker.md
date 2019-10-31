@@ -24,7 +24,7 @@ In addition to minimal Docker-knowledge, you will need:
 
 ### Docker Hub
 
-Docker Hub is an official cloud-based repository where Docker users store and distribute their images. DHIS2 has its organization on [Docker Hub](https://hub.Docker.com/u/dhis2/). At the time of writing this guide, we have 4  **active** repositories: base-dev, base, core-dev, core.
+Docker Hub is the official cloud-based repository where Docker users store and distribute their images. DHIS2 has its organization on [Docker Hub](https://hub.Docker.com/u/dhis2/). At the time of writing this guide, we have 4  **active** repositories: base-dev, base, core-dev, core.
 
 #### Repositories
 Sometimes we categorize repositories in _channels_ and say that we have 2 image channels: _dev_ and _stable_. 
