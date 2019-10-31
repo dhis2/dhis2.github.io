@@ -18,7 +18,7 @@ Additionally, you will need:
 ## Vocabulary
 *Image* - a template that contains the application and all the dependencies that are required to run that application.  
 *Container* - a running instance of Docker image.  
-*Dockerfile* - text file, with lines and instructions on how to build the Docker image. [Reference ](https://docs.docker.com/engine/reference/builder/)
+*Dockerfile* - text file, with lines and instructions on how to build the Docker image. [More information about Dockerfile. ](https://docs.docker.com/engine/reference/builder/)
 
 ## Docker Hub
 
