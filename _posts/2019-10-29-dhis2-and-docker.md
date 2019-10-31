@@ -99,23 +99,23 @@ $pathToYourDhisConf should be a relative path of dhis.conf file in the machine y
 ## DHIS2 with empty Postgres database using Docker Compose
 Here's an example `docker-compose.yml` file which will help you to run both DHIS2 and Postgres database instances inside separate Docker containers in no time. 
 ```
-  version: '3'  
-  services:  
-    db:  
-      image: mdillon/postgis:10-alpine  
+version: '3'  
+services:  
+  db:  
+    image: mdillon/postgis:10-alpine  
     command: postgres -c max_locks_per_transaction=100  
     environment:  
-        POSTGRES_USER: dhis  
-        POSTGRES_DB: dhis2  
-        POSTGRES_PASSWORD: dhis  
-      web:  
-        image: dhis2/core:2.33.0  
+      POSTGRES_USER: dhis  
+      POSTGRES_DB: dhis2  
+      POSTGRES_PASSWORD: dhis  
+  web:  
+    image: dhis2/core:2.33.0  
     volumes:  
-      - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf  
-      ports:  
-      - "8080:8080"
+    - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf  
+    ports:  
+    - "8080:8080"
     depends_on: 
-      - db
+    - db
 ```
 Make sure, that your dhis.conf then includes the following properties: 
  
@@ -148,27 +148,27 @@ _Tip: To destroy the instance, run `docker-compose down`_.
 
 To achieve this, you will need an SQL file with the schema and data you want to pre-populate Postgres with. You will attach that file to Postgres container as a volume. Here's an example of the `docker-compose.yml` file. 
 ```
-  version: '3'  
-  services:  
-    db:  
-      image: mdillon/postgis:10-alpine  
-      command: postgres -c max_locks_per_transaction=100  
-      environment:  
-        POSTGRES_USER: dhis  
-        POSTGRES_DB: dhis2  
-        POSTGRES_PASSWORD: dhis
-      volumes:
-        - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
-    web:  
-      image: dhis2/core:2.33.0  
-      volumes:  
-        - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
-      environment:
-        - WAIT_FOR_DB_CONTAINER=db:5432 -t 0
-      ports:  
-      - "8080:8080"
-      depends_on: 
-        - db
+version: '3'  
+services:  
+  db:  
+    image: mdillon/postgis:10-alpine  
+    command: postgres -c max_locks_per_transaction=100  
+    environment:  
+      POSTGRES_USER: dhis  
+      POSTGRES_DB: dhis2  
+      POSTGRES_PASSWORD: dhis
+    volumes:
+    - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
+  web:  
+    image: dhis2/core:2.33.0  
+    volumes:  
+    - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
+    environment:
+    - WAIT_FOR_DB_CONTAINER=db:5432 -t 0
+    ports:  
+    - "8080:8080"
+    depends_on: 
+    - db
 ```
 You probably noticed, that most of the file is the same as in the previous step, but we added _volumes_ and _environment_ properties for _db_ and _web_ containers. 
 
@@ -178,18 +178,18 @@ You will notice the -t  option. The -t option stands for  _timeout_. 0  means th
 
 Note, that you still need to configure connection properties in dhis.conf: 
 ```
-  connection.dialect = org.hibernate.dialect.PostgreSQLDialect  
-  connection.driver_class = org.postgresql.Driver  
+connection.dialect = org.hibernate.dialect.PostgreSQLDialect  
+connection.driver_class = org.postgresql.Driver  
 
-  # "db" maps to service name defined in Docker Compose
-  # "dhis2" maps to POSTGRES_DB defined in Docker Compose
-  connection.url = jdbc:postgresql://db/dhis2 
+# "db" maps to service name defined in Docker Compose
+# "dhis2" maps to POSTGRES_DB defined in Docker Compose
+connection.url = jdbc:postgresql://db/dhis2 
 
-  # maps to POSTGRES_USER environment variable in Docker Compose.
-  connection.username = dhis 
+# maps to POSTGRES_USER environment variable in Docker Compose.
+connection.username = dhis 
 
-  # maps to POSTGRES_PASSWORD environment variable in Docker Compose.
-  connection.password = dhis 
+# maps to POSTGRES_PASSWORD environment variable in Docker Compose.
+connection.password = dhis 
 ```
 
 To run this file with Docker Compose, execute the following command: 
