@@ -28,11 +28,16 @@ Docker Hub is the official cloud-based repository where Docker users store and d
 
 #### Repositories
 Sometimes we categorize repositories in _channels_ and say that we have 2 image channels: _dev_ and _stable_. 
+
 ##### dev
 Repositories suffixed with `-dev` contains images for _latest_ DHIS2 versions. That means, that we can't fully guarantee its quality and we recommend to use it only for testing purposes. Also, for curious souls, wanting to peek into the latest DHIS2 development efforts. The `-dev` repositories are ideologically the same as `dev` demo instances on [_play_](https://play.dhis2.org/dev). Images in this channel will be overwritten multiple times a day. 
 
+Links: [core-dev](https://hub.docker.com/r/dhis2/core-dev), [base-dev](https://hub.docker.com/r/dhis2/base-dev)
+
 ##### stable
 Repositories **not** suffixed by `dev` contains images for **stable** and **released** DHIS2 versions. These images represent the stable dhis2 versions, meaning it won't t be rebuilt in the future. 
+
+Links: [core](https://hub.docker.com/r/dhis2/core), [base](https://hub.docker.com/r/dhis2/base)
 
 ##### core
 Core repositories (core, core-dev) contains tomcat images that already have DHIS2 war baked-in.  That means, that starting this image will result in a running DHIS2 instance. 
