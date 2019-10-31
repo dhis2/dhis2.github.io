@@ -1,7 +1,8 @@
 ---
 title: DHIS2 with Docker
 layout: post
-categories: [blog, Docker]
+categories: [blog]
+tags: [docker]
 author: gintare
 ---
 The DHIS2 Core Team uses Docker to make development and testing efforts easier every day! It allows us to spin up various environments with any DHIS2 version, numerous tomcat versions and different components, such as Redis, NGINX, in no time. Because we wanted to share Docker with the community, we made publishing Docker images a part of our delivery pipeline. This guide aims to provide some guidelines on how to use Docker to quickly set up DHIS2. 
