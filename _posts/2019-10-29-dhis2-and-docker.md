@@ -174,18 +174,18 @@ You will notice the -t  option. The -t option stands for  _timeout_. 0  means th
 
 Note, that you still need to configure connection properties in dhis.conf: 
 ```
-  connection.dialect = org.hibernate.dialect.PostgreSQLDialect  
-  connection.driver_class = org.postgresql.Driver  
+connection.dialect = org.hibernate.dialect.PostgreSQLDialect  
+connection.driver_class = org.postgresql.Driver  
 
-  # "db" maps to service name defined in Docker Compose
-  # "dhis2" maps to POSTGRES_DB defined in Docker Compose
-  connection.url = jdbc:postgresql://db/dhis2 
+# "db" maps to service name defined in Docker Compose
+# "dhis2" maps to POSTGRES_DB defined in Docker Compose
+connection.url = jdbc:postgresql://db/dhis2 
 
-  # maps to POSTGRES_USER environment variable in Docker Compose.
-  connection.username = dhis 
+# maps to POSTGRES_USER environment variable in Docker Compose.
+connection.username = dhis 
 
-  # maps to POSTGRES_PASSWORD environment variable in Docker Compose.
-  connection.password = dhis 
+# maps to POSTGRES_PASSWORD environment variable in Docker Compose.
+connection.password = dhis 
 ```
 
 To run this file with Docker Compose, execute the following command: 
