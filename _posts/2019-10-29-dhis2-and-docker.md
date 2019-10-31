@@ -4,55 +4,53 @@ layout: post
 categories: [blog, Docker]
 author: gintare
 ---
-
-# DHIS2 with Docker
 The DHIS2 Core Team uses Docker to make development and testing efforts easier every day! It allows us to spin up various environments with any DHIS2 version, numerous tomcat versions and different components, such as Redis, NGINX, in no time. Because we wanted to share Docker with community, we made publishing Docker images a part of our delivery pipeline. This guide aims to provide some guidelines on how to use Docker to quickly set up DHIS2. 
 
-## Prerequisites
+# Prerequisites
 This guide is aimed at people with at least minimal knowledge about Docker. If you don't know too much about Docker just yet, but think that it might be useful to you, I encourage you to take a look at resources listed in [resources](#Resources) section. 
 
 In addition to minimal Docker-knowledge, you will need: 
 - Docker downloaded and installed on your machine. 
 - Docker Compose downloaded and installed on your machine. 
 
-## Introduction
+# Introduction
 
-### Vocabulary
+## Vocabulary
 *Image* - a template that contains the application and all the dependencies that are required to run that application. 
 *Container* - a running instance of Docker image. 
 *Dockerfile* - text file, with lines and instructions on how to build the Docker image. [Reference ](https://docs.docker.com/engine/reference/builder/)
 
-### Docker Hub
+## Docker Hub
 
 Docker Hub is the official cloud-based repository where Docker users store and distribute their images. DHIS2 has its organization on [Docker Hub](https://hub.Docker.com/u/dhis2/). At the time of writing this guide, we have 4  **active** repositories: base-dev, base, core-dev, core.
 
-#### Repositories
+### Repositories
 Sometimes we categorize repositories in _channels_ and say that we have 2 image channels: _dev_ and _stable_. 
 
-##### Channels
-###### dev
+#### Channels
+##### dev
 Repositories suffixed with `-dev` contains images for _latest_ DHIS2 versions. That means, that we can't fully guarantee its quality and we recommend to use it only for testing purposes. Also, for curious souls, wanting to peek into the latest DHIS2 development efforts. The `-dev` repositories are ideologically the same as `dev` demo instances on [_play_](https://play.dhis2.org/dev). Images in this channel will be overwritten multiple times a day. 
 
 Links: [core-dev](https://hub.docker.com/r/dhis2/core-dev), [base-dev](https://hub.docker.com/r/dhis2/base-dev)
 
-###### stable
+##### stable
 Repositories **not** suffixed by `dev` contains images for **stable** and **released** DHIS2 versions. These images represent the stable dhis2 versions, meaning it won't be rebuilt in the future. 
 
 Links: [core](https://hub.docker.com/r/dhis2/core), [base](https://hub.docker.com/r/dhis2/base)
 
-##### Images
-###### core
+#### Images
+##### core
 Core repositories (core, core-dev) contains tomcat images that already have DHIS2 war baked-in.  That means, that starting this image will result in a running DHIS2 instance. 
 
-###### base
+##### base
 Base repositories (base, base-dev) contains only DHIS2 war. Starting this image will not result in a running DHIS2 instance. 
 
-#### Versioning and tags
+### Versioning and tags
 Docker tags are meant to convey useful information about a specific version/variant of the image. In DHIS2 repositories, we combine DHIS2 and tomcat versions with image variants into a tag to be as transparent as possible about what you will find in the image.
 
 `tag = dhis2 version + image variant`
 
-##### DHIS2 versions
+#### DHIS2 versions
 *dev* channels images are versioned the same way we version branches in GitHub: 
 - `master` tag will correspond to the latest *major* DHIS2 version being developed. At the time of writing this guide, the last version we released is 2.33, which means that we are currently working on the 2.34 version and that's what the version image `dhis2/core-dev:master` will contain. 
 - `2.31` to `2.33` tags will have the war of the latest *minor* dhis2 version. So, if we released 5 patches for 2.31 version in total, we are working on the 6th patch and that will be represented by `dhis2/core-dev:2.31` tag. 
@@ -60,7 +58,7 @@ Docker tags are meant to convey useful information about a specific version/vari
 Versioning of *stable* images corresponds to the versioning scheme we use for DHIS2 releases and you might be already familiar with it. Examples: `2.31.5`, `2.32.1`, `2.33.0`and etc. 
 
 
-##### Image variants
+#### Image variants
 This part tells what is the image based on and what environment DHIS2 will be running in. At the time of writing this guide, we create the following image variants: 
 
 Debian: 
@@ -74,7 +72,7 @@ Alpine:
 
 For more information, see [notes for versioning schemes](https://github.com/dhis2/notes/blob/master/decisions/2019/05/25-war-docker-schemes.md).
 
-#### Pulling images
+### Pulling images
 When you decide which DHIS2 version and image variant you are interested in, here's how you can pull it from Docker hub: 
 
 - `docker pull dhis2/core-dev:master-tomcat-9.0-jdk8-openjdk-slim` - this command will pull the image from `core-dev` repository. The image has the DHIS2 war build from the `master` branch. The image is built on top of ```tomcat-9.0-jdk8-openjdk-slim``` base image. 
@@ -84,17 +82,17 @@ When you decide which DHIS2 version and image variant you are interested in, her
 If you don't care about image variant, you can use default one and pull the image like this: 
 - ```docker pull dhis2/core:2.31.6 ``` - this will pull the image with DHIS2 version 2.31.6. Before 2.33, the default image was based on `tomcat-8.5.34-jre8-alpine`, but we decided that `8.5-jdk8-openjdk-slim` will suite us better. Note, that you should use this option only when you don't care about the tomcat version, java environment or OS variant. If you want more control, use the explicit image variants. 
  
-## How-To's 
+# How-To's 
 Now that you know how to find the images you are looking for, we can go through the basic use cases you might have for DHIS2. If you have another use case that is not covered by this guide, let us know in the [CoP](https://community.dhis2.org/). We will use [Docker Compose](https://docs.Docker.com/compose/) to simplify the process. 
 
-### DHIS2 Docker instance
+## DHIS2 Docker instance
 DHIS2 instance running inside Docker container is not different from traditionally set up DHIS2 instance. The basic requirement for the instance is dhis.conf file where you define your database configuration and additional DHIS2 properties.   To successfully run DHIS2 instance inside Docker you will need to attach this file as a volume to /DHIS2_home directory inside the Docker container. Here's the Docker command to achieve that: 
 
 `docker run -v $pathToYourDhisConf:/DHIS2_home/dhis.conf dhis2/core:2.32.0`
 
 $pathToYourDhisConf should be a relative path of dhis.conf file in the machine you are running Docker on. 
 
-### DHIS2 with empty postgres database using Docker Compose
+## DHIS2 with empty postgres database using Docker Compose
 Here's an example `docker-compose.yml` file which will help you to run both DHIS2 and postgres database instances inside separate Docker containers in no time. 
 ```
   version: '3'  
@@ -141,7 +139,7 @@ or, if the file is on your current directory:
 **Outcome**: Docker Compose will start 2 containers for you, db and web and when tomcat fully starts up, you will be able to reach DHIS2 at http://localhost:8080. The database will be empty, so you will have a clean DHIS2 instance. 
 
 To destroy the instance, run `docker-compose down`. 
-### DHIS2 with pre-populated postgres database using Docker Compose
+## DHIS2 with pre-populated postgres database using Docker Compose
 
 To achieve this, you will need an SQL file with the schema and data you want to pre-populate postgres with. You will attach that file to postgres container as a volume. Here's an example of the `docker-compose.yml` file. 
 ```
@@ -199,7 +197,7 @@ or, if the file is on your current directory:
 To destroy the instance, run `docker-compose down`. 
 
 
-## Q&A 
+# Q&A 
 Q:  **How can I use your Docker images in production?** 
 A: We can't recommend using Docker in production yet. We know that there are implementations that runs DHIS2 in Docker successfully, but we can't recommend doing so just yet. If you decide to go for it, make sure you perform enough security, performance and stress tests. 
 
@@ -213,7 +211,7 @@ Example: `d2 cluster up myimage --image dhis2/core:2.32.2-tomcat-8.5.34-jre8-alp
 More information on [d2 cli README page](https://github.com/dhis2/cli/tree/master/packages/cluster).
 
 
-## Resources: 
+# Resources: 
 
 - [https://docker.com: Official Docker webpage](https://docker.com)
 - [https://docs.docker.com: Docker Compose documentation](https://docs.docker.com/compose/)
