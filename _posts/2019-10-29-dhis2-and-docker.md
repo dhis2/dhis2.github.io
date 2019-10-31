@@ -203,7 +203,7 @@ Q:  **How can I use your Docker images in production?**
 A: We can't recommend using Docker in production yet. We know that there are implementations that run DHIS2 in Docker successfully, but we can't recommend doing so just yet. If you decide to go for it, make sure you perform enough security, performance and stress tests. 
 
 Q: **How can I contribute?** 
-A: Great question! We value all contributions and we want to have as many as possible! Firstly, you can contribute by testing our images and raising feature requests as well as bugs. You have ideas on how to make images more secure, performant or functional? We want to hear it! If you are using your own Docker images, give our images a try and tell us how can we improve. We also accept code contributions. Docker stuff is located in [dhis2-core](https://github.com/dhis2/dhis2-core) git repository. 
+A: Great question! We value all contributions and we want to have as many as possible! Firstly, you can contribute by testing our images and raising feature requests as well as bugs. Do you have ideas on how to make images more secure, performant or functional? We want to hear it! If you are using your own Docker images, give our images a try and tell us how can we improve. We also accept code contributions. Docker stuff is located in [dhis2-core](https://github.com/dhis2/dhis2-core) git repository. 
 
 Q: **Can I use this with d2 CLI?** 
 A: Of course! D2 cluster supports --image flag, which allows you to do just that.
