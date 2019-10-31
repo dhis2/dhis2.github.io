@@ -138,7 +138,8 @@ or, if the file is on your current directory:
 
 **Outcome**: Docker Compose will start 2 containers for you, db and web and when tomcat fully starts up, you will be able to reach DHIS2 at http://localhost:8080. The database will be empty, so you will have a clean DHIS2 instance. 
 
-To destroy the instance, run `docker-compose down`. 
+_Tip: To destroy the instance, run `docker-compose down`_. 
+
 ## DHIS2 with pre-populated postgres database using Docker Compose
 
 To achieve this, you will need an SQL file with the schema and data you want to pre-populate postgres with. You will attach that file to postgres container as a volume. Here's an example of the `docker-compose.yml` file. 
