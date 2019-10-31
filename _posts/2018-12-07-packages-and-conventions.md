@@ -14,7 +14,7 @@ JavaScript conventions.
 
 > **EDIT MARCH 28, 2019** - While the concepts in this post still very much hold true, the **code-style** and **packages** (with the exception of `packages exec`) are being deprecated. Please use [d2](/blog/2019/03/28/introducing-d2.html) instead of these older stand-alone tools where possible!
 
-## 1 - [code-style](https://github.com/dhis2/code-style)
+# 1 - [code-style](https://github.com/dhis2/code-style)
 
 **code-style** comes with two scripts, `code-style.js` and `commit-style.js`.
 
@@ -46,7 +46,7 @@ functionality automatically. If you want to only use **code-style**, see
 the [README](https://github.com/dhis2/code-style/blob/master/README.md)
 for specific instructions.
 
-## 2 - [packages](https://github.com/dhis2/packages)
+# 2 - [packages](https://github.com/dhis2/packages)
 
 **packages** is a commandline tool that comes with a set of built-in
 commands and extends its functionality with plugins.
@@ -64,7 +64,7 @@ benefits are:
 Since **packages** includes **code-style**, we can focus on setting up the
 former.
 
-## General setup
+# General setup
 
 If you set up the `scripts` property in `package.json` as below you can
 simplify your life significantly, but you are free to use the `packages`
@@ -101,7 +101,9 @@ repo](https://github.com/dhis2/packages/blob/master/docs/setup-monorepos.md).
 There is also [information on how to migrate from Lerna to
 Packages](https://github.com/dhis2/packages/blob/master/docs/migration-guide-from-lerna.md).
 
-## Apply the code style
+---
+
+# Apply the code style
 
 The default operational mode of `code-style` is to only format your
 staged files to allow you to split up commits without interference from
@@ -117,7 +119,9 @@ packages code-style --all
 
 Now the changes can be commited.
 
-## Generating an initial CHANGELOG
+---
+
+# Generating an initial CHANGELOG
 
 After the general setup has been completed you can generate a changelog
 for your repo.
@@ -138,7 +142,9 @@ embedded in the VCS history.
 We adhere to the [conventional commit
 standard](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional).
 
-## Writing commit messages
+---
+
+# Writing commit messages
 
 In general all commit messages must conform to the format:
 
@@ -180,7 +186,9 @@ BREAKING CHANGE: new api /v31 used to access features x, y, and z needed
 to fix DHIS2-xxxx
 ```
 
-## Cut a release
+---
+
+# Cut a release
 
 When the time comes to cut a new release, run the command:
 
@@ -190,28 +198,28 @@ packages release
 
 This command will do the following:
 
-#### 1. Set a new version
+### 1. Set a new version
 
 This scans your commits for information about what version to bump the
 `package.json` to. Based on that information, a new version will be
 chosen automatically; breaking changes bump the _major_ position, features
 bump the _minor_ position, and fixes bump the _patch_ position.
 
-#### 2. Generate the CHANGELOG
+### 2. Generate the CHANGELOG
 
 It also generates a new `CHANGELOG.md` with sections for the different
 changes, an example can be found in
 [ui/CHANGELOG.md](https://github.com/dhis2/ui/blob/master/CHANGELOG.md).
 
-#### 3. Commit changed files
+### 3. Commit changed files
 
 The `package.json` and `CHANGELOG.md` are commited.
 
-#### 4. Tag the release
+### 4. Tag the release
 
 Finally, **packages** creates the tags for the release.
 
-### Control handed back to developer
+## Control handed back to developer
 
 At this point, all changes are done to the local Git repo so feel free
 to check if everything looks right, and once you are ready to trigger
@@ -227,7 +235,9 @@ building, and eventually publish the build artifact to NPM using the
 **[deploy-build](https://github.com/dhis2/deploy-build)** tool (which
 will get its own blog post shortly).
 
-## Recap :triumph:
+---
+
+# Recap :triumph:
 
 At this point the project is set up to:
 

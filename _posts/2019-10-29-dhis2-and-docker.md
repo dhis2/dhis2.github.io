@@ -13,6 +13,8 @@ Additionally, you will need:
 - Docker downloaded and installed on your machine. 
 - Docker Compose downloaded and installed on your machine. 
 
+---
+
 # Introduction
 
 ## Vocabulary
@@ -81,6 +83,8 @@ When you decide which DHIS2 version and image variant you are interested in, her
 
 If you don't care about image variant, you can use default one and pull the image like this: 
 - ```docker pull dhis2/core:2.31.6 ``` - this will pull the image with DHIS2 version 2.31.6. Before 2.33, the default image was based on `tomcat-8.5.34-jre8-alpine`, but we decided that `8.5-jdk8-openjdk-slim` will suite us better. Note, that you should use this option only when you don't care about the tomcat version, java environment or OS variant. If you want more control, use the explicit image variants. 
+
+---
  
 # How-To's 
 Now that you know how to find the images you are looking for, we can go through the basic use cases you might have for DHIS2. If you have another use case that is not covered by this guide, let us know in the [CoP](https://community.dhis2.org/). We will use [Docker Compose](https://docs.Docker.com/compose/) to simplify the process. 
@@ -198,8 +202,10 @@ or, if the file is on your current directory:
 
 _Tip: To destroy the instance, run `docker-compose down`_. 
 
+---
 
 # Q&A 
+
 Q:  **How can I use your Docker images in production?**  
 A: We can't recommend using Docker in production yet. We know that there are implementations that run DHIS2 in Docker successfully, but we can't recommend doing so just yet. If you decide to go for it, make sure you perform enough security, performance and stress tests. 
 
@@ -210,6 +216,8 @@ Q: **Can I use this with d2 CLI?**
 A: Of course! D2 cluster supports --image flag, which allows you to do just that.
 Example: `d2 cluster up myimage --image dhis2/core:2.32.2-tomcat-8.5.34-jre8-alpine`. Read more on [d2 cli README page](https://github.com/dhis2/cli/tree/master/packages/cluster).
 
+---
+
 # Resources: 
 
 - [https://docker.com: Official Docker webpage](https://docker.com)
@@ -219,9 +227,6 @@ Example: `d2 cluster up myimage --image dhis2/core:2.32.2-tomcat-8.5.34-jre8-alp
 Great hands-on resources to help you to become a true _Dockerist_! 
 
 - [https://docs.docker.com/get-started/](https://docs.docker.com/get-started/)
-
 - [https://docker-curriculum.com/](https://docker-curriculum.com/)
-
 - [https://www.freecodecamp.org/news/docker-simplified-96639a35ff36/](https://www.freecodecamp.org/news/docker-simplified-96639a35ff36/)
-
 - [https://github.com/docker/labs](https://github.com/docker/labs)

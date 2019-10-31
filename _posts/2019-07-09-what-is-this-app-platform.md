@@ -10,7 +10,7 @@ During the DHIS2 Annual Conference a few weeks ago I had the pleasure of introdu
 
 Keep in mind that **the Application Platform is still a work in progress!** It's not quite ready for prime-time yet, but if you're excited about where we're going (or have questions or concerns), don't hesitate to [reach out](mailto:austin@dhis2.org).
 
-### Watch the Annual Conference presentation
+# Watch the Annual Conference presentation
 
 If you want to dive right in, here's a video reconstruction of my conference presentation:
 
@@ -18,9 +18,11 @@ If you want to dive right in, here's a video reconstruction of my conference pre
 
 You can also access the slides [here](https://docs.google.com/presentation/d/1tzYfmuurCfRNWtJjdOeQXJ2uiPTZsxE4WpV0_0XTw9E)
 
-## Application Platform - The Architecture
+---
 
-### What is it?
+# Application Platform - The Architecture
+
+## What is it?
 
 The DHIS2 Application Platform reframes the concept of a DHIS2 app.
 
@@ -28,16 +30,16 @@ Today, a DHIS2 app is a standalone websites (often made with Create React App) a
 
 With the upcoming Application Platform, all of the common things are provided out-of-the-box (via what we call an App Shell). All a developer needs to care about is how to implement the business logic that makes her or his application special.
 
-### How does it work?
+## How does it work?
 
 If you're familiar with [Create React App (CRA)](https://github.com/facebook/create-react-app), you can think of the DHIS2 Application Platform as a **Create DHIS2 App** tool. It gives you a zero-configuration, fully-featured DHIS2 app and lets you customize it from there. As a developer there's no need to worry about all the moving parts that will turn your business logic code into a shiny, modern DHIS2 app.
 
 Each DHIS2 app will require just two dependencies - one for build tools and one for runtime helpers. The build tools will automatically download and serve the latest App Shell. It then "hosts" the simplified application within the shell. This paradigm is called **inversion of control** and is described in greater detail in the video.
 
-### When can I use it?
+## When can I use it?
 
 For third-party apps : **not quite yet!** This is a big undertaking and we want to get it right. We're working hard to make sure everything is robust and well-designed before releasing it into the wild. We hope to leverage the application platform for several core DHIS2 applications in the 2.33 release timeframe (Q4 2019), after which time we'll formalize and document the finalized product.
 
-### Where can I find it?
+## Where can I find it?
 
 If you're trigger-happy you can find the code [here](https://github.com/dhis2/app-platform) and [here](https://github.com/dhis2/app-runtime). **Remember that it's not ready for production use yet** - things will probably be broken or we will break them before release, but feedback and contributions are welcome.

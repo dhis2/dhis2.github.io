@@ -10,7 +10,7 @@ Today we are excited to announce the stable v1.0 release of `d2`, the [DHIS2 CLI
 
 `d2` is a modular, standardized, and consolidated tool to make developing in the DHIS2 ecosystem as painless as possible.
 
-## What can you do with d2?
+# What can you do with d2?
 
 There's quite a lot here, and more features coming soon!
 
@@ -28,7 +28,9 @@ I'll dive deeper into some advanced `d2` features in another post, but here's a 
 
 6. Explore! You can run `d2 --help` to list all the commands and namespaces available, then `d2 style --help` and all the way down to `d2 style js install --help`.
 
-## How do you install it?
+---
+
+# How do you install it?
 
 The pre-requisites for `d2` are [nodejs](https://nodejs.org/en/download/) and the package manager [yarn](https://yarnpkg.com/lang/en/docs/install/).
 
@@ -60,7 +62,9 @@ If you just want to run a single command without installing `d2` globally, you c
 
 If either installing `d2` with `npm` or just by downloading an executable appeals to you, please indicate your support on [issue #34](https://github.com/dhis2/cli/issues/34) in the `cli` repository
 
-## What about other command-line utilites?
+---
+
+# What about other command-line utilites?
 
 The goal of `@dhis2/cli` is to consolidate and standardize the various fragmented command-line utilities in the `dhis2` ecosystem.  If possible, other tools which can be implemented as Node.js scripts should be ported to `d2` namespaces moving forward.
 
@@ -68,7 +72,9 @@ As an initial example of this transition, the code-style and packages tools intr
 
 **Note** The `packages` command `packages exec` which multiplexes commands across a mono-repo has not yet been ported to `d2`, so you might still need to use `packages` to run i.e. `packages exec yarn build`
 
-## Contributing and building your own CLI modules
+---
+
+# Contributing and building your own CLI modules
 
 Please contribute! The CLI is modular in design, so it's built to be easily extensible and repurposed. Here's how you can help `d2`, and how `d2` can help you:
 
@@ -77,7 +83,7 @@ Please contribute! The CLI is modular in design, so it's built to be easily exte
 3. If you'd like to contribute to CLI development yourself, check it out [on GitHub](https://github.com/dhis2/cli)
 4. If you want to build a DHIS2 command-line tool with Node, whether or not it fits as a command or namespace in `d2`, you can use the `d2 create cli` too which will bootstrap a simple CLI module project. This module will include the dependency [@dhis2/cli-helpers-engine](https://github.com/dhis2/cli-helpers-engine)
 
-### cli-helpers-engine (for curious technical folks)
+## cli-helpers-engine (for curious technical folks)
 
 This helper library provides low-level primitives like:
 

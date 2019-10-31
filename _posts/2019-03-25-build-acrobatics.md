@@ -22,7 +22,7 @@ build system diagrams, the services interacting from this point are:
 
 [![](/assets/build_arch/build-tricks.png)](/assets/build_arch/build-tricks.png)
 
-## What can we do with it?
+# What can we do with it?
 
 The primary use cases which are useful to be aware of are:
 
@@ -35,19 +35,21 @@ The primary use cases which are useful to be aware of are:
 - * [Customize your build](#customize-your-build)
 - [Control when to fetch new apps](#control-when-to-fetch-new-apps)
 
-## Answer questions about a build
+---
 
-### What are the bundled applications in a build?
+# Answer questions about a build
+
+## What are the bundled applications in a build?
 
 The root `dhis-web-apps` module serves all the apps which were bundled into the
 WAR at build time and includes the time the WAR-file was assembled and from
 which commit it was created from.
 
-#### Example URL
+### Example URL
 
 [https://play.dhis2.org/dev/dhis-web-apps/](https://play.dhis2.org/dev/dhis-web-apps/)
 
-#### Example build information
+### Example build information
 
 ```
 Apps
@@ -85,17 +87,17 @@ Mon Mar 25 2019 15:37:12 GMT+0000 (UTC)
 790c8930767b13e24cf63c6949cba62b0d56d889 
 ```
 
-### Exactly what versions of the apps does a build contain?
+## Exactly what versions of the apps does a build contain?
 
 To get a list of applications along with a reference to the exact build of the
 application you can query the `dhis-web-apps` module for the `apps-bundle.json`
 file.
 
-#### Example URL
+### Example URL
 
 [https://play.dhis2.org/dev/dhis-web-apps/apps-bundle.json](https://play.dhis2.org/dev/dhis-web-apps/apps-bundle.json)
 
-#### Example `apps-bundle.json`
+### Example `apps-bundle.json`
 
 ```
 [
@@ -137,7 +139,7 @@ build artifacts for apps:
 E.g. for the **Data Quality App** the build included is:
 [https://github.com/d2-ci/data-quality-app/commits/3166be606054bb7f5a979c041048450d97e1e6fe](https://github.com/d2-ci/data-quality-app/commits/3166be606054bb7f5a979c041048450d97e1e6fe)
 
-### What is the source commit for a given application build?
+## What is the source commit for a given application build?
 
 The `apps-bundle.json` file references the commit of the build artifact. This
 is useful for referencing specific builds, but as a developer you might be more
@@ -150,18 +152,20 @@ The commit hash in `BUILD_INFO` points to the source repo in the DHIS2 organisat
 
 [https://github.com/dhis2/dashboards-app/commits/fb596620b6e5a6d5af730c793baffd423ecb23d8](https://github.com/dhis2/dashboards-app/commits/fb596620b6e5a6d5af730c793baffd423ecb23d8)
 
-#### Example URL
+### Example URL
 
 [https://play.dhis2.org/dev/dhis-web-dashboard/BUILD_INFO](https://play.dhis2.org/dev/dhis-web-dashboard/BUILD_INFO)
 
-#### Example `BUILD_INFO`
+### Example `BUILD_INFO`
 
 ```
 Fri Nov  9 23:19:00 UTC 2018
 fb596620b6e5a6d5af730c793baffd423ecb23d8
 ```
 
-## Create custom builds
+---
+
+# Create custom builds
 
 To change which apps and respective versions of the apps are bundled, a single file needs
 to be modified in dhis2-core:
@@ -199,7 +203,7 @@ A treeish:
 
 Some example use cases below:
 
-### Replicate a specific build
+## Replicate a specific build
 
 Say that you are running **2.31.0** in production today, and you know that the
 applications in that version are good. Then version **2.31.1** is released and the
@@ -223,13 +227,13 @@ build artifacts.
 Execute the build and you will get a **2.31.1** build with the applications you
 had in your **2.31.0** instance.
 
-### Customize your build 
+## Customize your build 
 
 Remember the syntax outlined above: `<git url>#<treeish>`
 
 Here is a deeper dive into how to use the part following the hash (`#`).
 
-#### Default: use master branch
+### Default: use master branch
 
 If the `#<treeish>` is left out, then the default behaviour is to fetch the
 latest build from the `master` branch:
@@ -248,7 +252,7 @@ Append a `#master` to the app URL to do so explicitly.
 ]
 ```
 
-#### Use arbitrary branches
+### Use arbitrary branches
 
 To test the latest build from a branch append it to the URL after the hash
 (`#`):
@@ -264,7 +268,7 @@ what we do for our development environments, for example. It is also handy when
 you are working on a feature branch and want to be able to deploy it for
 testing/verification/sharing, etc.
 
-#### Lock to a specific commit
+### Lock to a specific commit
 
 Sometimes there is a need to lock the core to track a specific commit, either
 to reproduce a build or to lock the build to a known good commit while a broken
@@ -278,7 +282,7 @@ Any tree-ish will do after the hash (`#`), so a commit SHA is also fine:
 ]
 ```
 
-#### Lock to a tag
+### Lock to a tag
 
 A tag also works as a tree-ish, so the formal DHIS2 releases track an
 application tag, so the **2.31.0** version would track the **2.31.1** tags of
@@ -290,7 +294,7 @@ the applications.
 ]
 ```
 
-### Control when to fetch new apps
+## Control when to fetch new apps
 
 It is important to note that we try to align as close as possible with
 how Maven works. When the `dhis-web-apps` module is built it pulls in
@@ -314,7 +318,7 @@ is **slow**.
 In offline scenarios, there are two strategies to avoid downloading
 apps, depending on your needs.
 
-#### Strategy One: Use `mvn install` if possible
+### Strategy One: Use `mvn install` if possible
 
 If it is possible to do an incremental build, the scripts in
 `dhis-web-apps` will first check if the apps that are necessary are in
@@ -323,7 +327,7 @@ If it is possible to do an incremental build, the scripts in
 It is the `clean` that causes the `target` directory to be wiped, so if
 you avoid that, you will reuse the cached apps.
 
-#### Strategy Two: Use the ignore module flag: `-pl`
+### Strategy Two: Use the ignore module flag: `-pl`
 
 Sometimes it is unavoidable that you must use `mvn clean install`, and
 if you still do not want to refresh the apps there is an alternative.
@@ -335,7 +339,9 @@ For example to do a `clean install` in `dhis-web`, except for
 mvn clean install -Pdev -f dhis-web/pom.xml -pl !dhis-web-apps
 ```
 
-## Remarks
+---
+
+# Remarks
 
 By now you should have an idea of how the build system operates and some tricks
 you can pull off with it.
