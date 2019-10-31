@@ -194,7 +194,7 @@ or, if the file is on your current directory:
 
 **Outcome**: Docker-compose will start 2 containers: _db_ and _web_ and when tomcat fully starts up, you will be able to reach DHIS2 at http://localhost:8080. The database will be pre-populated. 
 
-To destroy the instance, run `docker-compose down`. 
+_Tip: To destroy the instance, run `docker-compose down`_. 
 
 
 # Q&A 
