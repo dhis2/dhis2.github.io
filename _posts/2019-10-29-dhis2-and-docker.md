@@ -99,18 +99,18 @@ Here's an example `docker-compose.yml` file which will help you to run both DHIS
   services:  
     db:  
       image: mdillon/postgis:10-alpine  
-    command: postgres -c max_locks_per_transaction=100  
-    environment:  
+      command: postgres -c max_locks_per_transaction=100  
+      environment:  
         POSTGRES_USER: dhis  
         POSTGRES_DB: dhis2  
         POSTGRES_PASSWORD: dhis  
-      web:  
-        image: dhis2/core:2.33.0  
-    volumes:  
+    web:  
+      image: dhis2/core:2.33.0  
+      volumes:  
       - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf  
       ports:  
       - "8080:8080"
-    depends_on: 
+      depends_on: 
       - db
 ```
 Make sure, that your dhis.conf then includes the following properties: 
