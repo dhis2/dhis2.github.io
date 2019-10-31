@@ -13,7 +13,7 @@ This guide is aimed at people with at least minimal knowledge about Docker. If y
 
 In addition to minimal Docker-knowledge, you will need: 
 - Docker downloaded and installed on your machine. 
-- Docker-compose downloaded and installed on your machine. 
+- Docker Compose downloaded and installed on your machine. 
 
 ## Introduction
 
@@ -77,25 +77,25 @@ For more information, see [notes for versioning schemes](https://github.com/dhis
 #### Pulling images
 When you decide which DHIS2 version and image variant you are interested in, here's how you can pull it from Docker hub: 
 
-- `Docker pull dhis2/core-dev:master-tomcat-9.0-jdk8-openjdk-slim` - this command will pull the image from `core-dev` repository. The image has the DHIS2 war build from the `master` branch. The image is built on top of ```tomcat-9.0-jdk8-openjdk-slim``` base image. 
+- `docker pull dhis2/core-dev:master-tomcat-9.0-jdk8-openjdk-slim` - this command will pull the image from `core-dev` repository. The image has the DHIS2 war build from the `master` branch. The image is built on top of ```tomcat-9.0-jdk8-openjdk-slim``` base image. 
 
-- `Docker pull dhis2/core:2.32.2-tomcat-8.5.34-jre8-alpine` - this command will pull the image from `core` repository. The image has DHIS2 version 2.32.2 and is based on `tomcat-8.5.34-jre8-alpine` tomcat image. 
+- `docker pull dhis2/core:2.32.2-tomcat-8.5.34-jre8-alpine` - this command will pull the image from `core` repository. The image has DHIS2 version 2.32.2 and is based on `tomcat-8.5.34-jre8-alpine` tomcat image. 
 
 If you don't care about image variant, you can use default one and pull the image like this: 
-- ```Docker pull dhis2/core:2.31.6 ``` - this will pull the image with DHIS2 version 2.31.6. Before 2.33, the default image was based on `tomcat-8.5.34-jre8-alpine`, but we decided that `8.5-jdk8-openjdk-slim` will suite us better. Note, that you should use this option only when you don't care about the tomcat version, java environment or OS variant. If you want more control, use the explicit image variants. 
+- ```docker pull dhis2/core:2.31.6 ``` - this will pull the image with DHIS2 version 2.31.6. Before 2.33, the default image was based on `tomcat-8.5.34-jre8-alpine`, but we decided that `8.5-jdk8-openjdk-slim` will suite us better. Note, that you should use this option only when you don't care about the tomcat version, java environment or OS variant. If you want more control, use the explicit image variants. 
  
 ## How-To's 
-Now that you know how to find the images you are looking for, we can go through the basic use cases you might have for DHIS2. If you have another use case that is not covered by this guide, let us know in the [CoP](https://community.dhis2.org/). We will use [Docker-compose](https://docs.Docker.com/compose/) to simplify the process. 
+Now that you know how to find the images you are looking for, we can go through the basic use cases you might have for DHIS2. If you have another use case that is not covered by this guide, let us know in the [CoP](https://community.dhis2.org/). We will use [Docker Compose](https://docs.Docker.com/compose/) to simplify the process. 
 
 ### DHIS2 Docker instance
 DHIS2 instance running inside Docker container is not different from traditionally set up DHIS2 instance. The basic requirement for the instance is dhis.conf file where you define your database configuration and additional DHIS2 properties.   To successfully run DHIS2 instance inside Docker you will need to attach this file as a volume to /DHIS2_home directory inside the Docker container. Here's the Docker command to achieve that: 
 
-`Docker run -v $pathToYourDhisConf:/DHIS2_home/dhis.conf dhis2/core:2.32.0`
+`docker run -v $pathToYourDhisConf:/DHIS2_home/dhis.conf dhis2/core:2.32.0`
 
 $pathToYourDhisConf should be a relative path of dhis.conf file in the machine you are running Docker on. 
 
-### DHIS2 with empty postgres database using Docker-compose
-Here's an example `Docker-compose.yml` file which will help you to run both DHIS2 and postgres database instances inside separate Docker containers in no time. 
+### DHIS2 with empty postgres database using Docker Compose
+Here's an example `docker-compose.yml` file which will help you to run both DHIS2 and postgres database instances inside separate Docker containers in no time. 
 
     version: '3'  
 	  services:  
@@ -120,29 +120,29 @@ Make sure, that your dhis.conf then includes the following properties:
     connection.dialect = org.hibernate.dialect.PostgreSQLDialect  
 	connection.driver_class = org.postgresql.Driver  
 	
-	# "db" maps to service name defined in Docker-compose
-	# "dhis2" maps to POSTGRES_DB defined in Docker-compose
+	# "db" maps to service name defined in Docker Compose
+	# "dhis2" maps to POSTGRES_DB defined in Docker Compose
 	connection.url = jdbc:postgresql://db/dhis2 
 	
-	# maps to POSTGRES_USER environment variable in Docker-compose.
+	# maps to POSTGRES_USER environment variable in Docker Compose.
 	connection.username = dhis 
 	
-	# maps to POSTGRES_PASSWORD environment variable in Docker-compose.
+	# maps to POSTGRES_PASSWORD environment variable in Docker Compose.
 	connection.password = dhis 
 
 
-To run this file with Docker compose, execute the following command: 
-`Docker-compose -f /pathToDockerComposeFile up`
+To run this file with Docker Compose, execute the following command: 
+`docker-compose -f /pathToDockerComposeFile up`
 
 or, if the file is on your current directory: 
-`Docker-compose up`
+`docker-compose up`
 
-**Outcome**: Docker-compose will start 2 containers for you, db and web and when tomcat fully starts up, you will be able to reach DHIS2 at http://localhost:8080. The database will be empty, so you will have a clean DHIS2 instance. 
+**Outcome**: Docker Compose will start 2 containers for you, db and web and when tomcat fully starts up, you will be able to reach DHIS2 at http://localhost:8080. The database will be empty, so you will have a clean DHIS2 instance. 
 
-To destroy the instance, run `Docker-compose down`. 
-### DHIS2 with pre-populated postgres database using Docker-compose
+To destroy the instance, run `docker-compose down`. 
+### DHIS2 with pre-populated postgres database using Docker Compose
 
-To achieve this, you will need an SQL file with the schema and data you want to pre-populate postgres with. You will attach that file to postgres container as a volume. Here's an example of the `Docker-compose.yml` file. 
+To achieve this, you will need an SQL file with the schema and data you want to pre-populate postgres with. You will attach that file to postgres container as a volume. Here's an example of the `docker-compose.yml` file. 
 
     version: '3'  
 	  services:  
@@ -176,26 +176,26 @@ Note, that you still need to configure connection properties in dhis.conf:
     connection.dialect = org.hibernate.dialect.PostgreSQLDialect  
 	connection.driver_class = org.postgresql.Driver  
 	
-	# "db" maps to service name defined in Docker-compose
-	# "dhis2" maps to POSTGRES_DB defined in Docker-compose
+	# "db" maps to service name defined in Docker Compose
+	# "dhis2" maps to POSTGRES_DB defined in Docker Compose
 	connection.url = jdbc:postgresql://db/dhis2 
 	
-	# maps to POSTGRES_USER environment variable in Docker-compose.
+	# maps to POSTGRES_USER environment variable in Docker Compose.
 	connection.username = dhis 
 	
-	# maps to POSTGRES_PASSWORD environment variable in Docker-compose.
+	# maps to POSTGRES_PASSWORD environment variable in Docker Compose.
 	connection.password = dhis 
 
 
-To run this file with Docker compose, execute the following command: 
-`Docker-compose -f /pathToDockerComposeFile up`
+To run this file with Docker Compose, execute the following command: 
+`docker-compose -f /pathToDockerComposeFile up`
 
 or, if the file is on your current directory: 
-`Docker-compose up`
+`docker-compose up`
 
 **Outcome**: Docker-compose will start 2 containers: _db_ and _web_ and when tomcat fully starts up, you will be able to reach DHIS2 at http://localhost:8080. The database will be pre-populated. 
 
-To destroy the instance, run `Docker-compose down`. 
+To destroy the instance, run `docker-compose down`. 
 
 
 ## Q&A 
@@ -216,14 +216,15 @@ More information on [d2 cli README page](https://github.com/dhis2/cli/tree/maste
 
 ## Resources: 
 
-- [https://docker.com: Official Docker webpage](https://Docker.com)
+- [https://docker.com: Official Docker webpage](https://docker.com)
+- [https://docs.docker.com: Docker Compose documentation](https://docs.docker.com/compose/)
 - [https://github.com/dhis2/docker-compose](https://github.com/dhis2/docker-compose)
 
 Great hands-on resources to help you to become true Dockerist! 
 
-- [https://docs.docker.com/get-started/](https://docs.Docker.com/get-started/)
+- [https://docs.docker.com/get-started/](https://docs.docker.com/get-started/)
 
-- [https://docker-curriculum.com/](https://Docker-curriculum.com/)
+- [https://docker-curriculum.com/](https://docker-curriculum.com/)
 
 - [https://www.freecodecamp.org/news/docker-simplified-96639a35ff36/](https://www.freecodecamp.org/news/docker-simplified-96639a35ff36/)
 
