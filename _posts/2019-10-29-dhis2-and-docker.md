@@ -55,7 +55,7 @@ Docker tags are meant to convey useful information about a specific version/vari
 - `master` tag will correspond to the latest *major* DHIS2 version being developed. At the time of writing this guide, the last version we released is 2.33, which means that we are currently working on the 2.34 version and that's what the version image `dhis2/core-dev:master` will contain. 
 - `2.31` to `2.33` tags will have the war of the latest *minor* dhis2 version. So, if we released 5 patches for 2.31 version in total, we are working on the 6th patch and that will be represented by `dhis2/core-dev:2.31` tag. 
 
-Versioning of *stable* images corresponds to the versioning scheme we use for DHIS2 releases and you might be already familiar with it. Examples: `2.31.5`, `2.32.1`, `2.33.0`and etc. 
+Versioning of *stable* images corresponds to the versioning scheme we use for DHIS2 releases and you might be already familiar with it. Examples: `2.31.5`, `2.32.1`, `2.33.0` and etc. 
 
 
 #### Image variants
