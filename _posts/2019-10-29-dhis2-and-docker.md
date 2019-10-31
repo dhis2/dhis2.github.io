@@ -4,12 +4,12 @@ layout: post
 categories: [blog, Docker]
 author: gintare
 ---
-The DHIS2 Core Team uses Docker to make development and testing efforts easier every day! It allows us to spin up various environments with any DHIS2 version, numerous tomcat versions and different components, such as Redis, NGINX, in no time. Because we wanted to share Docker with community, we made publishing Docker images a part of our delivery pipeline. This guide aims to provide some guidelines on how to use Docker to quickly set up DHIS2. 
+The DHIS2 Core Team uses Docker to make development and testing efforts easier every day! It allows us to spin up various environments with any DHIS2 version, numerous tomcat versions and different components, such as Redis, NGINX, in no time. Because we wanted to share Docker with the community, we made publishing Docker images a part of our delivery pipeline. This guide aims to provide some guidelines on how to use Docker to quickly set up DHIS2. 
 
 # Prerequisites
-This guide is aimed at people with at least minimal knowledge about Docker. If you don't know too much about Docker just yet, but think that it might be useful to you, I encourage you to take a look at resources listed in [resources](#Resources) section. 
+This guide requires familiarity with containerization as a concept, running shell commands, and knowledge about how Docker and Docker Compose works. I encourage you to take a look at the [resources](#Resources)  section below to get up to speed.
 
-In addition to minimal Docker-knowledge, you will need: 
+Additionally, you will need: 
 - Docker downloaded and installed on your machine. 
 - Docker Compose downloaded and installed on your machine. 
 
@@ -200,7 +200,7 @@ _Tip: To destroy the instance, run `docker-compose down`_.
 
 # Q&A 
 Q:  **How can I use your Docker images in production?** 
-A: We can't recommend using Docker in production yet. We know that there are implementations that runs DHIS2 in Docker successfully, but we can't recommend doing so just yet. If you decide to go for it, make sure you perform enough security, performance and stress tests. 
+A: We can't recommend using Docker in production yet. We know that there are implementations that run DHIS2 in Docker successfully, but we can't recommend doing so just yet. If you decide to go for it, make sure you perform enough security, performance and stress tests. 
 
 Q: **How can I contribute?** 
 A: Great question! We value all contributions and we want to have as many as possible! Firstly, you can contribute by testing our images and raising feature requests as well as bugs. You have ideas on how to make images more secure, performant or functional? We want to hear it! If you are using your own Docker images, give our images a try and tell us how can we improve. We also accept code contributions. Docker stuff is located in [dhis2-core](https://github.com/dhis2/dhis2-core) git repository. 
@@ -218,7 +218,7 @@ More information on [d2 cli README page](https://github.com/dhis2/cli/tree/maste
 - [https://docs.docker.com: Docker Compose documentation](https://docs.docker.com/compose/)
 - [https://github.com/dhis2/docker-compose](https://github.com/dhis2/docker-compose)
 
-Great hands-on resources to help you to become true Dockerist! 
+Great hands-on resources to help you to become a true _Dockerist_! 
 
 - [https://docs.docker.com/get-started/](https://docs.docker.com/get-started/)
 
