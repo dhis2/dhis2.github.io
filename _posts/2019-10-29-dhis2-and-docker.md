@@ -92,8 +92,8 @@ DHIS2 instance running inside Docker container is not different from traditional
 
 $pathToYourDhisConf should be a relative path of dhis.conf file in the machine you are running Docker on. 
 
-## DHIS2 with empty postgres database using Docker Compose
-Here's an example `docker-compose.yml` file which will help you to run both DHIS2 and postgres database instances inside separate Docker containers in no time. 
+## DHIS2 with empty Postgres database using Docker Compose
+Here's an example `docker-compose.yml` file which will help you to run both DHIS2 and Postgres database instances inside separate Docker containers in no time. 
 ```
   version: '3'  
   services:  
@@ -102,8 +102,8 @@ Here's an example `docker-compose.yml` file which will help you to run both DHIS
     command: postgres -c max_locks_per_transaction=100  
     environment:  
         POSTGRES_USER: dhis  
-          POSTGRES_DB: dhis2  
-          POSTGRES_PASSWORD: dhis  
+        POSTGRES_DB: dhis2  
+        POSTGRES_PASSWORD: dhis  
       web:  
         image: dhis2/core:2.33.0  
     volumes:  
@@ -120,10 +120,10 @@ connection.dialect = org.hibernate.dialect.PostgreSQLDialect
 connection.driver_class = org.postgresql.Driver
 
 # "db" maps to service name defined in Docker Compose
-# "dhis2" maps to POSTGRES_DB defined in Docker Compose
+# "dhis2" maps to POSTGRES_DB environment variable defined in Docker Compose
 connection.url = jdbc:postgresql://db/dhis2
 
-# maps to POSTGRES_USER environment variable in Docker Compose.
+# maps to POSTGRES_USER environment variable defined in Docker Compose.
 connection.username = dhis
 
 # maps to POSTGRES_PASSWORD environment variable in Docker Compose.
@@ -140,35 +140,35 @@ or, if the file is on your current directory:
 
 _Tip: To destroy the instance, run `docker-compose down`_. 
 
-## DHIS2 with pre-populated postgres database using Docker Compose
+## DHIS2 with pre-populated Postgres database using Docker Compose
 
-To achieve this, you will need an SQL file with the schema and data you want to pre-populate postgres with. You will attach that file to postgres container as a volume. Here's an example of the `docker-compose.yml` file. 
+To achieve this, you will need an SQL file with the schema and data you want to pre-populate Postgres with. You will attach that file to Postgres container as a volume. Here's an example of the `docker-compose.yml` file. 
 ```
   version: '3'  
   services:  
     db:  
       image: mdillon/postgis:10-alpine  
-    command: postgres -c max_locks_per_transaction=100  
-    environment:  
+      command: postgres -c max_locks_per_transaction=100  
+      environment:  
         POSTGRES_USER: dhis  
-          POSTGRES_DB: dhis2  
-          POSTGRES_PASSWORD: dhis
-        volumes:
-          - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
-      web:  
-        image: dhis2/core:2.33.0  
-    volumes:  
-      - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
-    environment:
-      - WAIT_FOR_DB_CONTAINER=db:5432 -t 0
+        POSTGRES_DB: dhis2  
+        POSTGRES_PASSWORD: dhis
+      volumes:
+        - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
+    web:  
+      image: dhis2/core:2.33.0  
+      volumes:  
+        - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
+      environment:
+        - WAIT_FOR_DB_CONTAINER=db:5432 -t 0
       ports:  
       - "8080:8080"
-    depends_on: 
-      - db
+      depends_on: 
+        - db
 ```
 You probably noticed, that most of the file is the same as in the previous step, but we added _volumes_ and _environment_ properties for _db_ and _web_ containers. 
 
-Attaching the SQL file to the _db_ container will tell postgres to pre-populate db before starting the container. Depending on the file size, postgres might take a while to do this and we might run into race conditions when DHIS2 starts earlier than postgres and fails to connect. To solve this, we tell the _web_  container that it has to wait for postgres to finish before starting. We do this by using the WAIT_FOR_DB_CONTAINER environment variable.  
+Attaching the SQL file to the _db_ container will tell Postgres to pre-populate db before starting the container. Depending on the file size, Postgres might take a while to do this and we might run into race conditions when DHIS2 starts earlier than Postgres and fails to connect. To solve this, we tell the _web_  container that it has to wait for Postgres to finish before starting. We do this by using the WAIT_FOR_DB_CONTAINER environment variable.  
 You will notice the -t  option. The -t option stands for  _timeout_. 0  means that _web_ container will wait as long as it takes for _db_ container to become ready, but you can set any timeout (in seconds) you want.  
 
 Note, that you still need to configure connection properties in dhis.conf: 
