@@ -154,17 +154,17 @@ To achieve this, you will need an SQL file with the schema and data you want to 
         POSTGRES_DB: dhis2  
         POSTGRES_PASSWORD: dhis
       volumes:
-        - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
+      - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
     web:  
       image: dhis2/core:2.33.0  
       volumes:  
-        - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
+      - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
       environment:
-        - WAIT_FOR_DB_CONTAINER=db:5432 -t 0
+      - WAIT_FOR_DB_CONTAINER=db:5432 -t 0
       ports:  
       - "8080:8080"
       depends_on: 
-        - db
+      - db
 ```
 You probably noticed, that most of the file is the same as in the previous step, but we added _volumes_ and _environment_ properties for _db_ and _web_ containers. 
 
