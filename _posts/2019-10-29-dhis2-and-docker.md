@@ -70,7 +70,7 @@ Debian:
 Alpine: 
 -  `tomcat-8.5.34-jre8-alpine`
 
-For more information, see [notes for versioning schemes](https://github.com/dhis2/notes/blob/master/decisions/2019/05/25-war-docker-schemes.md).
+For more information, see [versioning scheme notes](https://github.com/dhis2/notes/blob/master/decisions/2019/05/25-war-docker-schemes.md).
 
 ### Pulling images
 When you decide which DHIS2 version and image variant you are interested in, here's how you can pull it from Docker hub: 
