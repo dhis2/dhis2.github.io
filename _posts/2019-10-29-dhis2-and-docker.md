@@ -169,6 +169,7 @@ To achieve this, you will need an SQL file with the schema and data you want to 
 You probably noticed, that most of the file is the same as in the previous step, but we added _volumes_ and _environment_ properties for _db_ and _web_ containers. 
 
 Attaching the SQL file to the _db_ container will tell Postgres to pre-populate db before starting the container. Depending on the file size, Postgres might take a while to do this and we might run into race conditions when DHIS2 starts earlier than Postgres and fails to connect. To solve this, we tell the _web_  container that it has to wait for Postgres to finish before starting. We do this by using the WAIT_FOR_DB_CONTAINER environment variable.  
+
 You will notice the -t  option. The -t option stands for  _timeout_. 0  means that _web_ container will wait as long as it takes for _db_ container to become ready, but you can set any timeout (in seconds) you want.  
 
 Note, that you still need to configure connection properties in dhis.conf: 
