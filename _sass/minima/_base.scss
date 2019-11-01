@@ -52,7 +52,7 @@ body {
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: $spacing-unit;
 }
 
 /**
@@ -107,51 +107,53 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: $spacing-unit / 2;
-  border-bottom: 1px solid $accent-color;
+  font-family: $header-font-family;
+  margin-bottom: $spacing-unit / 1.5;
 }
 
 /* (.2 tracking / 16px font size) = 0.0125 rem */
 h1, .h1 {
-  @include relative-font-size(6);
-  @include relative-line-height(6);
-  @include relative-letter-spacing(-1.5, 6);
-  font-weight: $light-weight;
+  @include relative-font-size(3);
+  @include relative-line-height(3.5);
+  @include relative-letter-spacing(-.5, 3.5);
+  font-weight: $regular-weight;
 }
 
 h2, .h2 {
-  @include relative-font-size(3.75);
-  @include relative-line-height(3.75);
-  @include relative-letter-spacing(-.5, 3.75);
-  font-weight: $light-weight;
+  @include relative-font-size(2.25);
+  @include relative-line-height(2.25);
+  @include relative-letter-spacing(-.5, 2.25);
+  font-weight: $regular-weight;
 }
 
 h3, .h3 {
-  @include relative-font-size(3);
-  @include relative-line-height(3.125);
-  @include relative-letter-spacing(0, 3);
+  @include relative-font-size(1.875);
+  @include relative-line-height(1.875);
+  @include relative-letter-spacing(0, 1.875);
   font-weight: $regular-weight;
 }
 
 h4, .h4 {
-  @include relative-font-size(2.125);
-  @include relative-line-height(2.5);
-  @include relative-letter-spacing(0.25, 2.125);
-  font-weight: $regular-weight;
+  @include relative-font-size(1.5);
+  @include relative-line-height(1.5);
+  @include relative-letter-spacing(0.25, 1.5);
+  font-weight: $medium-weight;
 }
 
 h5, .h5 {
-  @include relative-font-size(1.5);
-  @include relative-line-height(2);
-  @include relative-letter-spacing(0, 1.5);
-  font-weight: $regular-weight;
+  @include relative-font-size(1.25);
+  @include relative-line-height(1.25);
+  @include relative-letter-spacing(0, 1.25);
+  font-weight: $medium-weight;
+  color: #4a5768;
 }
 
 h6, .h6 {
-  @include relative-font-size(1.25);
-  @include relative-line-height(2);
-  @include relative-letter-spacing(.15, 1.25);
+  @include relative-font-size(1);
+  @include relative-line-height(1);
+  @include relative-letter-spacing(.15, 1);
   font-weight: $medium-weight;
+  color: #4a5768;
 }
 
 .sub1 {
@@ -165,7 +167,7 @@ h6, .h6 {
   @include relative-font-size(.875);
   @include relative-line-height(1.375);
   @include relative-letter-spacing(0.1, .875);
-  font-weight: $medium-weight;
+  font-weight: $regular-weight;
 }
 
 p, .body1 {
@@ -348,4 +350,14 @@ table {
 
 .block {
     margin-bottom: $spacing-unit;
+}
+
+hr {
+    margin-bottom: 64px;
+    color: #d5dde5;
+    border: 1px solid;
+}
+
+strong {
+    font-weight: 500;
 }

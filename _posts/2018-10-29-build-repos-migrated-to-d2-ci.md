@@ -10,7 +10,7 @@ for them to find a new home, and using the
 [**dhis2-ci**](https://github.com/dhis2-ci) bot-user, the
 organization [**d2-ci**](https://github.com/d2-ci) is set up.
 
-### Migrations
+# Migrations
 
 All the `dhis2/${NAME}-builds` have been moved to `d2-ci/${NAME}` to
 keep the URI to the builds uniform and simple. As we don't have any
@@ -22,13 +22,13 @@ suffix.
 
 This leaves the main org free from the extra noise of build repos.
 
-### Bot-user
+# Bot-user
 
 The `dhis2-ci` bot user is a shared account whose password is stored in
 the DHIS2 LastPass vault. Ask a DHIS2 core developer like @larshelge or
 @varl if you need more information or access to the user.
 
-### Deployment configuration; [`dhis2/deploy-builds`](https://github.com/dhis2/deploy-build)
+# Deployment configuration; [`dhis2/deploy-builds`](https://github.com/dhis2/deploy-build)
 
 The new build process for frontend apps and libs means that all of the
 configuration for deploying and publishing builds is deferred to the
@@ -53,7 +53,7 @@ That ensures that they get the newest version on each build, which is
 handy when you don't want to wade through dozens of apps and libs and do
 manual reconfiguration on each of them.
 
-### Related PRs for the interested
+# Related PRs for the interested
 
 - [dhis2-core 2.29](https://github.com/dhis2/dhis2-core/pull/2476)
 - [dhis2-core 2.30](https://github.com/dhis2/dhis2-core/pull/2475)

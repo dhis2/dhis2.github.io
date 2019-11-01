@@ -12,7 +12,7 @@ developers. Personally I have gone from doing it manually, to writing
 scripts (e.g. [1](https://github.com/varl/scripts/blob/master/clone-apps.sh), [2](https://github.com/varl/scripts/blob/master/apps.sh)),
 trying different tools (e.g. [1](https://github.com/mateodelnorte/meta)), and the latter is what this post is about.
 
-## Enter, stage left: _myrepos_
+# Enter, stage left: _myrepos_
 
 [myrepos](https://myrepos.branchable.com/) is a command-line tool which
 adds the `mr` command to your environment. `mr` does not care about
@@ -32,7 +32,9 @@ single command: `mr checkout`.
 The next trick is to update all of the repos: `mr update`. This is just
 the start, however, first you must install the `mr` command.
 
-## Install _myrepos_
+---
+
+# Install _myrepos_
 
 `mr` is a Perl script, and it is available anywhere Perl runs. To name
 a few ways to install it:
@@ -45,7 +47,9 @@ a few ways to install it:
 - FreeBSD: `pkg install myrepos`
 - Homebrew: `brew install mr`
 
-## Recursive commands
+---
+
+# Recursive commands
 
 If a command, for example `mr update`, is run in e.g.
 `~/dev/dhis2/apps/usage-analytics`, then `mr` only runs it on that
@@ -63,7 +67,9 @@ Through this hierarchical structure, it is possible to manage all of
 your repositories using a single configuration file, both personal and
 work related, simply by running your commands in the relevant directory.
 
-## Standard operations
+---
+
+# Standard operations
 
 The primary commands you will want to use are:
 
@@ -80,7 +86,9 @@ Check out the manual of `myrepos`, it is not long and has some nice
 tidbits about parallel execution. Alright, I will give up that last one:
 use the switch `mr -j 5` to run 5 concurrent jobs.
 
-## Custom operations
+---
+
+# Custom operations
 
 This is where the tool starts to shine, not only is this a full-featured
 repository manager; it also gives you tools to do batch operations
@@ -92,7 +100,7 @@ commands are placed at the very top of the `.mrconfig` file.
 
 Some examples I use it for are:
 
-### Purge Node modules
+## Purge Node modules
 
 To save on space I have a `mr nuke` command set up which removes the
 `node_modules` from all repositories:
@@ -102,7 +110,7 @@ To save on space I have a `mr nuke` command set up which removes the
 nuke = if [ -d ./node_modules ]; then rm -rf ./node_modules; else echo "Skipping ... No node_modules/"; fi
 ```
 
-### Generate bundle reports
+## Generate bundle reports
 
 It is easy to extend this to e.g. run `yarn install` in all
 repositories. Or, generate bundle reports of all the apps using
@@ -120,7 +128,7 @@ I use this to serve a [listing of bundle
 reports](https://dhis2.vardevs.se/reports/) for analysis.
 
 
-### Check out the common ancestor of multiple branches
+## Check out the common ancestor of multiple branches
 
 It is possible to teach `mr` a lot of tricks, some handier than others,
 for example [figuring out the merge-base for different branches](/guides/git-workflow):
@@ -135,7 +143,9 @@ you.
 
 This simplifies backporting bugfixes a bit.
 
-## Some other ideas for scripts to try and set up
+---
+
+# Some other ideas for scripts to try and set up
 
 - `mr unlink`: Remove any symlinks (created through e.g. `yarn link`) between packages
 - `mr link <package>`: Create a symlink to a specific package and link
@@ -144,13 +154,17 @@ This simplifies backporting bugfixes a bit.
   continuous integration on a new branch, commit the changes, and push
   the new branch to origin in a new PR.
 
-## Future work
+---
+
+# Future work
 
 At some point it might make sense to integrate this type of
 functionality into `d2`, but for now, `mr` is a very handy tool for
 developers who have to deal with multiple repositories.
 
-## Shared configuration
+---
+
+# Shared configuration
 
 This is my full configuration at the time of writing. You can use it to
 get started, or set up your own from scratch with only the repos and

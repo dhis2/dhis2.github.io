@@ -13,7 +13,7 @@ system is out of scope for this post and subsequently left out.
 
 There are a few moving pieces, so let's get started!
 
-## Meet the services
+# Meet the services
 
 [![](/assets/build_arch/build_arch_services.png)](/assets/build_arch/build_arch_services.png)
 
@@ -21,21 +21,23 @@ This is a diagram of the services and their links which make up the
 system. For now focus on the containers and let us walk through each
 system's responsibility.
 
-## Service responsibilities
+---
+
+# Service responsibilities
 
 Let's walk through the responsibilities of each service (container) in the above diagram.
 
-### GitHub
+## GitHub
 
 DHIS2 has two organisations on GitHub, *dhis2* and *d2-ci*.
 
-#### DHIS2 organisation
+## DHIS2 organisation
 
 *dhis2* is where our source code repositories for the DHIS2 core, front-end
 apps and libraries live, in a neighbourhood much like any other on GitHub, The
 source code is here, PRs are done here, etc.
 
-#### D2-CI organisation
+## D2-CI organisation
 
 The *d2-ci* organisation is less conventional. Each front-end library or app in
 the dhis2 organisation that utilises the [deploy-build](https://github.com/dhis2/deploy-build)
@@ -65,25 +67,27 @@ on.
 Having the artifacts in Git allows us to do other interesting things. Read
 on.
 
-### Travis CI
+## Travis CI
 
 We use Travis to run a series of tasks on a source repository (_App_, _Lib_ and _Core_). These tasks are described in a recipe, which is contained in the `.travis.yml` configuration file in each source repository. Together with _what_ to do, and _how_ to do it, the recipe defines what environment it should do so _with_.
 
 A recipe typically contains steps that verify (with automated tests and other verifcation measures) and build the library or front-end app. The tasks will vary slightly for the core and the front-end applications and libraries.
 
-### Jenkins CI
+## Jenkins CI
 
 We use Jenkins to verify, build, and deploy [DHIS2 core](https://github.com/dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe that describes the _what_ to do, _how_ to do it, and what environment to do it in. 
 
-### Amazon S3
+## Amazon S3
 
 We use a S3 bucket as an artifact repository for core build artifacts.
 
-### NPM
+## NPM
 
 NPM is where the front-end libraries are published and made available for apps that want to use them.
 
-## The lifecycle of a commit
+---
+
+# The lifecycle of a commit
 
 Now that we have a clear idea of what each service is responsible for, we can trace the path a commit takes through the build system for a given _App_, _Lib_, or the _Core_.
 
@@ -101,7 +105,7 @@ Travis follows the recipe described in the repository's `.travis.yml` file.
 This recipe will vary depending on the end product: _App_, _Lib_, or the
 _Core_.
 
-### Core recipe
+## Core recipe
 
 The Core recipe describes task to verify, test and build the code in a PR to indicate
 whether or not the PR is good to merge. Only the result, success or failure, is
@@ -109,7 +113,7 @@ used. This result will be manually reviewd by the developer before merging the P
 
 [![](/assets/build_arch/github-travis-core.png)](/assets/build_arch/github-travis-core.png)
 
-### App recipe
+## App recipe
 
 The App recipe is used by Travis on each commit, regardless of
 branch, tag, or whether the commit is attached to a PR. The app recipe includes the following steps: 
@@ -123,7 +127,7 @@ respective _build artifact repository_.
 
 [![](/assets/build_arch/github-travis-d2-ci-app.png)](/assets/build_arch/github-travis-d2-ci-app.png)
 
-### Lib recipe
+## Lib recipe
 
 The library recipe starts out identical to the App recipe: it verifies, builds,
 and deploys the build artifact to the respective _build artifact repository_
@@ -141,7 +145,9 @@ This final `publish-build` step is only used for libraries, not apps, as it make
 
 [![](/assets/build_arch/github-travis-d2-ci-lib.png)](/assets/build_arch/github-travis-d2-ci-lib.png)
 
-## **Hold up!** Why are transpiled and non-transpiled packages treated differently?
+---
+
+# **Hold up!** Why are transpiled and non-transpiled packages treated differently?
 
 The web applications and libraries that we write in a version of
 ECMAScript that is not supported by the target platform needs to be
@@ -162,7 +168,9 @@ time we can run and refer to the source code straight from the *dhis2*
 repository, so storing it on *d2-ci* would be a straight copy, which is
 waste.
 
-## Where are we now?
+---
+
+# Where are we now?
 
 Let's take a look at what we have and where we are:
 
@@ -218,13 +226,17 @@ file to Amazon S3.
 > Note that all builds may be published to Amazon S3, but not all builds
 > are considered an official release.
 
-## The Full System
+---
+
+# The Full System
 
 And here is the full system in a single image.
 
 [![](/assets/build_arch/build_arch.png)](/assets/build_arch/build_arch.png)
 
-## Stay tuned for more!
+---
+
+# Stay tuned for more!
 
 :triumph:
 
