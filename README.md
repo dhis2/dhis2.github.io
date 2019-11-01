@@ -35,3 +35,12 @@ Configuration file: /Users/me/dhis2.github.io/_config.yml
 Post files are located in the `_posts` directory with the following filename format: `YEAR-MONTH-DAY-title.md`, for example `2019-02-13-my-new-post.md`. See [the jekyll docs](https://jekyllrb.com/docs/posts/) for more information.
 
 You can also add work-in-progress posts to the `_drafts` folder (as `_drafts/my-new-post.md`) and then run `bundle exec jekyll serve --drafts` to view them locally.
+
+### Generate the tags
+
+```
+# important to run build before and after!
+bundle exec jekyll build
+ruby archive/_generator.rb
+bundle exec jekyll build
+```
