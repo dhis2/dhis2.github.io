@@ -38,7 +38,45 @@ Node and NPM and just refer to `package.json` to see what scripts are
 defined to be able to run Jekyll locally, how to generate tags, and how
 to format the code.
 
-### Add yourself as an author
+---
+
+## Local preview
+
+### NPM
+
+The easiest is using the scripts defined in `package.json`:
+
+- `npm install`
+- `npm start`
+- `npm run build`
+- `npm run format`
+
+`npm start` starts up the platform and serves it on http://localhost:4000. It
+automatically rebuilds the site when a file changes, though a refresh in
+the browser will need to be done manually.
+
+Before committing, make sure to run `npm run build` and `npm run format`
+to ensure that any new tags are generated and added to the site.
+
+### Manually with Bundler/Ruby
+
+- `bundle install`
+- `bundle exec jekyll serve`
+
+This will serve the platform on http://localhost:4000 as before. Now to
+the tricker stuff before committing your work:
+
+- Generate tags and build site:
+  ```
+  bundle exec jekyll build && \
+  bundle exec ruby archive/_generator.rb && \
+  bundle exec jekyll build
+  ```
+- Apply style format: `d2-style structured-text apply --pattern '**/*.{yaml,yml,md,markdown,json}'`
+
+---
+
+## Add yourself as an author
 
 In `_data/members.yml` add a corresponding section for yourself:
 
@@ -63,43 +101,7 @@ post to pull out the information and fill out the "about the author"
 section.
 
 This is the one-time setup that is required to work with the Developer
-Portal, now you can proceed to producing content.
-
----
-
-# Local preview
-
-## NPM
-
-The easiest is using the scripts defined in `package.json`:
-
-- `npm install`
-- `npm start`
-- `npm run build`
-- `npm run format`
-
-`npm start` starts up the platform and serves it on http://localhost:4000. It
-automatically rebuilds the site when a file changes, though a refresh in
-the browser will need to be done manually.
-
-Before committing, make sure to run `npm run build` and `npm run format`
-to ensure that any new tags are generated and added to the site.
-
-## Manually with Bundler/Ruby
-
-- `bundle install`
-- `bundle exec jekyll serve`
-
-This will serve the platform on http://localhost:4000 as before. Now to
-the tricker stuff before committing your work:
-
-- Generate tags and build site:
-  ```
-  bundle exec jekyll build && \
-  bundle exec ruby archive/_generator.rb && \
-  bundle exec jekyll build
-  ```
-- Apply style format: `d2-style structured-text apply --pattern '**/*.{yaml,yml,md,markdown,json}'`
+Portal, now you can proceed to produce content.
 
 ---
 
