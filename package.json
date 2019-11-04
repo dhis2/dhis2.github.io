@@ -9,13 +9,13 @@
   "private": true,
   "scripts": {
     "postinstall": "bundle install",
-    "format": "d2-style structured-text apply --pattern '**/*.{yaml,yml,md,markdown,json}'",
+    "format": "d2-style structured-text apply --pattern '**/*.{yaml,yml,md,markdown,json}' --staged",
     "build": "npm run build:site && npm run build:tags",
     "build:site": "bundle exec jekyll build",
     "build:tags": "bundle exec ruby archive/_generator.rb && npm run build:site",
     "start": "bundle exec jekyll serve"
   },
   "devDependencies": {
-    "@dhis2/cli-style": "^5.0.1-beta.6"
+    "@dhis2/cli-style": "^5.0.1-beta.7"
   }
 }

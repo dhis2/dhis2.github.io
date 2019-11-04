@@ -93,12 +93,12 @@ to ensure that any new tags are generated and added to the site.
 This will serve the platform on http://localhost:4000 as before. Now to
 the tricker stuff before committing your work:
 
--  Generate tags and build site:
-    ```
-    bundle exec jekyll build && \
-    bundle exec ruby archive/_generator.rb && \
-    bundle exec jekyll build
-    ```
+- Generate tags and build site:
+  ```
+  bundle exec jekyll build && \
+  bundle exec ruby archive/_generator.rb && \
+  bundle exec jekyll build
+  ```
 - Apply style format: `d2-style structured-text apply --pattern '**/*.{yaml,yml,md,markdown,json}'`
 
 ---
@@ -175,5 +175,3 @@ Second large section.
 
 That should cover the basics. Check out some of the other posts for
 more.
-
-

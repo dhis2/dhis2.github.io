@@ -10,4 +10,4 @@ pre-commit:
   commands:
     lint-structured-text:
       glob: "*.{yaml,yml,md,markdown,json}"
-      run: npx d2-style structured-text check {files}
+      run: npx d2-style structured-text check {staged_files}
