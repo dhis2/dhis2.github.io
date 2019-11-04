@@ -16,6 +16,6 @@
     "start": "bundle exec jekyll serve"
   },
   "devDependencies": {
-    "@dhis2/cli-style": "^5.0.1-beta.7"
+    "@dhis2/cli-style": "^5.0.1-beta.8"
   }
 }
