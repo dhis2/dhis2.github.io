@@ -262,19 +262,25 @@ examples and the rules documented, but the cheat sheet is this:
 
 ### Why is `cherry-pick` a problem when used to port code between branches?
 
-[This article outlines the many problems with
-`cherry-pick`](https://blogs.msdn.microsoft.com/oldnewthing/20180312-00/?p=98215).
+[This article outlines problems with
+`cherry-pick`ing](https://blogs.msdn.microsoft.com/oldnewthing/20180312-00/?p=98215).
 It is recommended material to read and understand.
 
-We have seen instances where these problems happen in our code base in
-situations where branches at one point have been merged with one another.
+We have seen instances where these problems happen in our code base, and
+until we understood the problem avoided using `cherry-pick`ing as a
+backport workflow. Since then, we have learned what was the root cause
+of the problems and are no longer strict to avoid `cherry-pick`.
 
-So, when is `cherry-pick`ing a commit considered safe?
+**So, when is `cherry-pick`ing a commit considered safe?**
 
 A fundamental requirement for safe `cherry-pick`ing commits is that the
 branches that are used as base and the target will **never be
-combined**. As long as the branches are kept separate the problems
-outlined in the article above can be avoided.
+combined**.
+
+As long as the branches are kept separate the problems
+outlined in the article above can be avoided. [This requires knowing
+upfront that branches will **never, at any point,** be combined in the
+future](https://devblogs.microsoft.com/oldnewthing/20180709-00/?p=99195).
 
 ### Do we have a convention for our branch names?
 
