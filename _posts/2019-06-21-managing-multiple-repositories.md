@@ -127,7 +127,6 @@ report =
 I use this to serve a [listing of bundle
 reports](https://dhis2.vardevs.se/reports/) for analysis.
 
-
 ## Check out the common ancestor of multiple branches
 
 It is possible to teach `mr` a lot of tricks, some handier than others,

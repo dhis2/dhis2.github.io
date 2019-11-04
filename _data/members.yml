@@ -1,11 +1,13 @@
 varl:
   name: Viktor Varland
   github: varl
-  blurb: Front-end Architect
+  blurb: Lead Front-end Engineer
+
 jennifer:
   name: Jennifer Arnesen
   github: jenniferarnesen
   blurb: Front-end Engineer
+
 austin:
   name: Austin McGee
   github: amcgee

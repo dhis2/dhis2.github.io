@@ -26,4 +26,4 @@ written in the XML-based
 
 ## JSDoc
 
-* _tbc_
+- _tbc_

@@ -16,8 +16,8 @@ All our documentation is accesible through
 [docs.dhis2.org](https://docs.dhis2.org/). There you can find version specific
 documentation, from the bleeding edge in development now to old versions.
 
-As a developer, you will most like find the *Developer guide* useful as it
-contains the docs for the *Web API*.
+As a developer, you will most like find the _Developer guide_ useful as it
+contains the docs for the _Web API_.
 
 - [docs.dhis2.org](https://docs.dhis2.org/)
 - [dhis2.org/documentation](https://dhis2.org/documentation)

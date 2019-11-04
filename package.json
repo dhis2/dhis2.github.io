@@ -1,0 +1,21 @@
+{
+  "name": "@dhis2/devportal",
+  "version": "1.0.0",
+  "description": "DHIS2 Developer Portal",
+  "main": "index.js",
+  "repository": "git@github.com:dhis2/dhis2.github.io.git",
+  "author": "Viktor Varland <varl@vlv.io>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "postinstall": "bundle install",
+    "format": "d2-style structured-text apply --pattern '**/*.{yaml,yml,md,markdown,json}'",
+    "build": "npm run build:site && npm run build:tags",
+    "build:site": "bundle exec jekyll build",
+    "build:tags": "bundle exec ruby archive/_generator.rb && npm run build:site",
+    "start": "bundle exec jekyll serve"
+  },
+  "devDependencies": {
+    "@dhis2/cli-style": "^5.0.1-beta.6"
+  }
+}

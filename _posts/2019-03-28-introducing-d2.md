@@ -20,7 +20,7 @@ I'll dive deeper into some advanced `d2` features in another post, but here's a 
 
 2. `d2 style js apply --all --no-stage` - Apply the DHIS2 code-style to all the javascript in a directory without staging the modified files in `git`
 
-3. `d2 cluster up dev --seed` - Create a local docker cluster including a DHIS2 core instance (the latest dev version), an NGINX gateway, and a Postgres database seeded with the [Sierra Leone demodb](https://github.com/dhis2/dhis2-demo-db/tree/master/sierra-leone) This requires [Docker](https://www.docker.com/products/docker-desktop) running locally for now.  See [d2-cluster](https://github.com/dhis2/cli/tree/master/packages/cluster) for details, or stay tuned for another post!
+3. `d2 cluster up dev --seed` - Create a local docker cluster including a DHIS2 core instance (the latest dev version), an NGINX gateway, and a Postgres database seeded with the [Sierra Leone demodb](https://github.com/dhis2/dhis2-demo-db/tree/master/sierra-leone) This requires [Docker](https://www.docker.com/products/docker-desktop) running locally for now. See [d2-cluster](https://github.com/dhis2/cli/tree/master/packages/cluster) for details, or stay tuned for another post!
 
 4. `d2 style commit check "feat: this is a test"` - check whether or not a string matches the [conventional commits](http://conventionalcommits.org/) specification (this is handy [in a git hook](https://github.com/dhis2/cli/blob/master/package.json#L19)!)
 
@@ -66,7 +66,7 @@ If either installing `d2` with `npm` or just by downloading an executable appeal
 
 # What about other command-line utilites?
 
-The goal of `@dhis2/cli` is to consolidate and standardize the various fragmented command-line utilities in the `dhis2` ecosystem.  If possible, other tools which can be implemented as Node.js scripts should be ported to `d2` namespaces moving forward.
+The goal of `@dhis2/cli` is to consolidate and standardize the various fragmented command-line utilities in the `dhis2` ecosystem. If possible, other tools which can be implemented as Node.js scripts should be ported to `d2` namespaces moving forward.
 
 As an initial example of this transition, the code-style and packages tools introduced by @varl [in an earlier post](/blog/2018/12/07/packages-and-conventions.html) are now deprecated in favor of their `d2` equivalents (`d2 style` instead of `code-style`. Yarn workspaces should be used instead of `packages` for simple mono-repo support, and `d2 utils release` replaces `packages release`, although this should only need to run in CI environments like [travis](https://www.travis-ci.com))
 

@@ -9,6 +9,6 @@ title: About
 <a rel="author"
     href="https://github.com/{{ author.github }}"
     title="{{ author.name }}">
-    {{ author.name }}
+{{ author.name }}
 </a>
 {% endfor %}
