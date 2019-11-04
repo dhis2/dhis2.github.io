@@ -10,9 +10,6 @@ permalink: /guides/git-workflow
 ## Workflows
 
 We primarily have two separate workflows, depending on what you need.
-For backporting you [should not rely](#why-is-cherry-pick-a-problem-when-used-to-port-code-between-branches) on `cherry-pick`ing your commit to
-your different target versions, but rather use the **Backport workflow**
-directly.
 
 If you do not need to backport your changes, the **Standard workflow**
 should be a good starting point.
@@ -40,7 +37,8 @@ trouble by basing your changes on the correct commit.
 
 #### Too long; didn't read
 
-1. **Figure out the target versions**
+1. **Figure out the target versions** (should be stated in the JIRA
+   ticket)
 2. **Make sure the target version branches are up-to-date**
 3. **Check out the latest common ancestor between the branches**
 4. **Create a patch branch**
@@ -268,10 +266,15 @@ examples and the rules documented, but the cheat sheet is this:
 `cherry-pick`](https://blogs.msdn.microsoft.com/oldnewthing/20180312-00/?p=98215).
 It is recommended material to read and understand.
 
-We have seen instances where these problems happen in our code base, and
-there are alternatives to using the `cherry-pick` command to do merges
-so there is no reason for us to screw up our code base's Git history
-using `cherry-pick`.
+We have seen instances where these problems happen in our code base in
+situations where branches at one point have been merged with one another.
+
+So, when is `cherry-pick`ing a commit considered safe?
+
+A fundamental requirement for safe `cherry-pick`ing commits is that the
+branches that are used as base and the target will **never be
+combined**. As long as the branches are kept separate the problems
+outlined in the article above can be avoided.
 
 ### Do we have a convention for our branch names?
 
@@ -298,4 +301,12 @@ the name unwieldy.
 git branch dhis2-1337/initialise-new-app
 git branch dhis2-1337/add-routing
 git branch dhis2-1337/refactor-action-creators
+```
+
+This also helps when backporting:
+
+```
+git branch dhis2-1337/my-bug-fix-branch-v33
+git branch dhis2-1337/my-bug-fix-branch-v32
+git branch dhis2-1337/my-bug-fix-branch-v31
 ```
