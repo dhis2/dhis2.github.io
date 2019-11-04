@@ -64,9 +64,7 @@ layout: default
 	
 	{%- endif -%}
 
-	{%- if site.disqus.shortname -%}
-	{%- include disqus_comments.html -%}
-	{%- endif -%}
+    {%- include utterances.html -%}
 
 	<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
