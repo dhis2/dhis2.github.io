@@ -149,7 +149,7 @@ title: Title of the Post
 layout: post
 categories: [blog]
 tags: [first tag, second tag]
-authors: [janedoe]
+authors: [jane]
 ---
 ```
 
