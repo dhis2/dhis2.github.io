@@ -23,9 +23,9 @@ brew install maven
 
 #### Install Java for Mac OSX manually
 
-* Install JDK 8, [get it here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+- Install JDK 8, [get it here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* Set your JAVA_HOME to jdk 8 (9 will not work), i.e. add the following line to your `~/.profile`:
+- Set your JAVA_HOME to jdk 8 (9 will not work), i.e. add the following line to your `~/.profile`:
 
 ```shell
 export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/Current/commands/java_home`
@@ -69,8 +69,8 @@ Create the file `$DHIS2_HOME/config.json` and add the following:
 
 ```json
 {
-    "baseUrl": "http://localhost:8080/dhis",
-    "authorization": "Basic YWRtaW46ZGlzdHJpY3Q="
+  "baseUrl": "http://localhost:8080/dhis",
+  "authorization": "Basic YWRtaW46ZGlzdHJpY3Q="
 }
 ```
 
@@ -112,7 +112,7 @@ create database "dhis2" with owner dhis;
 
 ### Load demo data into database
 
-Import one of the databases shared at [dhis2-demo-db](https://github.com/dhis2/dhis2-demo-db). 
+Import one of the databases shared at [dhis2-demo-db](https://github.com/dhis2/dhis2-demo-db).
 
 If this step is skipped a clean DHIS2 instance will installed and will work properly, the default login for a fresh instance is `admin:district`.
 
@@ -148,7 +148,7 @@ $ git clone git@github.com:dhis2/dhis2-core.git /path/to/dhis2-core
 $ cd /path/to/dhis2-core/dhis-2
 $ mvn clean install
 
--- build the `dhis.war` under `dhis-web/dhis-web-portal/target` 
+-- build the `dhis.war` under `dhis-web/dhis-web-portal/target`
 $ cd dhis-web
 $ mvn clean install
 
@@ -156,7 +156,7 @@ $ mvn clean install
 $ mvn clean install -Pdev
 -- or
 $ mvn clean install -DskipTests
--- or 
+-- or
 $ mvn -Dmaven.test.failure.ignore=true clean install
 ```
 
@@ -166,12 +166,12 @@ You can either install Tomcat manually by downloading it as a standalone zip-fil
 
 If you have followed this guide these should be your paths:
 
-|Directory|Debian 9|Mac OSX|
-| --- | --- | --- |
-|`webapps/`|`/var/lib/tomcat8/webapps`|`/usr/local/opt/tomcat/libexec/webapps`|
-|`config/`|`/etc/tomcat8`|`/usr/local/opt/tomcat/libexec/config`|
-|`logs/`|`/var/log/tomcat8`|`/usr/local/opt/tomcat/libexec/logs`|
-|`bin/`|`/usr/share/tomcat8/bin`|`/usr/local/opt/tomcat/libexec/bin`|
+| Directory  | Debian 9                   | Mac OSX                                 |
+| ---------- | -------------------------- | --------------------------------------- |
+| `webapps/` | `/var/lib/tomcat8/webapps` | `/usr/local/opt/tomcat/libexec/webapps` |
+| `config/`  | `/etc/tomcat8`             | `/usr/local/opt/tomcat/libexec/config`  |
+| `logs/`    | `/var/log/tomcat8`         | `/usr/local/opt/tomcat/libexec/logs`    |
+| `bin/`     | `/usr/share/tomcat8/bin`   | `/usr/local/opt/tomcat/libexec/bin`     |
 
 If you cannot figure out your Tomcat paths on Mac OSX try:
 
@@ -230,7 +230,7 @@ In Tomcat there is a folder called `webapps/`. Tomcat monitors this folder for W
 
 So `dhis.war` will be deployed to the context path `/dhis`, and is therefor available at `http://localhost:8080/dhis`. You can name the WAR-file anything you want and it will be deployed with the context path of the name you gave the WAR-file, e.g. `dev.war` becomes `/dev` and `foobar.war` is mounted to `/foobar`.
 
-*Note:* There is a special case for if you name your WAR-file `ROOT.war`, then your context path will be `/`.
+_Note:_ There is a special case for if you name your WAR-file `ROOT.war`, then your context path will be `/`.
 
 Tomcat redeploys an overwritten WAR-file, so you don't need to remove the old WAR-file before dropping in the updated WAR-file.
 
@@ -304,4 +304,3 @@ Your very own DHIS2 instance is up and running. :tada:
 ## Now what?
 
 If you want, you can take a look at the [advanced DHIS2 environment setup](dhis2-advanced-setup.md) for running multiple databases, DHIS2 instances, different application servers, and more.
-

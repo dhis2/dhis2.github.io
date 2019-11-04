@@ -2,7 +2,7 @@
 title: Build acrobatics
 layout: post
 categories: [blog]
-tags: [build system,architecture]
+tags: [build system, architecture]
 authors: [varl]
 ---
 
@@ -17,8 +17,8 @@ Below are some examples of use cases, and if you want to cross-reference the
 build system diagrams, the services interacting from this point are:
 
 - Jenkins
-- GitHub (*d2-ci*)
-- GitHub (*dhis2*)
+- GitHub (_d2-ci_)
+- GitHub (_dhis2_)
 
 [![](/assets/build_arch/build-tricks.png)](/assets/build_arch/build-tricks.png)
 
@@ -27,12 +27,12 @@ build system diagrams, the services interacting from this point are:
 The primary use cases which are useful to be aware of are:
 
 - [Answer questions about a build](#answer-questions-about-a-build)
-- * [What are the bundled applications in a build?](#what-are-the-bundled-applications-in-a-build)
-- * [Exactly what versions of the apps does a build contain?](#exactly-what-versions-of-the-apps-does-a-build-contain)
-- * [What is the source commit for a given application build?](#what-is-the-source-commit-for-a-given-application-build)
+- - [What are the bundled applications in a build?](#what-are-the-bundled-applications-in-a-build)
+- - [Exactly what versions of the apps does a build contain?](#exactly-what-versions-of-the-apps-does-a-build-contain)
+- - [What is the source commit for a given application build?](#what-is-the-source-commit-for-a-given-application-build)
 - [Create custom builds](#create-custom-builds)
-- * [Replicate a specific build](#replicate-a-specific-build)
-- * [Customize your build](#customize-your-build)
+- - [Replicate a specific build](#replicate-a-specific-build)
+- - [Customize your build](#customize-your-build)
 - [Control when to fetch new apps](#control-when-to-fetch-new-apps)
 
 ---
@@ -84,7 +84,7 @@ Apps
 * dhis-web-user-profile
 
 Mon Mar 25 2019 15:37:12 GMT+0000 (UTC)
-790c8930767b13e24cf63c6949cba62b0d56d889 
+790c8930767b13e24cf63c6949cba62b0d56d889
 ```
 
 ## Exactly what versions of the apps does a build contain?
@@ -193,7 +193,7 @@ should be used for the build. The syntax for that is:
 
 ```
 <git url>#<treeish>
-``` 
+```
 
 A treeish:
 
@@ -227,7 +227,7 @@ build artifacts.
 Execute the build and you will get a **2.31.1** build with the applications you
 had in your **2.31.0** instance.
 
-## Customize your build 
+## Customize your build
 
 Remember the syntax outlined above: `<git url>#<treeish>`
 
@@ -313,7 +313,7 @@ It is optimized to perform as shallow a clone as is possible, but in
 some cases, it needs to fetch additional commits to find a specific one.
 
 In general, using a branch or tag is **fast**, using a specific commit
-is **slow**. 
+is **slow**.
 
 In offline scenarios, there are two strategies to avoid downloading
 apps, depending on your needs.
@@ -358,4 +358,3 @@ As a final note, this build system is available for DHIS2 from **2.29** going
 forward.
 
 Hope this was helpful to read and reach out if you have any questions about it.
-

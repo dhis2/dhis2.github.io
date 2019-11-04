@@ -5,6 +5,7 @@ layout: page
 ---
 
 ## DHIS2 versions
+
 There are two different ways to get a specific version of DHIS2 (omitting tools like docker):
 
 1. [Github](https://github.com/dhis2/dhis2-core)
@@ -24,6 +25,7 @@ Testing different versions, different amount of data or debugging problems for u
 4. Changing the database connection information in `dhis.conf` only requires you to restart the application to take effect.
 
 ## Jetty
+
 The fastest way to get a DHIS2 instance up and running, is using the built-in Jetty server. Assuming you have compiled the dhis2 and dhis-web folders of the project as covered in the basic setup guide, you can follow up with these commands to start Jetty:
 
 ```sh
@@ -63,6 +65,7 @@ $ sudo usermod --gid www-data tomcat8
 ```
 
 `/etc/nginx/sites-available/dhis2.vardevs.se.conf`:
+
 ```nginx
 server {
         listen 80;
@@ -109,7 +112,7 @@ server {
                 proxy_set_header          X-Forwarded-For    $proxy_add_x_forwarded_for;
                 proxy_set_header          X-Forwarded-Proto  http;
         }
-        # same deal here, `/228` -> 
+        # same deal here, `/228` ->
         location /228 {
                 root /opt/dhis2/tcs/dhis2-master/webapps/228;
                 proxy_pass                http://localhost:8081/228;
@@ -173,5 +176,3 @@ Change the Tomcat ports for your new instance in `/opt/dhis2/tcs/dhis2-228/conf/
 ```
 
 Start your new instance `./opt/dhis2/tcs/dhis2-228/bin/startup.sh`
-    
-

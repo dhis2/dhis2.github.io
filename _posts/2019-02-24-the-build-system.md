@@ -2,7 +2,7 @@
 title: The Build System
 layout: post
 categories: [blog]
-tags: [build system,architecture]
+tags: [build system, architecture]
 authors: [varl, jennifer]
 ---
 
@@ -29,39 +29,39 @@ Let's walk through the responsibilities of each service (container) in the above
 
 ## GitHub
 
-DHIS2 has two organisations on GitHub, *dhis2* and *d2-ci*.
+DHIS2 has two organisations on GitHub, _dhis2_ and _d2-ci_.
 
 ## DHIS2 organisation
 
-*dhis2* is where our source code repositories for the DHIS2 core, front-end
+_dhis2_ is where our source code repositories for the DHIS2 core, front-end
 apps and libraries live, in a neighbourhood much like any other on GitHub, The
 source code is here, PRs are done here, etc.
 
 ## D2-CI organisation
 
-The *d2-ci* organisation is less conventional. Each front-end library or app in
+The _d2-ci_ organisation is less conventional. Each front-end library or app in
 the dhis2 organisation that utilises the [deploy-build](https://github.com/dhis2/deploy-build)
 scripts (more on this below) will have a corresponding repository under the
-*d2-ci* organisation. The corresponding *d2-ci* repository is automatically
+_d2-ci_ organisation. The corresponding _d2-ci_ repository is automatically
 created if it doesn't already exist. Examples:
 
 > The [dhis2/dashboards-app](https://github.com/dhis2/dashboards-app) repository has a single
-build definition, and therefore has a single corresponding repository
-[d2-ci/dashboards-app](https://github.com/d2-ci/dashboards-app). 
+> build definition, and therefore has a single corresponding repository
+> [d2-ci/dashboards-app](https://github.com/d2-ci/dashboards-app).
 
 > The data-visualizer repository
-[dhis2/data-visualizer-app](https://github.com/dhis2/data-visualizer-app) defines two different
-builds: one for the app and one for the plugin. Each of these builds has its
-own respective *d2-ci* repository:
-[d2-ci/data-visualizer-app](https://github.com/d2-ci/data-visualizer-app) and
-[d2-ci/data-visualizer-plugin](https://github.com/d2-ci/data-visualizer-plugin)
+> [dhis2/data-visualizer-app](https://github.com/dhis2/data-visualizer-app) defines two different
+> builds: one for the app and one for the plugin. Each of these builds has its
+> own respective _d2-ci_ repository:
+> [d2-ci/data-visualizer-app](https://github.com/d2-ci/data-visualizer-app) and
+> [d2-ci/data-visualizer-plugin](https://github.com/d2-ci/data-visualizer-plugin)
 
-The purpose of the *d2-ci* repository is to store and track each build artifact
+The purpose of the _d2-ci_ repository is to store and track each build artifact
 of the corresponding dhis2 library/app. While the dhis2 repositories store and
 track the _source code per commit_, since each commit results in a build
 (artifact), we can store and track the _build artifact per commit_ by copying
-each artifact of the dhis2 library/app to the corresponding *d2-ci* repository.
-Let's call these *d2-ci* repositories _build artifact repositories_ from now
+each artifact of the dhis2 library/app to the corresponding _d2-ci_ repository.
+Let's call these _d2-ci_ repositories _build artifact repositories_ from now
 on.
 
 Having the artifacts in Git allows us to do other interesting things. Read
@@ -75,7 +75,7 @@ A recipe typically contains steps that verify (with automated tests and other ve
 
 ## Jenkins CI
 
-We use Jenkins to verify, build, and deploy [DHIS2 core](https://github.com/dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe that describes the _what_ to do, _how_ to do it, and what environment to do it in. 
+We use Jenkins to verify, build, and deploy [DHIS2 core](https://github.com/dhis2/dhis2-core). Much like Travis does for the front-end apps/libs, it follows a recipe that describes the _what_ to do, _how_ to do it, and what environment to do it in.
 
 ## Amazon S3
 
@@ -99,7 +99,7 @@ the machine it was made on. The system at this point is idle.
 When the commit is pushed to the DHIS2 source repository on GitHub, the interaction between the
 GitHub and Travis services is triggered.
 
-[![](/assets/build_arch/github-travis.png)](/assets/build_arch/github-travis.png) 
+[![](/assets/build_arch/github-travis.png)](/assets/build_arch/github-travis.png)
 
 Travis follows the recipe described in the repository's `.travis.yml` file.
 This recipe will vary depending on the end product: _App_, _Lib_, or the
@@ -116,7 +116,8 @@ used. This result will be manually reviewd by the developer before merging the P
 ## App recipe
 
 The App recipe is used by Travis on each commit, regardless of
-branch, tag, or whether the commit is attached to a PR. The app recipe includes the following steps: 
+branch, tag, or whether the commit is attached to a PR. The app recipe includes the following steps:
+
 1. verification (run tests and quality checks)
 2. create the build artifact
 3. trigger the `deploy-build` script
@@ -139,7 +140,7 @@ additional step (#4):
 3. trigger the `deploy-build` script
 4. conditionally trigger the `publish-build` script
 
-In step #4, if a *tag* is pushed to the source repository, it runs the final `publish-build` script, which publishes the library build to NPM, making it available to apps that want to use it.
+In step #4, if a _tag_ is pushed to the source repository, it runs the final `publish-build` script, which publishes the library build to NPM, making it available to apps that want to use it.
 
 This final `publish-build` step is only used for libraries, not apps, as it makes little sense to deploy the App artifact to NPM. Nobody is going to do `npm install @dhis2/maintenance-app` in another project.
 
@@ -164,8 +165,8 @@ technically not be the same build.
 NodeJS libraries and tools we write typically do not need to be
 transpiled before we package and release them, as NodeJS is an
 environment that supports reasonably modern ECMAScript already. At any
-time we can run and refer to the source code straight from the *dhis2*
-repository, so storing it on *d2-ci* would be a straight copy, which is
+time we can run and refer to the source code straight from the _dhis2_
+repository, so storing it on _d2-ci_ would be a straight copy, which is
 waste.
 
 ---
@@ -174,9 +175,9 @@ waste.
 
 Let's take a look at what we have and where we are:
 
-- A build of a front-end application, stored and tracked on *d2-ci*
-- A build of a library, stored and tracked on *d2-ci*, and if it was built from a
-  tag, published to *NPM*
+- A build of a front-end application, stored and tracked on _d2-ci_
+- A build of a library, stored and tracked on _d2-ci_, and if it was built from a
+  tag, published to _NPM_
 - A verification that a PR against dhis2 core is safe to merge
 
 Ok, so our library has been released into the wild. But our front-end application artifact
@@ -207,10 +208,9 @@ file inside of the [dhis2-core](https://github.com/dhis2/dhis2-core) repository.
 
 [![](/assets/build_arch/jenkins-d2-ci.png)](/assets/build_arch/jenkins-d2-ci.png)
 
-
 > By using the artifacts stored in the _build artifact repositories_ for the
-official DHIS2 release, we prevent artifacts created on non-sanctioned build
-environments (e.g., developer's machine) from making their way into production.
+> official DHIS2 release, we prevent artifacts created on non-sanctioned build
+> environments (e.g., developer's machine) from making their way into production.
 
 The third step is to write a file
 [`apps-bundle.son`](https://play.dhis2.org/dev/dhis-web-apps/apps-bundle.json)
@@ -251,5 +251,5 @@ The three most important reasons are these:
 
 And now that you know the theory...
 
-Next up is an article on how to  manipulate the build system to pull off
+Next up is an article on how to manipulate the build system to pull off
 some tricks. :dancer:

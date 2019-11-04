@@ -2,7 +2,6 @@ https://docs.docker.com/install/linux/docker-ce/debian/
 https://docs.docker.com/install/linux/linux-postinstall/
 https://docs.docker.com/compose/install/
 
-
 ```
 sudo apt-get update
 ```
@@ -45,8 +44,7 @@ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
 ```
 
-
-``` 
+```
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo systemctl disable docker
@@ -59,7 +57,6 @@ sudo touch /etc/docker/daemon.js
 ```
 { "data-root": "/opt/docker/data", "exec-root": "/opt/docker" }
 ```
-
 
 ```
 sudo apt-get autoremove

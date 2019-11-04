@@ -23,7 +23,7 @@ why the quality of the content is important to our process.
 
 1. _Information related to the issue belongs in the issue_
 
-*Slack* is great for discussions but it *is* a walled garden that holds the
+_Slack_ is great for discussions but it _is_ a walled garden that holds the
 history of those discussions hostage unless you pay up for a commercial
 license. The search is beyond useless so everything written there can be
 considered gone from our collective history.
@@ -39,7 +39,7 @@ throughout the lifetime of the project on all levels of the software. It is our
 commit history and should be treated as such.
 
 **A summary of a discussion related to an issue in JIRA needs to be added as a
-comment to the JIRA issue**. 
+comment to the JIRA issue**.
 
 Not to mention that if a developer becomes out of commision for a while work on
 her features do not grind to a halt if the information is in the JIRA ticket,
@@ -68,28 +68,28 @@ stops someone else from starting on those issues.
 
 # Statuses and what they mean
 
-* **Open**: a fresh issue which isn't evaluated if and when it is going
+- **Open**: a fresh issue which isn't evaluated if and when it is going
   to be implemented. As a developer ignore these unless asked to help
   out with them.
 
-* **Todo**: these issues have been considered by the product manager and
+- **Todo**: these issues have been considered by the product manager and
   are deemed to be important enough to be implemented. These issues are
   considered as part of the backlog.
 
-* **In progress**: a developer has assigned himself to the issue and has
+- **In progress**: a developer has assigned himself to the issue and has
   started work on it.
 
-* **In review**: the implementing developer thinks this issue is complete and
+- **In review**: the implementing developer thinks this issue is complete and
   needs someone to review it.
 
-* **Testing**: hand-over to the QA-team for verification.
+- **Testing**: hand-over to the QA-team for verification.
 
-* **Done**: issue has passed QA tests and is closed and ready for release.
+- **Done**: issue has passed QA tests and is closed and ready for release.
 
-* **Needs update**: issue fails some QA tests, which might be lack of test case,
+- **Needs update**: issue fails some QA tests, which might be lack of test case,
   documentation, or something else.
-  
-* **Re-opened**: issues that were at one point considered closed and done, but no longer are.
+
+- **Re-opened**: issues that were at one point considered closed and done, but no longer are.
 
 # Workflow
 
@@ -109,39 +109,39 @@ pipeline.
 
 ### Open
 
-* Product manager prioritises
+- Product manager prioritises
 
 ### Todo
 
-* Part of backlog
-* Plan for milestone
-* [Evaluate issue completeness](#is-an-issue-ready-to-be-worked-on)
+- Part of backlog
+- Plan for milestone
+- [Evaluate issue completeness](#is-an-issue-ready-to-be-worked-on)
 
 ### In progress
 
-* Assign to self
-* Work has started
+- Assign to self
+- Work has started
 
 ### In review
 
-* As *assignee*: 
-* * Unassign issue when transitioning so anyone on the team can review
-* As *reviewer*:
-* * [Review checklist](#review-checklist)
+- As _assignee_:
+- - Unassign issue when transitioning so anyone on the team can review
+- As _reviewer_:
+- - [Review checklist](#review-checklist)
 
 ### Testing
 
-* Unassign issue when transitioning to "testing"
-* Picked up by testers automatically, they assign it to themselves when testing
+- Unassign issue when transitioning to "testing"
+- Picked up by testers automatically, they assign it to themselves when testing
   starts
 
 ### Needs update
 
-* Happens when QA fails
+- Happens when QA fails
 
 ### Re-opened
 
-* Happens when there is a regression in relation to the issue
+- Happens when there is a regression in relation to the issue
 
 # Detailed workflow for developers
 
@@ -149,12 +149,12 @@ This section covers only the steps that are relevant to the developers.
 
 ## Test failure tickets
 
-It's generally a good idea to have a look at the issues that returned to the 
+It's generally a good idea to have a look at the issues that returned to the
 todo list because the tests failed during QA. Although normally the dev
 who initially worked on that ticket should fix the open issues,
 this is not always possible.
 
-If you see one of your tickets pop up again and you know that you'll be able 
+If you see one of your tickets pop up again and you know that you'll be able
 to work on that one soon anyways, you can assign it to yourself.
 If you're working on an issue with a tight deadline and you can't stop
 working on that issue, but the ticket that came back from QA is very important,
@@ -166,8 +166,8 @@ so you could just take over and do it yourself.
 
 ## Todo
 
-__Before starting to work on a ticket, you might want to read through the
-"Git workflow for core devs" guide!__<br>
+**Before starting to work on a ticket, you might want to read through the
+"Git workflow for core devs" guide!**<br>
 
 Once you're done working on an issue, push your changes to the repository
 and submit a pull request.
@@ -175,7 +175,7 @@ Next you need to ask the core developers to review your changes, i. e.
 by asking in slack. Once your changes are approved, do the merge yourself.
 Then you need to update the documentation if necessary.
 Regardless of whether there was documentation to update or not,
-create a comment in the JIRA ticket to state what you updated 
+create a comment in the JIRA ticket to state what you updated
 or why you didn't update anything.
 
 If you fixed a bug, you'll need to create a new test case.
@@ -183,7 +183,7 @@ Create an issue of type "Test" and specify the required data.
 Keep in mind not to be too specific to make the test case capture
 all possible scenarios, i. e:
 You changed a password input field from showing plain text
-to show asterixes instead. Don't write 
+to show asterixes instead. Don't write
 "the password field with the name XZY needs to be of type password".
 It's better to say sth like "password fields in the form ABCD should hide
 the characters behind asterixes".
@@ -197,42 +197,42 @@ If everything looks fine, you can then unassign youself and set the ticket to "I
 
 ## Bugs
 
-* Is the Pull Request good to merge?
-* Did you test the branch locally?
-* Is there a test case linked to the JIRA issue?
+- Is the Pull Request good to merge?
+- Did you test the branch locally?
+- Is there a test case linked to the JIRA issue?
 
 ## Features
 
-* Is the Pull Request good to merge?
-* Did you test the branch locally?
-* Is the user documentation updated?
-* Is the implementer documentation updated?
-* Is there a test case linked to the JIRA issue?
+- Is the Pull Request good to merge?
+- Did you test the branch locally?
+- Is the user documentation updated?
+- Is the implementer documentation updated?
+- Is there a test case linked to the JIRA issue?
 
 # Is an issue ready to be worked on?
 
 After reading the description of an issue, ask yourself these questions:
 
-* Do I understand *why* this needs to be done?
-* Do I understand *what* needs to be done?
-* Do I have an idea of *how* this can be done?
+- Do I understand _why_ this needs to be done?
+- Do I understand _what_ needs to be done?
+- Do I have an idea of _how_ this can be done?
 
 Our job is to determine if the description is well enough defined that
-we understand the *functional requirements* of how this is going to be
+we understand the _functional requirements_ of how this is going to be
 used.
 
-If we do not understand the *why*, *what*, and *how*, then we need to
+If we do not understand the _why_, _what_, and _how_, then we need to
 ask for more information so that we know that **we are building the
 right thing**.
 
-For *features* that might mean asking for use cases, diagrams, flow
+For _features_ that might mean asking for use cases, diagrams, flow
 charts, better description of the problem we are attempting to solve,
 etc.
 
-For *bugs* it might mean asking for a *test case* to reproduce the issue
+For _bugs_ it might mean asking for a _test case_ to reproduce the issue
 (which saves you the trouble of writing one later), or a step-by-step
-list of how to reproduce the problem, what the *expected behaviour* is
-and what the *actual behaviour* was.
+list of how to reproduce the problem, what the _expected behaviour_ is
+and what the _actual behaviour_ was.
 
 All this needs to be captured in the JIRA ticket as well, so if it's not
 there and you cannot help out writing it, do not hesitate to re-assign

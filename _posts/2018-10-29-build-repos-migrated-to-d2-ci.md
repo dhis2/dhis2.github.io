@@ -38,7 +38,7 @@ configuration for deploying and publishing builds is deferred to the
 The migration was done by modifying two lines (not counting the docs
 change) in `deploy-build.sh`,
 [ee5efcc](https://github.com/dhis2/deploy-build/commit/ee5efccec82cc85d55f6d7d6654a69fc991dc618),
-and one line in `publish-build.sh`, 
+and one line in `publish-build.sh`,
 [4a49777](https://github.com/dhis2/deploy-build/commit/4a4977755f0a04c099a6b764f4ab40c7159564de).
 
 All applications and libraries which are built using the new routine

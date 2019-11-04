@@ -1,5 +1,5 @@
 ---
-title: Git workflow 
+title: Git workflow
 category: guide
 layout: page
 permalink: /guides/git-workflow
@@ -198,33 +198,33 @@ exchange for a minor annoyance.
 
 1. **Auto-generate changelogs**
 
-    Change logs are a very important part of software documentation, and
-    it is extremely easy to omit during the development process. It is
-    also difficult and time consuming to create an accurate changelog
-    for software as time passes. For example, the manually updated
-    changelog in d2 lacks updates between 2017 and 2019, but looking at
-    the commit history a lot has happened in that timespan.
+   Change logs are a very important part of software documentation, and
+   it is extremely easy to omit during the development process. It is
+   also difficult and time consuming to create an accurate changelog
+   for software as time passes. For example, the manually updated
+   changelog in d2 lacks updates between 2017 and 2019, but looking at
+   the commit history a lot has happened in that timespan.
 
-    By autogenerating the changelogs we can integrate it into the
-    release scripts to always have it up-to-date.
-    
-    Example: [ui/CHANGELOG.md](https://github.com/dhis2/ui/blob/master/CHANGELOG.md)
+   By autogenerating the changelogs we can integrate it into the
+   release scripts to always have it up-to-date.
+
+   Example: [ui/CHANGELOG.md](https://github.com/dhis2/ui/blob/master/CHANGELOG.md)
 
 2. **Automatically determine the correct semantic version**
 
-    Should the release be a patch, minor, or major version? To know you
-    have to go through everything that has changed since the last
-    version and understand if it is a breaking change, a new feature, or
-    a bug fix.
+   Should the release be a patch, minor, or major version? To know you
+   have to go through everything that has changed since the last
+   version and understand if it is a breaking change, a new feature, or
+   a bug fix.
 
-    This is also timeconsuming and very sensitive work as an incorrect
-    bump will have consequences for the consumers of the library or
-    application.
+   This is also timeconsuming and very sensitive work as an incorrect
+   bump will have consequences for the consumers of the library or
+   application.
 
-    By following the conventional commits specification we can infer
-    what version should be the next version from the Git history itself
-    which removes the human factor from the equation when determining
-    the next version bump.
+   By following the conventional commits specification we can infer
+   what version should be the next version from the Git history itself
+   which removes the human factor from the equation when determining
+   the next version bump.
 
 The price of these two wins is to write commit messages complying to a
 standard, i.e. a developer needs to learn and understand the
@@ -252,8 +252,7 @@ examples and the rules documented, but the cheat sheet is this:
 - `feat:` a commit which introduces a new feature and will result in a
   `MINOR` version change.
 
-- `BREAKING CHANGE:` if the commit message has the text `BREAKING
-  CHANGE:` in its optional body/footer part, the version will change
+- `BREAKING CHANGE:` if the commit message has the text `BREAKING CHANGE:` in its optional body/footer part, the version will change
   to the next `MAJOR` version.
 
   A `BREAKING CHANGE:` commit can be of any type (`fix:`, `feat:`,
