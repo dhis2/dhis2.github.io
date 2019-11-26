@@ -183,7 +183,7 @@ services:
       POSTGRES_DB: dhis2
       POSTGRES_PASSWORD: dhis
     volumes:
-    - ./config/init.sql:/Docker-entrypoint-initdb.d/init.sql
+    - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
   web:
     image: dhis2/core:2.33.0
     volumes:
