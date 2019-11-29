@@ -1,5 +1,6 @@
 ---
-title: Libraries
+title: Web Application Development
+short: Web Apps
 layout: page
 ---
 

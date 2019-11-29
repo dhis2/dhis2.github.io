@@ -41,12 +41,15 @@ collections:
   guides:
     output: true
     permalink: /:collection/:name
+  development:
+    output: true
+    permalink: /:collection/:name
 
 show_excerpts: true
 
 header_pages:
   - archive/index.md
-  - libs.md
+  - development.md
   - guides.md
 
 sass:

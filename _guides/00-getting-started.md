@@ -20,7 +20,6 @@ As a developer, you will most like find the _Developer guide_ useful as it
 contains the docs for the _Web API_.
 
 - [docs.dhis2.org](https://docs.dhis2.org/)
-- [dhis2.org/documentation](https://dhis2.org/documentation)
 
 ## Source code
 
@@ -33,7 +32,8 @@ own repository, and we use tags for organisation.
 
 - [github.com/dhis2](https://github.com/dhis2)
 - [Core](https://github.com/dhis2/dhis2-core)
-- [Apps](https://github.com/search?q=topic%3Afe-app+org%3Adhis2+fork%3Atrue)
+- [Web Apps](https://github.com/search?q=topic%3Aweb-app+org%3Adhis2+fork%3Atrue)
+- [Web Libs](https://github.com/search?q=topic%3Aweb-lib+org%3Adhis2+fork%3Atrue)
 
 ## DHIS2 Developer Portal
 
@@ -41,7 +41,7 @@ We have a Portal for DHIS2 developers which contains information
 relevant to internal and external developers who work on the DHIS2
 platform.
 
-- [Developer portal](https://dhis2.github.io)
+- [Developer portal](https://developers.dhis2.org)
 
 ## Get in touch with the community
 
@@ -58,8 +58,9 @@ tag you can use for your questions, or to provide and answer to someone else's q
 
 - [stackoverflow.com/questions/tagged/dhis-2](https://stackoverflow.com/questions/tagged/dhis-2)
 
-### Chat
+### Chat (internal)
 
-If you have a _dhis2.org_ e-mail, you can use it to sign in to Slack.
+If you have a `{user}@dhis2.org` e-mail, you can use it to sign in to the DHIS2
+Slack. _Please note that this is not a public Slack._
 
 - [dhis2.slack.com](https://dhis2.slack.com/)

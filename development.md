@@ -1,14 +1,13 @@
 ---
-title: Guides
-short: Guides
+title: Development
+short: Development
 layout: page
 ---
 
-These guides contain long-lived information about how to get up and
-running with DHIS2.
+Make your choice.
 
 <ul class="post-list">
-  {% for page in site.guides %}
+  {% for page in site.development %}
 	<li>
       <a class="post-link" href="{{ page.url | relative_url }}">
         {{ page.title | escape }}
