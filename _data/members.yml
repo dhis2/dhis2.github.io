@@ -1,19 +1,19 @@
 varl:
-  name: Viktor Varland
-  github: varl
-  blurb: Lead Front-end Engineer
+    name: Viktor Varland
+    github: varl
+    blurb: Front-end Engineer
 
 jennifer:
-  name: Jennifer Arnesen
-  github: jenniferarnesen
-  blurb: Front-end Engineer
+    name: Jennifer Arnesen
+    github: jenniferarnesen
+    blurb: Front-end Engineer
 
 austin:
-  name: Austin McGee
-  github: amcgee
-  blurb: Front-end Engineer
+    name: Austin McGee
+    github: amcgee
+    blurb: Front-end Engineer
 
 gintare:
-  name: Gintare Vilkelyte
-  github: vilkg
-  blurb: Test Automation Engineer
+    name: Gintare Vilkelyte
+    github: vilkg
+    blurb: Test Automation Engineer
