@@ -2,19 +2,18 @@
 title: Git workflow
 category: guide
 layout: page
-permalink: /guides/git-workflow
 ---
 
 > Jump to the [FAQ](#faq).
 
-## Workflows
+# Workflows
 
 We primarily have two separate workflows, depending on what you need.
 
 If you do not need to backport your changes, the **Standard workflow**
 should be a good starting point.
 
-### Standard workflow
+## Standard workflow
 
 If you only need your changes on master, the basic workflow will
 suffice. No need to complicate things further:
@@ -29,13 +28,13 @@ suffice. No need to complicate things further:
    specification, so you need to make sure the squash commit message is
    valid manually.
 
-### Backport workflow
+## Backport workflow
 
 If you know that you are going to have to backport your changes to
 multiple versions of the code base you can save yourself a lot of
 trouble by basing your changes on the correct commit.
 
-#### Too long; didn't read
+### Too long; didn't read
 
 1. **Figure out the target versions** (should be stated in the JIRA
    ticket)
@@ -53,7 +52,7 @@ trouble by basing your changes on the correct commit.
    specification, so you need to make sure the squash commit message is
    valid manually.
 
-#### Too short; didn't understand
+### Too short; didn't understand
 
 In general, if you are going to target version `v1`, `v2`, and `v3`, you want to
 find the commit that is the _latest common ancestor_. In this example
@@ -84,9 +83,9 @@ name so we can keep track of it. This will be backported to `v1`
 through `v3`, so we are going to end up with feature branches for all
 those branches, based on this patch branch:
 
-- `dhis2-1234/my-feature-branch-v1`
-- `dhis2-1234/my-feature-branch-v2`
-- `dhis2-1234/my-feature-branch-v3`
+-   `dhis2-1234/my-feature-branch-v1`
+-   `dhis2-1234/my-feature-branch-v2`
+-   `dhis2-1234/my-feature-branch-v3`
 
 So we are going to use the `-patch` suffix for this one:
 
@@ -103,9 +102,9 @@ used to merge your changes into the different target branches.
 Sometimes it is possible to set up a PR from the patch branch straight
 to the target version branch, e.g.:
 
-- `dhis2-1234/my-feature-patch` to `v1`
-- `dhis2-1234/my-feature-patch` to `v2`
-- `dhis2-1234/my-feature-patch` to `v3`
+-   `dhis2-1234/my-feature-patch` to `v1`
+-   `dhis2-1234/my-feature-patch` to `v2`
+-   `dhis2-1234/my-feature-patch` to `v3`
 
 If that gives you conflicts you need to add an intermittent step, where
 you create a feature branch for each target version branch:
@@ -128,21 +127,21 @@ You will get same the conflicts at this point, and here you can safely
 resolve them and test that it still works. This is now the branch you
 will setup a pull request for to merge into the target version branch:
 
-- `dhis2-1234/my-feature-branch-v1` to `v1`
-- `dhis2-1234/my-feature-branch-v2` to `v2`
-- `dhis2-1234/my-feature-branch-v3` to `v3`
+-   `dhis2-1234/my-feature-branch-v1` to `v1`
+-   `dhis2-1234/my-feature-branch-v2` to `v2`
+-   `dhis2-1234/my-feature-branch-v3` to `v3`
 
 The [conventional
 commit](https://www.conventionalcommits.org) rules
 apply, so when squash-merging you need to make sure you write a message
 which is compliant.
 
-## Being a good Gitizen
+# Being a good Gitizen
 
 Here are some ideas on how you can be a good citizen with regards to
 Git.
 
-### Save your changes on a granular level
+## Save your changes on a granular level
 
 It makes sense not to clutter the `master`/version branches with your
 development commits, so you might be thinking about squashing your work
@@ -160,7 +159,7 @@ When merging your branch after it being approved, you'll be asked to
 provide a new merge commit message, make sure you put in a [conventional
 commit](https://www.conventionalcommits.org) message.
 
-### Cleanup after your branch has been merged
+## Cleanup after your branch has been merged
 
 We have several long-lived branches on GitHub as we use a strategy where
 we have one branch per version of DHIS2 we support in addition to the
@@ -183,9 +182,9 @@ you'll do on that branch.
 This means that you can also delete your local branches once you've
 merged your pull request if you do not need a local copy for a while.
 
-## FAQ
+# FAQ
 
-### What is the convention for commit messages, and also, why?
+## What is the convention for commit messages, and also, why?
 
 We use the [conventional commits](https://www.conventionalcommits.org)
 to structure our commits in a uniform way, and the _why_ is a big part
@@ -196,33 +195,33 @@ exchange for a minor annoyance.
 
 1. **Auto-generate changelogs**
 
-   Change logs are a very important part of software documentation, and
-   it is extremely easy to omit during the development process. It is
-   also difficult and time consuming to create an accurate changelog
-   for software as time passes. For example, the manually updated
-   changelog in d2 lacks updates between 2017 and 2019, but looking at
-   the commit history a lot has happened in that timespan.
+    Change logs are a very important part of software documentation, and
+    it is extremely easy to omit during the development process. It is
+    also difficult and time consuming to create an accurate changelog
+    for software as time passes. For example, the manually updated
+    changelog in d2 lacks updates between 2017 and 2019, but looking at
+    the commit history a lot has happened in that timespan.
 
-   By autogenerating the changelogs we can integrate it into the
-   release scripts to always have it up-to-date.
+    By autogenerating the changelogs we can integrate it into the
+    release scripts to always have it up-to-date.
 
-   Example: [ui/CHANGELOG.md](https://github.com/dhis2/ui/blob/master/CHANGELOG.md)
+    Example: [ui/CHANGELOG.md](https://github.com/dhis2/ui/blob/master/CHANGELOG.md)
 
 2. **Automatically determine the correct semantic version**
 
-   Should the release be a patch, minor, or major version? To know you
-   have to go through everything that has changed since the last
-   version and understand if it is a breaking change, a new feature, or
-   a bug fix.
+    Should the release be a patch, minor, or major version? To know you
+    have to go through everything that has changed since the last
+    version and understand if it is a breaking change, a new feature, or
+    a bug fix.
 
-   This is also timeconsuming and very sensitive work as an incorrect
-   bump will have consequences for the consumers of the library or
-   application.
+    This is also timeconsuming and very sensitive work as an incorrect
+    bump will have consequences for the consumers of the library or
+    application.
 
-   By following the conventional commits specification we can infer
-   what version should be the next version from the Git history itself
-   which removes the human factor from the equation when determining
-   the next version bump.
+    By following the conventional commits specification we can infer
+    what version should be the next version from the Git history itself
+    which removes the human factor from the equation when determining
+    the next version bump.
 
 The price of these two wins is to write commit messages complying to a
 standard, i.e. a developer needs to learn and understand the
@@ -244,23 +243,23 @@ The [conventional commits
 site](https://www.conventionalcommits.org/en/v1.0.0-beta.3/#summary) has
 examples and the rules documented, but the cheat sheet is this:
 
-- `fix:` a commit which fixes a bug and will result in a `PATCH` version
-  change.
+-   `fix:` a commit which fixes a bug and will result in a `PATCH` version
+    change.
 
-- `feat:` a commit which introduces a new feature and will result in a
-  `MINOR` version change.
+-   `feat:` a commit which introduces a new feature and will result in a
+    `MINOR` version change.
 
-- `BREAKING CHANGE:` if the commit message has the text `BREAKING CHANGE:` in its optional body/footer part, the version will change
-  to the next `MAJOR` version.
+-   `BREAKING CHANGE:` if the commit message has the text `BREAKING CHANGE:` in its optional body/footer part, the version will change
+    to the next `MAJOR` version.
 
-  A `BREAKING CHANGE:` commit can be of any type (`fix:`, `feat:`,
-  etc.).
+    A `BREAKING CHANGE:` commit can be of any type (`fix:`, `feat:`,
+    etc.).
 
-- There are [additional types
-  allowed](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional),
-  for example `chore:`, `ci:`, `docs:`, etc.
+-   There are [additional types
+    allowed](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional),
+    for example `chore:`, `ci:`, `docs:`, etc.
 
-### Why is `cherry-pick` a problem when used to port code between branches?
+# Why is `cherry-pick` a problem when used to port code between branches?
 
 [This article outlines problems with
 `cherry-pick`ing](https://blogs.msdn.microsoft.com/oldnewthing/20180312-00/?p=98215).
@@ -282,7 +281,7 @@ outlined in the article above can be avoided. [This requires knowing
 upfront that branches will **never, at any point,** be combined in the
 future](https://devblogs.microsoft.com/oldnewthing/20180709-00/?p=99195).
 
-### Do we have a convention for our branch names?
+## Do we have a convention for our branch names?
 
 Yes. If you have a JIRA ticket that relates to the changes you are
 making, you will need to reference that ticket somehow.

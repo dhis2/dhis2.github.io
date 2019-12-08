@@ -15,7 +15,6 @@
   font-weight: $bold-weight;
   line-height: $base-line-height * $base-font-size * 2.25;
   margin-bottom: 0;
-  float: left;
 
   &,
   &:visited {
@@ -24,7 +23,6 @@
 }
 
 .site-nav {
-  float: right;
   line-height: $base-line-height * $base-font-size * 2.25;
 
   .nav-trigger {

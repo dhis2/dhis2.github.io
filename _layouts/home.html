@@ -9,7 +9,7 @@ layout: default
 
     {{ content }}
 
-    <h2 class="post-list-heading">News</h2>
+    <h2>News</h2>
     <ul class="post-list">
     {% for post in site.categories.news %}
         {% if forloop.index > 5 %} {% break %} {% endif %}
@@ -25,7 +25,7 @@ layout: default
     {% endfor %}
     </ul>
 
-    <h2 class="post-list-heading">Articles</h2>
+    <h2>Articles</h2>
     <ul class="post-list">
     {% for post in site.categories.blog %}
         {% if forloop.index > 5 %} {% break %} {% endif %}
