@@ -15,9 +15,9 @@ but they should be avoided in new applications and (eventually) replaced in exis
 ones.
 
 In some cases there may still be a good reason to use some of the **legacy** libraries.
-For instance, a component you must have exists in `d2-ui` but has not yet been added
-to `ui-core` or `ui-widgets`. In this cases it is still acceptable to use `d2-ui` while
-waiting for the new components to be added.
+For instance, a component you need may exist in `d2-ui` but not (yet) in `ui-core` or
+`ui-widgets`. In this cases it is still acceptable to use `d2-ui` while waiting for the
+new components to be added.
 
 # Deprecated Libraries
 
