@@ -4,7 +4,7 @@ category: guide
 layout: page
 ---
 
-## DHIS2 versions
+# DHIS2 versions
 
 There are two different ways to get a specific version of DHIS2 (omitting tools like docker):
 
@@ -15,7 +15,7 @@ The most versatile option is Github, which allows you not only to clone and easi
 
 The WAR files available on dhis2.org is for versions 2.23 and newer, and changes made on Github will not be reflected in these WAR files until they have been tested and built by [Jenkins](https://ci.dhis2.org/). Switching between versions using WAR files and tomcat can be tedious, but some tips and tricks on how to maintain multiple instances of DHIS2 running at the same time with Tomcat will come in the Tomcat section.
 
-## Databases in general
+# Databases in general
 
 Testing different versions, different amount of data or debugging problems for users are some of the use-cases for maintaining multiple databases. Here are some key tips for you too keep in mind:
 
@@ -24,7 +24,7 @@ Testing different versions, different amount of data or debugging problems for u
 3. Running a newer version of DHIS2 on an older versions database will upgrade the database. In some cases, that will make it unusable on the older version. (To fix this, re-import the database)
 4. Changing the database connection information in `dhis.conf` only requires you to restart the application to take effect.
 
-## Jetty
+# Jetty
 
 The fastest way to get a DHIS2 instance up and running, is using the built-in Jetty server. Assuming you have compiled the dhis2 and dhis-web folders of the project as covered in the basic setup guide, you can follow up with these commands to start Jetty:
 
@@ -35,7 +35,7 @@ $ mvn jetty:run-war
 
 With Jetty, you can only run a single instance at the time. To switch between versions, you need to checkout the correct branch on Github, compile the project and start jetty again. To switch between databases, you need to update your `dhis.conf` and just restart Jetty.
 
-## Tomcat (WIP!)
+# Tomcat (WIP!)
 
 Tomcat takes some time to set up properly, but also has the possibility to run multiple different versions of DHIS2 in parallel with their own databases. Since setting up Tomcat is covered in the basic setup guide, I will point out the steps to setting up multiple instances with multiple databases here.
 
@@ -52,7 +52,7 @@ An outline of the steps required for each instance you want to run:
 
 Repeat this process until you have all the instances you want running.
 
-## Getting multi-instance Tomcat to work on server
+# Getting multi-instance Tomcat to work on server
 
 Make sure the users are in the same groups!
 

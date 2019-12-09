@@ -17,7 +17,7 @@ whole.
 
 The portal is an entry-point for _all_ DHIS2 developers, and we provide guides
 to help you navigate the DHIS2 eco-system. Our [Getting started with DHIS2]({{
-site.baseurl }}{% link _guides/00-getting-started.md %}) guide contains
+site.baseurl }}{% link _guides/getting-started.md %}) guide contains
 information about where to find source code, documentation, and when you need
 it -- where to find help.
 

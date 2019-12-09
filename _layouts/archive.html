@@ -4,16 +4,13 @@ layout: default
 ---
 
 <section class="archive">
-  {% if page.title == 'Archive' %}
-  <h2 class="post-list-heading">{{ page.title }}</h2>
-  {% include archive-index.html %} {% else %}
-  <h2 class="post-list-heading">Archive: {{ page.title }}</h2>
-  {% endif %} {% if page.tag and content != '' %}
   <article title="{{ page.title }}">
-    <div class="content">
-      {{ content }}
-    </div>
-  </article>
+  {% if page.title == 'Archive' %}
+  <h2>{{ page.title }}</h2>
+  {% include archive-index.html %} {% else %}
+  <h2>Archive: {{ page.title }}</h2>
+  {% endif %} {% if page.tag and content != '' %}
+    {{ content }}
   {% endif %} {% unless page.title == 'Archive' %}
   <ul class="post-list">
     {% if page.month %} {% include archive-month.html %} {% elsif page.year %}
@@ -21,4 +18,5 @@ layout: default
     archive-tag.html %} {% endif %}
   </ul>
   {% endunless %}
+  </article>
 </section>
