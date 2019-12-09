@@ -14,6 +14,6 @@ running with DHIS2.
 
 ## Setup DHIS2 for development
 
--   [Docker]({{ site.baseurl }}{% link _guides/dhis2-docker.md %})
+-   [D2 CLI and Docker]({{ site.baseurl }}{% link _guides/dhis2-docker.md %})
 -   [Basic setup (Generic host)]({{ site.baseurl }}{% link _guides/dhis2-basic-setup.md %})
 -   [Advanced setup (Generic host)]({{ site.baseurl }}{% link _guides/dhis2-advanced-setup.md %})
