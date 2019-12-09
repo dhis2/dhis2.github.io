@@ -5,19 +5,24 @@ tags: [deprecation, libraries, webapp]
 author: varl
 ---
 
-2019 has been a year where we have established a strong direction with
-the App Platform which is an umbrella term for all the parts of a DHIS2
-Web App and as a result, it is time to deprecate a few libraries.
+In 2019 we established a new application development paradigm with
+the [App Platform](https://platform.dhis2.nu). The Platform provides
+a unified framework for DHIS2 Web App development, so it is time to
+deprecate a few of our legacy libraries!
 
-This does not mean that they will cease to work right now, nor that they
-should _immediately_ be replaced everywhere. Consider it simply as
-guidance to what libraries you are discouraged from using in new
-applications.
+This does not mean that these deprecated libraries will cease to work immediately,
+but they should be avoided in new applications and (eventually) replaced in existing
+ones.
 
-Unless, of course, there is good reason to use them, e.g. a component
-you must have is missing in the replacement.
+In some cases there may still be a good reason to use some of the **legacy** libraries.
+For instance, a component you must have exists in `d2-ui` but has not yet been added
+to `ui-core` or `ui-widgets`. In this cases it is still acceptable to use `d2-ui` while
+waiting for the new components to be added.
 
-# Replace before 2.34
+# Deprecated Libraries
+
+These libraries have been deprecated and **should be replaced before the
+2.34 release** in all Apps.
 
 -   [core-resource-app](https://github.com/dhis2/core-resource-app) is a
     "poor man's CDN" that worked for a long time, but is fundamentally
@@ -37,32 +42,36 @@ you must have is missing in the replacement.
     We are moving to the W3c manifest standard though, so that should be
     used going forward.
 
-# Not actively developed
+# Legacy libraries
 
-While we are not actively developing these libraries, they are in use by
-our applications and as such we provide some bug fixes.
+These libraries ares still used and supported, but are not being actively developed.
+They will receive some bug fixes but no new features. These libraries will be
+deprecated in the future (probably around 2.35) and so should be avoided.
 
 -   [d2-ui](https://github.com/dhis2/d2-ui) is being replaced by new user
     interface libraries ([ui-core](https://github.com/dhis2/ui-core) and
-    [ui-widgets](https://github.com/dhis2/ui-widgets)). Please refer to
-    those.
+    [ui-widgets](https://github.com/dhis2/ui-widgets)). Some components
+    in `d2-ui` have not yet been migrated to the new libraries, but in most
+    cases `d2-ui` should be avoided.
 
 -   [d2-i18n-generate](https://github.com/dhis2/d2-i18n-generate) and
-    [d2-i18n-extract](https://github.com/dhis2/d2-i18n-extract) are a
-    part of the way we do internationalisation, and while these are in
-    use, we want to provide this out of the box in the [App
-    Platform](https://github.com/dhis2/app-platform) instead of as
+    [d2-i18n-extract](https://github.com/dhis2/d2-i18n-extract) are used for
+    DHIS2 internationalisation and translation. While these are still in
+    use in non-platform Apps, we now provide this out of the box in the
+    [App Platform](https://github.com/dhis2/app-platform) instead of as
     distinct libraries.
 
 -   [d2-charts-api](https://github.com/dhis2/d2-charts-api) and
-    [d2-analysis](https://github.com/dhis2/d2-analysis) has been
+    [d2-analysis](https://github.com/dhis2/d2-analysis) have been
     superseded by [analytics](https://github.com/dhis2/analytics).
 
-# Development entirely ceased
+# Deprecated tools
+
+These tools have been completely deprecated and replaced, they should not be used.
 
 -   [cli-packages](https://github.com/dhis2/cli-packages) has been
-    thoroughly been replaced by using Yarn Workspaces and being strict
-    about single-entry point libraries.
+    fully deprecated in favor of Yarn Workspaces and strict single-entry
+    point libraries.
 
 -   [d2-i18n-monitor](https://github.com/dhis2/d2-i18n-monitor) a
     stand-alone site for monitoring the translation status of our apps.
