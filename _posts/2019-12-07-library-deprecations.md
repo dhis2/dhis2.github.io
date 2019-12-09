@@ -44,7 +44,7 @@ These libraries have been deprecated and **should be replaced before the
 
 # Legacy libraries
 
-These libraries ares still used and supported, but are not being actively developed.
+These libraries are still used and supported, but are not being actively developed.
 They will receive some bug fixes but no new features. These libraries will be
 deprecated in the future (probably around 2.35) and so should be avoided.
 
