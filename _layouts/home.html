@@ -10,7 +10,7 @@ layout: default
     {{ content }}
 
     <h2>News</h2>
-    <ul class="post-list">
+    <ul class="news-list">
     {% for post in site.categories.news %}
         {% if forloop.index > 5 %} {% break %} {% endif %}
         <li>

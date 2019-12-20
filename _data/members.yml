@@ -17,3 +17,13 @@ gintare:
     name: Gintare Vilkelyte
     github: vilkg
     blurb: Test Automation Engineer
+
+ismay:
+    name: Ismay Wolff
+    github: ismay
+    blurb: Front-end Engineer
+
+joe:
+    name: Joe Cooper
+    github: cooper-joe
+    blurb: Designer
