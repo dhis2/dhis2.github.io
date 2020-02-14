@@ -243,6 +243,11 @@ Q: **Can I use this with d2 CLI?**
 A: Of course! D2 cluster supports --image flag, which allows you to do just that.
 Example: `d2 cluster up myimage --image dhis2/core:2.32.2-tomcat-8.5.34-jre8-alpine`. Read more on [d2 cli README page](https://github.com/dhis2/cli/tree/master/packages/cluster).
 
+Q: **Can I set JAVA_OPTS for the docker container?**
+A: Sure, it's simple. You need to add additional environment variable to the 'environment' section of your `docker-compose.yml`. Variable should be called `JAVA_OPTS`.
+Example with command line invocation: `docker run -v $pathToYourDhisConf:/DHIS2_home/dhis.conf dhis2/core:2.33.0 -e JAVA_OPTS=$yourJavaOpts` 
+
+
 ---
 
 # Resources:
