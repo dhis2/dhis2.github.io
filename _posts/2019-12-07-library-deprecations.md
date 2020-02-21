@@ -1,6 +1,7 @@
 ---
 title: Web Application Library deprecations
-categories: [news]
+layout: post
+categories: [blog]
 tags: [deprecation, libraries, webapp]
 author: varl
 ---

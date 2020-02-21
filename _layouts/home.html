@@ -9,22 +9,6 @@ layout: default
 
     {{ content }}
 
-    <h2>News</h2>
-    <ul class="news-list">
-    {% for post in site.categories.news %}
-        {% if forloop.index > 5 %} {% break %} {% endif %}
-        <li>
-            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-            <span class="post-meta">{{ post.date | date: date_format }}</span>
-            <strong>
-                <a class="news-link" href="{{ post.url | relative_url }}">
-                    {{ post.title | escape }}
-                </a>
-            </strong>
-        </li>
-    {% endfor %}
-    </ul>
-
     <h2>Articles</h2>
     <ul class="post-list">
     {% for post in site.categories.blog %}

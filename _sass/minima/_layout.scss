@@ -183,15 +183,6 @@
   @include relative-font-size(2);
 }
 
-.news-list {
-  margin-left: 0;
-  list-style: none;
-
-  > li {
-    margin-bottom: $spacing-unit / 4;
-  }
-}
-
 .post-breadcrumbs {
     margin-bottom: 16px;
 }
