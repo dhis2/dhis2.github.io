@@ -27,3 +27,8 @@ joe:
     name: Joe Cooper
     github: cooper-joe
     blurb: Designer
+
+birk:
+    name: Birk Johansson
+    github: birkbjo
+    blurb: Front-end Engineer
