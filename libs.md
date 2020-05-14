@@ -12,9 +12,9 @@ layout: page
     </ul>
     <h3>Command-line tools</h3>
     <ul>
-        <li><a href="https://github.com/dhis2/cli">d2</a> - command-line interface for DHIS2 development</li>
-        <li><a href="https://github.com/dhis2/cli-style">d2-style</a> - standardized code and commit style enforcement</li>
-        <li><a href="https://cli-utils-docsite.dhis2.org">d2-utils-docsite</a> - generate a documentation website with consistent structure and design</li>
+        <li><a href="https://cli.dhis2.nu">d2</a> - command-line interface for DHIS2 development</li>
+        <li><a href="https://cli-style.dhis2.nu">d2-style</a> - standardized code and commit style enforcement</li>
+        <li><a href="https://cli-utils-docsite.dhis2.nu">d2-utils-docsite</a> - generate a documentation website with consistent structure and design</li>
     </ul>
     <h3>App Platform (beta)</h3>
     <ul>
