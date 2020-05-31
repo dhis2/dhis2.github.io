@@ -3,12 +3,11 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
     <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+      <div class="">
         <ul class="contact-list">
           <li class="p-name">
+          &hearts;&nbsp;
             {%- if site.author -%}
               {{ site.author | escape }}
             {%- else -%}
@@ -21,14 +20,12 @@
         </ul>
       </div>
 
-      <div class="footer-col footer-col-2">
+      <div class="footer-col-center">
         {%- include social.html -%}
       </div>
 
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-
-        <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>.</p>
+      <div class="">
+        <span class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>.</span>
       </div>
     </div>
 

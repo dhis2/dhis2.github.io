@@ -1,6 +1,10 @@
 /**
  * Site header
  */
+
+ $header-padding-x:  $spacing-unit / 2;
+ $header-padding-y:  $spacing-unit / 2;
+
 .site-header {
   //border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $accent-color;
@@ -9,12 +13,21 @@
   position: relative;
 }
 
+.site-header > .wrapper {
+  // Positioning context for the mobile navigation icon
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: $header-padding-y $header-padding-x;
+} 
+
 .site-title {
-  @include relative-font-size(1.625);
-  @include relative-letter-spacing(.25, 1.625);
   font-weight: $bold-weight;
-  line-height: $base-line-height * $base-font-size * 2.25;
   margin-bottom: 0;
+  flex-grow: 1;
 
   &,
   &:visited {
@@ -23,7 +36,9 @@
 }
 
 .site-nav {
-  line-height: $base-line-height * $base-font-size * 2.25;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   .nav-trigger {
       display: none;
@@ -45,8 +60,8 @@
 
   @include media-query($on-palm) {
     position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
+    top: calc($header-padding-y - 1px);
+    right: $header-padding-x;
     background-color: $background-color;
     border: 1px solid $grey-color-light;
     border-radius: 5px;
@@ -105,7 +120,10 @@
 .site-footer {
   // border-top: 1px solid $grey-color-light;
   border-top: 1px solid $accent-color;
-  padding: $spacing-unit 0;
+  
+  > .wrapper {
+    padding: $header-padding-y $header-padding-x;
+  }
 }
 
 .footer-heading {
@@ -117,13 +135,38 @@
 .social-media-list {
   list-style: none;
   margin-left: 0;
+  margin-bottom: 0;
+}
+
+.social-media-list a {
+  color: $grey-color;
+}
+.social-media-list .svg-icon {
+  width: 22px;
+  height: 16px;
+  margin-right: -4px;
 }
 
 .footer-col-wrapper {
   @include relative-font-size(0.9375);
   color: $grey-color;
-  margin-left: -$spacing-unit / 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   @extend %clearfix;
+}
+
+.heart {
+  color: $grey-color;
+}
+
+.footer-col-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.rss-subscribe {
+  margin-bottom: 0;
 }
 
 .footer-col {
