@@ -45,8 +45,8 @@ collections:
 show_excerpts: true
 
 header_pages:
-    - archive/index.md
-    - libs.md
+    - blog.md
+    - docs.md
     - guides.md
 
 sass:
