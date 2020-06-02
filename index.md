@@ -17,7 +17,7 @@ Finally, join fellow DHIS2 app developers on the [Community of Practice](https:/
 
 The DHIS2 Core Team is hosting a series training and community events, find more information at the links below:
 
--   **Introduction Webinar** - recording coming soon!<br/>
+-   **Introduction Webinar** - [community Q&A](https://community.dhis2.org/t/webinar-on-web-app-development-questions-answers/39390), recording coming soon!<br/>
     _14:00 CET, Tuesday, June 2, 2020_<br/>
     Join Austin from the DHIS2 Core Team for a high-level overview of the application development ecosystem and tools. This will be a non-technical overview, suitable for developers and non-developers alike, and will cover both the current state of and future plans for the Application Platform initiative.
 
