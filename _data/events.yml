@@ -1,0 +1,31 @@
+- title: Introduction Webinar
+  date: Tuesday, June 2, 2020 @ 14:00 CET
+  links:
+      - label: community Q&A
+        href: https://community.dhis2.org/t/webinar-on-web-app-development-questions-answers/39390
+      - label: recording
+        href: https://youtu.be/ot0GI8DHAV8
+      - label: slides
+        href: https://docs.google.com/presentation/d/e/2PACX-1vRpCjq364s3qB3KK8DQv5KF8xXZlFbkZmhb7v-ykiUR5lcOcgX0uQA30q0fHZzNthwmkGu_9XR6sPF5/pub?start=false&loop=false&delayms=10000&slide=id.g8800a8e866_0_25
+  description: Join Austin from the DHIS2 Core Team for a high-level overview of the application development ecosystem and tools. This will be a non-technical overview, suitable for developers and non-developers alike, and will cover both the current state of and future plans for the Application Platform initiative.
+
+- title: Platform Tools Webinar
+  date: Wednesday, June 10, 2020 @ 14:00 CET
+  links:
+      - label: community Q&A
+        href: https://community.dhis2.org/t/ready-for-the-web-app-development-webinar-q-a-discussions/39463
+      - label: recording coming soon
+  description: Join the DHIS2 Core Team for a lightly-technical introduction to the tools for DHIS2 application development. We will introduce the DHIS2 Application Platform, the DHIS2 Design System, the official React UI Component Library, and the new DHIS2 App Hub. We will also cover the roadmap development and adoption of this platform across the DHIS2 ecosystem.
+
+- title: Workshop 1
+  date: Wednesday, June 24, 2020 - Thursday, June 25
+  links:
+      - label: registration
+        href: https://www.dhis2academy.org/web-apps-june-2020/
+  description: Learn how to build a high-quality, maintainable DHIS2 applications using the latest tools from the core team in this hands-on 2-day workshop. This workshop will be a combination of presented material and hands-on development time - each participant will build their own DHIS2 application by the end of the course.
+
+- title: Workshop 2
+  date: August, 2020
+  links:
+      - label: details coming soon!
+  description: Continuation of the hands-on DHIS2 Application Development workshop series for academy-track participants

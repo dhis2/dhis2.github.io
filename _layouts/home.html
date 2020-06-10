@@ -9,7 +9,7 @@ layout: default
     <h2>Recent Articles</h2>
     <ul class="post-list">
     {% for post in site.categories.blog %}
-        {% if forloop.index > 3 %} {% break %} {% endif %}
+        {% if forloop.index > 5 %} {% break %} {% endif %}
         <li>
             {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
             <span class="post-meta">{{ post.date | date: date_format }}</span>

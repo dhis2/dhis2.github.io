@@ -46,6 +46,7 @@ show_excerpts: true
 
 header_pages:
     - blog.md
+    - events.md
     - docs.md
     - guides.md
 

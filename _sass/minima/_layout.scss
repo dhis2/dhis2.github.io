@@ -58,7 +58,7 @@
     }
   }
 
-  @include media-query($on-palm) {
+  @include media-query($on-laptop) {
     position: absolute;
     top: calc(#{$header-padding-y} - 1px);
     right: $header-padding-x;
