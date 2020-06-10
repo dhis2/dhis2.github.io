@@ -27,3 +27,18 @@ joe:
     name: Joe Cooper
     github: cooper-joe
     blurb: Designer
+
+hendrik:
+    name: Hendrik de Graaf
+    github: hendrikthependric
+    blurb: Front-end Engineer
+
+jan-gerke:
+    name: Jan-Gerke Salomon
+    github: Mohammer5
+    blurb: Front-end Engineer
+
+martin:
+    name: Martin Ohlson
+    github: martinkrulltott
+    blurb: Front-end Engineer
