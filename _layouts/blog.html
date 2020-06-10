@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="home">
+
+    {{ content }}
+
+    <h2>Recent Articles</h2>
+    
+    {% include post_list.html count=5 %}
+
+    <div>
+        <a class="button" href="{% link archive/index.md %}">Older articles</a
+        >&nbsp;:point_right:
+    </div>
+</div>
