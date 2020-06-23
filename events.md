@@ -3,14 +3,14 @@ title: Events
 layout: page
 ---
 
-{% capture now %}{{'now' | date: '%s' | plus: 0 %}}{% endcapture %}
+{% capture now %}{{'now' | date: '%s' | plus: 0 }}{% endcapture %}
 
 The DHIS2 Core Team is hosting a series training and community events, find more information at the links below:
 
 ### Upcoming events
 
 {% for event in site.data.events %}
-{% capture date %}{{event.date | date: '%s' | plus: 0 %}}{% endcapture %}
+{% capture date %}{{event.date | date: '%s' | plus: 0 }}{% endcapture %}
 {% if date > now %}
 
 {% include event.md event=event %}
@@ -23,7 +23,7 @@ The DHIS2 Core Team is hosting a series training and community events, find more
 ### Past events
 
 {% for event in reversed_events %}
-{% capture date %}{{event.date | date: '%s' | plus: 0 %}}{% endcapture %}
+{% capture date %}{{event.date | date: '%s' | plus: 0 }}{% endcapture %}
 {% if date < now %}
 
 {% include event.md event=event %}
