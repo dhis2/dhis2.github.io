@@ -6,7 +6,7 @@ tags: [app platform, developer tools, webapp, troubleshooting, authentication]
 authors: [austin]
 ---
 
-As of mid-July 2020, the Chrome stable channel [has started to disable cross-site cookies by default](https://www.chromium.org/updates/same-site). Mozilla Firefox has pushed this change to their [beta channel and will likely release it to the stable channel soon](https://www.chromium.org/updates/same-site). This change affects any DHIS2 application running **on a different domain than the DHIS2 server instance**, including applications running on localhost in development. It does not affect cross-site API requests which use Basic or OAuth authentication headers, as those do not rely on cookies for authentication.
+As of mid-July 2020, the Chrome (and Chromium) stable release channel [has started to disable cross-site cookies by default](https://www.chromium.org/updates/same-site). Mozilla Firefox has pushed this change to their [beta channel and will likely release it to the stable channel soon](https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/). This change affects any DHIS2 application running **on a different domain than the DHIS2 server instance**, including applications running on localhost in development. It does not affect cross-site API requests which use Basic or OAuth authentication headers, as those do not rely on cookies for authentication.
 
 ## What is the SameSite Cookie attribute?
 
@@ -30,7 +30,7 @@ In very rare cases, a production DHIS2 application might be running on a differe
 
 By far the most secure way to work around this issue during application development is to run a local instance of DHIS2 against which you can test your application. You can easily spin up one or more DHIS2 instances locally using Docker and the `d2 cluster` command of the [DHIS2 CLI](https://cli.dhis2.nu/#/commands/d2-cluster)
 
-### In Google Chrome
+### In Google Chrome or Chromium-based browsers
 
 It is possible to disable the default SameSite=Lax behavior in Chrome and Chromium by setting the ["SameSite by default cookies" flag](chrome://flags/#same-site-by-default-cookies) to **Disabled**. Note that this disables legitimate security behaviors in your browser, so proceed with caution! We recommend that you only disable this flag when actively debugging a DHIS2 application
 
