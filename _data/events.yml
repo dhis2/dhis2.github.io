@@ -26,4 +26,18 @@
 
 - title: Developer Academy - Workshop 2
   date: August, 2020
-  description: <strong>Details coming soon!</strong><br/>Continuation of the hands-on DHIS2 Application Development workshop series for academy-track participants
+  description: Continuation of the hands-on DHIS2 Application Development workshop series for academy-track participants
+  
+- title: DHIS2 App Competition!
+  date: August 28, 2020
+  description: We are now welcoming submissions of DHIS2 Apps for the 2020 DHIS2 Annual Conference Web & Android App Competition - finalists will be invited to present their Apps at the Digital Annual Conference!
+  links:
+    - label: Submit your app!
+      href: https://www.dhis2academy.org/digital-annual-conference-2020/appcompetition.html
+
+- title: The Digital DHIS2 Annual Conference
+  date: September 21-25, 2020
+  description: The Digital DHIS2 Annual Conference will be an opportunity for the Community to virtually meet and share experiences on DHIS2 implementations, and will bring together implementers, developers, ministry representatives, technical partners, and donors from around the world.
+  links:
+    - label: Learn more and register
+      href: https://www.dhis2academy.org/digital-annual-conference-2020/
