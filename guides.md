@@ -11,6 +11,7 @@ running with DHIS2.
 -   [Getting started with DHIS2]({{ site.baseurl }}{% link _guides/getting-started.md %})
 -   [JIRA Workflow]({{ site.baseurl }}{% link _guides/jira-workflow.md %})
 -   [Git Workflow]({{ site.baseurl }}{% link _guides/git-workflow.md %})
+-   [Release Workflow](https://github.com/dhis2/notes/blob/master/platform/processes/dhis2-release-lifecycle.md)
 
 ## Setup DHIS2 for development
 
