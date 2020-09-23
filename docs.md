@@ -19,6 +19,7 @@ layout: page
     <h3>API Reference</h3>
     <ul>
         <li><a href="https://docs.dhis2.org/2.34/en/dhis2_developer_manual/web-api.html">DHIS2 Core Web Api</a></li>
+        <li><a href="https://docs.dhis2.org/2.34/en/dhis2_android_sdk_developer_guide/about-this-guide.html">DHIS2 Android SDK</a></li>
     </ul>
     <h3>Command-line tools</h3>
     <ul>
