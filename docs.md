@@ -15,6 +15,8 @@ layout: page
     <ul>
         <li><a href="https://ui.dhis2.nu">DHIS2 UI</a> - components and related resources for the DHIS2 <a href="https://github.com/dhis2/design-system">design system</a></li>
         <li><a href="https://github.com/dhis2/analytics">analytics</a> - helper functions and common components for analytics applications</li>
+        <li><a href="https://github.com/dhis2/dhis2-android-capture-app/blob/master/docs/src/commonmark/en/content/tech-guides/SMS-compression.md">SMS Compression</a> how the SMS library works and how it is used in server and Android side</li>
+        <li><a href="https://github.com/dhis2/dhis2-android-capture-app/blob/master/docs/src/commonmark/en/content/tech-guides/SMS-Sync.md">SMS Syncing</a> - how the SMS syncing works at every level (server, gateway, Android SDK, Android App) and how to test it</li>
     </ul>
     <h3>API Reference</h3>
     <ul>
