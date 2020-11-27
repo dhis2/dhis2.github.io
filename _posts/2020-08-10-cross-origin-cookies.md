@@ -32,7 +32,7 @@ By far the most secure way to work around this issue during application developm
 
 ### In Google Chrome or Chromium-based browsers
 
-It is possible to disable the default SameSite=Lax behavior in Chrome and Chromium by setting the ["SameSite by default cookies" flag](chrome://flags/#same-site-by-default-cookies) to **Disabled**. Note that this disables legitimate security behaviors in your browser, so proceed with caution! We recommend that you only disable this flag when actively debugging a DHIS2 application
+It is possible to disable the default SameSite=Lax behavior in Chrome and Chromium by setting the "SameSite by default cookies" flag (chrome://flags/#same-site-by-default-cookies) to **Disabled**. Note that this disables legitimate security behaviors in your browser, so proceed with caution! We recommend that you only disable this flag when actively debugging a DHIS2 application
 
 ### In Mozilla Firefox
 
