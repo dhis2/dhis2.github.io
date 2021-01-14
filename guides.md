@@ -6,9 +6,14 @@ layout: page
 These guides contain long-lived information about how to get up and
 running with DHIS2.
 
+## Quickstart guides
+
+-   [Spin up a local DHIS2 instance]({{ site.baseurl }}{% link _guides/local-instance.md %})
+-   Create a new DHIS2 application from scratch
+
 ## Process
 
--   [Getting started with DHIS2]({{ site.baseurl }}{% link _guides/getting-started.md %})
+-   [Getting started as a DHIS2 Developer]({{ site.baseurl }}{% link _guides/getting-started.md %})
 -   [JIRA Workflow]({{ site.baseurl }}{% link _guides/jira-workflow.md %})
 -   [Git Workflow]({{ site.baseurl }}{% link _guides/git-workflow.md %})
 -   [Release Workflow](https://github.com/dhis2/notes/blob/master/platform/processes/dhis2-release-lifecycle.md)
