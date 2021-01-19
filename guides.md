@@ -6,6 +6,10 @@ layout: page
 These guides contain long-lived information about how to get up and
 running with DHIS2.
 
+## App development
+
+- [Quickstart for DHIS2 App Development]({{ site.baseurl }}{% link _guides/quickstart-app-development.md %})
+
 ## Process
 
 -   [Getting started with DHIS2]({{ site.baseurl }}{% link _guides/getting-started.md %})
