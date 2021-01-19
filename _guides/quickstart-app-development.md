@@ -18,7 +18,7 @@ If you are using Debian Linux,
 If you are using OSX or Windows,
 1. Install [Docker](https://docs.docker.com/get-docker/)
 3. Install [yarn](https://classic.yarnpkg.com/en/docs/install)
-4. From the command line or terminal, install DHIS CLI
+From the command line or terminal, install the DHIS [CLI](https://cli.dhis2.nu/#/getting-started){:target="\_blank"} globally
 ```
 yarn global add @dhis/cli
 ```
