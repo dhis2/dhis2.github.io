@@ -4,8 +4,6 @@ category: guide
 layout: page
 ---
 
-# Quickstart for DHIS2 App Development
-
 ## Create a new app and connect it to a local DHIS2 instance in 10 minutes or less.
 
 ### Introduction
@@ -18,10 +16,13 @@ If you are using Debian Linux,
 If you are using OSX or Windows,
 1. Install [Docker](https://docs.docker.com/get-docker/)
 3. Install [yarn](https://classic.yarnpkg.com/en/docs/install)
-From the command line or terminal, install the DHIS [CLI](https://cli.dhis2.nu/#/getting-started){:target="\_blank"} globally
+4. From the command line or terminal, install the DHIS [CLI](https://cli.dhis2.nu/#/getting-started){:target="\_blank"} globally
 ```
 yarn global add @dhis/cli
 ```
+
+**NB**: Check the d2command-line tool withd2 --help for more information on available commands.
+
 Now that you have installed Docker and the DHIS CLI you are ready to start up DHIS2
 
 ### Starting a local DHIS2 instance
@@ -30,7 +31,7 @@ Now that you have installed Docker and the DHIS CLI you are ready to start up DH
 ```
 d2 cluster up 2.35.0 --db-version 2.35 --seed
 ```
-2. From the browser, navigate to http://localhost:8080. If DHIS2 is running, you should see the following page,
+2. From the browser, navigate to [http://localhost:8080](http://localhost:8080){:target="\_blank"}. If DHIS2 is running, you should see the following page,
 ![](../assets/quickstart_guides/image-of-login.png)
 
 If you can load DHIS in the browser, you are ready to create a new app
@@ -46,9 +47,9 @@ cd my-app && yarn start
 ```
 
 ### Connecting your app to DHIS2
-1. From the browser, navigate to http://localhost:3000. You will see the following page
+1. From the browser, navigate to [http://localhost:3000](http://localhost:3000){:target="\_blank"}. You will see the following page
 ![](../assets/quickstart_guides/new-app-login-page.png)
-2. Enter your DHIS2 server url and the username and password of the default admin user
+2. Enter your DHIS2 server URL and the username and password of the default admin user
 ```
 server: http://localhost:8080
 username: admin
