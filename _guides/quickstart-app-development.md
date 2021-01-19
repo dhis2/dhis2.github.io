@@ -21,8 +21,6 @@ If you are using OSX or Windows,
 yarn global add @dhis/cli
 ```
 
-**NB**: Check the d2command-line tool withd2 --help for more information on available commands.
-
 Now that you have installed Docker and the DHIS CLI you are ready to start up DHIS2
 
 ### Starting a local DHIS2 instance
