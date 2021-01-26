@@ -8,7 +8,7 @@ running with DHIS2.
 
 ## App development
 
-- [Quickstart for DHIS2 App Development]({{ site.baseurl }}{% link _guides/quickstart-app-development.md %})
+-   [Quickstart for DHIS2 App Development]({{ site.baseurl }}{% link _guides/quickstart-app-development.md %})
 
 ## Process
 
@@ -22,3 +22,7 @@ running with DHIS2.
 -   [D2 CLI and Docker]({{ site.baseurl }}{% link _guides/dhis2-docker.md %})
 -   [Basic setup (Generic host)]({{ site.baseurl }}{% link _guides/dhis2-basic-setup.md %})
 -   [Advanced setup (Generic host)]({{ site.baseurl }}{% link _guides/dhis2-advanced-setup.md %})
+
+## App Hub
+
+-   [App Hub Submission Guidelines]({{ site.baseurl }}{% link _guides/app-hub-submission-guidelines.md %})
