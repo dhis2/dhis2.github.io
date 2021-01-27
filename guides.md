@@ -25,4 +25,5 @@ running with DHIS2.
 
 ## App Hub
 
+-   [How to submit an app to the DHIS2 App Hub]({{ site.baseurl }}{% link _guides/how-to-submit-apphub.md %})
 -   [App Hub Submission Guidelines]({{ site.baseurl }}{% link _guides/app-hub-submission-guidelines.md %})

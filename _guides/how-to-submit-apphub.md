@@ -1,9 +1,6 @@
 ---
-title: Submit an app to the DHIS2 App Hub
-layout: post
-categories: [blog]
-tags: [app hub]
-authors: [debora]
+title: How to submit an app to the DHIS2 App Hub
+layout: page
 ---
 
 Upload your app to the [DHIS2 App Hub](https://apps.dhis2.org/){:target="\_blank"} in a few easy steps! Follow this quick guide on how to submit your app and make it available to the entire DHIS2 community ✨
@@ -34,7 +31,7 @@ Here are some guidelines for the required fields:
 
 ##### Version
 
--   **Version**: Version of your app. [Semantic versioning](https://semver.org/){:target="\_blank"} recommended (i.e. 1.0.0)
+-   **Version**: Version number of your app. [Semantic versioning](https://semver.org/){:target="\_blank"} is recommended (i.e. 1.0.0)
 -   **Minimum/Maximum DHIS Version**: Which DHIS2 versions are compatible with your app? Enter the minimum and maximum DHIS2 version required for the app to work.
 -   Add a **Demo URL** and **upload** the `.zip` file of your application.
 
@@ -48,7 +45,7 @@ Here are some guidelines for the required fields:
 -   **Image logo**: The logo should capture the core idea of the app. Upload in high-resolution (at least 512x512px in size). Images should be unique and correctly licensed. Additional images can be uploaded later.
 -   **Additional images**: Try to capture the main use-case of the app. Add 3–5 screenshots (1280×800px recommended). Better if images show the app in-use with data.
 
-> Make sure to check the [App Hub submission guidelines](https://developers.dhis2.org/guides/app-hub-submission-guidelines){:target="\_blank"} for detailed instructions.
+> Make sure to check the [App Hub Submission Guidelines]({{ site.baseurl }}{% link _guides/app-hub-submission-guidelines.md %}) for detailed instructions.
 
 #### 4. Click FINISH 🎊
 
@@ -76,7 +73,7 @@ For an app to be approved it needs to meet the following requirements:
 -   **Open Source.** The app must have an open source license. Make sure that components, libraries and resources running on a DHIS2 instance are open source.
 -   **Useful.** The app must be meaningful and useful for a large audience.
 
-For more information on these requirements, please check the [App Hub submission guidelines](https://developers.dhis2.org/guides/app-hub-submission-guidelines){:target="\_blank"}.
+For more information on these requirements, please check the [App Hub Submission Guidelines]({{ site.baseurl }}{% link _guides/app-hub-submission-guidelines.md %}).
 
 ### What happens after I submit my app?
 
