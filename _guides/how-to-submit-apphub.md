@@ -31,7 +31,7 @@ Here are some guidelines for the required fields:
 
 ##### Version
 
--   **Version**: Version number of your app. [Semantic versioning](https://semver.org/){:target="\_blank"} is recommended (i.e. 1.0.0)
+-   **Version**: The version number of your app. [Semantic versioning](https://semver.org/){:target="\_blank"} is recommended (i.e. 1.0.0)
 -   **Minimum/Maximum DHIS Version**: Which DHIS2 versions are compatible with your app? Enter the minimum and maximum DHIS2 version required for the app to work.
 -   Add a **Demo URL** and **upload** the `.zip` file of your application.
 
