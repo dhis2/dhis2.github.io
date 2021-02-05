@@ -37,17 +37,41 @@
         href: https://github.com/dhis2/academy-web-app-dev-2020
       - label: session recording
         href: https://www.youtube.com/playlist?list=PLo6Seh-066Rx3CPMv-i2gdzo8qxZ4cfSQ
-  
+
 - title: DHIS2 App Competition
   date: August 28, 2020
   description: We are now welcoming submissions of DHIS2 Apps for the 2020 DHIS2 Annual Conference Web & Android App Competition - finalists will be invited to present their Apps at the Digital Annual Conference!
   links:
-    - label: Submit your app!
-      href: https://www.dhis2academy.org/digital-annual-conference-2020/appcompetition.html
+      - label: Submit your app!
+        href: https://www.dhis2academy.org/digital-annual-conference-2020/appcompetition.html
 
 - title: The Digital DHIS2 Annual Conference
   date: September 21, 2020 - September 25, 2020
   description: The Digital DHIS2 Annual Conference will be an opportunity for the Community to virtually meet and share experiences on DHIS2 implementations, and will bring together implementers, developers, ministry representatives, technical partners, and donors from around the world.
   links:
-    - label: Learn more and register
-      href: https://www.dhis2academy.org/digital-annual-conference-2020/
+      - label: about the event
+        href: https://www.dhis2academy.org/digital-annual-conference-2020/
+      - label: session recordings
+        href: https://www.youtube.com/playlist?list=PLo6Seh-066Ry07Eicb2QhE3B5URWZPbb2
+
+- title: Introduction Webinar
+  date: February 8, 2021
+  time: 14:00 CET
+  links:
+      - label: registration
+        href: https://docs.google.com/forms/d/e/1FAIpQLSczCWZRKK1EJCD-VbZz1LAmmLhS8W1lCttSHmwzC95eAawRFg/viewform
+  description: This high-level webinar includes a non-technical overview of the Application Platform, Android SDK, and developer outreach initiatives at DHIS2. It will also cover the progress made in 2020, the current state of DHIS2 developer tools and more.
+
+- title: Developer Academy - Workshop 1
+  date: March 17, 2021 - March 18, 2021
+  description: Learn how to build high-quality, maintainable DHIS2 applications using the latest tools from the core team in this hands-on 2-day workshop. This workshop will be a combination of presented material and hands-on development time. Each participant will build their own DHIS2 application by the end of the course.
+  links:
+      - label: registration
+        href: https://docs.google.com/forms/d/e/1FAIpQLSczCWZRKK1EJCD-VbZz1LAmmLhS8W1lCttSHmwzC95eAawRFg/viewform
+
+- title: Developer Academy - Workshop 2
+  date: May 4, 2021 - May 7, 2021
+  description: This workshop will focus on more advanced topics such as translations, the DHIS2 App Hub, stand-alone applications, visualization etc. This workshop is targeting advanced users of DHIS2 and is a good opportunity to get an in-depth knowledge on how to build high-quality, maintainable DHIS2 applications using the latest tools. Successful completion of the assignments is one of the prerequisite to earn a DHIS2 certificate at the end of the Academy program.
+  links:
+      - label: registration
+        href: https://docs.google.com/forms/d/e/1FAIpQLSczCWZRKK1EJCD-VbZz1LAmmLhS8W1lCttSHmwzC95eAawRFg/viewform
