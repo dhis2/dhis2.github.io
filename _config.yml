@@ -13,53 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: DHIS2 Developer Portal
-author: The DHIS2 Core Team
-description: >- # this means to ignore newlines until "baseurl:"
-    The portal for developers on the DHIS2 platform. Contains resources, guides,
-    and articles for all developer related things of DHIS2.
-baseurl: '' # the subpath of your site, e.g. /blog
-url: '' # the base hostname & protocol for your site, e.g. http://example.com
+title:
+author:
+description:
+baseurl: ''
+url: ''
 github_username: dhis2
 
 # Build settings
 markdown: kramdown
 plugins:
-    - jekyll-feed
-    - jemoji
-    - jekyll-avatar
-    - jekyll-seo-tag
-    - jekyll-sitemap
-    - jekyll-mentions
     - jekyll-redirect-from
 
 jekyll-redirect-from:
-
-permalink: /:year/:month/:title/
-
-collections:
-    guides:
-        output: true
-        permalink: /:collection/:name
-
-show_excerpts: true
-
-header_pages:
-    - blog.md
-    - events.md
-    - docs.md
-    - guides.md
-
-sass:
-    sass_dir: _sass
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
