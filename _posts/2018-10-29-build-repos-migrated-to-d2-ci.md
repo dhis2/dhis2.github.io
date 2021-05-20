@@ -1,5 +1,6 @@
 ---
 title: Build repos migrated to d2-ci organization on GitHub
+redirect_to: https://developers.dhis2.org/blog/build-repos-migrated-to-d2-ci 
 layout: post
 categories: [blog]
 author: varl

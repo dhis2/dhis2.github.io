@@ -1,5 +1,6 @@
 ---
 title: Introducing d2, the DHIS2 CLI
+redirect_to: https://developers.dhis2.org/blog/introducing-d2 
 layout: post
 categories: [blog]
 tags: [cli, developer tools, best practices, style, packages]

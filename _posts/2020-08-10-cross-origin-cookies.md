@@ -1,5 +1,6 @@
 ---
 title: SameSite Cookie Policies and DHIS2 Applications
+redirect_to: https://developers.dhis2.org/blog/cross-origin-cookies 
 layout: post
 categories: [blog]
 tags: [app platform, developer tools, webapp, troubleshooting, authentication]

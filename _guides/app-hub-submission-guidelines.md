@@ -1,5 +1,6 @@
 ---
 title: App Hub Submission Guidelines
+redirect_to: https://developers.dhis2.org/docs/guides/apphub-guidelines
 category: docs
 layout: page
 author: joe

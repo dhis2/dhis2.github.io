@@ -1,5 +1,6 @@
 ---
 title: Guides
+redirect_to: https://developers.dhis2.org/docs/guides 
 layout: page
 ---
 

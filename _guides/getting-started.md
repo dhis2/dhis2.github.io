@@ -1,5 +1,6 @@
 ---
 title: Getting started as a DHIS2 developer
+redirect_to: https://developers.dhis2.org/docs/ 
 category: guide
 layout: page
 ---

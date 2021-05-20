@@ -1,5 +1,6 @@
 ---
 title: Command a fleet of repositories
+redirect_to: https://developers.dhis2.org/blog/managing-multiple-repositories 
 layout: post
 categories: [blog]
 tags: [cli, developer tools]

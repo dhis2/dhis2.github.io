@@ -1,5 +1,6 @@
 ---
 title: Docs
+redirect_to: https://developers.dhis2.org/docs/ 
 layout: page
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Packages and style conventions
+redirect_to: https://developers.dhis2.org/blog/packages-and-conventions 
 layout: post
 categories: [blog]
 tags: [js, style, packages, code-style]

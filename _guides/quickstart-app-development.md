@@ -1,5 +1,6 @@
 ---
 title: Quickstart for DHIS2 App Development
+redirect_to: https://developers.dhis2.org/docs/ 
 category: guide
 layout: page
 ---

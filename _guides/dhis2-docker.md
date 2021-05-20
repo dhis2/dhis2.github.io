@@ -1,5 +1,6 @@
 ---
 title: DHIS2 Docker
+redirect_to: https://developers.dhis2.org/docs/tutorials/dhis2-docker 
 category: guide
 layout: page
 ---

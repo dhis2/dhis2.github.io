@@ -1,5 +1,6 @@
 ---
 title: JIRA workflow
+redirect_to: https://developers.dhis2.org/docs/conceptual/jira-workflow
 category: guide
 layout: page
 ---

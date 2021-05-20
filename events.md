@@ -1,5 +1,6 @@
 ---
 title: Events
+redirect_to: https://developers.dhis2.org/events/webinars 
 layout: page
 ---
 

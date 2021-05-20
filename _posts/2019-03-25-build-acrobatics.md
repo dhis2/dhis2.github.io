@@ -1,5 +1,6 @@
 ---
 title: Build acrobatics
+redirect_to: https://developers.dhis2.org/blog/build-acrobatics
 layout: post
 categories: [blog]
 tags: [build system, architecture]

@@ -1,5 +1,6 @@
 ---
 title: What is this DHIS2 Application Platform?
+redirect_to: https://developers.dhis2.org/blog/what-is-this-app-platform 
 layout: post
 categories: [blog]
 tags: [app platform, developer tools, build system, architecture]

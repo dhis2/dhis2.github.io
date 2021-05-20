@@ -1,5 +1,6 @@
 ---
 title: Web Application Library deprecations
+redirect_to: https://developers.dhis2.org/blog/library-deprecations 
 layout: post
 categories: [blog]
 tags: [deprecation, libraries, webapp]
